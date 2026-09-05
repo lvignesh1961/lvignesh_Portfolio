@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vignesh | Supply Chain & Data Analytics</title>
 <script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.className+=' js-reveal';</script>
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,6 +19,7 @@
   --color-accent: #4f46e5;
   --color-accent-hover: #4338ca;
   --color-accent-soft: #eef2ff;
+  --header-bg: rgba(255,255,255,.9);
 
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
@@ -26,6 +28,18 @@
   --radius-md: 12px;
   --radius-full: 999px;
   --space-section: 96px;
+}
+
+html[data-theme="dark"] {
+  --color-bg: #0b0d12;
+  --color-text: #f2f3f5;
+  --color-text-muted: #9aa1ac;
+  --color-border: #262b33;
+  --color-surface: #151821;
+  --color-accent: #8388ff;
+  --color-accent-hover: #9ba0ff;
+  --color-accent-soft: #1b1e33;
+  --header-bg: rgba(11,13,18,.85);
 }
 
 * { box-sizing: border-box; }
@@ -149,15 +163,27 @@ a.external::after { content: " ↗"; }
 nav { display: flex; flex-wrap: wrap; row-gap: 6px; }
 .nav-toggle {
   display: none;
-  cursor: pointer; border: 1px solid var(--color-border); background: #fff;
+  cursor: pointer; border: 1px solid var(--color-border); background: var(--color-bg);
   width: 42px; height: 42px; border-radius: 10px;
   align-items: center; justify-content: center;
   color: var(--color-text);
 }
 
+.theme-toggle {
+  cursor: pointer; border: 1px solid var(--color-border); background: var(--color-bg);
+  width: 36px; height: 36px; border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--color-text); margin-left: 24px;
+}
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .icon-moon { display: block; }
+.theme-toggle .icon-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,.9);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -183,16 +209,26 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
     display: none;
     position: absolute; left: 0; right: 0; top: 100%;
     flex-direction: column; align-items: stretch; row-gap: 0;
-    background: #fff; border: 1px solid var(--color-border); border-top: none;
+    background: var(--color-bg); border: 1px solid var(--color-border); border-top: none;
     box-shadow: 0 18px 40px -22px rgba(0,0,0,.25);
     padding: 6px 24px 14px;
   }
   nav[data-nav-list].is-open { display: flex; }
-  nav[data-nav-list] a {
+  nav[data-nav-list] a, nav[data-nav-list] .theme-toggle {
     margin-left: 0; padding: 14px 4px; font-size: 16px;
     border-bottom: 1px solid var(--color-border);
   }
-  nav[data-nav-list] a:last-child { border-bottom: 0; }
+  nav[data-nav-list] > *:last-child { border-bottom: 0; }
+  nav[data-nav-list] .theme-toggle {
+    width: auto; height: auto; border: 0; border-radius: 0; background: transparent;
+    justify-content: flex-start; gap: 10px; color: var(--color-text); font-weight: 500;
+  }
+  nav[data-nav-list] .theme-toggle::after {
+    content: "Dark mode"; font-size: 16px;
+  }
+  html[data-theme="dark"] nav[data-nav-list] .theme-toggle::after {
+    content: "Light mode";
+  }
 }
 
 @media (max-width: 560px) {
@@ -230,6 +266,10 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
       <a href="experience.html">Experience</a>
       <a href="projects.html">Projects</a>
       <a href="index.html#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
     </nav>
   </div>
 </header>
@@ -374,6 +414,24 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   });
   window.addEventListener('resize', function () {
     if (window.innerWidth > 768) close();
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var isDark = root.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        root.removeAttribute('data-theme');
+        try { localStorage.setItem('theme', 'light'); } catch (e) {}
+      } else {
+        root.setAttribute('data-theme', 'dark');
+        try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+      }
+    });
   });
 })();
 </script>
