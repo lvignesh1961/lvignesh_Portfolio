@@ -245,12 +245,16 @@ cost ($534.01), a candidate for renegotiation or route rebalancing toward Carrie
 Contact
 ```
 
-**Body text** (placeholder — fill in once you decide what to share):
+**Body text:**
 ```
-[Add email address]
-[Add LinkedIn URL]
-[Optional: add phone number]
+Email: lvignesh1961@gmail.com
 ```
+
+In Google Sites, use **Insert → Button** (or a small image + link), set the button text to your email address, and link it to:
+```
+mailto:lvignesh1961@gmail.com
+```
+For a Gmail icon specifically, Sites doesn't support custom SVG icons directly — insert Google's Gmail icon image (search "Gmail icon" in Sites' built-in image search, or upload one) and set its link to the same `mailto:` address above.
 
 ---
 
