@@ -245,7 +245,7 @@ Sales dashboard  +  Forecast Dashboard
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
     nodes.forEach(function (n) { io.observe(n); });
   }
-  requestAnimationFrame(check);
+  requestAnimationFrame(function () { requestAnimationFrame(check); });
   setTimeout(check, 250);
   setTimeout(function () { if (!ioFired) showAll(); }, 1500);
 })();
