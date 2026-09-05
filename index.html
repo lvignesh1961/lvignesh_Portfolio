@@ -111,6 +111,30 @@ a.external::after { content: " ↗"; }
 .card img { width: 100%; border-radius: 8px; margin: 16px 0; display: block; }
 .card .caption { font-size: 14px; color: var(--color-text-muted); font-style: italic; margin-top: 12px; }
 
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.mini-card {
+  display: block;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.mini-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -14px rgba(10,10,10,.18);
+  border-color: var(--color-accent);
+}
+.mini-card img { width: 100%; height: 140px; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid var(--color-border); }
+.mini-card-body { padding: 18px 20px; }
+.mini-card-body .tag { margin-bottom: 10px; }
+.mini-card-body h3 { font-size: 17px; margin: 0 0 8px; letter-spacing: -.01em; }
+.mini-card-body p { font-size: 13.5px; color: var(--color-text-muted); margin: 0; }
+
 .nav {
   display: flex;
   align-items: center;
@@ -151,6 +175,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
 @media (max-width: 768px) {
   :root { --space-section: 64px; }
   .stat-row { gap: 20px; }
+  .mini-grid { grid-template-columns: 1fr 1fr; }
 
   .nav-toggle { display: inline-flex; }
   .container.nav { position: relative; }
@@ -179,6 +204,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   .container { padding: 0 18px; }
   nav[data-nav-list] { padding-left: 18px; padding-right: 18px; }
   .btn { padding: 10px 18px; font-size: 14px; }
+  .mini-grid { grid-template-columns: 1fr; }
 }
 
 .js-reveal [data-reveal]{
@@ -228,6 +254,40 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
       <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">PyTorch</span>
       <span class="tag">SQL</span><span class="tag">Linux Environments</span><span class="tag">Plotly</span><span class="tag">VBA</span>
     </div>
+  </div>
+</section>
+
+<section id="featured-projects">
+  <div class="container" data-reveal>
+    <h2>Projects</h2>
+    <p class="muted" style="margin-bottom:28px;">A quick look — full write-ups and interactive demos on the <a href="projects.html">Projects page</a>.</p>
+    <div class="mini-grid">
+      <a class="mini-card" href="inventory-case-study.html">
+        <img src="dashboard_screenshots/Order_Management_Dashboard_1.png" alt="Inventory Management Dashboard">
+        <div class="mini-card-body">
+          <span class="tag">Inventory</span>
+          <h3>Inventory Management Dashboard</h3>
+          <p>Live reorder-point and ABC/Pareto stock-health dashboard across 1,000 SKUs.</p>
+        </div>
+      </a>
+      <a class="mini-card" href="retail-case-study.html">
+        <img src="dashboard_screenshots/Sales_Dashboard_1.png" alt="Retail Sales & Forecast Dashboard">
+        <div class="mini-card-body">
+          <span class="tag">Retail &amp; Forecasting</span>
+          <h3>Retail Sales &amp; Forecast Dashboard</h3>
+          <p>Sales performance plus a segment-level demand forecast through FY2030.</p>
+        </div>
+      </a>
+      <a class="mini-card" href="transportation-case-study.html">
+        <img src="dashboard_screenshots/Transportation_Dashboard_1.png" alt="Transportation Analysis Dashboard">
+        <div class="mini-card-body">
+          <span class="tag">Transportation</span>
+          <h3>Transportation Analysis Dashboard</h3>
+          <p>Shipping cost and revenue tied together by carrier, mode, and route.</p>
+        </div>
+      </a>
+    </div>
+    <a class="btn btn-outline" href="projects.html" style="margin-top:28px;">View all projects</a>
   </div>
 </section>
 
