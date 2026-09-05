@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retail sales &amp; forecast dashboard — interactive tour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFF2EC;
+    --panel:#FBFCF9;
+    --ink:#172A25;
+    --ink-soft:#48564F;
+    --line:#D7DAD1;
+    --gold:#C68A2E;
+    --gold-deep:#8C5F1C;
+    --green:#1F6650;
+    --green-deep:#12463A;
+    --red:#A5402F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px 96px;}
+  .num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;}
+
+  header.hero{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-size:14px;color:var(--ink-soft);margin:0 0 14px;
+  }
+  h1{
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    font-size:44px;
+    line-height:1.12;
+    margin:0 0 20px;
+    max-width:720px;
+  }
+  .hero p{
+    font-size:17px;color:var(--ink-soft);max-width:600px;margin:0 0 32px;
+  }
+  .kpis{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+  }
+  .kpi{background:var(--panel);padding:18px 20px;}
+  .kpi .label{font-size:12.5px;color:var(--ink-soft);margin:0 0 8px;}
+  .kpi .value{font-size:24px;font-weight:500;}
+
+  nav.tour-nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 0 0;
+  }
+  .step-label{font-size:13px;color:var(--ink-soft);}
+  .step-label .num{color:var(--green-deep);font-weight:500;}
+  .controls button{
+    font-family:inherit;font-size:14px;color:var(--ink);
+    background:var(--panel);border:1px solid var(--line);
+    padding:8px 16px;border-radius:3px;cursor:pointer;
+  }
+  .controls button:hover{border-color:var(--ink-soft);}
+  .controls button:disabled{opacity:0.35;cursor:default;}
+  .controls{display:flex;gap:8px;}
+
+  .rail-layout{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-top:24px;}
+  .rail{border-right:1px solid var(--line);padding-right:20px;}
+  .rail-item{
+    display:flex;gap:10px;padding:11px 0;cursor:pointer;
+    border-bottom:1px solid transparent;
+  }
+  .rail-item .n{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);
+    min-width:18px;
+  }
+  .rail-item .t{font-size:13.5px;color:var(--ink-soft);}
+  .rail-item.active .n,.rail-item.active .t{color:var(--ink);font-weight:500;}
+  .rail-item.active{border-bottom-color:var(--gold);}
+
+  .stage{min-height:360px;}
+  .panel{
+    background:var(--panel);border:1px solid var(--line);border-radius:4px;
+    padding:26px 28px;
+  }
+  .panel h2{
+    font-family:'Source Serif 4',serif;font-weight:600;font-size:21px;margin:0 0 6px;
+  }
+  .panel .cap{font-size:14px;color:var(--ink-soft);margin:0 0 22px;max-width:520px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{
+    text-align:left;font-weight:500;color:var(--ink-soft);
+    font-size:12px;padding:6px 10px 8px;border-bottom:1px solid var(--line);
+  }
+  td{padding:8px 10px;border-bottom:1px solid var(--line);}
+  td.num,th.num{text-align:right;}
+  tr:last-child td{border-bottom:none;}
+  .bar-cell{position:relative;}
+  .bar-track{background:var(--line);height:6px;border-radius:3px;overflow:hidden;margin-top:5px;}
+  .bar-fill{height:100%;background:var(--green);}
+  .tag{
+    display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:3px;
+  }
+  .tag.up{background:#E3EFE9;color:var(--green-deep);}
+  .tag.hold{background:#F1EEE3;color:var(--gold-deep);}
+
+  .chart-wrap{margin-top:6px;}
+  svg text{font-family:'IBM Plex Mono',monospace;}
+
+  .macro-box{
+    background:#F5F3EB;border:1px solid var(--line);border-radius:4px;
+    padding:16px 18px;margin-top:14px;font-size:13px;color:var(--ink-soft);
+  }
+  .macro-box code{
+    font-family:'IBM Plex Mono',monospace;background:var(--panel);
+    padding:1px 5px;border-radius:2px;color:var(--ink);
+  }
+
+  .cta{
+    margin-top:56px;padding-top:32px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;
+  }
+  .cta h3{font-family:'Source Serif 4',serif;font-weight:600;font-size:20px;margin:0 0 8px;}
+  .cta p{font-size:14px;color:var(--ink-soft);margin:0;max-width:420px;}
+  .cta a.btn{
+    font-size:14px;color:var(--panel);background:var(--green-deep);
+    padding:11px 20px;border-radius:3px;text-decoration:none;white-space:nowrap;
+  }
+
+  @media (max-width:640px){
+    h1{font-size:32px;}
+    .kpis{grid-template-columns:repeat(2,1fr);}
+    .rail-layout{grid-template-columns:1fr;}
+    .rail{border-right:none;border-bottom:1px solid var(--line);padding-right:0;padding-bottom:8px;display:flex;flex-wrap:wrap;gap:4px 16px;}
+    .rail-item{padding:6px 0;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Interactive product tour</p>
+    <h1>Retail sales &amp; forecast dashboard</h1>
+    <p>A formula-driven Excel workbook that turns 5,009 orders into a live sales dashboard and a segment-level demand forecast through FY2030 — no macros required to keep it current. This tour walks through the workbook the way you'd actually use it.</p>
+    <div class="kpis">
+      <div class="kpi"><p class="label">Total revenue</p><p class="value num">$2,297,201</p></div>
+      <div class="kpi"><p class="label">Total orders</p><p class="value num">5,009</p></div>
+      <div class="kpi"><p class="label">Units sold</p><p class="value num">37,873</p></div>
+      <div class="kpi"><p class="label">Avg order value</p><p class="value num">$458.61</p></div>
+    </div>
+  </header>
+
+  <nav class="tour-nav">
+    <p class="step-label">Step <span class="num" id="stepNum">1</span> of <span class="num">7</span> — <span id="stepName">Sales dashboard: the headline numbers</span></p>
+    <div class="controls">
+      <button id="prevBtn">Back</button>
+      <button id="nextBtn">Next</button>
+    </div>
+  </nav>
+
+  <div class="rail-layout">
+    <div class="rail" id="rail"></div>
+    <div class="stage" id="stage"></div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <h3>Read the build write-up</h3>
+      <p>How the workbook is structured, the SUMIFS/INDEX-MATCH/FORECAST logic behind it, and what I'd change for a production BI tool.</p>
+    </div>
+    <a class="btn" href="retail-case-study.html">Read the case study</a>
+  </div>
+
+</div>
+
+<script>
+const steps = [
+  {
+    name: "Sales dashboard: the headline numbers",
+    render: () => `
+      <div class="panel">
+        <h2>1. Sales by category</h2>
+        <p class="cap">The top of the Sales dashboard rolls 5,009 orders into three product categories. Every number here is a live SUMIFS against the order dataset — edit an order and these move.</p>
+        <table>
+          <tr><th>Category</th><th class="num">Units</th><th class="num">Revenue</th><th class="num">Share</th></tr>
+          <tr><td>Technology</td><td class="num">6,939</td><td class="num">$836,154</td><td class="num">36.4%</td></tr>
+          <tr><td>Furniture</td><td class="num">8,028</td><td class="num">$742,000</td><td class="num">32.3%</td></tr>
+          <tr><td>Office Supplies</td><td class="num">22,906</td><td class="num">$719,047</td><td class="num">31.3%</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Segment summary",
+    render: () => `
+      <div class="panel">
+        <h2>2. Revenue by customer segment</h2>
+        <p class="cap">Consumer drives the most orders, but Corporate and Home Office run a slightly higher average order value — a hint the forecast dashboard later confirms with actual growth rates.</p>
+        <table>
+          <tr><th>Segment</th><th class="num">Orders</th><th class="num">Revenue</th><th class="num">Avg order</th></tr>
+          <tr><td>Consumer</td><td class="num">2,586</td><td class="num">$1,161,401</td><td class="num">$449.11</td></tr>
+          <tr><td>Corporate</td><td class="num">1,514</td><td class="num">$706,146</td><td class="num">$466.41</td></tr>
+          <tr><td>Home Office</td><td class="num">909</td><td class="num">$429,653</td><td class="num">$472.67</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Top customers & orders",
+    render: () => `
+      <div class="panel">
+        <h2>3. Top 10 customers by revenue</h2>
+        <p class="cap">A live rank of your highest-value accounts — useful for account management or as an input to a retention campaign list.</p>
+        <table>
+          <tr><th class="num">#</th><th>Customer</th><th class="num">Revenue</th></tr>
+          <tr><td class="num">1</td><td>Sean Miller</td><td class="num">$25,043</td></tr>
+          <tr><td class="num">2</td><td>Tamara Chand</td><td class="num">$19,052</td></tr>
+          <tr><td class="num">3</td><td>Raymond Buch</td><td class="num">$15,117</td></tr>
+          <tr><td class="num">4</td><td>Tom Ashbrook</td><td class="num">$14,596</td></tr>
+          <tr><td class="num">5</td><td>Adrian Barton</td><td class="num">$14,474</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Regional performance",
+    render: () => `
+      <div class="panel">
+        <h2>4. Orders &amp; revenue by region</h2>
+        <p class="cap">The dashboard also maps every order to a US region and state, so a regional manager can see their own numbers without touching a filter.</p>
+        <table>
+          <tr><th>Region</th><th class="num">Orders</th><th class="num">Revenue</th><th class="num">Share</th></tr>
+          <tr><td>West</td><td class="num">1,611</td><td class="num">$725,458</td>
+            <td class="bar-cell num">31.6%<div class="bar-track"><div class="bar-fill" style="width:31.6%"></div></div></td></tr>
+          <tr><td>East</td><td class="num">1,401</td><td class="num">$678,781</td>
+            <td class="bar-cell num">29.5%<div class="bar-track"><div class="bar-fill" style="width:29.5%"></div></div></td></tr>
+          <tr><td>Central</td><td class="num">1,175</td><td class="num">$501,240</td>
+            <td class="bar-cell num">21.8%<div class="bar-track"><div class="bar-fill" style="width:21.8%"></div></div></td></tr>
+          <tr><td>South</td><td class="num">822</td><td class="num">$391,722</td>
+            <td class="bar-cell num">17.1%<div class="bar-track"><div class="bar-fill" style="width:17.1%"></div></div></td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Forecast dashboard: FY17 to FY30",
+    render: () => `
+      <div class="panel">
+        <h2>5. Switching to the forecast dashboard</h2>
+        <p class="cap">The second tab projects each segment out to FY2030 using Excel's FORECAST function against the four years of actuals, then sums them. Total sales grow from $733K to a projected $1.86M — a 53% increase.</p>
+        <div class="chart-wrap">
+          <svg viewBox="0 0 640 200" width="100%" height="200">
+            <line x1="40" y1="170" x2="620" y2="170" stroke="#D7DAD1"/>
+            <line x1="40" y1="10" x2="40" y2="170" stroke="#D7DAD1"/>
+            <polyline points="40,150 200,150 620,52" fill="none" stroke="#1F6650" stroke-width="2.5"/>
+            <line x1="200" y1="10" x2="200" y2="170" stroke="#C68A2E" stroke-dasharray="3,3"/>
+            <circle cx="200" cy="150" r="3.5" fill="#172A25"/>
+            <text x="203" y="30" font-size="11" fill="#8C5F1C">forecast starts</text>
+            <text x="42" y="185" font-size="11" fill="#48564F">FY2014</text>
+            <text x="185" y="185" font-size="11" fill="#48564F">FY2017</text>
+            <text x="590" y="185" font-size="11" fill="#48564F">FY2030</text>
+            <text x="42" y="145" font-size="11" fill="#48564F">$733K</text>
+            <text x="560" y="48" font-size="11" fill="#48564F">$1.86M</text>
+          </svg>
+        </div>
+      </div>`
+  },
+  {
+    name: "Which segment to prioritize",
+    render: () => `
+      <div class="panel">
+        <h2>6. Order recommendation by segment</h2>
+        <p class="cap">A rule-based recommendation compares each segment's FY14–17 CAGR against the three-segment average, then flags who to lean into.</p>
+        <table>
+          <tr><th>Segment</th><th class="num">FY17 actual</th><th class="num">FY30 forecast</th><th>Call</th></tr>
+          <tr><td>Corporate</td><td class="num">$241,848</td><td class="num">$783,489</td><td><span class="tag up">Increase orders</span></td></tr>
+          <tr><td>Home Office</td><td class="num">$159,463</td><td class="num">$454,307</td><td><span class="tag up">Increase orders</span></td></tr>
+          <tr><td>Consumer</td><td class="num">$331,905</td><td class="num">$620,590</td><td><span class="tag hold">Maintain orders</span></td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Keeping it current",
+    render: () => `
+      <div class="panel">
+        <h2>7. Refreshing and sharing</h2>
+        <p class="cap">Every number on both dashboards is a live formula, so pasting in new orders updates everything automatically — no macro needed. Two optional macros are included for convenience:</p>
+        <div class="macro-box"><code>RefreshDashboard()</code> — forces a full recalculation of every formula and chart on demand.</div>
+        <div class="macro-box"><code>ExportDashboardsToPDF()</code> — exports both dashboard sheets to a single dated PDF for sharing with anyone who doesn't have Excel.</div>
+      </div>`
+  }
+];
+
+let current = 0;
+const rail = document.getElementById('rail');
+const stage = document.getElementById('stage');
+const stepNum = document.getElementById('stepNum');
+const stepName = document.getElementById('stepName');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function renderRail(){
+  rail.innerHTML = steps.map((s,i) =>
+    `<div class="rail-item${i===current?' active':''}" data-i="${i}">
+       <span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${s.name}</span>
+     </div>`
+  ).join('');
+  rail.querySelectorAll('.rail-item').forEach(el=>{
+    el.addEventListener('click', ()=>{ current = parseInt(el.dataset.i); update(); });
+  });
+}
+
+function update(){
+  stage.innerHTML = steps[current].render();
+  stepNum.textContent = current+1;
+  stepName.textContent = steps[current].name;
+  prevBtn.disabled = current===0;
+  nextBtn.disabled = current===steps.length-1;
+  renderRail();
+}
+
+prevBtn.addEventListener('click', ()=>{ if(current>0){current--; update();} });
+nextBtn.addEventListener('click', ()=>{ if(current<steps.length-1){current++; update();} });
+
+update();
+</script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory management dashboard — interactive tour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E9EDEF; --panel:#FFFFFF; --ink:#1C242B; --ink-soft:#546069;
+    --line:#D6DBDD; --amber:#D98A1D; --amber-deep:#8C5911; --steel:#2F5F73;
+    --steel-deep:#1E4453; --red:#B23B32; --red-bg:#F7E7E5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.5;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px 96px;}
+  .num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;}
+  .sku{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--steel-deep);background:#E4EEF1;padding:1px 6px;border-radius:2px;}
+
+  header.hero{padding:56px 0 36px;border-bottom:3px solid var(--amber);}
+  .eyebrow{font-size:13px;letter-spacing:.03em;color:var(--amber-deep);font-weight:600;margin:0 0 14px;}
+  h1{font-weight:600;font-size:38px;line-height:1.15;margin:0 0 18px;max-width:680px;}
+  .hero p{font-size:16px;color:var(--ink-soft);max-width:600px;margin:0 0 30px;}
+
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .kpi{background:var(--panel);border-left:3px solid var(--amber);padding:14px 16px;}
+  .kpi.alert{border-left-color:var(--red);}
+  .kpi .label{font-size:12px;color:var(--ink-soft);margin:0 0 6px;}
+  .kpi .value{font-size:22px;font-weight:600;}
+
+  nav.tour-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0 0;}
+  .step-label{font-size:13px;color:var(--ink-soft);}
+  .step-label .num{color:var(--steel-deep);font-weight:500;}
+  .controls{display:flex;gap:8px;}
+  .controls button{font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);border:1px solid var(--line);padding:8px 16px;border-radius:2px;cursor:pointer;}
+  .controls button:hover{border-color:var(--ink-soft);}
+  .controls button:disabled{opacity:0.35;cursor:default;}
+
+  .rail-layout{display:grid;grid-template-columns:210px 1fr;gap:32px;margin-top:24px;}
+  .rail{border-right:1px solid var(--line);padding-right:20px;}
+  .rail-item{display:flex;gap:10px;padding:11px 0;cursor:pointer;border-bottom:1px solid transparent;}
+  .rail-item .n{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);min-width:18px;}
+  .rail-item .t{font-size:13.5px;color:var(--ink-soft);}
+  .rail-item.active .n,.rail-item.active .t{color:var(--ink);font-weight:500;}
+  .rail-item.active{border-bottom-color:var(--amber);}
+
+  .panel{background:var(--panel);border:1px solid var(--line);padding:26px 28px;}
+  .panel h2{font-weight:600;font-size:20px;margin:0 0 6px;}
+  .panel .cap{font-size:14px;color:var(--ink-soft);margin:0 0 22px;max-width:540px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{text-align:left;font-weight:600;color:var(--ink-soft);font-size:11.5px;padding:6px 10px 8px;border-bottom:1px solid var(--line);}
+  td{padding:8px 10px;border-bottom:1px solid var(--line);}
+  td.num,th.num{text-align:right;}
+  tr:last-child td{border-bottom:none;}
+  .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:2px;}
+  .badge.A{background:#F7E7E5;color:var(--red);}
+  .badge.B{background:#FBEFDA;color:var(--amber-deep);}
+  .badge.C{background:#E4EEF1;color:var(--steel-deep);}
+  .bar-track{background:var(--line);height:6px;margin-top:5px;}
+  .bar-fill{height:100%;background:var(--steel);}
+
+  .filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
+  .chip{font-size:12px;color:var(--steel-deep);background:#E4EEF1;padding:4px 10px;border-radius:12px;}
+
+  .formula-box{background:#F3F5F6;border:1px solid var(--line);padding:14px 16px;margin-top:14px;font-size:13px;color:var(--ink-soft);}
+  .formula-box code{font-family:'IBM Plex Mono',monospace;background:var(--panel);padding:1px 5px;border-radius:2px;color:var(--ink);}
+
+  .cta{margin-top:56px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+  .cta h3{font-weight:600;font-size:19px;margin:0 0 8px;}
+  .cta p{font-size:14px;color:var(--ink-soft);margin:0;max-width:420px;}
+  .cta a.btn{font-size:14px;color:#fff;background:var(--steel-deep);padding:11px 20px;border-radius:2px;text-decoration:none;white-space:nowrap;}
+
+  @media (max-width:640px){
+    h1{font-size:29px;}
+    .kpis{grid-template-columns:1fr 1fr;}
+    .rail-layout{grid-template-columns:1fr;}
+    .rail{border-right:none;border-bottom:1px solid var(--line);padding-right:0;padding-bottom:8px;display:flex;flex-wrap:wrap;gap:4px 16px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Interactive product tour</p>
+    <h1>Inventory management dashboard</h1>
+    <p>1,000 SKUs across 10 warehouses, live reorder points, and an ABC (Pareto) analysis — all driven by SUMIFS formulas against a single inventory export, with category/warehouse/supplier filters built in.</p>
+    <div class="kpis">
+      <div class="kpi alert"><p class="label">SKUs needing reorder</p><p class="value num">261</p></div>
+      <div class="kpi"><p class="label">Suggested reorder value</p><p class="value num">$1,763,716</p></div>
+      <div class="kpi alert"><p class="label">Out of stock SKUs</p><p class="value num">2</p></div>
+    </div>
+  </header>
+
+  <nav class="tour-nav">
+    <p class="step-label">Step <span class="num" id="stepNum">1</span> of <span class="num">7</span> — <span id="stepName"></span></p>
+    <div class="controls"><button id="prevBtn">Back</button><button id="nextBtn">Next</button></div>
+  </nav>
+
+  <div class="rail-layout">
+    <div class="rail" id="rail"></div>
+    <div class="stage" id="stage"></div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <h3>Read the build write-up</h3>
+      <p>The reorder-point logic, the ABC classification rule, and what changes at true multi-warehouse scale.</p>
+    </div>
+    <a class="btn" href="inventory-case-study.html">Read the case study</a>
+  </div>
+
+</div>
+
+<script>
+const steps = [
+  {
+    name: "Filters",
+    render: () => `
+      <div class="panel">
+        <h2>1. One dashboard, three filters</h2>
+        <p class="cap">Both dashboards share the same Category, Warehouse, and Supplier filter cells. Set any of the three and every table, KPI, and chart on the sheet recalculates against just that slice.</p>
+        <div class="filter-row">
+          <span class="chip">Category: All</span>
+          <span class="chip">Warehouse: All</span>
+          <span class="chip">Supplier: All</span>
+        </div>
+        <p class="cap" style="margin:0;">Try it in the workbook: set Warehouse to "Vancouver" and the reorder list, category summary, and ABC classes all narrow to that site alone — nothing else in the workbook needs to change.</p>
+      </div>`
+  },
+  {
+    name: "Reorder point summary",
+    render: () => `
+      <div class="panel">
+        <h2>2. The 20 SKUs that need attention first</h2>
+        <p class="cap">Ranked by shortfall against reorder point. Suggested qty covers the next 30 days of forecast demand plus a safety-stock buffer.</p>
+        <table>
+          <tr><th>SKU</th><th>Category</th><th>Warehouse</th><th class="num">On hand</th><th class="num">Reorder pt</th><th class="num">Suggested</th></tr>
+          <tr><td><span class="sku">SKU0778</span></td><td>Fresh Produce</td><td>Montreal</td><td class="num">106</td><td class="num">571</td><td class="num">1,053</td></tr>
+          <tr><td><span class="sku">SKU0592</span></td><td>Meat</td><td>Vancouver</td><td class="num">237</td><td class="num">447</td><td class="num">895</td></tr>
+          <tr><td><span class="sku">SKU0932</span></td><td>Pantry</td><td>Vancouver</td><td class="num">95</td><td class="num">314</td><td class="num">859</td></tr>
+          <tr><td><span class="sku">SKU0987</span></td><td>Meat</td><td>Toronto</td><td class="num">159</td><td class="num">224</td><td class="num">850</td></tr>
+          <tr><td><span class="sku">SKU0488</span></td><td>Frozen</td><td>Calgary</td><td class="num">108</td><td class="num">142</td><td class="num">831</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Reorder by category",
+    render: () => `
+      <div class="panel">
+        <h2>3. Where the reorder budget goes</h2>
+        <p class="cap">The same shortfalls rolled up by category — useful for a buyer deciding which supplier calls to make first.</p>
+        <table>
+          <tr><th>Category</th><th class="num">SKUs needing reorder</th><th class="num">Suggested value</th></tr>
+          <tr><td>Personal Care</td><td class="num">35</td><td class="num">$477,224</td></tr>
+          <tr><td>Household</td><td class="num">25</td><td class="num">$241,144</td></tr>
+          <tr><td>Seafood</td><td class="num">10</td><td class="num">$183,402</td></tr>
+          <tr><td>Meat</td><td class="num">16</td><td class="num">$176,746</td></tr>
+          <tr><td>Frozen</td><td class="num">16</td><td class="num">$89,474</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Stock health",
+    render: () => `
+      <div class="panel">
+        <h2>4. Switching to the Inventory dashboard</h2>
+        <p class="cap">The second tab looks at what's already on the shelf rather than what's short. 1,000 SKUs, $1.26M on hand, averaging 9.99 days of inventory.</p>
+        <table>
+          <tr><th>Metric</th><th class="num">Value</th></tr>
+          <tr><td>Total SKUs</td><td class="num">1,000</td></tr>
+          <tr><td>Total qty on hand</td><td class="num">231,563</td></tr>
+          <tr><td>Total inventory value</td><td class="num">$1,259,531</td></tr>
+          <tr><td>Avg days of inventory</td><td class="num">9.99</td></tr>
+          <tr><td>Slow-moving SKUs (91–180d)</td><td class="num">524</td></tr>
+          <tr><td>Dead stock SKUs (&gt;180d)</td><td class="num">0</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Category value split",
+    render: () => `
+      <div class="panel">
+        <h2>5. Value by category</h2>
+        <p class="cap">Beverages alone holds nearly a fifth of total inventory value — the category a warehouse manager should watch most closely for overstock.</p>
+        <table>
+          <tr><th>Category</th><th class="num">SKU count</th><th class="num">Value</th><th class="num">Share</th></tr>
+          <tr><td>Beverages</td><td class="num">120</td><td class="num">$274,510</td>
+            <td class="num">21.8%<div class="bar-track"><div class="bar-fill" style="width:21.8%"></div></div></td></tr>
+          <tr><td>Personal Care</td><td class="num">126</td><td class="num">$204,801</td>
+            <td class="num">16.3%<div class="bar-track"><div class="bar-fill" style="width:16.3%"></div></div></td></tr>
+          <tr><td>Pantry</td><td class="num">137</td><td class="num">$171,042</td>
+            <td class="num">13.6%<div class="bar-track"><div class="bar-fill" style="width:13.6%"></div></div></td></tr>
+          <tr><td>Meat</td><td class="num">87</td><td class="num">$123,089</td>
+            <td class="num">9.8%<div class="bar-track"><div class="bar-fill" style="width:9.8%"></div></div></td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "ABC analysis",
+    render: () => `
+      <div class="panel">
+        <h2>6. ABC classification (Pareto 80/20)</h2>
+        <p class="cap">Every SKU is bucketed by its share of cumulative inventory value — the classic rule for deciding how tightly to control each item.</p>
+        <table>
+          <tr><th>Class</th><th class="num">SKUs</th><th class="num">Value share</th><th>Control policy</th></tr>
+          <tr><td><span class="badge A">A</span></td><td class="num">200</td><td class="num">53.5%</td><td>Weekly cycle counts, statistical safety stock</td></tr>
+          <tr><td><span class="badge B">B</span></td><td class="num">300</td><td class="num">31.5%</td><td>Monthly review</td></tr>
+          <tr><td><span class="badge C">C</span></td><td class="num">500</td><td class="num">14.9%</td><td>Quarterly review, simple min-max</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "How it's calculated",
+    render: () => `
+      <div class="panel">
+        <h2>7. What's actually running under the hood</h2>
+        <p class="cap">No macros, no Power Query, no manual sorting. Three formula patterns do everything above:</p>
+        <div class="formula-box"><code>SUMIFS(Qty, Category, CritCat, Warehouse, CritWH, Supplier, CritSup)</code> — every KPI and category rollup, filtered live by the three criteria cells.</div>
+        <div class="formula-box"><code>MAX(Forecast_30d − On_Hand + Safety_Stock, 0)</code> — the suggested reorder quantity per SKU.</div>
+        <div class="formula-box"><code>LARGE</code> + <code>INDEX</code>/<code>MATCH</code> — the top-20-most-urgent ranking, without a dynamic-array function.</div>
+      </div>`
+  }
+];
+
+let current = 0;
+const rail = document.getElementById('rail');
+const stage = document.getElementById('stage');
+const stepNum = document.getElementById('stepNum');
+const stepName = document.getElementById('stepName');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function renderRail(){
+  rail.innerHTML = steps.map((s,i) =>
+    `<div class="rail-item${i===current?' active':''}" data-i="${i}">
+       <span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${s.name}</span>
+     </div>`
+  ).join('');
+  rail.querySelectorAll('.rail-item').forEach(el=>{
+    el.addEventListener('click', ()=>{ current = parseInt(el.dataset.i); update(); });
+  });
+}
+function update(){
+  stage.innerHTML = steps[current].render();
+  stepNum.textContent = current+1;
+  stepName.textContent = steps[current].name;
+  prevBtn.disabled = current===0;
+  nextBtn.disabled = current===steps.length-1;
+  renderRail();
+}
+prevBtn.addEventListener('click', ()=>{ if(current>0){current--; update();} });
+nextBtn.addEventListener('click', ()=>{ if(current<steps.length-1){current++; update();} });
+update();
+</script>
+</body>
+</html>

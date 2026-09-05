@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transportation analysis dashboard — interactive tour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EAEEF0; --panel:#FFFFFF; --ink:#16232E; --ink-soft:#4E5F6B;
+    --line:#D5DEE1; --orange:#D9642F; --orange-deep:#8F3F1A; --teal:#1C6E73;
+    --teal-deep:#134C4F;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.5;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px 96px;}
+  .num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;}
+  .headline-font{font-family:'Barlow Semi Condensed',sans-serif;}
+
+  header.hero{padding:56px 0 36px;border-bottom:1px solid var(--line);position:relative;}
+  header.hero::after{content:"";position:absolute;bottom:-1px;left:0;width:120px;height:3px;background:var(--orange);}
+  .eyebrow{font-size:13px;color:var(--teal-deep);font-weight:500;margin:0 0 14px;text-transform:uppercase;letter-spacing:.04em;}
+  h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:42px;line-height:1.1;margin:0 0 18px;max-width:680px;}
+  .hero p{font-size:16px;color:var(--ink-soft);max-width:600px;margin:0 0 30px;}
+
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .kpi{background:var(--panel);padding:16px 18px;}
+  .kpi .label{font-size:12px;color:var(--ink-soft);margin:0 0 6px;}
+  .kpi .value{font-size:22px;font-weight:500;}
+
+  nav.tour-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0 0;}
+  .step-label{font-size:13px;color:var(--ink-soft);}
+  .step-label .num{color:var(--teal-deep);font-weight:500;}
+  .controls{display:flex;gap:8px;}
+  .controls button{font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);border:1px solid var(--line);padding:8px 16px;border-radius:16px;cursor:pointer;}
+  .controls button:hover{border-color:var(--ink-soft);}
+  .controls button:disabled{opacity:0.35;cursor:default;}
+
+  .rail-layout{display:grid;grid-template-columns:210px 1fr;gap:32px;margin-top:24px;}
+  .rail{border-right:1px solid var(--line);padding-right:20px;}
+  .rail-item{display:flex;gap:10px;padding:11px 0;cursor:pointer;border-bottom:1px solid transparent;}
+  .rail-item .n{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);min-width:18px;}
+  .rail-item .t{font-size:13.5px;color:var(--ink-soft);}
+  .rail-item.active .n,.rail-item.active .t{color:var(--ink);font-weight:500;}
+  .rail-item.active{border-bottom-color:var(--orange);}
+
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 28px;}
+  .panel h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:22px;margin:0 0 6px;}
+  .panel .cap{font-size:14px;color:var(--ink-soft);margin:0 0 22px;max-width:540px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{text-align:left;font-weight:500;color:var(--ink-soft);font-size:12px;padding:6px 10px 8px;border-bottom:1px solid var(--line);}
+  td{padding:8px 10px;border-bottom:1px solid var(--line);}
+  td.num,th.num{text-align:right;}
+  tr:last-child td{border-bottom:none;}
+  .pill{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:10px;background:#E4EFEF;color:var(--teal-deep);}
+
+  .route-map{margin-top:6px;}
+  svg text{font-family:'IBM Plex Mono',monospace;}
+
+  .formula-box{background:#F2F5F5;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:14px;font-size:13px;color:var(--ink-soft);}
+  .formula-box code{font-family:'IBM Plex Mono',monospace;background:var(--panel);padding:1px 5px;border-radius:2px;color:var(--ink);}
+
+  .cta{margin-top:56px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+  .cta h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:21px;margin:0 0 8px;}
+  .cta p{font-size:14px;color:var(--ink-soft);margin:0;max-width:420px;}
+  .cta a.btn{font-size:14px;color:#fff;background:var(--teal-deep);padding:11px 22px;border-radius:16px;text-decoration:none;white-space:nowrap;}
+
+  @media (max-width:640px){
+    h1{font-size:32px;}
+    .kpis{grid-template-columns:1fr 1fr;}
+    .rail-layout{grid-template-columns:1fr;}
+    .rail{border-right:none;border-bottom:1px solid var(--line);padding-right:0;padding-bottom:8px;display:flex;flex-wrap:wrap;gap:4px 16px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Interactive product tour</p>
+    <h1>Transportation analysis dashboard</h1>
+    <p>One dashboard that ties revenue to how it got shipped — carrier, transport mode, and route — built entirely on SUMIF and AVERAGEIF against a single 100-shipment supply chain export.</p>
+    <div class="kpis">
+      <div class="kpi"><p class="label">Total revenue</p><p class="value num">$577,605</p></div>
+      <div class="kpi"><p class="label">Total shipping cost</p><p class="value num">$53,479</p></div>
+      <div class="kpi"><p class="label">Avg shipping time</p><p class="value num">5.8 days</p></div>
+    </div>
+  </header>
+
+  <nav class="tour-nav">
+    <p class="step-label">Step <span class="num" id="stepNum">1</span> of <span class="num">6</span> — <span id="stepName"></span></p>
+    <div class="controls"><button id="prevBtn">Back</button><button id="nextBtn">Next</button></div>
+  </nav>
+
+  <div class="rail-layout">
+    <div class="rail" id="rail"></div>
+    <div class="stage" id="stage"></div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <h3>Read the build write-up</h3>
+      <p>How shipping cost and transport cost are kept separate but comparable, and what breaks at real freight-network scale.</p>
+    </div>
+    <a class="btn" href="transportation-case-study.html">Read the case study</a>
+  </div>
+
+</div>
+
+<script>
+const steps = [
+  {
+    name: "Product type summary",
+    render: () => `
+      <div class="panel">
+        <h2>1. Revenue by product type</h2>
+        <p class="cap">Skincare drives nearly 42% of revenue on the smallest unit count of the three categories — the highest average price by a wide margin.</p>
+        <table>
+          <tr><th>Product type</th><th class="num">Units sold</th><th class="num">Revenue</th><th class="num">Avg price</th></tr>
+          <tr><td>Skincare</td><td class="num">20,731</td><td class="num">$241,628</td><td class="num">$47.26</td></tr>
+          <tr><td>Haircare</td><td class="num">13,611</td><td class="num">$174,455</td><td class="num">$46.01</td></tr>
+          <tr><td>Cosmetics</td><td class="num">11,757</td><td class="num">$161,521</td><td class="num">$57.36</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Carrier performance",
+    render: () => `
+      <div class="panel">
+        <h2>2. Which carrier is actually cheapest</h2>
+        <p class="cap">Carrier B moves the most volume and the lowest shipping cost as a share of revenue — Carrier C is fastest, but also the most expensive relative to what it ships.</p>
+        <table>
+          <tr><th>Carrier</th><th class="num">Shipments</th><th class="num">Revenue</th><th class="num">Ship. cost</th><th class="num">Avg days</th><th class="num">Cost % rev.</th></tr>
+          <tr><td>Carrier A</td><td class="num">28</td><td class="num">$142,630</td><td class="num">$14,083</td><td class="num">6.1</td><td class="num">9.9%</td></tr>
+          <tr><td>Carrier B</td><td class="num">43</td><td class="num">$250,095</td><td class="num">$22,962</td><td class="num">5.3</td><td class="num">9.2%</td></tr>
+          <tr><td>Carrier C</td><td class="num">29</td><td class="num">$184,880</td><td class="num">$16,434</td><td class="num">6.0</td><td class="num">8.9%</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Mode & route cost",
+    render: () => `
+      <div class="panel">
+        <h2>3. Transport cost by mode and route</h2>
+        <p class="cap">Sea is the cheapest mode per shipment by a wide margin; among named routes, Route A runs both the most shipments and the lowest average cost.</p>
+        <table>
+          <tr><th>Mode</th><th class="num">Shipments</th><th class="num">Avg cost/shipment</th></tr>
+          <tr><td>Sea</td><td class="num">17</td><td class="num">$417.82</td></tr>
+          <tr><td>Rail</td><td class="num">28</td><td class="num">$541.75</td></tr>
+          <tr><td>Road</td><td class="num">29</td><td class="num">$553.39</td></tr>
+          <tr><td>Air</td><td class="num">26</td><td class="num">$561.71</td></tr>
+        </table>
+        <table style="margin-top:14px;">
+          <tr><th>Route</th><th class="num">Shipments</th><th class="num">Avg cost/shipment</th></tr>
+          <tr><td>Route A</td><td class="num">43</td><td class="num">$485.48</td></tr>
+          <tr><td>Route C</td><td class="num">20</td><td class="num">$500.47</td></tr>
+          <tr><td>Route B</td><td class="num">37</td><td class="num">$595.66</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "Cost stack",
+    render: () => `
+      <div class="panel">
+        <h2>4. Two costs, kept separate on purpose</h2>
+        <p class="cap">Per-order carrier shipping cost and per-shipment transportation cost are tracked as two different columns in the source data, then combined only at the KPI level — so you can see the total, but still audit each side independently.</p>
+        <div class="route-map">
+          <svg viewBox="0 0 640 140" width="100%" height="140">
+            <rect x="40" y="30" width="220" height="34" fill="#E4EFEF"/>
+            <text x="50" y="52" font-size="12" fill="#134C4F">Shipping cost — $53,479</text>
+            <rect x="270" y="30" width="220" height="34" fill="#FBE7DC"/>
+            <text x="280" y="52" font-size="12" fill="#8F3F1A">Transport cost — $52,925</text>
+            <line x1="40" y1="90" x2="490" y2="90" stroke="#D5DEE1"/>
+            <text x="40" y="112" font-size="12" fill="#4E5F6B">Combined KPI total shown on the dashboard header: $53,479 (shipping) is reported alongside, not double-counted with, the $52,925 mode/route figure.</text>
+          </svg>
+        </div>
+      </div>`
+  },
+  {
+    name: "Cost as % of revenue",
+    render: () => `
+      <div class="panel">
+        <h2>5. Is shipping eating your margin</h2>
+        <p class="cap">At 9.3% of revenue company-wide, shipping cost sits in a normal range for e-commerce beauty products — but Carrier A alone runs nearly a full point higher than Carrier C on the same metric.</p>
+        <table>
+          <tr><th>Carrier</th><th class="num">Shipping cost % of revenue</th></tr>
+          <tr><td>Carrier A</td><td class="num">9.87%</td></tr>
+          <tr><td>Carrier B</td><td class="num">9.18%</td></tr>
+          <tr><td>Carrier C</td><td class="num">8.89%</td></tr>
+          <tr><td>Company-wide</td><td class="num">9.26%</td></tr>
+        </table>
+      </div>`
+  },
+  {
+    name: "How it's calculated",
+    render: () => `
+      <div class="panel">
+        <h2>6. What's actually running under the hood</h2>
+        <p class="cap">Every figure above is one of two formula patterns against the 100-row shipment export — nothing is hand-typed.</p>
+        <div class="formula-box"><code>SUMIF(Carrier, "Carrier B", Revenue)</code> — every carrier, mode, and route total on the dashboard.</div>
+        <div class="formula-box"><code>AVERAGEIF(Mode, "Sea", Cost_per_Shipment)</code> — every "Avg. cost" and "Avg. shipping time" figure.</div>
+        <p class="cap" style="margin:18px 0 0;">Because both formulas reference the source sheet by name, pasting in a new month of shipments updates every KPI, table, and percentage automatically.</p>
+      </div>`
+  }
+];
+
+let current = 0;
+const rail = document.getElementById('rail');
+const stage = document.getElementById('stage');
+const stepNum = document.getElementById('stepNum');
+const stepName = document.getElementById('stepName');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function renderRail(){
+  rail.innerHTML = steps.map((s,i) =>
+    `<div class="rail-item${i===current?' active':''}" data-i="${i}">
+       <span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${s.name}</span>
+     </div>`
+  ).join('');
+  rail.querySelectorAll('.rail-item').forEach(el=>{
+    el.addEventListener('click', ()=>{ current = parseInt(el.dataset.i); update(); });
+  });
+}
+function update(){
+  stage.innerHTML = steps[current].render();
+  stepNum.textContent = current+1;
+  stepName.textContent = steps[current].name;
+  prevBtn.disabled = current===0;
+  nextBtn.disabled = current===steps.length-1;
+  renderRail();
+}
+prevBtn.addEventListener('click', ()=>{ if(current>0){current--; update();} });
+nextBtn.addEventListener('click', ()=>{ if(current<steps.length-1){current++; update();} });
+update();
+</script>
+</body>
+</html>
