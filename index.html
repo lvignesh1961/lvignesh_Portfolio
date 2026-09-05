@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vignesh | Supply Chain & Data Analytics</title>
+<script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.className+=' js-reveal';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -137,6 +138,15 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   .stat-row { gap: 20px; }
   .nav a { margin-left: 14px; font-size: 14px; }
 }
+
+.js-reveal [data-reveal]{
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.22,.7,.2,1), transform .6s cubic-bezier(.22,.7,.2,1);
+}
+.js-reveal [data-reveal].is-in{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .js-reveal [data-reveal]{ opacity: 1 !important; transform: none !important; transition: none; }
+}
 </style>
 </head>
 <body>
@@ -154,7 +164,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
 </header>
 
 <section id="home">
-  <div class="container">
+  <div class="container" data-reveal>
     <h1>Vignesh</h1>
     <p class="muted">Supply Chain &amp; Data Analytics Professional</p>
     <p>Supply Chain Analytics professional specializing in demand forecasting, inventory planning, and cross-functional data-driven decisions — skilled in SQL, Python, Power BI, and Microsoft Fabric.</p>
@@ -162,7 +172,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
 </section>
 
 <section id="skills">
-  <div class="container">
+  <div class="container" data-reveal>
     <span class="eyebrow">01 — Skills &amp; Toolset</span>
     <h2>Skills &amp; Technical Toolset</h2>
     <div>
@@ -178,7 +188,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
 </section>
 
 <section id="contact">
-  <div class="container">
+  <div class="container" data-reveal>
     <span class="eyebrow">06 — Contact</span>
     <h2>Contact</h2>
     <p>Email: lvignesh1961@gmail.com</p>
@@ -193,5 +203,50 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   </div>
 </footer>
 
+<script>
+(function () {
+  var nodes = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  if (!nodes.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { nodes.forEach(function (n) { n.classList.add('is-in'); }); return; }
+
+  var pending = nodes.slice();
+  var io = null;
+  function show(n) {
+    n.classList.add('is-in');
+    if (io) io.unobserve(n);
+    var i = pending.indexOf(n);
+    if (i > -1) pending.splice(i, 1);
+  }
+  function showAll() { pending.slice().forEach(show); disarm(); }
+  function check() {
+    var vh = window.innerHeight || 800;
+    pending.slice().forEach(function (n) {
+      var r = n.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) show(n);
+    });
+    if (!pending.length) disarm();
+  }
+  function disarm() {
+    window.removeEventListener('scroll', check);
+    window.removeEventListener('resize', check);
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+
+  var ioFired = false;
+  if (window.IntersectionObserver) {
+    io = new IntersectionObserver(function (entries) {
+      ioFired = true;
+      entries.forEach(function (e) { if (e.isIntersecting) show(e.target); });
+      if (!pending.length) disarm();
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    nodes.forEach(function (n) { io.observe(n); });
+  }
+  requestAnimationFrame(check);
+  setTimeout(check, 250);
+  setTimeout(function () { if (!ioFired) showAll(); }, 1500);
+})();
+</script>
 </body>
 </html>

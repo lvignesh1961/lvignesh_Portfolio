@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inventory Management Dashboard | Vignesh</title>
+<script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.className+=' js-reveal';</script>
 <meta name="description" content="A live reorder-point and ABC-analysis dashboard for a 1,000-SKU, 5-warehouse inventory — no macros, filterable by category, warehouse, and supplier, formula-driven end to end.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +53,15 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
   .nav a { margin-left: 14px; font-size: 14px; }
   .btn-row { flex-direction: column; align-items: flex-start; }
 }
+
+.js-reveal [data-reveal]{
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.22,.7,.2,1), transform .6s cubic-bezier(.22,.7,.2,1);
+}
+.js-reveal [data-reveal].is-in{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .js-reveal [data-reveal]{ opacity: 1 !important; transform: none !important; transition: none; }
+}
 </style>
 </head>
 <body>
@@ -69,7 +79,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
 </header>
 
 <section class="case-hero">
-  <div class="container">
+  <div class="container" data-reveal>
     <span class="eyebrow">Case study · Excel · Inventory analytics · Reorder planning</span>
     <h1>Inventory Management Dashboard</h1>
     <p class="lead">A retailer with a few hundred SKUs across a couple of warehouses can usually eyeball what's
@@ -91,7 +101,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
 <section>
   <div class="container">
 
-    <h2>Why I built this</h2>
+    <h2 data-reveal>Why I built this</h2>
     <p>Two questions dominate inventory management and they're in tension with each other: what needs to
     be reordered right now, and what's already sitting on the shelf that shouldn't be. Most templates I
     found online answer one or the other. This workbook answers both, on two dedicated sheets that
@@ -103,7 +113,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     the warehouse, how long it's been there, and which items deserve tight control versus which can be
     reviewed quarterly.</p>
 
-    <h2>What this is — and what it isn't</h2>
+    <h2 data-reveal>What this is — and what it isn't</h2>
     <p>This isn't a demand-forecasting model — it doesn't fit a distribution or run a Monte Carlo
     simulation. It's a <strong>rules engine built entirely from Excel's built-in functions</strong>:
     <code>SUMIFS</code> for every filtered rollup, <code>LARGE</code> + <code>INDEX</code>/<code>MATCH</code> for the
@@ -111,7 +121,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     structuring those rules so a warehouse manager gets a defensible, auditable answer — not a black
     box — every time they open the file.</p>
 
-    <h2>The architecture</h2>
+    <h2 data-reveal>The architecture</h2>
     <p>Three shared criteria cells (<code>CritCat</code>, <code>CritWH</code>, <code>CritSup</code>) sit behind
     both dashboards. Every dashboard formula references those three cells instead of a hard-coded
     value, so setting Category, Warehouse, or Supplier once re-filters everything on the sheet:</p>
@@ -134,7 +144,7 @@ Order Management dashboard          Inventory dashboard
     share crosses 80% (Class A) and 95% (Class B), with everything else falling to Class C — the
     standard Pareto rule for deciding where inventory-control effort actually pays off.</p>
 
-    <h2>The parts that were actually hard</h2>
+    <h2 data-reveal>The parts that were actually hard</h2>
     <p><strong>A ranking that survives three filters at once.</strong> The top-20-most-urgent list needed
     to keep working whether Category, Warehouse, and Supplier were all set to "All" or narrowed to one
     of each. <code>LARGE</code> against a <code>SUMIFS</code>-scoped array, paired with
@@ -156,7 +166,7 @@ Order Management dashboard          Inventory dashboard
     other is too much sitting unsold past 180 days — and the dashboard keeps them as separate KPIs
     specifically so neither gets glossed over.</p>
 
-    <h2>What the numbers say</h2>
+    <h2 data-reveal>What the numbers say</h2>
     <p>Across 1,000 SKUs, <span class="highlight">261</span> currently sit below their reorder point, worth
     <span class="highlight">$1,763,716</span> to bring back to target. Supplier on-time delivery averages
     <span class="highlight">84.7%</span> with a <span class="highlight">4.03</span>-day average lead time, and only
@@ -165,7 +175,7 @@ Order Management dashboard          Inventory dashboard
     <span class="highlight">53.5%</span> of that value, which is exactly the population that should get the tightest
     cycle-count and safety-stock discipline.</p>
 
-    <h2>What I'd do differently at production scale</h2>
+    <h2 data-reveal>What I'd do differently at production scale</h2>
     <p>A thousand SKUs across five warehouses is still small enough for <code>SUMIFS</code> to recalculate
     instantly. Past tens of thousands of SKUs or dozens of warehouses, the honest version moves this
     logic into Power Query or a proper database view, both for calculation speed and because the
@@ -175,7 +185,7 @@ Order Management dashboard          Inventory dashboard
     rather than applying one cutoff company-wide, since a high-turnover category like Beverages and a
     slow one like Household don't behave the same way.</p>
 
-    <h2>Stack</h2>
+    <h2 data-reveal>Stack</h2>
     <p>Microsoft Excel — <code>SUMIFS</code>, <code>INDEX</code>/<code>MATCH</code>, <code>LARGE</code>, native
     Pareto/combo charts, data-validation dropdown filters.</p>
 
@@ -193,5 +203,50 @@ Order Management dashboard          Inventory dashboard
   </div>
 </footer>
 
+<script>
+(function () {
+  var nodes = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  if (!nodes.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { nodes.forEach(function (n) { n.classList.add('is-in'); }); return; }
+
+  var pending = nodes.slice();
+  var io = null;
+  function show(n) {
+    n.classList.add('is-in');
+    if (io) io.unobserve(n);
+    var i = pending.indexOf(n);
+    if (i > -1) pending.splice(i, 1);
+  }
+  function showAll() { pending.slice().forEach(show); disarm(); }
+  function check() {
+    var vh = window.innerHeight || 800;
+    pending.slice().forEach(function (n) {
+      var r = n.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) show(n);
+    });
+    if (!pending.length) disarm();
+  }
+  function disarm() {
+    window.removeEventListener('scroll', check);
+    window.removeEventListener('resize', check);
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+
+  var ioFired = false;
+  if (window.IntersectionObserver) {
+    io = new IntersectionObserver(function (entries) {
+      ioFired = true;
+      entries.forEach(function (e) { if (e.isIntersecting) show(e.target); });
+      if (!pending.length) disarm();
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    nodes.forEach(function (n) { io.observe(n); });
+  }
+  requestAnimationFrame(check);
+  setTimeout(check, 250);
+  setTimeout(function () { if (!ioFired) showAll(); }, 1500);
+})();
+</script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Transportation Analysis Dashboard | Vignesh</title>
+<script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.className+=' js-reveal';</script>
 <meta name="description" content="A shipping-cost-and-revenue dashboard that ties carrier, transport mode, and route performance together against a live 100-shipment export — built entirely on SUMIF and AVERAGEIF.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +53,15 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
   .nav a { margin-left: 14px; font-size: 14px; }
   .btn-row { flex-direction: column; align-items: flex-start; }
 }
+
+.js-reveal [data-reveal]{
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.22,.7,.2,1), transform .6s cubic-bezier(.22,.7,.2,1);
+}
+.js-reveal [data-reveal].is-in{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .js-reveal [data-reveal]{ opacity: 1 !important; transform: none !important; transition: none; }
+}
 </style>
 </head>
 <body>
@@ -69,7 +79,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
 </header>
 
 <section class="case-hero">
-  <div class="container">
+  <div class="container" data-reveal>
     <span class="eyebrow">Case study · Excel · Logistics analytics · Shipping cost</span>
     <h1>Transportation Analysis Dashboard</h1>
     <p class="lead">Revenue and shipping cost usually live in two different reports, which makes an obvious question
@@ -89,7 +99,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
 <section>
   <div class="container">
 
-    <h2>Why I built this</h2>
+    <h2 data-reveal>Why I built this</h2>
     <p>I built this against a 100-shipment e-commerce beauty export with a specific tension in mind:
     shipping cost and transportation cost aren't the same thing, and a dashboard that quietly merges
     them makes it impossible to tell whether a carrier is expensive or a route is expensive. The brief
@@ -99,14 +109,14 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     worth using once cost and speed are both on the table, and which transport mode or route is
     quietly the cheapest option available.</p>
 
-    <h2>What this is — and what it isn't</h2>
+    <h2 data-reveal>What this is — and what it isn't</h2>
     <p>There's no optimization solver here — it doesn't recommend a carrier switch or re-route
     shipments. It's <strong>descriptive analytics done right</strong>: <code>SUMIF</code> and
     <code>AVERAGEIF</code> against a single source sheet, structured so that carrier, mode, and route can
     each be compared on the same footing — shipments, cost, speed, and cost as a share of revenue —
     rather than whichever metric happened to be easiest to pull.</p>
 
-    <h2>The architecture</h2>
+    <h2 data-reveal>The architecture</h2>
     <p>Everything on the dashboard reads from one 100-row shipment sheet
     (<code>supply_chain_data_TR</code>), with each dashboard section aggregating a different column of it:</p>
     <div class="diagram">supply_chain_data_TR  (100 shipments: product type, carrier, shipping cost,
@@ -121,7 +131,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     "total shipping cost" KPI at the very top of the dashboard — every section below that KPI keeps
     them apart.</p>
 
-    <h2>The parts that were actually hard</h2>
+    <h2 data-reveal>The parts that were actually hard</h2>
     <p><strong>Not double-counting two different costs that both sound like "shipping."</strong> Early
     drafts of this dashboard summed the per-order carrier cost and the per-shipment transport cost
     into every downstream table, which inflated the mode/route breakdown by whatever the carrier
@@ -138,7 +148,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     same <code>SUMIF</code>/<code>AVERAGEIF</code> pattern, avoided the temptation to force a route-within-mode
     tree that the data doesn't actually support.</p>
 
-    <h2>What the numbers say</h2>
+    <h2 data-reveal>What the numbers say</h2>
     <p>Across 100 shipments the business generated <span class="highlight">$577,605</span> in revenue on
     <span class="highlight">46,099</span> units, at a combined shipping and transport cost of
     <span class="highlight">$53,479</span> — <span class="highlight">9.3%</span> of revenue. Skincare drove the largest share of
@@ -148,7 +158,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     for Air, and <strong>Carrier B</strong> offers the best combination of volume, speed, and cost as a
     share of revenue among the three carriers.</p>
 
-    <h2>What I'd do differently at production scale</h2>
+    <h2 data-reveal>What I'd do differently at production scale</h2>
     <p>A hundred shipments is small enough that <code>SUMIF</code>/<code>AVERAGEIF</code> recalculates
     instantly and a human can sanity-check every row. At real freight volume — thousands of shipments
     a month across dozens of routes — this becomes a job for a proper fact table and pivot-based or
@@ -158,7 +168,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     benefit from a true hierarchy once volume justifies it — which routes each mode is actually used
     on — rather than two independent tables.</p>
 
-    <h2>Stack</h2>
+    <h2 data-reveal>Stack</h2>
     <p>Microsoft Excel — <code>SUMIF</code>, <code>AVERAGEIF</code>, native combo charts, data-driven
     KPI cells.</p>
 
@@ -176,5 +186,50 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
   </div>
 </footer>
 
+<script>
+(function () {
+  var nodes = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  if (!nodes.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { nodes.forEach(function (n) { n.classList.add('is-in'); }); return; }
+
+  var pending = nodes.slice();
+  var io = null;
+  function show(n) {
+    n.classList.add('is-in');
+    if (io) io.unobserve(n);
+    var i = pending.indexOf(n);
+    if (i > -1) pending.splice(i, 1);
+  }
+  function showAll() { pending.slice().forEach(show); disarm(); }
+  function check() {
+    var vh = window.innerHeight || 800;
+    pending.slice().forEach(function (n) {
+      var r = n.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) show(n);
+    });
+    if (!pending.length) disarm();
+  }
+  function disarm() {
+    window.removeEventListener('scroll', check);
+    window.removeEventListener('resize', check);
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+
+  var ioFired = false;
+  if (window.IntersectionObserver) {
+    io = new IntersectionObserver(function (entries) {
+      ioFired = true;
+      entries.forEach(function (e) { if (e.isIntersecting) show(e.target); });
+      if (!pending.length) disarm();
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    nodes.forEach(function (n) { io.observe(n); });
+  }
+  requestAnimationFrame(check);
+  setTimeout(check, 250);
+  setTimeout(function () { if (!ioFired) showAll(); }, 1500);
+})();
+</script>
 </body>
 </html>

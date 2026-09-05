@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Experience | Vignesh</title>
+<script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.className+=' js-reveal';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -143,6 +144,15 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   .stat-row { gap: 20px; }
   .nav a { margin-left: 14px; font-size: 14px; }
 }
+
+.js-reveal [data-reveal]{
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.22,.7,.2,1), transform .6s cubic-bezier(.22,.7,.2,1);
+}
+.js-reveal [data-reveal].is-in{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .js-reveal [data-reveal]{ opacity: 1 !important; transform: none !important; transition: none; }
+}
 </style>
 </head>
 <body>
@@ -164,21 +174,21 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
     <span class="eyebrow">02 — Experience</span>
     <h2>Experience</h2>
 
-    <div class="exp-item">
+    <div class="exp-item" data-reveal>
       <h3>Global Supply Chain Analyst</h3>
       <p class="exp-org">Motorola Solutions, Vancouver, BC — September 2024 – Present</p>
       <p>Built SQL/Python-driven dashboards and portfolio analytics frameworks (Redshift, Tableau) to monitor lifecycle risk across multi-level component and product dependencies, improving decision accuracy by <span class="highlight">25%</span>.</p>
       <p>Led cross-functional analytics initiatives supporting <span class="highlight">$5M+</span> quarterly revenue commitments and <span class="highlight">20%</span> faster project delivery.</p>
     </div>
 
-    <div class="exp-item">
+    <div class="exp-item" data-reveal>
       <h3>Supply Planning Analyst</h3>
       <p class="exp-org">Motorola Solutions, Vancouver, BC — January 2024 – September 2024</p>
       <p>Led Excel-based planning tools (VBA/Macros) and SAP automation to optimize inventory accuracy (<span class="highlight">+15%</span>) and procurement cycle time (<span class="highlight">-50%</span>).</p>
       <p>Built supply-demand risk models supporting <span class="highlight">$1M</span> in quarterly revenue, and performed MRP/SAP work order planning across capacity and lead-time constraints.</p>
     </div>
 
-    <div class="exp-item">
+    <div class="exp-item" data-reveal>
       <h3>Supply Chain Planner</h3>
       <p class="exp-org">CIMtech Mfg. Inc., Surrey, BC — August 2021 – January 2024</p>
       <p>Developed cost-effective production plans yielding <span class="highlight">25%</span> savings in setup/tooling costs, and ERP-based dashboards to improve production visibility.</p>
@@ -194,5 +204,50 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   </div>
 </footer>
 
+<script>
+(function () {
+  var nodes = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  if (!nodes.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { nodes.forEach(function (n) { n.classList.add('is-in'); }); return; }
+
+  var pending = nodes.slice();
+  var io = null;
+  function show(n) {
+    n.classList.add('is-in');
+    if (io) io.unobserve(n);
+    var i = pending.indexOf(n);
+    if (i > -1) pending.splice(i, 1);
+  }
+  function showAll() { pending.slice().forEach(show); disarm(); }
+  function check() {
+    var vh = window.innerHeight || 800;
+    pending.slice().forEach(function (n) {
+      var r = n.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) show(n);
+    });
+    if (!pending.length) disarm();
+  }
+  function disarm() {
+    window.removeEventListener('scroll', check);
+    window.removeEventListener('resize', check);
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+
+  var ioFired = false;
+  if (window.IntersectionObserver) {
+    io = new IntersectionObserver(function (entries) {
+      ioFired = true;
+      entries.forEach(function (e) { if (e.isIntersecting) show(e.target); });
+      if (!pending.length) disarm();
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    nodes.forEach(function (n) { io.observe(n); });
+  }
+  requestAnimationFrame(check);
+  setTimeout(check, 250);
+  setTimeout(function () { if (!ioFired) showAll(); }, 1500);
+})();
+</script>
 </body>
 </html>

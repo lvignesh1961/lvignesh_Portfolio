@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Retail Sales &amp; Forecast Dashboard | Vignesh</title>
+<script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.className+=' js-reveal';</script>
 <meta name="description" content="A formula-driven Excel dashboard that turns a raw order export into a live sales dashboard and a segment-level demand forecast through FY2030 — no add-ins, no macros required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +53,15 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
   .nav a { margin-left: 14px; font-size: 14px; }
   .btn-row { flex-direction: column; align-items: flex-start; }
 }
+
+.js-reveal [data-reveal]{
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.22,.7,.2,1), transform .6s cubic-bezier(.22,.7,.2,1);
+}
+.js-reveal [data-reveal].is-in{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){
+  .js-reveal [data-reveal]{ opacity: 1 !important; transform: none !important; transition: none; }
+}
 </style>
 </head>
 <body>
@@ -69,7 +79,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
 </header>
 
 <section class="case-hero">
-  <div class="container">
+  <div class="container" data-reveal>
     <span class="eyebrow">Case study · Excel · Formula-driven analytics · Demand planning</span>
     <h1>Retail Sales &amp; Forecast Dashboard</h1>
     <p class="lead">I build a lot of one-off analysis for stakeholders who will never open a script, a notebook, or a
@@ -89,7 +99,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
 <section>
   <div class="container">
 
-    <h2>Why I built this</h2>
+    <h2 data-reveal>Why I built this</h2>
     <p>Most retail teams I've worked with don't lack data — they lack a place to look at it that doesn't
     require asking someone else to run a query. The brief I set myself was: given a flat export of
     orders (customer, product, region, date, revenue — the shape almost every retailer already has),
@@ -100,7 +110,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     orders, regional performance. The <strong>Forecast dashboard</strong> answers the third, projecting each
     customer segment out to FY2030 and flagging which one deserves more inventory and sales attention.</p>
 
-    <h2>What this is — and what it isn't</h2>
+    <h2 data-reveal>What this is — and what it isn't</h2>
     <p>This isn't a machine-learning forecast. Every number on both dashboards comes from three
     built-in Excel mechanisms: <code>SUMIFS</code> for the aggregations, <code>INDEX</code>/<code>MATCH</code> for the
     lookups and rankings, and the native <code>FORECAST</code> function — linear regression against
@@ -110,7 +120,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     script normally would</strong> — a hidden calculation layer feeding two clean, presentation-ready
     sheets, built to survive a stakeholder pasting in a new month of orders without anything breaking.</p>
 
-    <h2>The architecture</h2>
+    <h2 data-reveal>The architecture</h2>
     <p>The workbook is deliberately split into three layers, and only the top one is ever meant to be
     looked at:</p>
     <div class="diagram">Retails Order Full Dataset  (5,009 raw orders, one row each)
@@ -134,7 +144,7 @@ Sales dashboard  +  Forecast Dashboard
     model — but it's a rule a demand planner can audit in about ten seconds, which matters more than
     sophistication for a document that's going to sit in someone else's inbox.</p>
 
-    <h2>The parts that were actually hard</h2>
+    <h2 data-reveal>The parts that were actually hard</h2>
     <p><strong>Keeping 5,009 rows fast without a single macro.</strong> <code>SUMIFS</code> and
     <code>INDEX</code>/<code>MATCH</code> are cheap individually, but the Sales dashboard alone runs dozens of them
     against a live 5,009-row table. The fix was pushing every aggregation into its own
@@ -158,7 +168,7 @@ Sales dashboard  +  Forecast Dashboard
     their own sheet as ready-to-paste code for anyone who wants a one-click recalculation or PDF
     export, but the workbook never depends on them working.</p>
 
-    <h2>What the numbers say</h2>
+    <h2 data-reveal>What the numbers say</h2>
     <p>Across the trailing four years the business did <span class="highlight">$2.30M</span> in revenue on
     <span class="highlight">5,009</span> orders and <span class="highlight">37,873</span> units — an average order of
     <span class="highlight">$458.61</span>. The forecast projects total sales growing from <span class="highlight">$733K</span> in
@@ -167,7 +177,7 @@ Sales dashboard  +  Forecast Dashboard
     FY2030 against FY2017, well ahead of Consumer and Home Office, which is what drives its
     <strong>Increase orders</strong> flag.</p>
 
-    <h2>What I'd do differently at production scale</h2>
+    <h2 data-reveal>What I'd do differently at production scale</h2>
     <p>A single 5,009-row export is comfortably inside what <code>SUMIFS</code> and <code>FORECAST</code>
     can chew through instantly. That stops being true somewhere in the low hundreds of thousands of
     rows, where a workbook like this needs to become a Power Query or database-backed model instead of
@@ -177,7 +187,7 @@ Sales dashboard  +  Forecast Dashboard
     history than four years. The demo is the shape of the analysis; a real deployment is the modeling
     work underneath it.</p>
 
-    <h2>Stack</h2>
+    <h2 data-reveal>Stack</h2>
     <p>Microsoft Excel — <code>SUMIFS</code>, <code>INDEX</code>/<code>MATCH</code>, <code>LARGE</code>, <code>FORECAST</code>,
     native chart and map objects. Optional VBA macros for one-click refresh and PDF export.</p>
 
@@ -195,5 +205,50 @@ Sales dashboard  +  Forecast Dashboard
   </div>
 </footer>
 
+<script>
+(function () {
+  var nodes = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  if (!nodes.length) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { nodes.forEach(function (n) { n.classList.add('is-in'); }); return; }
+
+  var pending = nodes.slice();
+  var io = null;
+  function show(n) {
+    n.classList.add('is-in');
+    if (io) io.unobserve(n);
+    var i = pending.indexOf(n);
+    if (i > -1) pending.splice(i, 1);
+  }
+  function showAll() { pending.slice().forEach(show); disarm(); }
+  function check() {
+    var vh = window.innerHeight || 800;
+    pending.slice().forEach(function (n) {
+      var r = n.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) show(n);
+    });
+    if (!pending.length) disarm();
+  }
+  function disarm() {
+    window.removeEventListener('scroll', check);
+    window.removeEventListener('resize', check);
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+
+  var ioFired = false;
+  if (window.IntersectionObserver) {
+    io = new IntersectionObserver(function (entries) {
+      ioFired = true;
+      entries.forEach(function (e) { if (e.isIntersecting) show(e.target); });
+      if (!pending.length) disarm();
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    nodes.forEach(function (n) { io.observe(n); });
+  }
+  requestAnimationFrame(check);
+  setTimeout(check, 250);
+  setTimeout(function () { if (!ioFired) showAll(); }, 1500);
+})();
+</script>
 </body>
 </html>
