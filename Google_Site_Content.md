@@ -1,6 +1,8 @@
 # Google Site Content — Vignesh Portfolio
 
-Paste-ready copy and layout plan for building the Google Site. Text blocks are written to be copied directly into Sites text boxes; image references point to files already in [dashboard_screenshots/](dashboard_screenshots/). Sourced from [Resume_Vignesh.docx](Resume_Vignesh.docx) and the three dashboard workbooks (see [Vignesh_Portfolio.md](Vignesh_Portfolio.md) for full technical detail behind each project).
+Paste-ready copy and layout plan for building the Google Site. Text blocks are written to be copied directly into Sites text boxes; image references point to files in [dashboard_screenshots/](dashboard_screenshots/), now public on GitHub at `https://github.com/lvignesh1961/lvignesh_Portfolio`. Sourced from the resume content already captured in this doc and the three dashboard workbooks (see [Vignesh_Portfolio.md](Vignesh_Portfolio.md) for full technical detail behind each project).
+
+**Using the images in Google Sites**: repo is now public, so each screenshot has a direct, hotlinkable URL. In Sites, use **Insert → Image → By URL** and paste the raw URL listed under each image below (pattern: `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/<filename>` — all 9 verified resolving).
 
 ---
 
@@ -167,9 +169,12 @@ SKU-level dataset, no pivot tables.
 ```
 
 **Images (in order):**
-1. `dashboard_screenshots/Order_Management_Dashboard_1.png` — reorder KPIs + Top 20 most urgent SKUs + reorder recommendation by category.
-2. `dashboard_screenshots/Inventory_Management_Dashboard_1.png` — inventory KPIs + product summary by category + ABC class breakdown.
-3. `dashboard_screenshots/Order_Management_Dashboard_2.png` — ABC Pareto detail + Top 20 SKUs by value.
+1. Reorder KPIs + Top 20 most urgent SKUs + reorder recommendation by category
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Order_Management_Dashboard_1.png`
+2. Inventory KPIs + product summary by category + ABC class breakdown
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Inventory_Management_Dashboard_1.png`
+3. ABC Pareto detail + Top 20 SKUs by value
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Order_Management_Dashboard_2.png`
 
 **Caption / "what to notice":**
 ```
@@ -203,10 +208,14 @@ FY2030 forecast: $1.86M (+153.5% vs. FY2017)  ·  Top growth segment: Corporate
 ```
 
 **Images (in order):**
-1. `dashboard_screenshots/Sales_Dashboard_1.png` — revenue KPIs, category breakdown, segment summary, top 10 customers/orders.
-2. `dashboard_screenshots/Sales_Dashboard_2.png` — USA sales map and orders/revenue by region.
-3. `dashboard_screenshots/Forecast_Dashboard_1.png` — FY2030 forecast KPIs, actual-vs-forecast table, order recommendation by segment.
-4. `dashboard_screenshots/Forecast_Dashboard_2.png` — actual vs. forecast trend line and over/under-performing segment analysis.
+1. Revenue KPIs, category breakdown, segment summary, top 10 customers/orders
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Sales_Dashboard_1.png`
+2. USA sales map and orders/revenue by region
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Sales_Dashboard_2.png`
+3. FY2030 forecast KPIs, actual-vs-forecast table, order recommendation by segment
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Forecast_Dashboard_1.png`
+4. Actual vs. forecast trend line and over/under-performing segment analysis
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Forecast_Dashboard_2.png`
 
 **Caption / "what to notice":**
 ```
@@ -241,8 +250,10 @@ $52.9K total transport cost (mode/route)  ·  5.8 days avg. shipping time
 ```
 
 **Images (in order):**
-1. `dashboard_screenshots/Transportation_Dashboard_1.png` — full KPI row, product type summary, shipping carrier summary, cost by mode/route tables, revenue-share and units-sold charts.
-2. `dashboard_screenshots/Transportation_Dashboard_2.png` — revenue vs. shipping cost by carrier, and cost by mode/route charts.
+1. Full KPI row, product type summary, shipping carrier summary, cost by mode/route tables, revenue-share and units-sold charts
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Transportation_Dashboard_1.png`
+2. Revenue vs. shipping cost by carrier, and cost by mode/route charts
+   `https://raw.githubusercontent.com/lvignesh1961/lvignesh_Portfolio/main/dashboard_screenshots/Transportation_Dashboard_2.png`
 
 **Caption / "what to notice":**
 ```
@@ -271,5 +282,6 @@ Contact
 
 ## Notes on filling remaining gaps
 
-- No profile photo or downloadable résumé PDF is referenced above — add an **Images** block for a headshot in the hero section, and a **Button** linking to a PDF export of `Resume_Vignesh.docx`, if/when you have them.
+- No profile photo or downloadable résumé PDF is referenced above — add an **Images** block for a headshot in the hero section, and a **Button** linking to a résumé PDF, if/when you have one (the original `Resume_Vignesh.docx` was removed from the repo).
 - All KPI numbers quoted above were read directly off the dashboard screenshots you provided, not invented — double-check them against the live workbook if the underlying data changes before publishing.
+- The repo (`https://github.com/lvignesh1961/lvignesh_Portfolio`) is now public, which is what makes the raw image URLs above work in Sites' "Insert Image by URL." Everything else in the repo (the 3 Excel workbooks, the Markdown files) is also publicly visible as a result.
