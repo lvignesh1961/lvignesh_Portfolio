@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vignesh | Supply Chain & Data Analytics</title>
+<style>
+  :root{
+    --ink:#171a26; --ink-soft:#4a5163; --muted:#6b7385;
+    --line:#e8eaf2; --bg:#ffffff; --bg-tint:#f7f8fc;
+    --accent:#1f4e79; --accent-2:#2f6fa8;
+    --dark:#12141f;
+    --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink-soft);
+    font-family:var(--display); line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1100px; margin:0 auto; padding:0 28px;}
+  a{color:var(--accent);}
+
+  header.site-header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,.9); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  header.site-header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px; gap:20px;
+  }
+  .brand{font-weight:700; color:var(--ink); font-size:1.1rem; text-decoration:none;}
+  .brand span{color:var(--accent);}
+  nav a{
+    color:var(--ink-soft); text-decoration:none; font-size:.92rem; font-weight:600;
+    margin-left:22px;
+  }
+  nav a:hover{color:var(--accent);}
+
+  .hero{background:linear-gradient(180deg,var(--bg-tint),var(--bg)); border-bottom:1px solid var(--line);}
+  .hero .wrap{padding:64px 28px 56px;}
+  .kicker{
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:14px;
+  }
+  h1.hero-title{font-size:2.6rem; color:var(--ink); margin:0 0 10px; letter-spacing:-.02em;}
+  .hero-sub{font-size:1.2rem; color:var(--accent); font-weight:600; margin:0 0 20px;}
+  .hero-lead{max-width:70ch; font-size:1.05rem; margin:0;}
+
+  section{padding:56px 0;}
+  section.tint{background:var(--bg-tint); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  h2.sec-title{font-size:1.7rem; color:var(--ink); margin:0 0 8px; letter-spacing:-.02em;}
+  .sec-desc{color:var(--muted); max-width:70ch; margin:0 0 30px;}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-size:.82rem; font-weight:600; color:var(--accent);
+    background:#eaf1f7; border:1px solid #d8e6f0; padding:6px 12px; border-radius:999px;
+  }
+
+  .exp-item{border-left:3px solid var(--accent); padding:2px 0 2px 20px; margin-bottom:28px;}
+  .exp-item:last-child{margin-bottom:0;}
+  .exp-role{font-weight:700; color:var(--ink); font-size:1.05rem;}
+  .exp-org{font-size:.92rem; color:var(--muted); margin:2px 0 10px;}
+  .exp-item p{margin:0; font-size:.96rem;}
+
+  .project{margin-bottom:64px;}
+  .project:last-child{margin-bottom:0;}
+  .project h3{font-size:1.5rem; color:var(--ink); margin:0 0 10px; letter-spacing:-.015em;}
+  .project .summary{max-width:78ch; margin:0 0 18px;}
+  .metrics{
+    display:flex; flex-wrap:wrap; gap:10px 22px;
+    font-family:var(--mono); font-size:.8rem; color:var(--accent);
+    background:#eef3f8; border:1px solid #dbe6ee; border-radius:10px;
+    padding:14px 18px; margin-bottom:22px;
+  }
+  .shots{display:flex; flex-direction:column; gap:18px; margin-bottom:18px;}
+  .shots img{
+    width:100%; display:block; border-radius:10px; border:1px solid var(--line);
+    box-shadow:0 8px 24px -12px rgba(23,26,38,.25);
+  }
+  .caption{
+    font-size:.92rem; color:var(--ink-soft); background:var(--bg-tint);
+    border-left:3px solid var(--accent); padding:12px 16px; border-radius:0 8px 8px 0;
+  }
+  .caption b{color:var(--ink);}
+
+  footer{background:var(--dark); color:#9aa1b4; padding:44px 0;}
+  footer .wrap{display:flex; flex-direction:column; gap:6px;}
+  footer .foot-name{color:#fff; font-weight:700; font-size:1.05rem;}
+  footer a{color:#c7cde0;}
+  footer .micro{font-family:var(--mono); font-size:.78rem; color:#7c8296; margin-top:14px;}
+
+  @media (max-width:640px){
+    h1.hero-title{font-size:2rem;}
+    nav a{margin-left:14px; font-size:.85rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Vignesh <span>| Supply Chain &amp; Data Analytics</span></a>
+    <nav>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">Portfolio</div>
+    <h1 class="hero-title">Vignesh</h1>
+    <p class="hero-sub">Supply Chain &amp; Data Analytics Professional</p>
+    <p class="hero-lead">
+      Data-driven Supply Chain Analytics professional with 6+ years of experience in demand
+      forecasting, inventory planning, and supply-demand analytics supporting revenue and
+      operational decisions across large-scale manufacturing and supply chain environments.
+      Skilled in SQL and Python for analyzing historical performance and developing reporting
+      tools that improve inventory accuracy and optimization. Experienced partnering
+      cross-functionally with finance, operations, and supply chain teams to drive
+      data-informed planning. Currently expanding expertise in Power BI and the Microsoft
+      Fabric ecosystem.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="sec-title">Skills &amp; Technical Toolset</h2>
+    <p class="sec-desc">Tools and languages used across supply chain planning, reporting, and analytics work.</p>
+    <div class="chips">
+      <span class="chip">Power BI</span><span class="chip">SAP</span><span class="chip">Power Query</span>
+      <span class="chip">Azure</span><span class="chip">Microsoft Suite</span><span class="chip">MS Excel</span>
+      <span class="chip">Google Suite</span><span class="chip">Google Cloud</span><span class="chip">Jira</span>
+      <span class="chip">Confluence</span><span class="chip">Tableau</span><span class="chip">AWS Redshift</span>
+      <span class="chip">Oracle NetSuite</span><span class="chip">Snowflake</span><span class="chip">Python</span>
+      <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">PyTorch</span>
+      <span class="chip">SQL</span><span class="chip">Linux</span><span class="chip">Plotly</span><span class="chip">VBA</span>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="experience">
+  <div class="wrap">
+    <h2 class="sec-title">Experience</h2>
+    <p class="sec-desc">Career-related roles in supply chain planning and analytics.</p>
+
+    <div class="exp-item">
+      <div class="exp-role">Global Supply Chain Analyst</div>
+      <div class="exp-org">Motorola Solutions, Vancouver, BC — September 2024 – Present</div>
+      <p>Partner with cross-functional stakeholders across supply chain, finance, and lifecycle
+      management teams to translate complex planning requirements into SQL (AWS Redshift) and
+      Python-based Tableau dashboards, improving inventory and financial decision accuracy by
+      25% across portfolio planning initiatives. Build SQL-based ETL pipelines and KPI/OKR
+      dashboards monitoring lifecycle risk across 80,000+ components. Develop S&amp;OP and
+      demand-planning analytics frameworks for Last Time Buy timing and EOL exposure. Lead
+      cross-functional analytics initiatives via Jira/Confluence, improving delivery timelines
+      by 20%. Document supply risk and scenario modeling supporting $5M+ quarterly revenue
+      commitments.</p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-role">Supply Planning Analyst</div>
+      <div class="exp-org">Motorola Solutions, Vancouver, BC — January 2024 – September 2024</div>
+      <p>Led development of Excel-based planning tools (VBA, Macros) improving inventory
+      accuracy by 15%. Automated SAP purchase-order and delivery workflows, cutting procurement
+      cycle time by 50%. Built supply-demand risk models and dashboards supporting $1M in
+      quarterly revenue commitments. Performed MRP logic and SAP work orders for aggregate and
+      mix planning.</p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-role">Supply Chain Planner</div>
+      <div class="exp-org">CIMtech Mfg. Inc., Surrey, BC — August 2021 – January 2024</div>
+      <p>Developed cost-effective production plans yielding 25% savings in setup and tooling
+      costs. Improved supplier OTIF from 60% to 68%. Built ERP-based dashboards for production
+      and planning visibility. Ran capacity planning using demand/forecast, takt time, and OEE.
+      Served as analytics liaison between operations and executive leadership.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2 class="sec-title">Projects</h2>
+    <p class="sec-desc">Excel-based analytics dashboards built for inventory, retail sales/forecasting, and transportation cost analysis.</p>
+
+    <div class="project">
+      <h3>Inventory Management Dashboard</h3>
+      <p class="summary">
+        An Excel-based inventory analytics workbook for an e-grocery operation, covering 1,000
+        SKUs across 10 categories. Combines an Order Management view (reorder prioritization)
+        with an Inventory Dashboard view (stock health and ABC/Pareto analysis) — built entirely
+        on live formulas against a raw SKU-level dataset, no pivot tables.
+      </p>
+      <div class="metrics">
+        <span>1,000 SKUs tracked</span><span>$1.26M inventory value</span>
+        <span>261 SKUs needing reorder</span><span>84.7% avg. supplier on-time</span>
+        <span>10.0 avg. days of inventory</span><span>524 slow-moving SKUs</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Order_Management_Dashboard_1.png" alt="Order Management Dashboard — reorder KPIs, top 20 urgent SKUs, reorder recommendation by category">
+        <img src="dashboard_screenshots/Inventory_Management_Dashboard_1.png" alt="Inventory Dashboard — inventory KPIs, product summary by category, ABC class breakdown">
+        <img src="dashboard_screenshots/Order_Management_Dashboard_2.png" alt="ABC Pareto detail and top 20 SKUs by value">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> the reorder logic is fully rules-based — Suggested Qty =
+        MAX(Forecast_Next_30d − Qty On Hand + Safety Stock, 0), ranked by shortfall against
+        each SKU's reorder point. The ABC analysis follows the classic 80/20 rule: Class A SKUs
+        (53.5% of value from just 200 SKUs) get the tightest control, while Class C gets simple
+        min-max review.
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Retail Sales &amp; Forecast Dashboard</h3>
+      <p class="summary">
+        A two-part retail analytics workbook: a historical sales performance dashboard and a
+        forward-looking demand-forecast dashboard projecting revenue by customer segment through
+        FY2030, with a CAGR-based recommendation engine flagging which segments to prioritize.
+      </p>
+      <div class="metrics">
+        <span>$2.30M total revenue</span><span>5,009 orders</span><span>37,873 units sold</span>
+        <span>$458.61 avg. order value</span><span>FY2030 forecast: $1.86M (+153.5%)</span>
+        <span>Top growth segment: Corporate</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Sales_Dashboard_1.png" alt="Retail Sales Dashboard — revenue KPIs, category breakdown, segment summary, top 10 customers/orders">
+        <img src="dashboard_screenshots/Sales_Dashboard_2.png" alt="USA sales map and orders/revenue by region">
+        <img src="dashboard_screenshots/Forecast_Dashboard_1.png" alt="FY2030 forecast KPIs, actual-vs-forecast table, order recommendation by segment">
+        <img src="dashboard_screenshots/Forecast_Dashboard_2.png" alt="Actual vs forecast trend line and over/under-performing segment analysis">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> the recommendation logic compares each segment's FY2014–17 CAGR
+        against the average across all three segments. Corporate (23.5% CAGR) and Home Office
+        (21.1%) are both flagged "Increase Orders" for compounding faster than peers, while
+        Consumer (7.6% CAGR) is held at "Maintain Orders" despite generating the most revenue
+        today — a case for looking at growth rate, not just current volume.
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Transportation Analysis Dashboard</h3>
+      <p class="summary">
+        An e-commerce shipping and revenue dashboard analyzing product performance, carrier
+        efficiency, and transportation cost by mode and route — built on live formulas against a
+        raw shipment-level dataset, with a documented calculation methodology for total shipping
+        cost.
+      </p>
+      <div class="metrics">
+        <span>$577.6K total revenue</span><span>46,099 units sold</span>
+        <span>$53.5K shipping cost (9.3% of revenue)</span><span>$52.9K transport cost</span>
+        <span>5.8 days avg. shipping time</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Transportation_Dashboard_1.png" alt="Transportation Dashboard — KPI row, product type summary, shipping carrier summary, cost by mode/route">
+        <img src="dashboard_screenshots/Transportation_Dashboard_2.png" alt="Revenue vs shipping cost by carrier, and cost by mode/route charts">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> Skincare drives 42% of revenue share despite being one of three
+        product lines, and Carrier B — while moving the most volume — also runs the highest
+        per-order shipping cost ($534.01), a candidate for renegotiation or route rebalancing
+        toward Carrier C.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="contact">
+  <div class="wrap">
+    <h2 class="sec-title">Contact</h2>
+    <p class="sec-desc">Get in touch.</p>
+    <p style="color:var(--muted);">[Add email address] · [Add LinkedIn URL]</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-name">Vignesh</span>
+    <span>Supply Chain &amp; Data Analytics Professional</span>
+    <span class="micro">Source data and workbooks: <a href="https://github.com/lvignesh1961/lvignesh_Portfolio">github.com/lvignesh1961/lvignesh_Portfolio</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
