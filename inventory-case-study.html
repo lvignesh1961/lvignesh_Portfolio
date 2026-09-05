@@ -18,7 +18,7 @@
   --header-bg: rgba(255,255,255,.9);
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
-  --container-max: 860px; --radius-md: 12px; --radius-full: 999px; --space-section: 72px;
+  --container-max: 1040px; --radius-md: 12px; --radius-full: 999px; --space-section: 72px;
 }
 
 html[data-theme="dark"] {
@@ -32,6 +32,8 @@ body { background: var(--color-bg); color: var(--color-text); font-family: var(-
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
 section { padding: var(--space-section) 0; }
 h1, h2 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; }
+h2 { scroll-margin-top: 90px; }
+html { scroll-behavior: smooth; }
 h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; }
 h2 { font-size: clamp(22px, 3vw, 27px); margin-top: 8px; }
 p { color: var(--color-text); margin: 0 0 16px; }
@@ -49,6 +51,20 @@ a:hover { color: var(--color-accent-hover); }
 .diagram { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px 22px; font-family: var(--font-mono); font-size: 12.5px; white-space: pre; overflow-x: auto; margin: 20px 0; line-height: 1.6; }
 code { font-family: var(--font-mono); font-size: .9em; background: var(--color-surface); border: 1px solid var(--color-border); padding: 1px 6px; border-radius: 5px; }
 .case-hero { border-bottom: 1px solid var(--color-border); padding-bottom: 48px; }
+
+.case-body-layout { display: grid; grid-template-columns: 200px minmax(0,1fr); gap: 48px; align-items: start; }
+.case-content { min-width: 0; }
+.case-toc {
+  position: sticky; top: 84px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.case-toc a {
+  color: var(--color-text-muted); font-size: 13.5px; font-weight: 500;
+  padding: 7px 10px; border-radius: 8px; border-left: 2px solid transparent;
+  line-height: 1.35;
+}
+.case-toc a:hover { color: var(--color-accent); background: var(--color-surface); }
+.case-toc a.is-active { color: var(--color-accent); font-weight: 600; border-left-color: var(--color-accent); background: var(--color-accent-soft); }
 .nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; row-gap: 10px; padding: 20px 0; }
 .nav a { color: var(--color-text); margin-left: 24px; font-weight: 500; }
 .nav .brand { font-weight: 700; color: var(--color-text); }
@@ -79,6 +95,12 @@ footer p { color: var(--color-text-muted); font-size: 13px; margin: 0; }
 footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 1140px; }
 @media (max-width: 1024px) {
   :root { --space-section: 60px; }
+  .case-body-layout { grid-template-columns: 170px minmax(0,1fr); gap: 32px; }
+}
+
+@media (max-width: 900px) {
+  .case-body-layout { display: block; }
+  .case-toc { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -177,9 +199,19 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
 </section>
 
 <section>
-  <div class="container">
+  <div class="container case-body-layout">
+    <nav class="case-toc" aria-label="Sections on this page">
+      <a href="#why">Why I built this</a>
+      <a href="#what-it-is">What this is</a>
+      <a href="#architecture">The architecture</a>
+      <a href="#hard-parts">The hard parts</a>
+      <a href="#numbers">What the numbers say</a>
+      <a href="#scale">At production scale</a>
+      <a href="#stack">Stack</a>
+    </nav>
+    <div class="case-content">
 
-    <h2 data-reveal>Why I built this</h2>
+    <h2 id="why" data-reveal>Why I built this</h2>
     <p>Two questions dominate inventory management and they're in tension with each other: what needs to
     be reordered right now, and what's already sitting on the shelf that shouldn't be. Most templates I
     found online answer one or the other. This workbook answers both, on two dedicated sheets that
@@ -191,7 +223,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     the warehouse, how long it's been there, and which items deserve tight control versus which can be
     reviewed quarterly.</p>
 
-    <h2 data-reveal>What this is — and what it isn't</h2>
+    <h2 id="what-it-is" data-reveal>What this is — and what it isn't</h2>
     <p>This isn't a demand-forecasting model — it doesn't fit a distribution or run a Monte Carlo
     simulation. It's a <strong>rules engine built entirely from Excel's built-in functions</strong>:
     <code>SUMIFS</code> for every filtered rollup, <code>LARGE</code> + <code>INDEX</code>/<code>MATCH</code> for the
@@ -199,7 +231,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     structuring those rules so a warehouse manager gets a defensible, auditable answer — not a black
     box — every time they open the file.</p>
 
-    <h2 data-reveal>The architecture</h2>
+    <h2 id="architecture" data-reveal>The architecture</h2>
     <p>Three shared criteria cells (<code>CritCat</code>, <code>CritWH</code>, <code>CritSup</code>) sit behind
     both dashboards. Every dashboard formula references those three cells instead of a hard-coded
     value, so setting Category, Warehouse, or Supplier once re-filters everything on the sheet:</p>
@@ -222,7 +254,7 @@ Order Management dashboard          Inventory dashboard
     share crosses 80% (Class A) and 95% (Class B), with everything else falling to Class C — the
     standard Pareto rule for deciding where inventory-control effort actually pays off.</p>
 
-    <h2 data-reveal>The parts that were actually hard</h2>
+    <h2 id="hard-parts" data-reveal>The parts that were actually hard</h2>
     <p><strong>A ranking that survives three filters at once.</strong> The top-20-most-urgent list needed
     to keep working whether Category, Warehouse, and Supplier were all set to "All" or narrowed to one
     of each. <code>LARGE</code> against a <code>SUMIFS</code>-scoped array, paired with
@@ -244,7 +276,7 @@ Order Management dashboard          Inventory dashboard
     other is too much sitting unsold past 180 days — and the dashboard keeps them as separate KPIs
     specifically so neither gets glossed over.</p>
 
-    <h2 data-reveal>What the numbers say</h2>
+    <h2 id="numbers" data-reveal>What the numbers say</h2>
     <p>Across 1,000 SKUs, <span class="highlight">261</span> currently sit below their reorder point, worth
     <span class="highlight">$1,763,716</span> to bring back to target. Supplier on-time delivery averages
     <span class="highlight">84.7%</span> with a <span class="highlight">4.03</span>-day average lead time, and only
@@ -253,7 +285,7 @@ Order Management dashboard          Inventory dashboard
     <span class="highlight">53.5%</span> of that value, which is exactly the population that should get the tightest
     cycle-count and safety-stock discipline.</p>
 
-    <h2 data-reveal>What I'd do differently at production scale</h2>
+    <h2 id="scale" data-reveal>What I'd do differently at production scale</h2>
     <p>A thousand SKUs across five warehouses is still small enough for <code>SUMIFS</code> to recalculate
     instantly. Past tens of thousands of SKUs or dozens of warehouses, the honest version moves this
     logic into Power Query or a proper database view, both for calculation speed and because the
@@ -263,13 +295,14 @@ Order Management dashboard          Inventory dashboard
     rather than applying one cutoff company-wide, since a high-turnover category like Beverages and a
     slow one like Household don't behave the same way.</p>
 
-    <h2 data-reveal>Stack</h2>
+    <h2 id="stack" data-reveal>Stack</h2>
     <p>Microsoft Excel — <code>SUMIFS</code>, <code>INDEX</code>/<code>MATCH</code>, <code>LARGE</code>, native
     Pareto/combo charts, data-validation dropdown filters.</p>
 
     <div class="btn-row">
       <a class="btn btn-primary" href="inventory-dashboard-demo.html">Try the interactive tour</a>
       <a class="btn btn-outline" href="Inventory_Management_Dashboard_FINAL.xlsx">Download the workbook</a>
+    </div>
     </div>
   </div>
 </section>
@@ -368,6 +401,34 @@ Order Management dashboard          Inventory dashboard
       }
     });
   });
+})();
+</script>
+
+<script>
+(function () {
+  var toc = document.querySelector('.case-toc');
+  if (!toc) return;
+  var links = [].slice.call(toc.querySelectorAll('a'));
+  var sections = links.map(function (a) {
+    return document.getElementById(a.getAttribute('href').slice(1));
+  }).filter(Boolean);
+  if (!sections.length) return;
+
+  function setActive(id) {
+    links.forEach(function (a) {
+      a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  if (window.IntersectionObserver) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) setActive(e.target.id);
+      });
+    }, { rootMargin: '-100px 0px -70% 0px', threshold: 0 });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+  setActive(sections[0].id);
 })();
 </script>
 </body>

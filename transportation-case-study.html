@@ -18,7 +18,7 @@
   --header-bg: rgba(255,255,255,.9);
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
-  --container-max: 860px; --radius-md: 12px; --radius-full: 999px; --space-section: 72px;
+  --container-max: 1040px; --radius-md: 12px; --radius-full: 999px; --space-section: 72px;
 }
 
 html[data-theme="dark"] {
@@ -32,6 +32,8 @@ body { background: var(--color-bg); color: var(--color-text); font-family: var(-
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
 section { padding: var(--space-section) 0; }
 h1, h2 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; }
+h2 { scroll-margin-top: 90px; }
+html { scroll-behavior: smooth; }
 h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; }
 h2 { font-size: clamp(22px, 3vw, 27px); margin-top: 8px; }
 p { color: var(--color-text); margin: 0 0 16px; }
@@ -49,6 +51,20 @@ a:hover { color: var(--color-accent-hover); }
 .diagram { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px 22px; font-family: var(--font-mono); font-size: 12.5px; white-space: pre; overflow-x: auto; margin: 20px 0; line-height: 1.6; }
 code { font-family: var(--font-mono); font-size: .9em; background: var(--color-surface); border: 1px solid var(--color-border); padding: 1px 6px; border-radius: 5px; }
 .case-hero { border-bottom: 1px solid var(--color-border); padding-bottom: 48px; }
+
+.case-body-layout { display: grid; grid-template-columns: 200px minmax(0,1fr); gap: 48px; align-items: start; }
+.case-content { min-width: 0; }
+.case-toc {
+  position: sticky; top: 84px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.case-toc a {
+  color: var(--color-text-muted); font-size: 13.5px; font-weight: 500;
+  padding: 7px 10px; border-radius: 8px; border-left: 2px solid transparent;
+  line-height: 1.35;
+}
+.case-toc a:hover { color: var(--color-accent); background: var(--color-surface); }
+.case-toc a.is-active { color: var(--color-accent); font-weight: 600; border-left-color: var(--color-accent); background: var(--color-accent-soft); }
 .nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; row-gap: 10px; padding: 20px 0; }
 .nav a { color: var(--color-text); margin-left: 24px; font-weight: 500; }
 .nav .brand { font-weight: 700; color: var(--color-text); }
@@ -79,6 +95,12 @@ footer p { color: var(--color-text-muted); font-size: 13px; margin: 0; }
 footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 1140px; }
 @media (max-width: 1024px) {
   :root { --space-section: 60px; }
+  .case-body-layout { grid-template-columns: 170px minmax(0,1fr); gap: 32px; }
+}
+
+@media (max-width: 900px) {
+  .case-body-layout { display: block; }
+  .case-toc { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -175,9 +197,19 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
 </section>
 
 <section>
-  <div class="container">
+  <div class="container case-body-layout">
+    <nav class="case-toc" aria-label="Sections on this page">
+      <a href="#why">Why I built this</a>
+      <a href="#what-it-is">What this is</a>
+      <a href="#architecture">The architecture</a>
+      <a href="#hard-parts">The hard parts</a>
+      <a href="#numbers">What the numbers say</a>
+      <a href="#scale">At production scale</a>
+      <a href="#stack">Stack</a>
+    </nav>
+    <div class="case-content">
 
-    <h2 data-reveal>Why I built this</h2>
+    <h2 id="why" data-reveal>Why I built this</h2>
     <p>I built this against a 100-shipment e-commerce beauty export with a specific tension in mind:
     shipping cost and transportation cost aren't the same thing, and a dashboard that quietly merges
     them makes it impossible to tell whether a carrier is expensive or a route is expensive. The brief
@@ -187,14 +219,14 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     worth using once cost and speed are both on the table, and which transport mode or route is
     quietly the cheapest option available.</p>
 
-    <h2 data-reveal>What this is — and what it isn't</h2>
+    <h2 id="what-it-is" data-reveal>What this is — and what it isn't</h2>
     <p>There's no optimization solver here — it doesn't recommend a carrier switch or re-route
     shipments. It's <strong>descriptive analytics done right</strong>: <code>SUMIF</code> and
     <code>AVERAGEIF</code> against a single source sheet, structured so that carrier, mode, and route can
     each be compared on the same footing — shipments, cost, speed, and cost as a share of revenue —
     rather than whichever metric happened to be easiest to pull.</p>
 
-    <h2 data-reveal>The architecture</h2>
+    <h2 id="architecture" data-reveal>The architecture</h2>
     <p>Everything on the dashboard reads from one 100-row shipment sheet
     (<code>supply_chain_data_TR</code>), with each dashboard section aggregating a different column of it:</p>
     <div class="diagram">supply_chain_data_TR  (100 shipments: product type, carrier, shipping cost,
@@ -209,7 +241,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     "total shipping cost" KPI at the very top of the dashboard — every section below that KPI keeps
     them apart.</p>
 
-    <h2 data-reveal>The parts that were actually hard</h2>
+    <h2 id="hard-parts" data-reveal>The parts that were actually hard</h2>
     <p><strong>Not double-counting two different costs that both sound like "shipping."</strong> Early
     drafts of this dashboard summed the per-order carrier cost and the per-shipment transport cost
     into every downstream table, which inflated the mode/route breakdown by whatever the carrier
@@ -226,7 +258,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     same <code>SUMIF</code>/<code>AVERAGEIF</code> pattern, avoided the temptation to force a route-within-mode
     tree that the data doesn't actually support.</p>
 
-    <h2 data-reveal>What the numbers say</h2>
+    <h2 id="numbers" data-reveal>What the numbers say</h2>
     <p>Across 100 shipments the business generated <span class="highlight">$577,605</span> in revenue on
     <span class="highlight">46,099</span> units, at a combined shipping and transport cost of
     <span class="highlight">$53,479</span> — <span class="highlight">9.3%</span> of revenue. Skincare drove the largest share of
@@ -236,7 +268,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     for Air, and <strong>Carrier B</strong> offers the best combination of volume, speed, and cost as a
     share of revenue among the three carriers.</p>
 
-    <h2 data-reveal>What I'd do differently at production scale</h2>
+    <h2 id="scale" data-reveal>What I'd do differently at production scale</h2>
     <p>A hundred shipments is small enough that <code>SUMIF</code>/<code>AVERAGEIF</code> recalculates
     instantly and a human can sanity-check every row. At real freight volume — thousands of shipments
     a month across dozens of routes — this becomes a job for a proper fact table and pivot-based or
@@ -246,13 +278,14 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     benefit from a true hierarchy once volume justifies it — which routes each mode is actually used
     on — rather than two independent tables.</p>
 
-    <h2 data-reveal>Stack</h2>
+    <h2 id="stack" data-reveal>Stack</h2>
     <p>Microsoft Excel — <code>SUMIF</code>, <code>AVERAGEIF</code>, native combo charts, data-driven
     KPI cells.</p>
 
     <div class="btn-row">
       <a class="btn btn-primary" href="transportation-dashboard-demo.html">Try the interactive tour</a>
       <a class="btn btn-outline" href="Transportation_Analysis_Dashboard_Refined_FINAL.xlsx">Download the workbook</a>
+    </div>
     </div>
   </div>
 </section>
@@ -351,6 +384,34 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
       }
     });
   });
+})();
+</script>
+
+<script>
+(function () {
+  var toc = document.querySelector('.case-toc');
+  if (!toc) return;
+  var links = [].slice.call(toc.querySelectorAll('a'));
+  var sections = links.map(function (a) {
+    return document.getElementById(a.getAttribute('href').slice(1));
+  }).filter(Boolean);
+  if (!sections.length) return;
+
+  function setActive(id) {
+    links.forEach(function (a) {
+      a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  if (window.IntersectionObserver) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) setActive(e.target.id);
+      });
+    }, { rootMargin: '-100px 0px -70% 0px', threshold: 0 });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+  setActive(sections[0].id);
 })();
 </script>
 </body>
