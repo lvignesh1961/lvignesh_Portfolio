@@ -3,86 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vignesh Portfolio</title>
+<title>Vignesh | Supply Chain & Data Analytics</title>
 <style>
   :root{
-    --ink:#171a26; --ink-soft:#333846; --muted:#6b7385;
-    --line:#e3e6ee; --bg:#ffffff; --bg-tint:#f7f8fc;
-    --accent:#1f4e79;
-    --code-bg:#eef1f6; --code-ink:#1f4e79;
+    --ink:#171a26; --ink-soft:#4a5163; --muted:#6b7385;
+    --line:#e8eaf2; --bg:#ffffff; --bg-tint:#f7f8fc;
+    --accent:#1f4e79; --accent-2:#2f6fa8;
+    --dark:#12141f;
     --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-    --sans: 'Segoe UI', -apple-system, Helvetica, Arial, sans-serif;
+    --display: 'Segoe UI', 'Inter', -apple-system, sans-serif;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0; background:var(--bg); color:var(--ink-soft);
-    font-family:var(--sans); line-height:1.7; -webkit-font-smoothing:antialiased;
+    font-family:var(--display); line-height:1.65; -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 28px;}
+  a{color:var(--accent);}
 
   header.site-header{
     position:sticky; top:0; z-index:50;
-    background:rgba(255,255,255,.92); backdrop-filter:blur(10px);
+    background:rgba(255,255,255,.9); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   header.site-header .wrap{
     display:flex; align-items:center; justify-content:space-between;
-    padding-top:14px; padding-bottom:14px; gap:20px; max-width:900px;
+    padding-top:14px; padding-bottom:14px; gap:20px;
   }
-  .brand{font-weight:700; color:var(--ink); font-size:1.05rem; text-decoration:none;}
-  nav a{color:var(--muted); text-decoration:none; font-size:.88rem; font-weight:600; margin-left:18px;}
+  .brand{font-weight:700; color:var(--ink); font-size:1.1rem; text-decoration:none;}
+  .brand span{color:var(--accent);}
+  nav a{
+    color:var(--ink-soft); text-decoration:none; font-size:.92rem; font-weight:600;
+    margin-left:22px;
+  }
   nav a:hover{color:var(--accent);}
 
-  article{padding:44px 0 80px;}
-
-  h1{font-size:2rem; color:var(--ink); letter-spacing:-.02em; margin:0 0 6px;}
-  .intro{color:var(--muted); font-size:.96rem; margin:0 0 40px; padding-bottom:28px; border-bottom:1px solid var(--line);}
-  .intro a{color:var(--accent);}
-
-  h1.section{
-    font-size:1.55rem; color:var(--ink); letter-spacing:-.015em;
-    margin:56px 0 14px; padding-top:8px;
+  .hero{background:linear-gradient(180deg,var(--bg-tint),var(--bg)); border-bottom:1px solid var(--line);}
+  .hero .wrap{padding:64px 28px 56px;}
+  .kicker{
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:14px;
   }
-  h1.section:first-of-type{margin-top:0;}
-  h2{font-size:1.15rem; color:var(--ink); margin:28px 0 10px; letter-spacing:-.01em;}
+  h1.hero-title{font-size:2.6rem; color:var(--ink); margin:0 0 10px; letter-spacing:-.02em;}
+  .hero-sub{font-size:1.2rem; color:var(--accent); font-weight:600; margin:0 0 18px;}
+  .hero-lead{max-width:65ch; font-size:1.05rem; margin:0;}
 
-  p{margin:0 0 14px; max-width:74ch;}
-  ul, ol{margin:0 0 16px; padding-left:22px;}
-  li{margin-bottom:8px; max-width:72ch;}
-  li:last-child{margin-bottom:0;}
-  strong{color:var(--ink); font-weight:700;}
-  em{color:var(--ink-soft);}
+  section{padding:56px 0;}
+  section.tint{background:var(--bg-tint); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  h2.sec-title{font-size:1.7rem; color:var(--ink); margin:0 0 8px; letter-spacing:-.02em;}
+  .sec-desc{color:var(--muted); max-width:70ch; margin:0 0 30px;}
 
-  code{
-    font-family:var(--mono); font-size:.84em; color:var(--code-ink);
-    background:var(--code-bg); padding:1px 6px; border-radius:5px;
-    word-break:break-word;
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-size:.82rem; font-weight:600; color:var(--accent);
+    background:#eaf1f7; border:1px solid #d8e6f0; padding:6px 12px; border-radius:999px;
   }
 
-  .field-list{
-    font-family:var(--mono); font-size:.82rem; line-height:1.8; color:var(--code-ink);
-    background:var(--code-bg); border:1px solid #dde3ee; border-radius:8px;
-    padding:14px 16px; margin:0 0 16px; max-width:100%; overflow-x:auto;
-  }
+  .exp-item{border-left:3px solid var(--accent); padding:2px 0 2px 20px; margin-bottom:26px;}
+  .exp-item:last-child{margin-bottom:0;}
+  .exp-role{font-weight:700; color:var(--ink); font-size:1.05rem;}
+  .exp-org{font-size:.92rem; color:var(--muted); margin:2px 0 10px;}
+  .exp-item p{margin:0 0 6px; font-size:.96rem;}
+  .exp-item p:last-child{margin-bottom:0;}
 
-  .shots{display:flex; flex-direction:column; gap:16px; margin:20px 0;}
+  .project{margin-bottom:64px;}
+  .project:last-child{margin-bottom:0;}
+  .project h3{font-size:1.5rem; color:var(--ink); margin:0 0 10px; letter-spacing:-.015em;}
+  .project .summary{max-width:78ch; margin:0 0 18px;}
+  .metrics{
+    display:flex; flex-wrap:wrap; gap:10px 22px;
+    font-family:var(--mono); font-size:.8rem; color:var(--accent);
+    background:#eef3f8; border:1px solid #dbe6ee; border-radius:10px;
+    padding:14px 18px; margin-bottom:22px;
+  }
+  .shots{display:flex; flex-direction:column; gap:18px; margin-bottom:18px;}
   .shots img{
-    width:100%; display:block; border-radius:8px; border:1px solid var(--line);
-    box-shadow:0 8px 22px -12px rgba(23,26,38,.25);
+    width:100%; display:block; border-radius:10px; border:1px solid var(--line);
+    box-shadow:0 8px 24px -12px rgba(23,26,38,.25);
   }
-  .shot-caption{font-size:.8rem; color:var(--muted); margin:-8px 0 4px; font-style:italic;}
+  .caption{
+    font-size:.92rem; color:var(--ink-soft); background:var(--bg-tint);
+    border-left:3px solid var(--accent); padding:12px 16px; border-radius:0 8px 8px 0;
+  }
+  .caption b{color:var(--ink);}
 
-  footer{background:#12141f; color:#9aa1b4; padding:36px 0; margin-top:20px;}
+  footer{background:var(--dark); color:#9aa1b4; padding:44px 0;}
   footer .wrap{display:flex; flex-direction:column; gap:6px;}
-  footer .foot-name{color:#fff; font-weight:700;}
+  footer .foot-name{color:#fff; font-weight:700; font-size:1.05rem;}
   footer a{color:#c7cde0;}
-  footer .micro{font-family:var(--mono); font-size:.78rem; color:#7c8296; margin-top:12px;}
+  footer .micro{font-family:var(--mono); font-size:.78rem; color:#7c8296; margin-top:14px;}
 
   @media (max-width:640px){
-    h1{font-size:1.6rem;}
-    h1.section{font-size:1.3rem;}
-    nav a{margin-left:12px; font-size:.82rem;}
+    h1.hero-title{font-size:2rem;}
+    nav a{margin-left:14px; font-size:.85rem;}
   }
 </style>
 </head>
@@ -90,198 +104,170 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top">Vignesh Portfolio</a>
+    <a class="brand" href="#top">Vignesh <span>| Supply Chain &amp; Data Analytics</span></a>
     <nav>
-      <a href="#about">About</a>
-      <a href="#project-1">Project 1</a>
-      <a href="#project-2">Project 2</a>
-      <a href="#project-3">Project 3</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<article class="wrap" id="top">
-
-  <h1>Vignesh Portfolio</h1>
-  <p class="intro">
-    Personal info sourced from Resume_Vignesh; project details sourced directly from the
-    workbook contents of <code>Inventory_Management_Dashboard_FINAL.xlsx</code>,
-    <code>Retail Sales &amp; Forecast Dashboard_Final.xlsx</code>, and
-    <code>Transportation_Analysis_Dashboard_Refined_FINAL.xlsx</code> — all available in the
-    <a href="https://github.com/lvignesh1961/lvignesh_Portfolio">GitHub repo</a>.
-  </p>
-
-  <h1 class="section" id="about">About</h1>
-  <p>
-    <strong>Vignesh</strong> — Supply Chain Analytics professional with 6+ years of experience
-    in demand forecasting, inventory planning, and SQL/Python-driven reporting for large-scale
-    manufacturing and supply chain teams. Currently expanding into Power BI and Microsoft Fabric.
-  </p>
-  <p>
-    <strong>Skills &amp; technical toolset:</strong> Power BI, SAP, Power Query, Azure,
-    Microsoft Suite, MS Excel, Google Suite, Google Cloud, Jira, Confluence, Tableau, AWS
-    Redshift, Oracle NetSuite, Snowflake, Python, Pandas, NumPy, PyTorch, SQL, Linux
-    Environments, Plotly, VBA.
-  </p>
-  <p><strong>Career-related experience:</strong></p>
-  <ul>
-    <li><strong>Global Supply Chain Analyst</strong> — Motorola Solutions, Vancouver, BC (Sept 2024 – Present). Partners with cross-functional stakeholders to translate planning requirements into SQL (AWS Redshift) and Python-based Tableau dashboards, improving inventory/financial decision accuracy by 25%; builds SQL-based ETL pipelines and KPI/OKR dashboards monitoring lifecycle risk across 80,000+ components; develops S&amp;OP/demand-planning analytics frameworks (Last Time Buy, EOL exposure, ramp curves); leads cross-functional analytics initiatives via Jira/Confluence improving delivery timelines by 20%; documents supply-risk and scenario modeling supporting $5M+ quarterly revenue commitments.</li>
-    <li><strong>Supply Planning Analyst</strong> — Motorola Solutions, Vancouver, BC (Jan 2024 – Sept 2024). Built Excel/VBA planning tools improving inventory accuracy by 15%; automated SAP purchase-order/delivery workflows cutting procurement cycle time by 50%; built supply-demand risk models and dashboards supporting $1M in quarterly revenue commitments; executed MRP logic and SAP work orders for aggregate/mix planning.</li>
-    <li><strong>Supply Chain Planner</strong> — CIMtech Mfg. Inc., Surrey, BC (Aug 2021 – Jan 2024). Developed cost-effective production plans yielding 25% savings in setup/tooling costs; improved supplier OTIF from 60% to 68%; built ERP-based dashboards for production/planning KPIs; ran capacity planning using demand/forecast, takt time, and OEE; served as analytics liaison between operations and executive leadership.</li>
-  </ul>
-
-  <h1 class="section" id="project-1">Project 1: Inventory Management Dashboard</h1>
-  <p><code>Inventory_Management_Dashboard_FINAL.xlsx</code> — an Excel-based inventory analytics workbook for an e-grocery operation, built for SKU-level stock health, reorder planning, and ABC-class inventory control.</p>
-
-  <h2>Workbook structure</h2>
-  <ul>
-    <li><strong>Order Management Dashboard</strong> — reorder-focused view.</li>
-    <li><strong>Inventory Dashboard</strong> — overall stock-health view.</li>
-    <li><strong>Inventory Data E-Grocery</strong> — the underlying SKU-level dataset (raw source rows).</li>
-    <li><strong>Sheet1</strong> — supporting sheet.</li>
-    <li><strong>Lists</strong> <em>(hidden)</em> — lookup/reference lists (e.g. dropdown source values).</li>
-  </ul>
-
-  <h2>Source data (per-SKU fields)</h2>
-  <div class="field-list">SKU_ID, SKU_Name, Category, ABC_Class, Supplier_ID, Supplier_Name, Warehouse_ID, Warehouse_Location, Batch_ID, Received_Date, Last_Purchase_Date, Expiry_Date, Stock_Age_Days, Quantity_On_Hand, Quantity_Reserved, Quantity_Committed, Damaged_Qty, Returns_Qty, Avg_Daily_Sales, Forecast_Next_30d, Days_of_Inventory, Reorder_Point, Safety_Stock, Lead_Time_Days, Unit_Cost_USD, Last_Purchase_Price_USD, Total_Inventory_Value_USD, SKU_Churn_Rate, Order_Frequency_per_month, Supplier_OnTime_Pct, FIFO_FEFO, Inventory_Status, Count_Variance, Audit_Date, Audit_Variance_Pct, Demand_Forecast_Accuracy_Pct, Notes — plus helper columns: ValueRankHelper, NeedsReorder, SuggestedReorderQty, SuggestedReorderValue, ReorderUrgencyHelper</div>
-  <p>Categories span Pantry, Fresh Produce, Dairy, Bakery, Meat, Seafood, Frozen, Beverages, Household, and Personal products, sourced from multiple suppliers and warehouses (Toronto, Vancouver, etc.).</p>
-
-  <h2>KPIs &amp; sections</h2>
-  <ul>
-    <li><strong>Headline metrics</strong>: Total SKUs, Total Qty On Hand, Total Inventory Value, Avg Days of Inventory, Avg Supplier On-Time %, SKUs Needing Reorder.</li>
-    <li><strong>Product Summary by Category</strong> — rollup table.</li>
-    <li><strong>Inventory Status Breakdown</strong> — SKU counts by status (e.g. <em>Healthy</em>, <em>High return rate</em>).</li>
-    <li><strong>ABC Analysis – Class Summary (Pareto 80/20 Rule)</strong> — Class A = highest-value ~80% of spend (tightest control, weekly cycle counts, statistical safety stock); Class B = next ~15% (monthly review); Class C = remaining ~5% (quarterly review, simple min-max).</li>
-    <li><strong>Reorder Point Summary – Top 20 Most Urgent SKUs (Company-wide)</strong> — ranked by shortfall vs. reorder point, where <code>Suggested Qty = MAX(Forecast_Next_30d − Qty On Hand + Safety Stock, 0)</code> — the quantity needed to cover the next 30 days of forecast demand plus safety buffer.</li>
-    <li><strong>Stock Aging &amp; Turnover (Slow-Moving / Dead Stock)</strong> — inventory value broken out by stock-age bucket.</li>
-  </ul>
-
-  <div class="shots">
-    <img src="dashboard_screenshots/Order_Management_Dashboard_1.png" alt="Order Management Dashboard">
-    <p class="shot-caption">Order Management Dashboard — reorder KPIs, Top 20 most urgent SKUs, reorder recommendation by category.</p>
-    <img src="dashboard_screenshots/Inventory_Management_Dashboard_1.png" alt="Inventory Dashboard">
-    <p class="shot-caption">Inventory Dashboard — inventory KPIs, product summary by category, ABC class breakdown.</p>
-    <img src="dashboard_screenshots/Order_Management_Dashboard_2.png" alt="ABC Pareto detail">
-    <p class="shot-caption">ABC Pareto detail and Top 20 SKUs by value.</p>
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">Portfolio</div>
+    <h1 class="hero-title">Vignesh</h1>
+    <p class="hero-sub">Supply Chain &amp; Data Analytics Professional</p>
+    <p class="hero-lead">
+      Supply Chain Analytics professional specializing in demand forecasting, inventory
+      planning, and cross-functional data-driven decisions — skilled in SQL, Python, Power BI,
+      and Microsoft Fabric.
+    </p>
   </div>
+</section>
 
-  <h2>Charts (6 total, all bar charts)</h2>
-  <ol>
-    <li><strong>Reorder Recommendation by Category</strong> — Suggested Reorder Qty.</li>
-    <li><strong>Category Performance: Forecast Accuracy vs. Portfolio Average</strong> — Avg Forecast Accuracy vs. portfolio-average reference line.</li>
-    <li><strong>Supplier On-Time % vs. Lead Time Variability</strong> — Avg On-Time % against Lead Time Std Dev (days).</li>
-    <li><strong>Inventory Value by Category</strong> — Value (USD).</li>
-    <li><strong>Top 20 SKUs — Value &amp; Cumulative % (Pareto)</strong> — Value (USD) bars with a cumulative-% overlay, the classic Pareto chart.</li>
-    <li><strong>Inventory Value by Stock Age Bucket</strong> — Value (USD).</li>
-  </ol>
-
-  <h1 class="section" id="project-2">Project 2: Retail Sales &amp; Forecast Dashboard</h1>
-  <p><code>Retail Sales &amp; Forecast Dashboard_Final.xlsx</code> — a two-part retail analytics workbook: a historical sales dashboard and a forward-looking demand-forecast/segment-prioritization dashboard, through FY2030.</p>
-
-  <h2>Workbook structure</h2>
-  <ul>
-    <li><strong>Sales dashboard</strong> — historical sales performance.</li>
-    <li><strong>Forecast Dashboard</strong> — segment-level forecast and order-priority recommendations.</li>
-    <li><strong>Retails Order Full Dataset</strong> — raw order-level dataset.</li>
-    <li><strong>Calc_Base, Calc_Category, Calc_Segment, Calc_Region, Calc_State, Calc_Customers, Calc_Orders, Calc_Top10, Calc_Recommend</strong> <em>(all hidden)</em> — staging/calculation sheets feeding the two dashboards.</li>
-    <li><strong>Macro Guide</strong> — documentation sheet for any workbook macros.</li>
-  </ul>
-
-  <h2>Source data (order-level fields)</h2>
-  <div class="field-list">Row ID, Order Date, Ship Date, Ship Mode, Customer ID, Customer Name, Segment, Country, City, State, Postal Code, Region, Retail Sales People, Product ID, Category, Sub-Category, Product Name — plus revenue/quantity metrics</div>
-
-  <h2>Sales dashboard — KPIs &amp; sections</h2>
-  <ul>
-    <li><strong>Headline metrics</strong>: Total Revenue, Total Orders, Total Units Sold, Avg Order Value.</li>
-    <li><strong>1. Products Sold by Product Type (Category)</strong> — Category, Quantity Sold, Revenue, Line Items, % of Revenue.</li>
-    <li><strong>2. Sales Segment Summary</strong> — Segment, Distinct Orders, Avg Order Value.</li>
-    <li><strong>3. Top 10 Customers by Sales Revenue</strong> — ranked list.</li>
-    <li><strong>4. Top 10 Orders by Sales Revenue</strong> — Order ID, Segment/Region.</li>
-    <li><strong>5. USA Sales Map — Orders &amp; Revenue by Region/State</strong>.</li>
-  </ul>
-
-  <div class="shots">
-    <img src="dashboard_screenshots/Sales_Dashboard_1.png" alt="Retail Sales Dashboard">
-    <p class="shot-caption">Retail Sales Dashboard — revenue KPIs, category breakdown, segment summary, top 10 customers/orders.</p>
-    <img src="dashboard_screenshots/Sales_Dashboard_2.png" alt="USA Sales Map">
-    <p class="shot-caption">USA Sales Map — orders and revenue by region/state.</p>
+<section id="skills">
+  <div class="wrap">
+    <h2 class="sec-title">Skills &amp; Technical Toolset</h2>
+    <div class="chips">
+      <span class="chip">Power BI</span><span class="chip">SAP</span><span class="chip">Power Query</span>
+      <span class="chip">Azure</span><span class="chip">Microsoft Suite</span><span class="chip">MS Excel</span>
+      <span class="chip">Google Suite</span><span class="chip">Google Cloud</span><span class="chip">Jira</span>
+      <span class="chip">Confluence</span><span class="chip">Tableau</span><span class="chip">AWS Redshift</span>
+      <span class="chip">Oracle NetSuite</span><span class="chip">Snowflake</span><span class="chip">Python</span>
+      <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">PyTorch</span>
+      <span class="chip">SQL</span><span class="chip">Linux</span><span class="chip">Plotly</span><span class="chip">VBA</span>
+    </div>
   </div>
+</section>
 
-  <h2>Forecast dashboard — KPIs &amp; sections</h2>
-  <ul>
-    <li><strong>Headline metrics</strong>: FY2017 Actual Total Sales, FY2030 Forecast Total Sales, Projected Growth FY17–FY30, Top Growth Segment.</li>
-    <li><strong>1. Sales Forecast by Segment — Actual (FY2014–17) vs. Forecast (FY2018–30)</strong> for Consumer, Corporate, and Home Office segments.</li>
-    <li><strong>2. Order Recommendation — Which Segment to Prioritize Through FY2030</strong> — FY2017 Actual, FY2030 Forecast, Growth FY17–FY30, CAGR FY14–FY17, Recommendation. Recommendation logic: a segment is flagged <em>Increase Orders</em> when its FY2014–17 CAGR is at/above the average CAGR across all three segments (compounding faster than peers, steepest projected FY2030 revenue); <em>Reduce Orders</em> flags any segment with negative historical CAGR; all others are <em>Maintain Orders</em> — with a note to re-validate against actual demand signals before committing purchase orders that far out.</li>
-    <li><strong>3. Over-Performing vs. Under-Performing Segments</strong> — Avg CAGR (all segments), vs. Average, Performance Flag.</li>
-  </ul>
+<section class="tint" id="experience">
+  <div class="wrap">
+    <h2 class="sec-title">Experience</h2>
 
-  <div class="shots">
-    <img src="dashboard_screenshots/Forecast_Dashboard_1.png" alt="Forecast Dashboard KPIs">
-    <p class="shot-caption">FY2030 forecast KPIs, actual-vs-forecast table, order recommendation by segment.</p>
-    <img src="dashboard_screenshots/Forecast_Dashboard_2.png" alt="Forecast trend and performance">
-    <p class="shot-caption">Actual vs. forecast trend line and over/under-performing segment analysis.</p>
+    <div class="exp-item">
+      <div class="exp-role">Global Supply Chain Analyst</div>
+      <div class="exp-org">Motorola Solutions, Vancouver, BC — September 2024 – Present</div>
+      <p>Built SQL/Python-driven dashboards and portfolio analytics frameworks (Redshift,
+      Tableau) to monitor lifecycle risk across multi-level component and product
+      dependencies, improving decision accuracy by 25%.</p>
+      <p>Led cross-functional analytics initiatives supporting $5M+ quarterly revenue
+      commitments and 20% faster project delivery.</p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-role">Supply Planning Analyst</div>
+      <div class="exp-org">Motorola Solutions, Vancouver, BC — January 2024 – September 2024</div>
+      <p>Led Excel-based planning tools (VBA/Macros) and SAP automation to optimize inventory
+      accuracy (+15%) and procurement cycle time (-50%).</p>
+      <p>Built supply-demand risk models supporting $1M in quarterly revenue, and performed
+      MRP/SAP work order planning across capacity and lead-time constraints.</p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-role">Supply Chain Planner</div>
+      <div class="exp-org">CIMtech Mfg. Inc., Surrey, BC — August 2021 – January 2024</div>
+      <p>Developed cost-effective production plans yielding 25% savings in setup/tooling
+      costs, and ERP-based dashboards to improve production visibility.</p>
+      <p>Improved supplier OTIF from 60% to 68% through capacity planning (demand/forecast,
+      takt time, OEE) as analytics liaison to executive leadership.</p>
+    </div>
   </div>
+</section>
 
-  <h2>Charts (8 total)</h2>
-  <ol>
-    <li><strong>Revenue &amp; Quantity by Product Category</strong> — bar.</li>
-    <li><strong>Revenue Share by Segment</strong> — pie.</li>
-    <li><strong>Top 10 Customers by Revenue</strong> — bar.</li>
-    <li><strong>Orders &amp; Revenue by US Region</strong> — bar.</li>
-    <li><strong>Segment Sales: Actual vs. Forecast (through FY2030)</strong> — line, by fiscal year.</li>
-    <li><strong>CAGR vs. Average — Over/Under-performing Segments</strong> — bar.</li>
-    <li><strong>Recommended Order Priority — FY2030 Forecast Revenue by Segment</strong> — bar.</li>
-    <li><strong>Order Revenue by State</strong> — map/geo chart.</li>
-  </ol>
+<section id="projects">
+  <div class="wrap">
+    <h2 class="sec-title">Projects</h2>
+    <p class="sec-desc">Excel-based analytics dashboards built for inventory, retail sales/forecasting, and transportation cost analysis.</p>
 
-  <h1 class="section" id="project-3">Project 3: Transportation Analysis Dashboard</h1>
-  <p><code>Transportation_Analysis_Dashboard_Refined_FINAL.xlsx</code> — an e-commerce shipping &amp; revenue dashboard analyzing product performance, carrier efficiency, and transportation cost by mode/route.</p>
+    <div class="project">
+      <h3>Inventory Management Dashboard</h3>
+      <p class="summary">
+        An Excel-based inventory analytics workbook for an e-grocery operation, covering 1,000
+        SKUs across 10 categories. Combines an Order Management view (reorder prioritization)
+        with an Inventory Dashboard view (stock health and ABC/Pareto analysis) — built entirely
+        on live SUMIF/AVERAGEIF-style formulas against a raw SKU-level dataset, no pivot tables.
+      </p>
+      <div class="metrics">
+        <span>1,000 SKUs tracked</span><span>$1.26M total inventory value</span>
+        <span>261 SKUs needing reorder</span><span>84.7% avg. supplier on-time</span>
+        <span>10.0 avg. days of inventory</span><span>524 slow-moving SKUs</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Order_Management_Dashboard_1.png" alt="Reorder KPIs, Top 20 most urgent SKUs, reorder recommendation by category">
+        <img src="dashboard_screenshots/Inventory_Management_Dashboard_1.png" alt="Inventory KPIs, product summary by category, ABC class breakdown">
+        <img src="dashboard_screenshots/Order_Management_Dashboard_2.png" alt="ABC Pareto detail and Top 20 SKUs by value">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> the reorder logic is fully rules-based — Suggested Qty =
+        MAX(Forecast_Next_30d − Qty On Hand + Safety Stock, 0), ranked by shortfall against
+        each SKU's reorder point. The ABC analysis follows the classic 80/20 rule: Class A SKUs
+        (53.5% of value from just 200 SKUs) get the tightest control, while Class C gets simple
+        min-max review.
+      </div>
+    </div>
 
-  <h2>Workbook structure</h2>
-  <ul>
-    <li><strong>Transportation dashboard</strong> — the single analytical view.</li>
-    <li><strong>supply_chain_data_TR</strong> — the raw source dataset (explicitly cited on the dashboard: <em>"Source: supply_chain_data_TR"</em>).</li>
-  </ul>
+    <div class="project">
+      <h3>Retail Sales &amp; Forecast Dashboard</h3>
+      <p class="summary">
+        A two-part retail analytics workbook: a historical sales performance dashboard and a
+        forward-looking demand-forecast dashboard projecting revenue by customer segment through
+        FY2030, with a CAGR-based recommendation engine flagging which segments to prioritize.
+      </p>
+      <div class="metrics">
+        <span>$2.30M total revenue</span><span>5,009 orders</span><span>37,873 units sold</span>
+        <span>$458.61 avg. order value</span><span>FY2030 forecast: $1.86M (+153.5%)</span>
+        <span>Top growth segment: Corporate</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Sales_Dashboard_1.png" alt="Revenue KPIs, category breakdown, segment summary, top 10 customers/orders">
+        <img src="dashboard_screenshots/Sales_Dashboard_2.png" alt="USA sales map and orders/revenue by region">
+        <img src="dashboard_screenshots/Forecast_Dashboard_1.png" alt="FY2030 forecast KPIs, actual-vs-forecast table, order recommendation by segment">
+        <img src="dashboard_screenshots/Forecast_Dashboard_2.png" alt="Actual vs forecast trend line and over/under-performing segment analysis">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> the recommendation logic compares each segment's FY2014–17 CAGR
+        against the average across all three segments. Corporate (23.5% CAGR) and Home Office
+        (21.1%) are both flagged "Increase Orders" for compounding faster than peers, while
+        Consumer (7.6% CAGR) is held at "Maintain Orders" despite generating the most revenue
+        today — a case for looking at growth rate, not just current volume.
+      </div>
+    </div>
 
-  <h2>Source data (fields)</h2>
-  <div class="field-list">Product type, SKU, Price, Availability, Number of products sold, Revenue generated, Customer demographics, Stock levels, Lead times, Order quantities, Shipping times, Shipping carriers, Shipping costs, Supplier name, Location, Lead time, Production volumes, Manufacturing lead time</div>
-  <p>Product types include Cosmetics, Haircare, and Skincare; carriers are Carrier A/B/C; transport modes are Air, Rail, Road, Sea across Route A/B/C.</p>
-
-  <h2>KPIs &amp; sections</h2>
-  <ul>
-    <li><strong>Headline metrics</strong>: Total Revenue, Total Units Sold, Total Shipping Cost, Shipping Cost % of Revenue, Total Transport Cost (Mode/Route), Avg Shipping Time (days).</li>
-    <li><strong>1. Product Type Summary</strong> — Units Sold, Revenue Generated, Avg. Price, Revenue Share % (per product type, with a Total row).</li>
-    <li><strong>2. Shipping Carrier Summary</strong> — Shipments, Total Shipping Cost, Avg. Shipping Cost/Order, Avg. Shipping Time (days), Shipping Cost % of Revenue (per carrier, with a Total/Avg. row).</li>
-    <li><strong>3. Transportation Cost by Mode &amp; Route</strong> — Total Cost and Avg. Cost/Shipment, broken out by Transport Mode and by Route.</li>
-    <li>A documented calculation note: "Total Shipping Cost" (KPI and Section 2) combines per-order carrier shipping cost (column M) plus per-shipment route/transportation cost (column X); Section 3 breaks out the column-X transportation cost alone by Mode and Route. All figures are calculated live via <code>SUMIF</code>/<code>AVERAGEIF</code> formulas against the <code>supply_chain_data_TR</code> sheet and update automatically when source data changes.</li>
-  </ul>
-
-  <div class="shots">
-    <img src="dashboard_screenshots/Transportation_Dashboard_1.png" alt="Transportation Dashboard">
-    <p class="shot-caption">Full KPI row, product type summary, shipping carrier summary, cost by mode/route tables, revenue-share and units-sold charts.</p>
-    <img src="dashboard_screenshots/Transportation_Dashboard_2.png" alt="Transportation cost charts">
-    <p class="shot-caption">Revenue vs. shipping cost by carrier, and cost by mode/route charts.</p>
+    <div class="project">
+      <h3>Transportation Analysis Dashboard</h3>
+      <p class="summary">
+        An e-commerce shipping and revenue dashboard analyzing product performance, carrier
+        efficiency, and transportation cost by mode and route — built on live formulas against a
+        raw shipment-level dataset, with a documented calculation methodology for total shipping
+        cost.
+      </p>
+      <div class="metrics">
+        <span>$577.6K total revenue</span><span>46,099 units sold</span>
+        <span>$53.5K shipping cost (9.3% of revenue)</span><span>$52.9K transport cost</span>
+        <span>5.8 days avg. shipping time</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Transportation_Dashboard_1.png" alt="Transportation Dashboard KPI row, product type summary, shipping carrier summary, cost by mode/route">
+        <img src="dashboard_screenshots/Transportation_Dashboard_2.png" alt="Revenue vs shipping cost by carrier, and cost by mode/route charts">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> Skincare drives 42% of revenue share despite being one of three
+        product lines, and Carrier B — while moving the most volume — also runs the highest
+        per-order shipping cost ($534.01), a candidate for renegotiation or route rebalancing
+        toward Carrier C.
+      </div>
+    </div>
   </div>
+</section>
 
-  <h2>Charts (6 total)</h2>
-  <ol>
-    <li><strong>Revenue Share by Product Type</strong> — pie.</li>
-    <li><strong>Units Sold by Product Type</strong> — bar.</li>
-    <li><strong>Revenue vs. Total Shipping Cost by Carrier</strong> — bar.</li>
-    <li><strong>Avg. Shipping Time by Carrier (days)</strong> — bar.</li>
-    <li><strong>Total Transportation Cost by Mode</strong> — bar.</li>
-    <li><strong>Total Transportation Cost by Route</strong> — bar.</li>
-  </ol>
-
-  <h1 class="section" id="common">Common patterns across all three dashboards</h1>
-  <ul>
-    <li>Built entirely in <strong>Excel</strong> (no Power BI/Tableau in these three files), using native chart objects driven live by formulas against a raw data sheet rather than pivot tables — each dashboard sheet is a formula-computed KPI/summary layer sitting on top of a full transactional dataset sheet.</li>
-    <li>Consistent structure: headline KPI row → numbered breakdown sections (by category/segment/carrier/etc.) → supporting charts — the same "metrics up top, detail below" layout across all three.</li>
-    <li>Heavy use of hidden calculation/staging sheets (<code>Lists</code>, <code>Calc_*</code>) to keep the visible dashboard sheets clean while formulas do the aggregation work.</li>
-    <li>Recurring analytical techniques: ABC/Pareto analysis (Inventory), CAGR-based segment forecasting (Retail), and cost-driver decomposition by mode/route/carrier (Transportation) — all reflecting the resume's emphasis on demand forecasting, inventory optimization, and supply-demand risk analytics.</li>
-  </ul>
-
-</article>
+<section class="tint" id="contact">
+  <div class="wrap">
+    <h2 class="sec-title">Contact</h2>
+    <p style="color:var(--muted);">[Add email address] · [Add LinkedIn URL]</p>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">

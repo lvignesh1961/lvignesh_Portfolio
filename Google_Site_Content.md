@@ -53,14 +53,7 @@ Supply Chain & Data Analytics Professional
 
 **Body text:**
 ```
-Data-driven Supply Chain Analytics professional with 6+ years of experience in demand
-forecasting, inventory planning, and supply-demand analytics supporting revenue and
-operational decisions across large-scale manufacturing and supply chain environments.
-Skilled in SQL and Python for analyzing historical performance and developing reporting
-tools that improve inventory accuracy and optimization. Experienced partnering
-cross-functionally with finance, operations, and supply chain teams to drive
-data-informed planning. Currently expanding expertise in Power BI and the Microsoft
-Fabric ecosystem.
+Supply Chain Analytics professional specializing in demand forecasting, inventory planning, and cross-functional data-driven decisions — skilled in SQL, Python, Power BI, and Microsoft Fabric.
 ```
 
 **Optional button** (only if you add a PDF resume later):
@@ -99,18 +92,8 @@ Experience
 Global Supply Chain Analyst
 Motorola Solutions, Vancouver, BC — September 2024 – Present
 
-Partner with cross-functional stakeholders across supply chain, finance, and lifecycle
-management teams to translate complex planning requirements into SQL (AWS Redshift)
-and Python-based Tableau dashboards, improving inventory and financial decision
-accuracy by 25% across portfolio planning initiatives. Gather and document reporting
-requirements from product management and finance teams, translating business needs
-into SQL-based ETL data pipelines and KPI/OKR dashboards that monitor lifecycle risk
-and execution readiness across 80,000+ components and product dependencies. Developed
-portfolio-level analytics frameworks for S&OP and demand planning to monitor Last Time
-Buy timing, EOL exposure, ramp-up/ramp-down curves, and product transition readiness.
-Led cross-functional analytics initiatives using Jira and Confluence, improving project
-delivery timelines by 20%. Documented supply risk assessments and scenario modeling
-supporting $5M+ quarterly revenue commitments.
+Built SQL/Python-driven dashboards and portfolio analytics frameworks (Redshift, Tableau) to monitor lifecycle risk across multi-level component and product dependencies, improving decision accuracy by 25%.
+Led cross-functional analytics initiatives supporting $5M+ quarterly revenue commitments and 20% faster project delivery.
 ```
 
 **Block 2:**
@@ -118,14 +101,8 @@ supporting $5M+ quarterly revenue commitments.
 Supply Planning Analyst
 Motorola Solutions, Vancouver, BC — January 2024 – September 2024
 
-Led development of Excel-based planning tools (VBA, Macros) to analyze global
-inventory positions and demand signals, improving inventory accuracy by 15%.
-Optimized SAP-based purchase order and delivery planning workflows using VBA
-automation and SAP scripting, reducing procurement cycle time and manual processing
-effort by 50%. Built revenue-impacting supply-demand risk models and dashboards that
-supported $1M in quarterly revenue commitments. Performed MRP logic and SAP work
-orders for aggregate and mix planning across capacity, supply/demand, and lead-time
-constraints.
+Led Excel-based planning tools (VBA/Macros) and SAP automation to optimize inventory accuracy (+15%) and procurement cycle time (-50%).
+Built supply-demand risk models supporting $1M in quarterly revenue, and performed MRP/SAP work order planning across capacity and lead-time constraints.
 ```
 
 **Block 3:**
@@ -133,11 +110,8 @@ constraints.
 Supply Chain Planner
 CIMtech Mfg. Inc., Surrey, BC — August 2021 – January 2024
 
-Developed cost-effective production plans yielding 25% savings in setup and tooling
-costs. Improved supplier OTIF (On-Time In-Full) from 60% to 68%. Built ERP-based
-dashboards improving visibility into production performance and planning metrics.
-Ran capacity planning using demand/forecast parameters, takt time, and OEE. Served as
-analytics liaison between operations and executive leadership.
+Developed cost-effective production plans yielding 25% savings in setup/tooling costs, and ERP-based dashboards to improve production visibility.
+Improved supplier OTIF from 60% to 68% through capacity planning (demand/forecast, takt time, OEE) as analytics liaison to executive leadership.
 ```
 
 ---
