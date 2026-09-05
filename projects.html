@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vignesh | Supply Chain & Data Analytics</title>
+<title>Projects | Vignesh</title>
 <style>
   :root{
     --ink:#171a26; --ink-soft:#4a5163; --muted:#6b7385;
@@ -119,61 +119,99 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top">Vignesh <span>| Supply Chain &amp; Data Analytics</span></a>
+    <a class="brand" href="index.html">Vignesh <span>| Supply Chain &amp; Data Analytics</span></a>
     <nav>
-      <a href="#skills">Skills</a>
+      <a href="index.html#skills">Skills</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="hero" id="top">
+<section id="projects">
   <div class="wrap">
-    <div class="kicker">Portfolio</div>
-    <h1 class="hero-title">Vignesh</h1>
-    <p class="hero-sub">Supply Chain &amp; Data Analytics Professional</p>
-    <p class="hero-lead">
-      Supply Chain Analytics professional specializing in demand forecasting, inventory
-      planning, and cross-functional data-driven decisions — skilled in SQL, Python, Power BI,
-      and Microsoft Fabric.
-    </p>
-  </div>
-</section>
+    <h2 class="sec-title">Projects</h2>
+    <p class="sec-desc">Excel-based analytics dashboards built for inventory, retail sales/forecasting, and transportation cost analysis.</p>
 
-<section id="skills">
-  <div class="wrap">
-    <h2 class="sec-title">Skills &amp; Technical Toolset</h2>
-    <div class="chips">
-      <span class="chip">Power BI</span><span class="chip">SAP</span><span class="chip">Power Query</span>
-      <span class="chip">Azure</span><span class="chip">Microsoft Suite</span><span class="chip">MS Excel</span>
-      <span class="chip">Google Suite</span><span class="chip">Google Cloud</span><span class="chip">Jira</span>
-      <span class="chip">Confluence</span><span class="chip">Tableau</span><span class="chip">AWS Redshift</span>
-      <span class="chip">Oracle NetSuite</span><span class="chip">Snowflake</span><span class="chip">Python</span>
-      <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">PyTorch</span>
-      <span class="chip">SQL</span><span class="chip">Linux</span><span class="chip">Plotly</span><span class="chip">VBA</span>
+    <div class="project">
+      <h3>Inventory Management Dashboard</h3>
+      <p class="summary">
+        An Excel-based inventory analytics workbook for an e-grocery operation, covering 1,000
+        SKUs across 10 categories. Combines an Order Management view (reorder prioritization)
+        with an Inventory Dashboard view (stock health and ABC/Pareto analysis) — built entirely
+        on live SUMIF/AVERAGEIF-style formulas against a raw SKU-level dataset, no pivot tables.
+      </p>
+      <div class="metrics">
+        <span>1,000 SKUs tracked</span><span>$1.26M total inventory value</span>
+        <span>261 SKUs needing reorder</span><span>84.7% avg. supplier on-time</span>
+        <span>10.0 avg. days of inventory</span><span>524 slow-moving SKUs</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Order_Management_Dashboard_1.png" alt="Reorder KPIs, Top 20 most urgent SKUs, reorder recommendation by category">
+        <img src="dashboard_screenshots/Inventory_Management_Dashboard_1.png" alt="Inventory KPIs, product summary by category, ABC class breakdown">
+        <img src="dashboard_screenshots/Order_Management_Dashboard_2.png" alt="ABC Pareto detail and Top 20 SKUs by value">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> the reorder logic is fully rules-based — Suggested Qty =
+        MAX(Forecast_Next_30d − Qty On Hand + Safety Stock, 0), ranked by shortfall against
+        each SKU's reorder point. The ABC analysis follows the classic 80/20 rule: Class A SKUs
+        (53.5% of value from just 200 SKUs) get the tightest control, while Class C gets simple
+        min-max review.
+      </div>
     </div>
-  </div>
-</section>
 
-<section class="tint" id="contact">
-  <div class="wrap">
-    <h2 class="sec-title">Contact</h2>
-    <a class="contact-row" href="mailto:lvignesh1961@gmail.com" style="text-decoration:none;">
-      <span class="contact-icon" aria-hidden="true">
-        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
-          <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
-          <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/>
-          <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
-        </svg>
-      </span>
-      <span class="contact-text">
-        <span class="contact-label">Email</span>
-        <span class="contact-email">lvignesh1961@gmail.com</span>
-      </span>
-    </a>
+    <div class="project">
+      <h3>Retail Sales &amp; Forecast Dashboard</h3>
+      <p class="summary">
+        A two-part retail analytics workbook: a historical sales performance dashboard and a
+        forward-looking demand-forecast dashboard projecting revenue by customer segment through
+        FY2030, with a CAGR-based recommendation engine flagging which segments to prioritize.
+      </p>
+      <div class="metrics">
+        <span>$2.30M total revenue</span><span>5,009 orders</span><span>37,873 units sold</span>
+        <span>$458.61 avg. order value</span><span>FY2030 forecast: $1.86M (+153.5%)</span>
+        <span>Top growth segment: Corporate</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Sales_Dashboard_1.png" alt="Revenue KPIs, category breakdown, segment summary, top 10 customers/orders">
+        <img src="dashboard_screenshots/Sales_Dashboard_2.png" alt="USA sales map and orders/revenue by region">
+        <img src="dashboard_screenshots/Forecast_Dashboard_1.png" alt="FY2030 forecast KPIs, actual-vs-forecast table, order recommendation by segment">
+        <img src="dashboard_screenshots/Forecast_Dashboard_2.png" alt="Actual vs forecast trend line and over/under-performing segment analysis">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> the recommendation logic compares each segment's FY2014–17 CAGR
+        against the average across all three segments. Corporate (23.5% CAGR) and Home Office
+        (21.1%) are both flagged "Increase Orders" for compounding faster than peers, while
+        Consumer (7.6% CAGR) is held at "Maintain Orders" despite generating the most revenue
+        today — a case for looking at growth rate, not just current volume.
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Transportation Analysis Dashboard</h3>
+      <p class="summary">
+        An e-commerce shipping and revenue dashboard analyzing product performance, carrier
+        efficiency, and transportation cost by mode and route — built on live formulas against a
+        raw shipment-level dataset, with a documented calculation methodology for total shipping
+        cost.
+      </p>
+      <div class="metrics">
+        <span>$577.6K total revenue</span><span>46,099 units sold</span>
+        <span>$53.5K shipping cost (9.3% of revenue)</span><span>$52.9K transport cost</span>
+        <span>5.8 days avg. shipping time</span>
+      </div>
+      <div class="shots">
+        <img src="dashboard_screenshots/Transportation_Dashboard_1.png" alt="Transportation Dashboard KPI row, product type summary, shipping carrier summary, cost by mode/route">
+        <img src="dashboard_screenshots/Transportation_Dashboard_2.png" alt="Revenue vs shipping cost by carrier, and cost by mode/route charts">
+      </div>
+      <div class="caption">
+        <b>What to notice:</b> Skincare drives 42% of revenue share despite being one of three
+        product lines, and Carrier B — while moving the most volume — also runs the highest
+        per-order shipping cost ($534.01), a candidate for renegotiation or route rebalancing
+        toward Carrier C.
+      </div>
+    </div>
   </div>
 </section>
 
