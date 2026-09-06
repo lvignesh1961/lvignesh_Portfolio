@@ -170,3 +170,26 @@ The canvas is a plain full-width white block sized to 760px — the particle net
 - Leaflet.js and D3.js loaded globally (used elsewhere on the site for maps/charts, not in the header).
 - Font Awesome for icons; Google Fonts `Montserrat`, `Droid Serif`, `Kaushan Script` referenced in `agency.css`.
 - Third-party embeds: ConvertKit newsletter widget script, Senja testimonial widget script.
+
+## Adapted for this portfolio (index.html Home hero)
+
+Implemented the same idea — a mouse-reactive particle network behind the hero text — as a
+dependency-free `<canvas>` script rather than pulling in the `particles.js` library, so it could
+be made theme-aware (light/dark) and match the portfolio's existing indigo accent instead of
+`particles.js`'s static config:
+
+- `<canvas id="hero-particles">` sits absolutely positioned behind `#home`'s `.container`
+  (`z-index:0` vs `1`), with the container given `pointer-events:none` so mouse/click events pass
+  through to the canvas underneath the text.
+- Particle count scales with the hero's area (`(W*H)/13000`, clamped 24–70) rather than
+  `particles.js`'s fixed 80, so it stays proportionate at any viewport size.
+- Same two interactions as the reference site: particles drift slowly and link with a line when
+  within 130px of each other (opacity fades with distance, mirroring `line_linked`); hovering
+  repels nearby particles within a 90px radius (mirrors `repulse`); clicking adds up to 4 new
+  particles at the click point, capped at 110 total (mirrors `push`).
+- Colors are read from `document.documentElement`'s `data-theme` attribute on every frame
+  (`rgba(79,70,229,.38)` dots / `.14` lines in light mode, brighter `rgba(157,161,255,.6)` /
+  `.22` in dark) so toggling the site's existing dark-mode switch re-colors the animation
+  automatically — no re-init needed, unlike `particles.js` which is configured once at load.
+- Respects `prefers-reduced-motion`: draws one static frame and skips the animation loop and all
+  mouse/click listeners entirely, rather than just disabling CSS transitions.

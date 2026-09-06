@@ -62,6 +62,14 @@ section {
   padding: var(--space-section) 0;
 }
 
+#home { position: relative; overflow: hidden; }
+#home canvas#hero-particles {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  display: block; z-index: 0; cursor: default;
+}
+#home .container { position: relative; z-index: 1; pointer-events: none; }
+#home .container a, #home .container button { pointer-events: auto; }
+
 h1, h2, h3 { font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px; }
 h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 800; }
 h2 { font-size: clamp(28px, 4vw, 36px); }
@@ -299,6 +307,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
 </header>
 
 <section id="home">
+  <canvas id="hero-particles" aria-hidden="true"></canvas>
   <div class="container" data-reveal>
     <h1>Vignesh</h1>
     <p class="muted">Supply Chain &amp; Data Analytics Professional</p>
@@ -477,6 +486,128 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
       }
     });
   });
+})();
+</script>
+
+<script>
+(function () {
+  var canvas = document.getElementById('hero-particles');
+  if (!canvas) return;
+  var section = canvas.closest('section');
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var particles = [];
+  var mouse = { x: null, y: null };
+  var W = 0, H = 0;
+  var LINK_DIST = 130;
+  var MAX_PARTICLES = 110;
+
+  function themeColors() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return {
+      dot: dark ? 'rgba(157,161,255,.6)' : 'rgba(79,70,229,.38)',
+      line: dark ? 'rgba(157,161,255,.22)' : 'rgba(79,70,229,.14)'
+    };
+  }
+
+  function makeParticle(x, y) {
+    return {
+      x: x, y: y,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35
+    };
+  }
+
+  function resize() {
+    var rect = section.getBoundingClientRect();
+    var dpr = window.devicePixelRatio || 1;
+    W = rect.width; H = rect.height;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var count = Math.max(24, Math.min(70, Math.round((W * H) / 13000)));
+    particles = [];
+    for (var i = 0; i < count; i++) {
+      particles.push(makeParticle(Math.random() * W, Math.random() * H));
+    }
+  }
+
+  function drawFrame() {
+    var colors = themeColors();
+    ctx.clearRect(0, 0, W, H);
+
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+
+      if (mouse.x !== null) {
+        var dx = p.x - mouse.x, dy = p.y - mouse.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 90 && dist > 0.01) {
+          var force = (90 - dist) / 90;
+          p.x += (dx / dist) * force * 2.2;
+          p.y += (dy / dist) * force * 2.2;
+        }
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+      ctx.fillStyle = colors.dot;
+      ctx.fill();
+
+      for (var j = i + 1; j < particles.length; j++) {
+        var q = particles[j];
+        var ddx = p.x - q.x, ddy = p.y - q.y;
+        var d = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (d < LINK_DIST) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = colors.line;
+          ctx.lineWidth = 1;
+          ctx.globalAlpha = 1 - d / LINK_DIST;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+      }
+    }
+  }
+
+  function loop() {
+    drawFrame();
+    if (!reduced) requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  if (!reduced) {
+    section.addEventListener('mousemove', function (e) {
+      var rect = section.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+    section.addEventListener('mouseleave', function () {
+      mouse.x = null; mouse.y = null;
+    });
+    section.addEventListener('click', function (e) {
+      if (particles.length >= MAX_PARTICLES) return;
+      var rect = section.getBoundingClientRect();
+      var cx = e.clientX - rect.left, cy = e.clientY - rect.top;
+      for (var k = 0; k < 4 && particles.length < MAX_PARTICLES; k++) {
+        particles.push(makeParticle(cx, cy));
+      }
+    });
+  }
+
+  loop();
 })();
 </script>
 </body>
