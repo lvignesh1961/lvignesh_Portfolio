@@ -49,6 +49,7 @@ body {
   color: var(--color-text);
   font-family: var(--font-sans);
   line-height: 1.6;
+  overflow-x: hidden;
   margin: 0;
 }
 
@@ -228,6 +229,12 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   transition: opacity .6s cubic-bezier(.22,.7,.2,1), transform .6s cubic-bezier(.22,.7,.2,1);
 }
 .js-reveal [data-reveal].is-in{ opacity: 1; transform: none; }
+
+/* Experience blocks slide in from alternating sides instead of the generic vertical fade */
+.js-reveal .exp-item[data-reveal]{ transform: translateX(-48px); transition-duration: .7s; }
+.js-reveal .exp-item--right[data-reveal]{ transform: translateX(48px); }
+.js-reveal .exp-item[data-reveal].is-in{ transform: none; }
+
 @media (prefers-reduced-motion: reduce){
   .js-reveal [data-reveal]{ opacity: 1 !important; transform: none !important; transition: none; }
 }
@@ -266,7 +273,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
       <p>Led cross-functional analytics initiatives supporting <span class="highlight">$5M+</span> quarterly revenue commitments and <span class="highlight">20%</span> faster project delivery.</p>
     </div>
 
-    <div class="exp-item" data-reveal>
+    <div class="exp-item exp-item--right" data-reveal>
       <h3>Supply Planning Analyst</h3>
       <p class="exp-org">Motorola Solutions — January 2024 – September 2024</p>
       <p>Led Excel-based planning tools (VBA/Macros) and SAP automation to optimize inventory accuracy (<span class="highlight">+15%</span>) and procurement cycle time (<span class="highlight">-50%</span>).</p>
