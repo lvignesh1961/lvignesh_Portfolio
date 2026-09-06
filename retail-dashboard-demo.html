@@ -173,7 +173,22 @@
     --color-bg:#0b0d12; --color-text:#f2f3f5; --color-text-muted:#9aa1ac;
     --color-border:#262b33; --color-accent:#8388ff; --color-accent-hover:#9ba0ff; --color-accent-soft:#1b1e33;
     --header-bg:rgba(11,13,18,.85);
+
+    /* Re-theme the demo's own palette so the whole page goes dark, not just the nav */
+    --paper:#12161a; --panel:#1a2420; --ink:#eef1ee; --ink-soft:#a9b3ac;
+    --line:#33403a; --gold:#e0a94a; --gold-deep:#f0c98a; --green:#4fae8a;
+    --green-deep:#8fd4b8; --red:#e0776a;
   }
+  html[data-theme="dark"] .tag.up{ background:#1c3a2e; }
+  html[data-theme="dark"] .tag.hold{ background:#3a3320; }
+  html[data-theme="dark"] .macro-box{ background:#181f1b; }
+  html[data-theme="dark"] svg circle[fill="#172A25"],
+  html[data-theme="dark"] svg text[fill="#172A25"]{ fill:#eef1ee; }
+  html[data-theme="dark"] svg text[fill="#48564F"]{ fill:#a9b3ac; }
+  html[data-theme="dark"] svg text[fill="#8C5F1C"]{ fill:#f0c98a; }
+  html[data-theme="dark"] svg line[stroke="#D7DAD1"]{ stroke:#3a463f; }
+  html[data-theme="dark"] svg polyline[stroke="#1F6650"]{ stroke:#4fae8a; }
+  html[data-theme="dark"] svg line[stroke="#C68A2E"]{ stroke:#e0a94a; }
   .site-header{
     position:sticky; top:0; z-index:60; background:var(--header-bg); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--color-border);

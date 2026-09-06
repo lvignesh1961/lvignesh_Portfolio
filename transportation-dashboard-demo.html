@@ -104,7 +104,20 @@
     --color-bg:#0b0d12; --color-text:#f2f3f5; --color-text-muted:#9aa1ac;
     --color-border:#262b33; --color-accent:#8388ff; --color-accent-hover:#9ba0ff; --color-accent-soft:#1b1e33;
     --header-bg:rgba(11,13,18,.85);
+
+    /* Re-theme the demo's own palette so the whole page goes dark, not just the nav */
+    --paper:#12161a; --panel:#1b2126; --ink:#eef1f3; --ink-soft:#a3adb5;
+    --line:#333c42; --orange:#e8895a; --orange-deep:#f0b291; --teal:#4fa3a8;
+    --teal-deep:#8fd0d4;
   }
+  html[data-theme="dark"] .pill{ background:#16292a; }
+  html[data-theme="dark"] .formula-box{ background:#181d1e; }
+  html[data-theme="dark"] svg rect[fill="#E4EFEF"]{ fill:#16292a; }
+  html[data-theme="dark"] svg rect[fill="#FBE7DC"]{ fill:#3a2416; }
+  html[data-theme="dark"] svg text[fill="#134C4F"]{ fill:#8fd0d4; }
+  html[data-theme="dark"] svg text[fill="#8F3F1A"]{ fill:#f0b291; }
+  html[data-theme="dark"] svg text[fill="#4E5F6B"]{ fill:#a3adb5; }
+  html[data-theme="dark"] svg line[stroke="#D5DEE1"]{ stroke:#3a444b; }
   .site-header{
     position:sticky; top:0; z-index:60; background:var(--header-bg); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--color-border);

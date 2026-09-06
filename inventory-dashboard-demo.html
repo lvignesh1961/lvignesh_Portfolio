@@ -109,7 +109,18 @@
     --color-bg:#0b0d12; --color-text:#f2f3f5; --color-text-muted:#9aa1ac;
     --color-border:#262b33; --color-accent:#8388ff; --color-accent-hover:#9ba0ff; --color-accent-soft:#1b1e33;
     --header-bg:rgba(11,13,18,.85);
+
+    /* Re-theme the demo's own palette so the whole page goes dark, not just the nav */
+    --paper:#12151a; --panel:#1b2027; --ink:#eef1f3; --ink-soft:#a2adb4;
+    --line:#333c44; --amber:#f0ad4e; --amber-deep:#f4c98a; --steel:#5fa0bd;
+    --steel-deep:#8fc4dc; --red:#e0685c; --red-bg:#3a1f1d;
   }
+  html[data-theme="dark"] .badge.A{ background:#3a1f1d; }
+  html[data-theme="dark"] .badge.B{ background:#3a2f16; }
+  html[data-theme="dark"] .badge.C,
+  html[data-theme="dark"] .sku,
+  html[data-theme="dark"] .chip{ background:#16232a; }
+  html[data-theme="dark"] .formula-box{ background:#181d23; }
   .site-header{
     position:sticky; top:0; z-index:60; background:var(--header-bg); backdrop-filter:blur(10px);
     border-bottom:1px solid var(--color-border);
