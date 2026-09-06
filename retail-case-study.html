@@ -422,15 +422,35 @@ Sales dashboard  +  Forecast Dashboard
     });
   }
 
-  if (window.IntersectionObserver) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) setActive(e.target.id);
-      });
-    }, { rootMargin: '-100px 0px -70% 0px', threshold: 0 });
-    sections.forEach(function (s) { io.observe(s); });
+  var ticking = false;
+  function computeActive() {
+    ticking = false;
+    var probe = window.scrollY + 110;
+    var currentId = sections[0].id;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top + window.scrollY <= probe) {
+        currentId = sections[i].id;
+      }
+    }
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    if (atBottom) currentId = sections[sections.length - 1].id;
+    setActive(currentId);
   }
-  setActive(sections[0].id);
+  function requestTick() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(computeActive);
+    }
+  }
+
+  window.addEventListener('scroll', requestTick, { passive: true });
+  window.addEventListener('resize', requestTick);
+  links.forEach(function (a) {
+    a.addEventListener('click', function () {
+      setTimeout(computeActive, 400);
+    });
+  });
+  computeActive();
 })();
 </script>
 </body>
