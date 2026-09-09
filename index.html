@@ -321,31 +321,36 @@ html.skip-launch .launch-overlay { display: none !important; }
   display: flex; align-items: center; justify-content: center;
 }
 
-/* Blocky pixel-art Earth, hand-built as an 8x8 box-shadow grid (PX = 12px) */
+/* Blocky pixel-art Earth, hand-built as a 12x12 box-shadow grid (PX = 10px) -- higher
+   resolution than the first pass specifically for a rounder silhouette while staying blocky */
 .mc-earth {
-  position: relative; width: 96px; height: 96px; background: transparent;
-  animation: mcEarthSpin 9s linear infinite;
+  position: relative; width: 120px; height: 120px; background: transparent;
+  animation: mcEarthSpin 11s linear infinite;
   box-shadow:
-    24px 0px #e9eef2, 36px 0px #e9eef2, 48px 0px #e9eef2, 60px 0px #e9eef2,
-    12px 12px #3d7dd6, 24px 12px #3d7dd6, 36px 12px #3d7dd6, 48px 12px #3d7dd6, 60px 12px #3d7dd6, 72px 12px #3d7dd6,
-    0px 24px #3d7dd6, 12px 24px #4f8f3a, 24px 24px #4f8f3a, 36px 24px #3d7dd6, 48px 24px #3d7dd6, 60px 24px #3d7dd6, 72px 24px #3d7dd6, 84px 24px #3d7dd6,
-    0px 36px #3d7dd6, 12px 36px #4f8f3a, 24px 36px #4f8f3a, 36px 36px #4f8f3a, 48px 36px #3d7dd6, 60px 36px #3d7dd6, 72px 36px #3d7dd6, 84px 36px #3d7dd6,
-    0px 48px #3d7dd6, 12px 48px #3d7dd6, 24px 48px #356b28, 36px 48px #3d7dd6, 48px 48px #3d7dd6, 60px 48px #4f8f3a, 72px 48px #4f8f3a, 84px 48px #3d7dd6,
-    0px 60px #3d7dd6, 12px 60px #3d7dd6, 24px 60px #3d7dd6, 36px 60px #3d7dd6, 48px 60px #4f8f3a, 60px 60px #4f8f3a, 72px 60px #3d7dd6, 84px 60px #3d7dd6,
-    12px 72px #3d7dd6, 24px 72px #3d7dd6, 36px 72px #3d7dd6, 48px 72px #3d7dd6, 60px 72px #3d7dd6, 72px 72px #3d7dd6,
-    24px 84px #e9eef2, 36px 84px #e9eef2, 48px 84px #e9eef2, 60px 84px #e9eef2;
+    40px 0px #e9eef2, 50px 0px #e9eef2, 60px 0px #e9eef2, 70px 0px #e9eef2,
+    20px 10px #3d7dd6, 30px 10px #3d7dd6, 40px 10px #3d7dd6, 50px 10px #3d7dd6, 60px 10px #3d7dd6, 70px 10px #3d7dd6, 80px 10px #3d7dd6, 90px 10px #3d7dd6,
+    10px 20px #3d7dd6, 20px 20px #4f8f3a, 30px 20px #4f8f3a, 40px 20px #3d7dd6, 50px 20px #3d7dd6, 60px 20px #3d7dd6, 70px 20px #3d7dd6, 80px 20px #3d7dd6, 90px 20px #3d7dd6, 100px 20px #3d7dd6,
+    10px 30px #3d7dd6, 20px 30px #4f8f3a, 30px 30px #4f8f3a, 40px 30px #4f8f3a, 50px 30px #3d7dd6, 60px 30px #3d7dd6, 70px 30px #3d7dd6, 80px 30px #3d7dd6, 90px 30px #3d7dd6, 100px 30px #3d7dd6,
+    0px 40px #3d7dd6, 10px 40px #4f8f3a, 20px 40px #4f8f3a, 30px 40px #3d7dd6, 40px 40px #3d7dd6, 50px 40px #3d7dd6, 60px 40px #3d7dd6, 70px 40px #3d7dd6, 80px 40px #3d7dd6, 90px 40px #356b28, 100px 40px #3d7dd6, 110px 40px #3d7dd6,
+    0px 50px #3d7dd6, 10px 50px #3d7dd6, 20px 50px #3d7dd6, 30px 50px #3d7dd6, 40px 50px #3d7dd6, 50px 50px #3d7dd6, 60px 50px #3d7dd6, 70px 50px #3d7dd6, 80px 50px #4f8f3a, 90px 50px #4f8f3a, 100px 50px #4f8f3a, 110px 50px #3d7dd6,
+    0px 60px #3d7dd6, 10px 60px #3d7dd6, 20px 60px #3d7dd6, 30px 60px #4f8f3a, 40px 60px #4f8f3a, 50px 60px #3d7dd6, 60px 60px #3d7dd6, 70px 60px #3d7dd6, 80px 60px #3d7dd6, 90px 60px #3d7dd6, 100px 60px #3d7dd6, 110px 60px #3d7dd6,
+    0px 70px #3d7dd6, 10px 70px #3d7dd6, 20px 70px #3d7dd6, 30px 70px #3d7dd6, 40px 70px #3d7dd6, 50px 70px #3d7dd6, 60px 70px #3d7dd6, 70px 70px #4f8f3a, 80px 70px #4f8f3a, 90px 70px #3d7dd6, 100px 70px #3d7dd6, 110px 70px #3d7dd6,
+    10px 80px #3d7dd6, 20px 80px #3d7dd6, 30px 80px #3d7dd6, 40px 80px #3d7dd6, 50px 80px #4f8f3a, 60px 80px #3d7dd6, 70px 80px #3d7dd6, 80px 80px #3d7dd6, 90px 80px #3d7dd6, 100px 80px #3d7dd6,
+    10px 90px #3d7dd6, 20px 90px #3d7dd6, 30px 90px #3d7dd6, 40px 90px #3d7dd6, 50px 90px #3d7dd6, 60px 90px #3d7dd6, 70px 90px #3d7dd6, 80px 90px #3d7dd6, 90px 90px #3d7dd6, 100px 90px #3d7dd6,
+    20px 100px #3d7dd6, 30px 100px #3d7dd6, 40px 100px #3d7dd6, 50px 100px #3d7dd6, 60px 100px #3d7dd6, 70px 100px #3d7dd6, 80px 100px #3d7dd6, 90px 100px #3d7dd6,
+    40px 110px #e9eef2, 50px 110px #e9eef2, 60px 110px #e9eef2, 70px 110px #e9eef2;
 }
 
-/* Orbit: outer wrapper spins, rocket sits offset from its center */
+/* Orbit: outer wrapper spins, rocket sits offset from its center at a radius clear of Earth */
 .mc-orbit {
   position: absolute; top: 50%; left: 50%; width: 0; height: 0;
-  animation: mcOrbitSpin 2.4s linear infinite;
+  animation: mcOrbitSpin 3.2s linear infinite;
 }
 
 /* Blocky pixel-art rocket, hand-built as a 6x10 box-shadow grid (PX = 8px) */
 .mc-rocket {
   position: absolute; width: 48px; height: 80px; background: transparent;
-  transform: translate(-24px, -148px) rotate(90deg);
+  transform: translate(-24px, -172px) rotate(90deg);
   box-shadow:
     16px 0px #c62828, 24px 0px #c62828,
     8px 8px #d8d8d8, 16px 8px #d8d8d8, 24px 8px #d8d8d8, 32px 8px #d8d8d8,
@@ -364,7 +369,7 @@ html.skip-launch .launch-overlay { display: none !important; }
   text-align: center; color: #fff; font-weight: 600; letter-spacing: .1em;
   font-size: 12px; text-transform: uppercase; opacity: 0;
   font-family: var(--font-mono, monospace);
-  animation: launchCaption 5.2s ease forwards;
+  animation: launchCaption 6.8s ease forwards;
 }
 
 .launch-skip {
@@ -387,8 +392,8 @@ html.skip-launch .launch-overlay { display: none !important; }
   .mc-earth, .mc-orbit, .mc-star { animation: none !important; }
 }
 @media (max-width: 480px){
-  .mc-earth { transform: scale(.75); }
-  .mc-rocket { transform: translate(-24px, -128px) rotate(90deg) scale(.8); }
+  .mc-earth { transform: scale(.7); }
+  .mc-rocket { transform: translate(-24px, -142px) rotate(90deg) scale(.8); }
 }
 </style>
 </head>
@@ -769,7 +774,7 @@ html.skip-launch .launch-overlay { display: none !important; }
     });
   }
 
-  setTimeout(finish, 5200);
+  setTimeout(finish, 6800);
 })();
 </script>
 </body>
