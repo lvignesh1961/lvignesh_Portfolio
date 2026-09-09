@@ -6,9 +6,22 @@
 <title>Vignesh | Supply Chain & Data Analytics</title>
 <script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.className+=' js-reveal';</script>
 <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
+<script>
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seen = true;
+  try { seen = !!localStorage.getItem('launchSeen'); } catch(e) {}
+  if (seen || reduced) {
+    document.documentElement.className += ' skip-launch';
+  } else {
+    document.documentElement.className += ' launch-lock';
+  }
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<noscript><style>.launch-overlay{display:none!important;} html{overflow:auto!important;}</style></noscript>
 <style>
 :root {
   --color-bg: #ffffff;
@@ -283,9 +296,149 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
 @media (prefers-reduced-motion: reduce){
   .js-reveal [data-reveal]{ opacity: 1 !important; transform: none !important; transition: none; }
 }
+
+/* ---- First-visit rocket launch loading screen ---- */
+html.launch-lock, html.launch-lock body { overflow: hidden; height: 100%; }
+html.skip-launch .launch-overlay { display: none !important; }
+
+.launch-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  overflow: hidden; cursor: pointer;
+  background: linear-gradient(#0b1224 0%, #16294f 32%, #3b6ea5 62%, #bcd9e8 100%);
+  animation: launchSky 3.4s ease-in forwards;
+}
+.launch-overlay.launch-out { opacity: 0; transition: opacity .5s ease; pointer-events: none; }
+
+.launch-stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 20%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 80% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 60% 35%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 30% 50%, #fff, transparent),
+    radial-gradient(1px 1px at 90% 60%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 45% 12%, #fff, transparent),
+    radial-gradient(1px 1px at 20% 75%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 70% 80%, #fff, transparent);
+  opacity: 0;
+  animation: launchStars 3.4s ease-in forwards;
+}
+
+.launch-ground {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 14%;
+  background: linear-gradient(#3d4f3a, #23301f);
+  animation: launchGround 3.4s cubic-bezier(.5,0,.85,1) forwards;
+}
+.launch-ground::before {
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 120px; height: 10px; background: #55605a; border-radius: 3px 3px 0 0;
+}
+
+.launch-rocket {
+  position: absolute; left: 50%; bottom: 14%;
+  width: 84px; height: auto;
+  transform: translate(-50%, 0);
+  animation: launchAscend 3.4s cubic-bezier(.5,0,.85,1) forwards,
+             launchShake .12s linear 4;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
+}
+
+.launch-flame {
+  position: absolute; left: 50%; bottom: 14%;
+  width: 30px; height: 10px;
+  transform: translate(-50%, 0);
+  border-radius: 0 0 50% 50% / 0 0 80% 80%;
+  background: radial-gradient(ellipse at top, #fff8dd 0%, #ffd166 30%, #ff7b1c 60%, rgba(255,80,20,0) 90%);
+  animation: launchAscend 3.4s cubic-bezier(.5,0,.85,1) forwards,
+             launchFlame .1s linear infinite;
+  filter: blur(1px);
+}
+
+.launch-smoke {
+  position: absolute; left: 50%; bottom: 13%;
+  width: 40px; height: 40px; margin-left: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.85), rgba(255,255,255,0) 70%);
+  opacity: 0;
+  animation: launchSmoke 1.6s ease-out .35s forwards;
+}
+
+.launch-caption {
+  position: absolute; left: 0; right: 0; bottom: 8%;
+  text-align: center; color: #fff; font-weight: 600; letter-spacing: .04em;
+  font-size: 13px; opacity: 0;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  animation: launchCaption 3.4s ease forwards;
+}
+
+.launch-skip {
+  position: absolute; top: 20px; right: 20px;
+  background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.35);
+  border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: var(--font-sans, 'Inter', sans-serif);
+}
+.launch-skip:hover { background: rgba(255,255,255,.22); }
+
+@keyframes launchSky {
+  0%   { background: linear-gradient(#bcd9e8 0%, #cfe6ef 40%, #eaf3ee 100%); }
+  20%  { background: linear-gradient(#0b1224 0%, #16294f 32%, #3b6ea5 62%, #bcd9e8 100%); }
+  100% { background: linear-gradient(#000000 0%, #060814 45%, #0b1224 100%); }
+}
+@keyframes launchStars { 0%, 30% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes launchGround { 0%, 18% { opacity: 1; } 55% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes launchAscend {
+  0%, 12%   { bottom: 14%; }
+  100%      { bottom: 145%; }
+}
+@keyframes launchShake {
+  0%, 100% { margin-left: 0; } 50% { margin-left: 2px; }
+}
+@keyframes launchFlame {
+  0%   { transform: translate(-50%, 0) scaleY(1) scaleX(1); }
+  50%  { transform: translate(-50%, 0) scaleY(1.25) scaleX(.9); }
+  100% { transform: translate(-50%, 0) scaleY(1) scaleX(1); }
+}
+@keyframes launchSmoke {
+  0%   { opacity: 0; transform: scale(.4); }
+  30%  { opacity: .8; }
+  100% { opacity: 0; transform: scale(3.2) translateY(10px); }
+}
+@keyframes launchCaption {
+  0%, 55% { opacity: 0; transform: translateY(6px); }
+  70%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; }
+}
+@media (max-width: 480px){
+  .launch-rocket { width: 64px; }
+  .launch-flame { width: 22px; }
+}
 </style>
 </head>
 <body>
+
+<div class="launch-overlay" id="launchOverlay">
+  <div class="launch-stars"></div>
+  <div class="launch-ground"></div>
+  <div class="launch-smoke"></div>
+  <div class="launch-flame"></div>
+  <svg class="launch-rocket" viewBox="0 0 100 240" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="55" width="16" height="165" rx="8" fill="#f2f2f2"/>
+    <path d="M10 55 Q18 20 26 55 Z" fill="#e2e2e2"/>
+    <rect x="12" y="30" width="12" height="14" rx="3" fill="#1a1a1a"/>
+    <rect x="74" y="55" width="16" height="165" rx="8" fill="#f2f2f2"/>
+    <path d="M74 55 Q82 20 90 55 Z" fill="#e2e2e2"/>
+    <rect x="76" y="30" width="12" height="14" rx="3" fill="#1a1a1a"/>
+    <rect x="36" y="20" width="28" height="200" rx="14" fill="#c97a3d"/>
+    <path d="M36 25 Q50 4 64 25 Z" fill="#b56a30"/>
+    <path d="M40 150 L46 130 L46 178 Z" fill="#e2e2e2"/>
+    <path d="M72 150 L66 130 L66 178 Z" fill="#e2e2e2"/>
+    <rect x="46" y="34" width="20" height="150" rx="9" fill="#f8f8f8"/>
+    <path d="M46 34 Q56 16 66 34 Z" fill="#141414"/>
+    <path d="M52 40 L56 20 L60 40 Z" fill="#dcdcdc"/>
+  </svg>
+  <p class="launch-caption">Vignesh</p>
+  <button class="launch-skip" type="button" data-launch-skip>Skip</button>
+</div>
 
 <header class="site-header">
   <div class="container nav">
@@ -608,6 +761,36 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   }
 
   loop();
+})();
+</script>
+
+<script>
+(function () {
+  var overlay = document.getElementById('launchOverlay');
+  if (!overlay) return;
+
+  var finished = false;
+  function finish() {
+    if (finished) return;
+    finished = true;
+    overlay.classList.add('launch-out');
+    document.documentElement.classList.remove('launch-lock');
+    try { localStorage.setItem('launchSeen', '1'); } catch (e) {}
+    setTimeout(function () {
+      overlay.style.display = 'none';
+    }, 550);
+  }
+
+  overlay.addEventListener('click', finish);
+  var skipBtn = overlay.querySelector('[data-launch-skip]');
+  if (skipBtn) {
+    skipBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      finish();
+    });
+  }
+
+  setTimeout(finish, 3600);
 })();
 </script>
 </body>
