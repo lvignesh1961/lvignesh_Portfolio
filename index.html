@@ -304,138 +304,117 @@ html.skip-launch .launch-overlay { display: none !important; }
 .launch-overlay {
   position: fixed; inset: 0; z-index: 9999;
   overflow: hidden; cursor: pointer;
-  background: linear-gradient(#0b1224 0%, #16294f 32%, #3b6ea5 62%, #bcd9e8 100%);
-  animation: launchSky 3.4s ease-in forwards;
+  background: #0a0e1a;
+  image-rendering: pixelated;
 }
 .launch-overlay.launch-out { opacity: 0; transition: opacity .5s ease; pointer-events: none; }
 
-.launch-stars {
+.mc-star {
+  position: absolute; width: 3px; height: 3px; background: #fff;
+  animation: mcTwinkle 1.6s steps(2) infinite;
+}
+.mc-star:nth-child(3n) { animation-duration: 2.1s; }
+.mc-star:nth-child(5n) { animation-duration: 1.2s; background: #cfe0ff; }
+
+.mc-scene {
   position: absolute; inset: 0;
-  background-image:
-    radial-gradient(1.5px 1.5px at 10% 20%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 80% 15%, #fff, transparent),
-    radial-gradient(1px 1px at 60% 35%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 30% 50%, #fff, transparent),
-    radial-gradient(1px 1px at 90% 60%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 45% 12%, #fff, transparent),
-    radial-gradient(1px 1px at 20% 75%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 70% 80%, #fff, transparent);
-  opacity: 0;
-  animation: launchStars 3.4s ease-in forwards;
+  display: flex; align-items: center; justify-content: center;
 }
 
-.launch-ground {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 14%;
-  background: linear-gradient(#3d4f3a, #23301f);
-  animation: launchGround 3.4s cubic-bezier(.5,0,.85,1) forwards;
-}
-.launch-ground::before {
-  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 120px; height: 10px; background: #55605a; border-radius: 3px 3px 0 0;
-}
-
-.launch-rocket {
-  position: absolute; left: 50%; bottom: 14%;
-  width: 84px; height: auto;
-  transform: translate(-50%, 0);
-  animation: launchAscend 3.4s cubic-bezier(.5,0,.85,1) forwards,
-             launchShake .12s linear 4;
-  filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
+/* Blocky pixel-art Earth, hand-built as an 8x8 box-shadow grid (PX = 12px) */
+.mc-earth {
+  position: relative; width: 96px; height: 96px; background: transparent;
+  animation: mcEarthSpin 9s linear infinite;
+  box-shadow:
+    24px 0px #e9eef2, 36px 0px #e9eef2, 48px 0px #e9eef2, 60px 0px #e9eef2,
+    12px 12px #3d7dd6, 24px 12px #3d7dd6, 36px 12px #3d7dd6, 48px 12px #3d7dd6, 60px 12px #3d7dd6, 72px 12px #3d7dd6,
+    0px 24px #3d7dd6, 12px 24px #4f8f3a, 24px 24px #4f8f3a, 36px 24px #3d7dd6, 48px 24px #3d7dd6, 60px 24px #3d7dd6, 72px 24px #3d7dd6, 84px 24px #3d7dd6,
+    0px 36px #3d7dd6, 12px 36px #4f8f3a, 24px 36px #4f8f3a, 36px 36px #4f8f3a, 48px 36px #3d7dd6, 60px 36px #3d7dd6, 72px 36px #3d7dd6, 84px 36px #3d7dd6,
+    0px 48px #3d7dd6, 12px 48px #3d7dd6, 24px 48px #356b28, 36px 48px #3d7dd6, 48px 48px #3d7dd6, 60px 48px #4f8f3a, 72px 48px #4f8f3a, 84px 48px #3d7dd6,
+    0px 60px #3d7dd6, 12px 60px #3d7dd6, 24px 60px #3d7dd6, 36px 60px #3d7dd6, 48px 60px #4f8f3a, 60px 60px #4f8f3a, 72px 60px #3d7dd6, 84px 60px #3d7dd6,
+    12px 72px #3d7dd6, 24px 72px #3d7dd6, 36px 72px #3d7dd6, 48px 72px #3d7dd6, 60px 72px #3d7dd6, 72px 72px #3d7dd6,
+    24px 84px #e9eef2, 36px 84px #e9eef2, 48px 84px #e9eef2, 60px 84px #e9eef2;
 }
 
-.launch-flame {
-  position: absolute; left: 50%; bottom: 14%;
-  width: 30px; height: 10px;
-  transform: translate(-50%, 0);
-  border-radius: 0 0 50% 50% / 0 0 80% 80%;
-  background: radial-gradient(ellipse at top, #fff8dd 0%, #ffd166 30%, #ff7b1c 60%, rgba(255,80,20,0) 90%);
-  animation: launchAscend 3.4s cubic-bezier(.5,0,.85,1) forwards,
-             launchFlame .1s linear infinite;
-  filter: blur(1px);
+/* Orbit: outer wrapper spins, rocket sits offset from its center */
+.mc-orbit {
+  position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+  animation: mcOrbitSpin 2.4s linear infinite;
 }
 
-.launch-smoke {
-  position: absolute; left: 50%; bottom: 13%;
-  width: 40px; height: 40px; margin-left: -20px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,.85), rgba(255,255,255,0) 70%);
-  opacity: 0;
-  animation: launchSmoke 1.6s ease-out .35s forwards;
+/* Blocky pixel-art rocket, hand-built as a 6x10 box-shadow grid (PX = 8px) */
+.mc-rocket {
+  position: absolute; width: 48px; height: 80px; background: transparent;
+  transform: translate(-24px, -148px) rotate(90deg);
+  box-shadow:
+    16px 0px #c62828, 24px 0px #c62828,
+    8px 8px #d8d8d8, 16px 8px #d8d8d8, 24px 8px #d8d8d8, 32px 8px #d8d8d8,
+    8px 16px #d8d8d8, 16px 16px #3d7dd6, 24px 16px #3d7dd6, 32px 16px #d8d8d8,
+    8px 24px #d8d8d8, 16px 24px #d8d8d8, 24px 24px #d8d8d8, 32px 24px #d8d8d8,
+    8px 32px #d8d8d8, 16px 32px #d8d8d8, 24px 32px #d8d8d8, 32px 32px #d8d8d8,
+    0px 40px #9a9a9a, 8px 40px #d8d8d8, 16px 40px #d8d8d8, 24px 40px #d8d8d8, 32px 40px #d8d8d8, 40px 40px #9a9a9a,
+    0px 48px #9a9a9a, 8px 48px #d8d8d8, 16px 48px #d8d8d8, 24px 48px #d8d8d8, 32px 48px #d8d8d8, 40px 48px #9a9a9a,
+    8px 56px #6f6f6f, 16px 56px #6f6f6f, 24px 56px #6f6f6f, 32px 56px #6f6f6f,
+    16px 64px #ff8c1a, 24px 64px #ff8c1a,
+    16px 72px #ffd166, 24px 72px #ffd166;
 }
 
 .launch-caption {
-  position: absolute; left: 0; right: 0; bottom: 8%;
-  text-align: center; color: #fff; font-weight: 600; letter-spacing: .04em;
-  font-size: 13px; opacity: 0;
-  font-family: var(--font-sans, 'Inter', sans-serif);
-  animation: launchCaption 3.4s ease forwards;
+  position: absolute; left: 0; right: 0; bottom: 10%;
+  text-align: center; color: #fff; font-weight: 600; letter-spacing: .1em;
+  font-size: 12px; text-transform: uppercase; opacity: 0;
+  font-family: var(--font-mono, monospace);
+  animation: launchCaption 5.2s ease forwards;
 }
 
 .launch-skip {
   position: absolute; top: 20px; right: 20px;
   background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.35);
-  border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600;
-  cursor: pointer; font-family: var(--font-sans, 'Inter', sans-serif);
+  border-radius: 3px; padding: 8px 16px; font-size: 12px; font-weight: 600;
+  cursor: pointer; font-family: var(--font-mono, monospace); letter-spacing: .05em;
 }
 .launch-skip:hover { background: rgba(255,255,255,.22); }
 
-@keyframes launchSky {
-  0%   { background: linear-gradient(#bcd9e8 0%, #cfe6ef 40%, #eaf3ee 100%); }
-  20%  { background: linear-gradient(#0b1224 0%, #16294f 32%, #3b6ea5 62%, #bcd9e8 100%); }
-  100% { background: linear-gradient(#000000 0%, #060814 45%, #0b1224 100%); }
-}
-@keyframes launchStars { 0%, 30% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes launchGround { 0%, 18% { opacity: 1; } 55% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes launchAscend {
-  0%, 12%   { bottom: 14%; }
-  100%      { bottom: 145%; }
-}
-@keyframes launchShake {
-  0%, 100% { margin-left: 0; } 50% { margin-left: 2px; }
-}
-@keyframes launchFlame {
-  0%   { transform: translate(-50%, 0) scaleY(1) scaleX(1); }
-  50%  { transform: translate(-50%, 0) scaleY(1.25) scaleX(.9); }
-  100% { transform: translate(-50%, 0) scaleY(1) scaleX(1); }
-}
-@keyframes launchSmoke {
-  0%   { opacity: 0; transform: scale(.4); }
-  30%  { opacity: .8; }
-  100% { opacity: 0; transform: scale(3.2) translateY(10px); }
-}
+@keyframes mcTwinkle { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+@keyframes mcEarthSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes mcOrbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes launchCaption {
-  0%, 55% { opacity: 0; transform: translateY(6px); }
-  70%, 90% { opacity: 1; transform: translateY(0); }
+  0%, 12% { opacity: 0; transform: translateY(6px); }
+  25%, 88% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; }
 }
+@media (prefers-reduced-motion: reduce){
+  .mc-earth, .mc-orbit, .mc-star { animation: none !important; }
+}
 @media (max-width: 480px){
-  .launch-rocket { width: 64px; }
-  .launch-flame { width: 22px; }
+  .mc-earth { transform: scale(.75); }
+  .mc-rocket { transform: translate(-24px, -128px) rotate(90deg) scale(.8); }
 }
 </style>
 </head>
 <body>
 
 <div class="launch-overlay" id="launchOverlay">
-  <div class="launch-stars"></div>
-  <div class="launch-ground"></div>
-  <div class="launch-smoke"></div>
-  <div class="launch-flame"></div>
-  <svg class="launch-rocket" viewBox="0 0 100 240" xmlns="http://www.w3.org/2000/svg">
-    <rect x="10" y="55" width="16" height="165" rx="8" fill="#f2f2f2"/>
-    <path d="M10 55 Q18 20 26 55 Z" fill="#e2e2e2"/>
-    <rect x="12" y="30" width="12" height="14" rx="3" fill="#1a1a1a"/>
-    <rect x="74" y="55" width="16" height="165" rx="8" fill="#f2f2f2"/>
-    <path d="M74 55 Q82 20 90 55 Z" fill="#e2e2e2"/>
-    <rect x="76" y="30" width="12" height="14" rx="3" fill="#1a1a1a"/>
-    <rect x="36" y="20" width="28" height="200" rx="14" fill="#c97a3d"/>
-    <path d="M36 25 Q50 4 64 25 Z" fill="#b56a30"/>
-    <path d="M40 150 L46 130 L46 178 Z" fill="#e2e2e2"/>
-    <path d="M72 150 L66 130 L66 178 Z" fill="#e2e2e2"/>
-    <rect x="46" y="34" width="20" height="150" rx="9" fill="#f8f8f8"/>
-    <path d="M46 34 Q56 16 66 34 Z" fill="#141414"/>
-    <path d="M52 40 L56 20 L60 40 Z" fill="#dcdcdc"/>
-  </svg>
+  <i class="mc-star" style="top:12%;left:8%;"></i>
+  <i class="mc-star" style="top:18%;left:82%;"></i>
+  <i class="mc-star" style="top:8%;left:45%;"></i>
+  <i class="mc-star" style="top:30%;left:20%;"></i>
+  <i class="mc-star" style="top:65%;left:12%;"></i>
+  <i class="mc-star" style="top:75%;left:88%;"></i>
+  <i class="mc-star" style="top:85%;left:30%;"></i>
+  <i class="mc-star" style="top:22%;left:65%;"></i>
+  <i class="mc-star" style="top:50%;left:5%;"></i>
+  <i class="mc-star" style="top:40%;left:92%;"></i>
+  <i class="mc-star" style="top:60%;left:70%;"></i>
+  <i class="mc-star" style="top:90%;left:55%;"></i>
+  <i class="mc-star" style="top:6%;left:75%;"></i>
+  <i class="mc-star" style="top:78%;left:45%;"></i>
+  <div class="mc-scene">
+    <div class="mc-earth"></div>
+    <div class="mc-orbit">
+      <div class="mc-rocket"></div>
+    </div>
+  </div>
   <p class="launch-caption">Vignesh</p>
   <button class="launch-skip" type="button" data-launch-skip>Skip</button>
 </div>
@@ -790,7 +769,7 @@ html.skip-launch .launch-overlay { display: none !important; }
     });
   }
 
-  setTimeout(finish, 3600);
+  setTimeout(finish, 5200);
 })();
 </script>
 </body>
