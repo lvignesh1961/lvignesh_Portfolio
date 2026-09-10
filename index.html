@@ -265,6 +265,13 @@ html[data-theme="dark"] .sky-cloud { background: #2c4a68; opacity: .8; }
   to   { left: 115%; }
 }
 
+.toon-cloud {
+  position: absolute; width: 100px; height: auto;
+  transform: scale(var(--scale, 1)); opacity: .95;
+  animation-name: cloudDrift; animation-timing-function: linear; animation-iteration-count: infinite;
+}
+html[data-theme="dark"] .toon-cloud { opacity: .35; }
+
 /* ---- Landscape scene (Contact) ---- */
 #contact { position: relative; overflow: hidden; padding-top: 80px; padding-bottom: 190px; }
 #contact > .container { position: relative; z-index: 1; }
@@ -284,7 +291,7 @@ html[data-theme="dark"] #contact h2 { color: #eaf6ff; text-shadow: 0 1px 4px rgb
 }
 
 @media (prefers-reduced-motion: reduce){
-  .sky-cloud, .hz-cloud { animation: none !important; }
+  .sky-cloud, .hz-cloud, .toon-cloud { animation: none !important; }
 }
 @media (max-width: 640px){
   #contact { padding-top: 56px; padding-bottom: 130px; }
@@ -410,6 +417,21 @@ html.skip-launch .launch-overlay { display: none !important; }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="toonCloud" viewBox="0 0 120 70">
+      <g fill="#ffffff" stroke="#bfe3f7" stroke-width="3" stroke-linejoin="round">
+        <rect x="10" y="40" width="100" height="24" rx="12"/>
+        <circle cx="22" cy="46" r="16"/>
+        <circle cx="42" cy="30" r="20"/>
+        <circle cx="66" cy="24" r="22"/>
+        <circle cx="90" cy="32" r="18"/>
+        <circle cx="104" cy="46" r="14"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
 
 <div class="launch-overlay" id="launchOverlay">
   <i class="orbit-star" style="top:12%;left:8%;width:2px;height:2px;"></i>
@@ -571,10 +593,10 @@ html.skip-launch .launch-overlay { display: none !important; }
 
 <section id="featured-projects">
   <div class="sky-scene" aria-hidden="true">
-    <i class="sky-cloud" style="top:14%; left:-15%; --scale:.8; animation-duration:44s; animation-delay:-18s;"></i>
-    <i class="sky-cloud" style="top:48%; left:-15%; --scale:1; animation-duration:36s; animation-delay:-4s;"></i>
-    <i class="sky-cloud" style="top:70%; left:-15%; --scale:.65; animation-duration:52s; animation-delay:-28s;"></i>
-    <i class="sky-cloud" style="top:88%; left:-15%; --scale:.9; animation-duration:40s; animation-delay:-40s;"></i>
+    <svg class="toon-cloud" style="top:14%; left:-15%; --scale:.8; animation-duration:44s; animation-delay:-18s;" viewBox="0 0 120 70"><use href="#toonCloud"/></svg>
+    <svg class="toon-cloud" style="top:48%; left:-15%; --scale:1; animation-duration:36s; animation-delay:-4s;" viewBox="0 0 120 70"><use href="#toonCloud"/></svg>
+    <svg class="toon-cloud" style="top:70%; left:-15%; --scale:.65; animation-duration:52s; animation-delay:-28s;" viewBox="0 0 120 70"><use href="#toonCloud"/></svg>
+    <svg class="toon-cloud" style="top:88%; left:-15%; --scale:.9; animation-duration:40s; animation-delay:-40s;" viewBox="0 0 120 70"><use href="#toonCloud"/></svg>
   </div>
   <div class="container" data-reveal>
     <h2>Projects</h2>
@@ -624,38 +646,54 @@ html.skip-launch .launch-overlay { display: none !important; }
   </div>
   <div class="contact-landscape" aria-hidden="true">
     <svg viewBox="0 0 800 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <g class="hz-cloud hz-cloud-a">
-        <ellipse cx="150" cy="38" rx="34" ry="12" fill="#ffffff" opacity=".9"/>
-        <ellipse cx="175" cy="30" rx="22" ry="14" fill="#ffffff" opacity=".9"/>
-      </g>
-      <g class="hz-cloud hz-cloud-b">
-        <ellipse cx="520" cy="55" rx="28" ry="10" fill="#ffffff" opacity=".85"/>
-        <ellipse cx="540" cy="48" rx="18" ry="11" fill="#ffffff" opacity=".85"/>
-      </g>
+      <g class="hz-cloud hz-cloud-a"><use href="#toonCloud" x="60" y="6" width="110" height="60"/></g>
+      <g class="hz-cloud hz-cloud-b"><use href="#toonCloud" x="470" y="18" width="90" height="50"/></g>
+      <g class="hz-cloud hz-cloud-a" style="animation-delay:-20s;"><use href="#toonCloud" x="640" y="0" width="80" height="44"/></g>
 
-      <path d="M0,118 L60,80 L100,102 L150,70 L200,104 L250,76 L300,108 L360,82 L410,110 L470,78 L520,102 L580,84 L630,106 L690,80 L740,100 L800,86 L800,140 L0,140 Z"
-            fill="#6fa3c4" opacity=".55"/>
+      <!-- rolling field -->
+      <path d="M0,104 Q200,88 400,100 T800,96 L800,200 L0,200 Z" fill="#7dd13a"/>
+      <path d="M0,116 Q200,100 400,112 T800,108 L800,150 Q400,136 0,150 Z" fill="#5fb52a" opacity=".55"/>
 
-      <path d="M0,140 Q100,112 220,128 T440,122 T660,130 T800,118 L800,200 L0,200 Z" fill="#4f9a4a"/>
-      <g fill="#3d7d3c">
-        <ellipse cx="55" cy="128" rx="20" ry="14"/>
-        <ellipse cx="80" cy="120" rx="16" ry="12"/>
-        <ellipse cx="35" cy="122" rx="14" ry="10"/>
-        <ellipse cx="740" cy="122" rx="18" ry="13"/>
-        <ellipse cx="765" cy="130" rx="14" ry="10"/>
+      <!-- bush, left -->
+      <g>
+        <ellipse cx="55" cy="103" rx="52" ry="32" fill="#3f8a33"/>
+        <ellipse cx="108" cy="98" rx="38" ry="27" fill="#4a9c3d"/>
+        <ellipse cx="30" cy="100" rx="26" ry="21" fill="#4a9c3d"/>
       </g>
 
-      <g opacity=".85">
-        <path d="M430,132 L470,120 L478,128 L438,141 Z" fill="#b98a2e"/>
-        <path d="M438,141 L478,128 L486,136 L446,150 Z" fill="#8fae3f"/>
-        <path d="M446,150 L486,136 L494,144 L454,158 Z" fill="#b98a2e"/>
-        <path d="M454,158 L494,144 L502,152 L462,166 Z" fill="#8fae3f"/>
-        <path d="M462,166 L502,152 L510,160 L470,174 Z" fill="#b98a2e"/>
-        <path d="M470,174 L510,160 L560,150 L556,166 L490,182 Z" fill="#8fae3f"/>
+      <!-- rocks, right -->
+      <g>
+        <path d="M598,110 L618,76 L654,71 L672,92 L660,110 Z" fill="#8b5a2b"/>
+        <path d="M654,110 L672,84 L706,78 L726,98 L710,110 Z" fill="#7a4d24"/>
+        <path d="M706,110 L724,86 L754,81 L770,104 L756,110 Z" fill="#96662f"/>
+        <path d="M622,94 L642,79 L652,89 L637,101 Z" fill="#a97640" opacity=".7"/>
+        <path d="M708,94 L724,82 L734,92 L718,104 Z" fill="#a97640" opacity=".7"/>
       </g>
 
-      <path d="M0,160 Q140,140 280,157 T560,152 T800,160 L800,200 L0,200 Z" fill="#7dc94c"/>
-      <path d="M0,172 Q160,158 320,170 T640,166 T800,172 L800,200 L0,200 Z" fill="#8fd45c" opacity=".7"/>
+      <!-- grass tufts -->
+      <g stroke="#3d7d3c" stroke-width="3" stroke-linecap="round" fill="none">
+        <path d="M40,192 q3,-15 0,-21"/>
+        <path d="M46,192 q0,-17 4,-23"/>
+        <path d="M52,192 q-2,-13 2,-19"/>
+        <path d="M754,186 q3,-14 0,-20"/>
+        <path d="M760,186 q0,-16 4,-22"/>
+        <path d="M766,186 q-2,-12 2,-18"/>
+      </g>
+
+      <!-- flowers -->
+      <g>
+        <g transform="translate(130,178)"><circle cx="-4" cy="0" r="3" fill="#fff"/><circle cx="4" cy="0" r="3" fill="#fff"/><circle cx="0" cy="-4" r="3" fill="#fff"/><circle cx="0" cy="4" r="3" fill="#fff"/><circle r="2" fill="#ffd54f"/></g>
+        <g transform="translate(310,162)"><circle cx="-4" cy="0" r="3" fill="#fff"/><circle cx="4" cy="0" r="3" fill="#fff"/><circle cx="0" cy="-4" r="3" fill="#fff"/><circle cx="0" cy="4" r="3" fill="#fff"/><circle r="2" fill="#ffd54f"/></g>
+        <g transform="translate(430,182)"><circle cx="-4" cy="0" r="3" fill="#fff"/><circle cx="4" cy="0" r="3" fill="#fff"/><circle cx="0" cy="-4" r="3" fill="#fff"/><circle cx="0" cy="4" r="3" fill="#fff"/><circle r="2" fill="#ffd54f"/></g>
+        <g transform="translate(565,166)"><circle cx="-4" cy="0" r="3" fill="#fff"/><circle cx="4" cy="0" r="3" fill="#fff"/><circle cx="0" cy="-4" r="3" fill="#fff"/><circle cx="0" cy="4" r="3" fill="#fff"/><circle r="2" fill="#ffd54f"/></g>
+        <g transform="translate(670,188)"><circle cx="-4" cy="0" r="3" fill="#fff"/><circle cx="4" cy="0" r="3" fill="#fff"/><circle cx="0" cy="-4" r="3" fill="#fff"/><circle cx="0" cy="4" r="3" fill="#fff"/><circle r="2" fill="#ffd54f"/></g>
+      </g>
+
+      <!-- dirt paths -->
+      <path d="M0,166 Q60,153 118,172 Q72,188 0,198 Z" fill="#c9a565"/>
+      <path d="M0,172 Q55,161 104,177 Q66,190 0,198 Z" fill="#dcb87c"/>
+      <path d="M800,172 Q735,158 682,176 Q728,190 800,198 Z" fill="#c9a565"/>
+      <path d="M800,178 Q740,166 694,180 Q732,192 800,198 Z" fill="#dcb87c"/>
     </svg>
   </div>
 </section>
