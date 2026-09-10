@@ -270,23 +270,26 @@ html[data-theme="dark"] .sky-cloud { background: #2c4a68; opacity: .8; }
   position: absolute; left: 0; right: 0; bottom: 0; height: 150px;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   overflow: hidden;
-  background: linear-gradient(180deg, #3aa8a3 0%, #1c5c62 65%, #0f363b 100%);
-  box-shadow: 0 -10px 40px rgba(120,200,220,.2) inset;
+  background: linear-gradient(180deg, #2e7cd6 0%, #1a5aa8 45%, #0b3568 100%);
+  box-shadow: 0 -3px 0 rgba(190,225,255,.55) inset, 0 -18px 46px rgba(140,200,255,.25) inset;
 }
 .earth-horizon-surface {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; opacity: .95;
   background-image:
-    radial-gradient(60px 40px at 10% 25%, rgba(34,112,119,.9), transparent 70%),
-    radial-gradient(80px 50px at 45% 55%, rgba(34,112,119,.9), transparent 70%),
-    radial-gradient(50px 35px at 75% 20%, rgba(58,168,163,.9), transparent 70%),
-    radial-gradient(70px 45px at 95% 50%, rgba(34,112,119,.9), transparent 70%);
+    radial-gradient(28px 20px at 8% 30%, #3c8a4a 0%, #3c8a4a 55%, transparent 68%),
+    radial-gradient(40px 26px at 22% 55%, #327840 0%, #327840 55%, transparent 68%),
+    radial-gradient(22px 16px at 40% 20%, #4a9c55 0%, #4a9c55 55%, transparent 68%),
+    radial-gradient(34px 22px at 58% 50%, #3c8a4a 0%, #3c8a4a 55%, transparent 68%),
+    radial-gradient(24px 18px at 74% 25%, #6b6034 0%, #6b6034 55%, transparent 68%),
+    radial-gradient(38px 24px at 88% 52%, #327840 0%, #327840 55%, transparent 68%),
+    radial-gradient(20px 14px at 98% 20%, #4a9c55 0%, #4a9c55 55%, transparent 68%);
   background-repeat: repeat-x;
-  background-size: 480px 100%;
-  animation: earthRotate 14s linear infinite;
+  background-size: 380px 100%;
+  animation: earthRotate 16s linear infinite;
 }
 @keyframes earthRotate {
   from { background-position-x: 0; }
-  to   { background-position-x: -480px; }
+  to   { background-position-x: -380px; }
 }
 
 @media (prefers-reduced-motion: reduce){
