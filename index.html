@@ -259,18 +259,13 @@ html[data-theme="dark"] .sky-wrap {
 .sky-cloud::before { width: 50px; height: 50px; top: -22px; left: 12px; }
 .sky-cloud::after  { width: 38px; height: 38px; top: -16px; left: 46px; }
 html[data-theme="dark"] .sky-cloud { background: #2c4a68; opacity: .8; }
+.hz-cloud-shape { fill: #ffffff; opacity: .9; }
+html[data-theme="dark"] .hz-cloud-shape { fill: #2c4a68; opacity: .7; }
 
 @keyframes cloudDrift {
   from { left: -15%; }
   to   { left: 115%; }
 }
-
-.toon-cloud {
-  position: absolute; width: 100px; height: auto;
-  transform: scale(var(--scale, 1)); opacity: .95;
-  animation-name: cloudDrift; animation-timing-function: linear; animation-iteration-count: infinite;
-}
-html[data-theme="dark"] .toon-cloud { opacity: .35; }
 
 /* ---- Landscape scene (Contact) ---- */
 #contact { position: relative; overflow: hidden; padding-top: 80px; padding-bottom: 190px; }
@@ -291,7 +286,7 @@ html[data-theme="dark"] #contact h2 { color: #eaf6ff; text-shadow: 0 1px 4px rgb
 }
 
 @media (prefers-reduced-motion: reduce){
-  .sky-cloud, .hz-cloud, .toon-cloud { animation: none !important; }
+  .sky-cloud, .hz-cloud { animation: none !important; }
 }
 @media (max-width: 640px){
   #contact { padding-top: 56px; padding-bottom: 130px; }
@@ -417,21 +412,6 @@ html.skip-launch .launch-overlay { display: none !important; }
 </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="toonCloud" viewBox="0 0 120 70">
-      <g fill="#ffffff" stroke="#bfe3f7" stroke-width="3" stroke-linejoin="round">
-        <rect x="10" y="40" width="100" height="24" rx="12"/>
-        <circle cx="22" cy="46" r="16"/>
-        <circle cx="42" cy="30" r="20"/>
-        <circle cx="66" cy="24" r="22"/>
-        <circle cx="90" cy="32" r="18"/>
-        <circle cx="104" cy="46" r="14"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
 
 <div class="launch-overlay" id="launchOverlay">
   <i class="orbit-star" style="top:12%;left:8%;width:2px;height:2px;"></i>
@@ -593,10 +573,10 @@ html.skip-launch .launch-overlay { display: none !important; }
 
 <section id="featured-projects">
   <div class="sky-scene" aria-hidden="true">
-    <svg class="toon-cloud" style="top:14%; left:-15%; --scale:.8; animation-duration:44s; animation-delay:-18s;" viewBox="0 0 120 70"><use href="#toonCloud"/></svg>
-    <svg class="toon-cloud" style="top:48%; left:-15%; --scale:1; animation-duration:36s; animation-delay:-4s;" viewBox="0 0 120 70"><use href="#toonCloud"/></svg>
-    <svg class="toon-cloud" style="top:70%; left:-15%; --scale:.65; animation-duration:52s; animation-delay:-28s;" viewBox="0 0 120 70"><use href="#toonCloud"/></svg>
-    <svg class="toon-cloud" style="top:88%; left:-15%; --scale:.9; animation-duration:40s; animation-delay:-40s;" viewBox="0 0 120 70"><use href="#toonCloud"/></svg>
+    <i class="sky-cloud" style="top:14%; left:-15%; --scale:.8; animation-duration:44s; animation-delay:-18s;"></i>
+    <i class="sky-cloud" style="top:48%; left:-15%; --scale:1; animation-duration:36s; animation-delay:-4s;"></i>
+    <i class="sky-cloud" style="top:70%; left:-15%; --scale:.65; animation-duration:52s; animation-delay:-28s;"></i>
+    <i class="sky-cloud" style="top:88%; left:-15%; --scale:.9; animation-duration:40s; animation-delay:-40s;"></i>
   </div>
   <div class="container" data-reveal>
     <h2>Projects</h2>
@@ -646,9 +626,15 @@ html.skip-launch .launch-overlay { display: none !important; }
   </div>
   <div class="contact-landscape" aria-hidden="true">
     <svg viewBox="0 0 800 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <g class="hz-cloud hz-cloud-a"><use href="#toonCloud" x="60" y="6" width="110" height="60"/></g>
-      <g class="hz-cloud hz-cloud-b"><use href="#toonCloud" x="470" y="18" width="90" height="50"/></g>
-      <g class="hz-cloud hz-cloud-a" style="animation-delay:-20s;"><use href="#toonCloud" x="640" y="0" width="80" height="44"/></g>
+      <g class="hz-cloud hz-cloud-a" transform="translate(60,6)">
+        <g class="hz-cloud-shape"><circle cx="37" cy="3" r="25"/><circle cx="65" cy="3" r="19"/><rect x="0" y="0" width="90" height="30" rx="15"/></g>
+      </g>
+      <g class="hz-cloud hz-cloud-b" transform="translate(470,22) scale(.8)">
+        <g class="hz-cloud-shape"><circle cx="37" cy="3" r="25"/><circle cx="65" cy="3" r="19"/><rect x="0" y="0" width="90" height="30" rx="15"/></g>
+      </g>
+      <g class="hz-cloud hz-cloud-a" style="animation-delay:-20s;" transform="translate(640,0) scale(.65)">
+        <g class="hz-cloud-shape"><circle cx="37" cy="3" r="25"/><circle cx="65" cy="3" r="19"/><rect x="0" y="0" width="90" height="30" rx="15"/></g>
+      </g>
 
       <!-- rolling field -->
       <path d="M0,104 Q200,88 400,100 T800,96 L800,200 L0,200 Z" fill="#7dd13a"/>
