@@ -236,13 +236,14 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 }
 
 /* ---- Sky + drifting clouds background (Skills, Projects preview) ---- */
-#skills, #featured-projects {
+.sky-wrap {
   position: relative; overflow: hidden;
-  background: linear-gradient(180deg, #cfe8fb 0%, #eaf6ff 100%);
+  background: linear-gradient(180deg, #cfe8fb 0%, #eaf6ff 55%, #eaf6ff 100%);
 }
-html[data-theme="dark"] #skills, html[data-theme="dark"] #featured-projects {
-  background: linear-gradient(180deg, #0f2942 0%, #16345a 100%);
+html[data-theme="dark"] .sky-wrap {
+  background: linear-gradient(180deg, #0f2942 0%, #16345a 55%, #16345a 100%);
 }
+#skills, #featured-projects { position: relative; }
 #skills > .container, #featured-projects > .container { position: relative; z-index: 1; }
 
 .sky-scene { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
@@ -532,6 +533,7 @@ html.skip-launch .launch-overlay { display: none !important; }
   </div>
 </section>
 
+<div class="sky-wrap">
 <section id="skills">
   <div class="sky-scene" aria-hidden="true">
     <i class="sky-cloud" style="top:18%; left:-15%; --scale:1; animation-duration:38s; animation-delay:-6s;"></i>
@@ -605,6 +607,7 @@ html.skip-launch .launch-overlay { display: none !important; }
     <a class="btn btn-outline" href="projects.html" style="margin-top:28px;">View all projects</a>
   </div>
 </section>
+</div>
 
 <section id="contact">
   <div class="container" data-reveal>
