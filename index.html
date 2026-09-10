@@ -259,8 +259,6 @@ html[data-theme="dark"] .sky-wrap {
 .sky-cloud::before { width: 50px; height: 50px; top: -22px; left: 12px; }
 .sky-cloud::after  { width: 38px; height: 38px; top: -16px; left: 46px; }
 html[data-theme="dark"] .sky-cloud { background: #2c4a68; opacity: .8; }
-.hz-cloud-shape { fill: #ffffff; opacity: .9; }
-html[data-theme="dark"] .hz-cloud-shape { fill: #2c4a68; opacity: .7; }
 
 @keyframes cloudDrift {
   from { left: -15%; }
@@ -277,16 +275,9 @@ html[data-theme="dark"] #contact h2 { color: #eaf6ff; text-shadow: 0 1px 4px rgb
   overflow: hidden; z-index: 0;
 }
 .contact-landscape svg { width: 100%; height: 100%; display: block; }
-.hz-cloud { animation: hzCloudDrift linear infinite; }
-.hz-cloud-a { animation-duration: 26s; }
-.hz-cloud-b { animation-duration: 34s; animation-delay: -14s; }
-@keyframes hzCloudDrift {
-  from { transform: translateX(-60px); }
-  to   { transform: translateX(900px); }
-}
 
 @media (prefers-reduced-motion: reduce){
-  .sky-cloud, .hz-cloud { animation: none !important; }
+  .sky-cloud { animation: none !important; }
 }
 @media (max-width: 640px){
   #contact { padding-top: 56px; padding-bottom: 130px; }
@@ -625,17 +616,10 @@ html.skip-launch .launch-overlay { display: none !important; }
     </a>
   </div>
   <div class="contact-landscape" aria-hidden="true">
+    <i class="sky-cloud" style="top:6%; left:-15%; --scale:1; animation-duration:38s; animation-delay:-6s;"></i>
+    <i class="sky-cloud" style="top:22%; left:-15%; --scale:.8; animation-duration:44s; animation-delay:-20s;"></i>
+    <i class="sky-cloud" style="top:12%; left:-15%; --scale:.65; animation-duration:50s; animation-delay:-34s;"></i>
     <svg viewBox="0 0 800 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <g class="hz-cloud hz-cloud-a" transform="translate(60,6)">
-        <g class="hz-cloud-shape"><circle cx="37" cy="3" r="25"/><circle cx="65" cy="3" r="19"/><rect x="0" y="0" width="90" height="30" rx="15"/></g>
-      </g>
-      <g class="hz-cloud hz-cloud-b" transform="translate(470,22) scale(.8)">
-        <g class="hz-cloud-shape"><circle cx="37" cy="3" r="25"/><circle cx="65" cy="3" r="19"/><rect x="0" y="0" width="90" height="30" rx="15"/></g>
-      </g>
-      <g class="hz-cloud hz-cloud-a" style="animation-delay:-20s;" transform="translate(640,0) scale(.65)">
-        <g class="hz-cloud-shape"><circle cx="37" cy="3" r="25"/><circle cx="65" cy="3" r="19"/><rect x="0" y="0" width="90" height="30" rx="15"/></g>
-      </g>
-
       <!-- rolling field -->
       <path d="M0,104 Q200,88 400,100 T800,96 L800,200 L0,200 Z" fill="#7dd13a"/>
       <path d="M0,116 Q200,100 400,112 T800,108 L800,150 Q400,136 0,150 Z" fill="#5fb52a" opacity=".55"/>
