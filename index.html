@@ -235,6 +235,68 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
   border-color: var(--color-accent);
 }
 
+/* ---- Sky + drifting clouds background (Skills, Projects preview) ---- */
+#skills, #featured-projects {
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #cfe8fb 0%, #eaf6ff 100%);
+}
+html[data-theme="dark"] #skills, html[data-theme="dark"] #featured-projects {
+  background: linear-gradient(180deg, #0f2942 0%, #16345a 100%);
+}
+#skills > .container, #featured-projects > .container { position: relative; z-index: 1; }
+
+.sky-scene { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+.sky-cloud {
+  position: absolute; width: 90px; height: 30px;
+  background: #fff; border-radius: 50px; opacity: .85;
+  transform: scale(var(--scale, 1));
+  animation-name: cloudDrift; animation-timing-function: linear; animation-iteration-count: infinite;
+}
+.sky-cloud::before, .sky-cloud::after {
+  content: ""; position: absolute; background: inherit; border-radius: 50%;
+}
+.sky-cloud::before { width: 50px; height: 50px; top: -22px; left: 12px; }
+.sky-cloud::after  { width: 38px; height: 38px; top: -16px; left: 46px; }
+html[data-theme="dark"] .sky-cloud { background: #2c4a68; opacity: .8; }
+
+@keyframes cloudDrift {
+  from { left: -15%; }
+  to   { left: 115%; }
+}
+
+/* ---- Rotating Earth horizon strip (Contact) ---- */
+#contact { position: relative; overflow: hidden; padding-bottom: 190px; }
+.earth-horizon {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 150px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #3aa8a3 0%, #1c5c62 65%, #0f363b 100%);
+  box-shadow: 0 -10px 40px rgba(120,200,220,.2) inset;
+}
+.earth-horizon-surface {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(60px 40px at 10% 25%, rgba(34,112,119,.9), transparent 70%),
+    radial-gradient(80px 50px at 45% 55%, rgba(34,112,119,.9), transparent 70%),
+    radial-gradient(50px 35px at 75% 20%, rgba(58,168,163,.9), transparent 70%),
+    radial-gradient(70px 45px at 95% 50%, rgba(34,112,119,.9), transparent 70%);
+  background-repeat: repeat-x;
+  background-size: 480px 100%;
+  animation: earthRotate 14s linear infinite;
+}
+@keyframes earthRotate {
+  from { background-position-x: 0; }
+  to   { background-position-x: -480px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .sky-cloud, .earth-horizon-surface { animation: none !important; }
+}
+@media (max-width: 640px){
+  #contact { padding-bottom: 130px; }
+  .earth-horizon { height: 100px; }
+}
+
 footer { border-top: 1px solid var(--color-border); padding: 40px 0; }
 footer p { color: var(--color-text-muted); font-size: 13px; margin: 0; }
 footer .container { display: flex; flex-direction: column; gap: 4px; }
@@ -480,6 +542,12 @@ html.skip-launch .launch-overlay { display: none !important; }
 </section>
 
 <section id="skills">
+  <div class="sky-scene" aria-hidden="true">
+    <i class="sky-cloud" style="top:18%; left:-15%; --scale:1; animation-duration:38s; animation-delay:-6s;"></i>
+    <i class="sky-cloud" style="top:55%; left:-15%; --scale:.7; animation-duration:46s; animation-delay:-22s;"></i>
+    <i class="sky-cloud" style="top:32%; left:-15%; --scale:.85; animation-duration:42s; animation-delay:-34s;"></i>
+    <i class="sky-cloud" style="top:75%; left:-15%; --scale:.6; animation-duration:50s; animation-delay:-12s;"></i>
+  </div>
   <div class="container" data-reveal>
     <h2>Skills &amp; Technical Toolset</h2>
 
@@ -508,6 +576,12 @@ html.skip-launch .launch-overlay { display: none !important; }
 </section>
 
 <section id="featured-projects">
+  <div class="sky-scene" aria-hidden="true">
+    <i class="sky-cloud" style="top:14%; left:-15%; --scale:.8; animation-duration:44s; animation-delay:-18s;"></i>
+    <i class="sky-cloud" style="top:48%; left:-15%; --scale:1; animation-duration:36s; animation-delay:-4s;"></i>
+    <i class="sky-cloud" style="top:70%; left:-15%; --scale:.65; animation-duration:52s; animation-delay:-28s;"></i>
+    <i class="sky-cloud" style="top:88%; left:-15%; --scale:.9; animation-duration:40s; animation-delay:-40s;"></i>
+  </div>
   <div class="container" data-reveal>
     <h2>Projects</h2>
     <p class="muted" style="margin-bottom:28px;">A quick look — full write-ups and interactive demos on the <a href="projects.html">Projects page</a>.</p>
@@ -553,6 +627,9 @@ html.skip-launch .launch-overlay { display: none !important; }
         <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2"/>
       </svg>
     </a>
+  </div>
+  <div class="earth-horizon" aria-hidden="true">
+    <div class="earth-horizon-surface"></div>
   </div>
 </section>
 
