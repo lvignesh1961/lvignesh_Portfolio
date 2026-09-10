@@ -304,122 +304,137 @@ html.skip-launch .launch-overlay { display: none !important; }
 .launch-overlay {
   position: fixed; inset: 0; z-index: 9999;
   overflow: hidden; cursor: pointer;
-  background: #0a0e1a;
-  image-rendering: pixelated;
+  background: radial-gradient(ellipse at 50% 45%, #163a5c 0%, #0d2340 45%, #081527 100%);
 }
 .launch-overlay.launch-out { opacity: 0; transition: opacity .5s ease; pointer-events: none; }
 
-.mc-star {
-  position: absolute; width: 3px; height: 3px; background: #fff;
-  animation: mcTwinkle 1.6s steps(2) infinite;
+.orbit-star {
+  position: absolute; border-radius: 50%; background: #fff;
+  animation: orbitTwinkle 2.4s ease-in-out infinite;
 }
-.mc-star:nth-child(3n) { animation-duration: 2.1s; }
-.mc-star:nth-child(5n) { animation-duration: 1.2s; background: #cfe0ff; }
+.orbit-star:nth-child(3n) { animation-duration: 3.1s; }
+.orbit-star:nth-child(5n) { animation-duration: 1.8s; opacity: .6; }
 
-.mc-scene {
+.orbit-scene {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
 }
-
-/* Blocky pixel-art Earth, hand-built as a 12x12 box-shadow grid (PX = 10px) -- higher
-   resolution than the first pass specifically for a rounder silhouette while staying blocky */
-.mc-earth {
-  position: relative; width: 120px; height: 120px; background: transparent;
-  animation: mcEarthSpin 11s linear infinite;
-  box-shadow:
-    40px 0px #e9eef2, 50px 0px #e9eef2, 60px 0px #e9eef2, 70px 0px #e9eef2,
-    20px 10px #3d7dd6, 30px 10px #3d7dd6, 40px 10px #3d7dd6, 50px 10px #3d7dd6, 60px 10px #3d7dd6, 70px 10px #3d7dd6, 80px 10px #3d7dd6, 90px 10px #3d7dd6,
-    10px 20px #3d7dd6, 20px 20px #4f8f3a, 30px 20px #4f8f3a, 40px 20px #3d7dd6, 50px 20px #3d7dd6, 60px 20px #3d7dd6, 70px 20px #3d7dd6, 80px 20px #3d7dd6, 90px 20px #3d7dd6, 100px 20px #3d7dd6,
-    10px 30px #3d7dd6, 20px 30px #4f8f3a, 30px 30px #4f8f3a, 40px 30px #4f8f3a, 50px 30px #3d7dd6, 60px 30px #3d7dd6, 70px 30px #3d7dd6, 80px 30px #3d7dd6, 90px 30px #3d7dd6, 100px 30px #3d7dd6,
-    0px 40px #3d7dd6, 10px 40px #4f8f3a, 20px 40px #4f8f3a, 30px 40px #3d7dd6, 40px 40px #3d7dd6, 50px 40px #3d7dd6, 60px 40px #3d7dd6, 70px 40px #3d7dd6, 80px 40px #3d7dd6, 90px 40px #356b28, 100px 40px #3d7dd6, 110px 40px #3d7dd6,
-    0px 50px #3d7dd6, 10px 50px #3d7dd6, 20px 50px #3d7dd6, 30px 50px #3d7dd6, 40px 50px #3d7dd6, 50px 50px #3d7dd6, 60px 50px #3d7dd6, 70px 50px #3d7dd6, 80px 50px #4f8f3a, 90px 50px #4f8f3a, 100px 50px #4f8f3a, 110px 50px #3d7dd6,
-    0px 60px #3d7dd6, 10px 60px #3d7dd6, 20px 60px #3d7dd6, 30px 60px #4f8f3a, 40px 60px #4f8f3a, 50px 60px #3d7dd6, 60px 60px #3d7dd6, 70px 60px #3d7dd6, 80px 60px #3d7dd6, 90px 60px #3d7dd6, 100px 60px #3d7dd6, 110px 60px #3d7dd6,
-    0px 70px #3d7dd6, 10px 70px #3d7dd6, 20px 70px #3d7dd6, 30px 70px #3d7dd6, 40px 70px #3d7dd6, 50px 70px #3d7dd6, 60px 70px #3d7dd6, 70px 70px #4f8f3a, 80px 70px #4f8f3a, 90px 70px #3d7dd6, 100px 70px #3d7dd6, 110px 70px #3d7dd6,
-    10px 80px #3d7dd6, 20px 80px #3d7dd6, 30px 80px #3d7dd6, 40px 80px #3d7dd6, 50px 80px #4f8f3a, 60px 80px #3d7dd6, 70px 80px #3d7dd6, 80px 80px #3d7dd6, 90px 80px #3d7dd6, 100px 80px #3d7dd6,
-    10px 90px #3d7dd6, 20px 90px #3d7dd6, 30px 90px #3d7dd6, 40px 90px #3d7dd6, 50px 90px #3d7dd6, 60px 90px #3d7dd6, 70px 90px #3d7dd6, 80px 90px #3d7dd6, 90px 90px #3d7dd6, 100px 90px #3d7dd6,
-    20px 100px #3d7dd6, 30px 100px #3d7dd6, 40px 100px #3d7dd6, 50px 100px #3d7dd6, 60px 100px #3d7dd6, 70px 100px #3d7dd6, 80px 100px #3d7dd6, 90px 100px #3d7dd6,
-    40px 110px #e9eef2, 50px 110px #e9eef2, 60px 110px #e9eef2, 70px 110px #e9eef2;
-}
-
-/* Orbit: outer wrapper spins, rocket sits offset from its center at a radius clear of Earth */
-.mc-orbit {
-  position: absolute; top: 50%; left: 50%; width: 0; height: 0;
-  animation: mcOrbitSpin 3.2s linear infinite;
-}
-
-/* Blocky pixel-art rocket, hand-built as a 6x10 box-shadow grid (PX = 8px) */
-.mc-rocket {
-  position: absolute; width: 48px; height: 80px; background: transparent;
-  transform: translate(-24px, -172px) rotate(90deg);
-  box-shadow:
-    16px 0px #c62828, 24px 0px #c62828,
-    8px 8px #d8d8d8, 16px 8px #d8d8d8, 24px 8px #d8d8d8, 32px 8px #d8d8d8,
-    8px 16px #d8d8d8, 16px 16px #3d7dd6, 24px 16px #3d7dd6, 32px 16px #d8d8d8,
-    8px 24px #d8d8d8, 16px 24px #d8d8d8, 24px 24px #d8d8d8, 32px 24px #d8d8d8,
-    8px 32px #d8d8d8, 16px 32px #d8d8d8, 24px 32px #d8d8d8, 32px 32px #d8d8d8,
-    0px 40px #9a9a9a, 8px 40px #d8d8d8, 16px 40px #d8d8d8, 24px 40px #d8d8d8, 32px 40px #d8d8d8, 40px 40px #9a9a9a,
-    0px 48px #9a9a9a, 8px 48px #d8d8d8, 16px 48px #d8d8d8, 24px 48px #d8d8d8, 32px 48px #d8d8d8, 40px 48px #9a9a9a,
-    8px 56px #6f6f6f, 16px 56px #6f6f6f, 24px 56px #6f6f6f, 32px 56px #6f6f6f,
-    16px 64px #ff8c1a, 24px 64px #ff8c1a,
-    16px 72px #ffd166, 24px 72px #ffd166;
-}
+.orbit-svg { width: min(78vw, 420px); height: auto; overflow: visible; }
 
 .launch-caption {
-  position: absolute; left: 0; right: 0; bottom: 10%;
+  position: absolute; left: 0; right: 0; bottom: 9%;
   text-align: center; color: #fff; font-weight: 600; letter-spacing: .1em;
   font-size: 12px; text-transform: uppercase; opacity: 0;
   font-family: var(--font-mono, monospace);
-  animation: launchCaption 6.8s ease forwards;
+  animation: launchCaption 8.6s ease forwards;
 }
 
 .launch-skip {
   position: absolute; top: 20px; right: 20px;
   background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.35);
-  border-radius: 3px; padding: 8px 16px; font-size: 12px; font-weight: 600;
+  border-radius: 999px; padding: 8px 16px; font-size: 12px; font-weight: 600;
   cursor: pointer; font-family: var(--font-mono, monospace); letter-spacing: .05em;
 }
 .launch-skip:hover { background: rgba(255,255,255,.22); }
 
-@keyframes mcTwinkle { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
-@keyframes mcEarthSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes mcOrbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes orbitTwinkle { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
 @keyframes launchCaption {
-  0%, 12% { opacity: 0; transform: translateY(6px); }
-  25%, 88% { opacity: 1; transform: translateY(0); }
+  0%, 8% { opacity: 0; transform: translateY(6px); }
+  18%, 90% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce){
-  .mc-earth, .mc-orbit, .mc-star { animation: none !important; }
-}
-@media (max-width: 480px){
-  .mc-earth { transform: scale(.7); }
-  .mc-rocket { transform: translate(-24px, -142px) rotate(90deg) scale(.8); }
+  .orbit-star { animation: none !important; }
 }
 </style>
 </head>
 <body>
 
 <div class="launch-overlay" id="launchOverlay">
-  <i class="mc-star" style="top:12%;left:8%;"></i>
-  <i class="mc-star" style="top:18%;left:82%;"></i>
-  <i class="mc-star" style="top:8%;left:45%;"></i>
-  <i class="mc-star" style="top:30%;left:20%;"></i>
-  <i class="mc-star" style="top:65%;left:12%;"></i>
-  <i class="mc-star" style="top:75%;left:88%;"></i>
-  <i class="mc-star" style="top:85%;left:30%;"></i>
-  <i class="mc-star" style="top:22%;left:65%;"></i>
-  <i class="mc-star" style="top:50%;left:5%;"></i>
-  <i class="mc-star" style="top:40%;left:92%;"></i>
-  <i class="mc-star" style="top:60%;left:70%;"></i>
-  <i class="mc-star" style="top:90%;left:55%;"></i>
-  <i class="mc-star" style="top:6%;left:75%;"></i>
-  <i class="mc-star" style="top:78%;left:45%;"></i>
-  <div class="mc-scene">
-    <div class="mc-earth"></div>
-    <div class="mc-orbit">
-      <div class="mc-rocket"></div>
-    </div>
+  <i class="orbit-star" style="top:12%;left:8%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:18%;left:82%;width:3px;height:3px;"></i>
+  <i class="orbit-star" style="top:8%;left:45%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:30%;left:20%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:65%;left:12%;width:3px;height:3px;"></i>
+  <i class="orbit-star" style="top:75%;left:88%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:85%;left:22%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:22%;left:65%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:50%;left:5%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:40%;left:92%;width:3px;height:3px;"></i>
+  <i class="orbit-star" style="top:60%;left:70%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:92%;left:60%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:6%;left:75%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:80%;left:42%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:35%;left:35%;width:2px;height:2px;"></i>
+  <i class="orbit-star" style="top:15%;left:60%;width:2px;height:2px;"></i>
+
+  <div class="orbit-scene">
+    <svg class="orbit-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="flameGrad" cx="50%" cy="0%" r="100%">
+          <stop offset="0%" stop-color="#fff3c4"/>
+          <stop offset="45%" stop-color="#ffb23e"/>
+          <stop offset="100%" stop-color="#ff5a1f"/>
+        </radialGradient>
+      </defs>
+
+      <!-- distant moon -->
+      <circle cx="352" cy="332" r="22" fill="#b5502e"/>
+      <circle cx="345" cy="324" r="3.5" fill="#8a3c22"/>
+      <circle cx="360" cy="338" r="2.5" fill="#8a3c22"/>
+      <circle cx="352" cy="342" r="2" fill="#8a3c22"/>
+
+      <!-- sun -->
+      <g transform="translate(56,58)">
+        <path d="M0,-32 L5,-13 L24,-19 L11,-4 L32,0 L11,4 L24,19 L5,13 L0,32 L-5,13 L-24,19 L-11,4 L-32,0 L-11,-4 L-24,-19 L-5,-13 Z" fill="#f5a623"/>
+        <circle r="15" fill="#ffcf4d"/>
+      </g>
+
+      <!-- clouds -->
+      <g fill="#eef4f8" opacity=".85">
+        <ellipse cx="88" cy="248" rx="15" ry="8"/>
+        <ellipse cx="100" cy="243" rx="11" ry="7"/>
+        <ellipse cx="76" cy="244" rx="9" ry="6"/>
+        <ellipse cx="308" cy="268" rx="13" ry="7"/>
+        <ellipse cx="319" cy="264" rx="9" ry="6"/>
+      </g>
+
+      <!-- airplane + contrail -->
+      <path d="M258,300 q18,4 34,9" stroke="#dfe7ee" stroke-width="1.5" fill="none" opacity=".55"/>
+      <g transform="translate(292,309) rotate(18)">
+        <path d="M0,0 L15,3 L11,6 L0,4 L-5,8 L-8,7 L-4,3 Z" fill="#dfe7ee"/>
+      </g>
+
+      <!-- dashed orbit path (also the motion path the rocket follows) -->
+      <ellipse id="orbitPath" cx="200" cy="204" rx="152" ry="48"
+               fill="none" stroke="#eaf2f8" stroke-width="2" stroke-dasharray="7 8" opacity=".8"
+               transform="rotate(-9 200 204)"/>
+
+      <!-- earth -->
+      <circle cx="200" cy="204" r="122" fill="#134a52" opacity=".55"/>
+      <circle cx="200" cy="204" r="112" fill="#2f9096"/>
+      <path d="M148,150 Q126,122 158,110 Q198,96 216,124 Q230,146 206,164 Q180,178 156,172 Q138,168 148,150 Z" fill="#227077"/>
+      <path d="M252,168 Q284,156 304,182 Q314,206 292,220 Q270,230 256,210 Q244,186 252,168 Z" fill="#227077"/>
+      <path d="M150,238 Q128,258 150,278 Q176,292 196,272 Q206,256 186,242 Q166,230 150,238 Z" fill="#227077"/>
+      <path d="M210,232 Q228,224 240,240 Q244,254 228,258 Q214,260 210,246 Z" fill="#3aa8a3"/>
+      <path d="M170,190 Q185,182 196,192 Q200,204 186,208 Q174,210 170,198 Z" fill="#3aa8a3"/>
+
+      <!-- rocket, animated along orbitPath -->
+      <g>
+        <path d="M-5,20 Q0,36 5,20 Q0,27 -5,20 Z" fill="url(#flameGrad)"/>
+        <path d="M-7,10 L-13,20 L-6,17 Z" fill="#d94b3c"/>
+        <path d="M7,10 L13,20 L6,17 Z" fill="#d94b3c"/>
+        <rect x="-7" y="-20" width="14" height="32" rx="7" fill="#f4f7f9"/>
+        <path d="M-7,-20 Q0,-33 7,-20 Z" fill="#e0463a"/>
+        <circle cx="0" cy="-9" r="4" fill="#3d7dd6"/>
+        <circle cx="0" cy="-9" r="2.2" fill="#bfe0f7"/>
+        <animateMotion dur="4.4s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#orbitPath"/>
+        </animateMotion>
+      </g>
+    </svg>
   </div>
+
   <p class="launch-caption">Vignesh</p>
   <button class="launch-skip" type="button" data-launch-skip>Skip</button>
 </div>
@@ -774,7 +789,7 @@ html.skip-launch .launch-overlay { display: none !important; }
     });
   }
 
-  setTimeout(finish, 6800);
+  setTimeout(finish, 8600);
 })();
 </script>
 </body>
