@@ -266,38 +266,25 @@ html[data-theme="dark"] .sky-cloud { background: #2c4a68; opacity: .8; }
 
 /* ---- Rotating Earth horizon strip (Contact) ---- */
 #contact { position: relative; overflow: hidden; padding-bottom: 190px; }
-.earth-horizon {
+.contact-landscape {
   position: absolute; left: 0; right: 0; bottom: 0; height: 150px;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   overflow: hidden;
-  background: linear-gradient(180deg, #2e7cd6 0%, #1a5aa8 45%, #0b3568 100%);
-  box-shadow: 0 -3px 0 rgba(190,225,255,.55) inset, 0 -18px 46px rgba(140,200,255,.25) inset;
 }
-.earth-horizon-surface {
-  position: absolute; inset: 0; opacity: .95;
-  background-image:
-    radial-gradient(28px 20px at 8% 30%, #3c8a4a 0%, #3c8a4a 55%, transparent 68%),
-    radial-gradient(40px 26px at 22% 55%, #327840 0%, #327840 55%, transparent 68%),
-    radial-gradient(22px 16px at 40% 20%, #4a9c55 0%, #4a9c55 55%, transparent 68%),
-    radial-gradient(34px 22px at 58% 50%, #3c8a4a 0%, #3c8a4a 55%, transparent 68%),
-    radial-gradient(24px 18px at 74% 25%, #6b6034 0%, #6b6034 55%, transparent 68%),
-    radial-gradient(38px 24px at 88% 52%, #327840 0%, #327840 55%, transparent 68%),
-    radial-gradient(20px 14px at 98% 20%, #4a9c55 0%, #4a9c55 55%, transparent 68%);
-  background-repeat: repeat-x;
-  background-size: 380px 100%;
-  animation: earthRotate 16s linear infinite;
-}
-@keyframes earthRotate {
-  from { background-position-x: 0; }
-  to   { background-position-x: -380px; }
+.contact-landscape svg { width: 100%; height: 100%; display: block; }
+.hz-cloud { animation: hzCloudDrift linear infinite; }
+.hz-cloud-a { animation-duration: 26s; }
+.hz-cloud-b { animation-duration: 34s; animation-delay: -14s; }
+@keyframes hzCloudDrift {
+  from { transform: translateX(-60px); }
+  to   { transform: translateX(900px); }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .sky-cloud, .earth-horizon-surface { animation: none !important; }
+  .sky-cloud, .hz-cloud { animation: none !important; }
 }
 @media (max-width: 640px){
   #contact { padding-bottom: 130px; }
-  .earth-horizon { height: 100px; }
+  .contact-landscape { height: 100px; }
 }
 
 footer { border-top: 1px solid var(--color-border); padding: 40px 0; }
@@ -631,8 +618,50 @@ html.skip-launch .launch-overlay { display: none !important; }
       </svg>
     </a>
   </div>
-  <div class="earth-horizon" aria-hidden="true">
-    <div class="earth-horizon-surface"></div>
+  <div class="contact-landscape" aria-hidden="true">
+    <svg viewBox="0 0 800 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hzSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6fc0f0"/>
+          <stop offset="100%" stop-color="#d8f0fb"/>
+        </linearGradient>
+      </defs>
+
+      <rect x="0" y="0" width="800" height="120" fill="url(#hzSky)"/>
+
+      <g class="hz-cloud hz-cloud-a">
+        <ellipse cx="150" cy="38" rx="34" ry="12" fill="#ffffff" opacity=".9"/>
+        <ellipse cx="175" cy="30" rx="22" ry="14" fill="#ffffff" opacity=".9"/>
+      </g>
+      <g class="hz-cloud hz-cloud-b">
+        <ellipse cx="520" cy="55" rx="28" ry="10" fill="#ffffff" opacity=".85"/>
+        <ellipse cx="540" cy="48" rx="18" ry="11" fill="#ffffff" opacity=".85"/>
+      </g>
+
+      <path d="M0,118 L60,80 L100,102 L150,70 L200,104 L250,76 L300,108 L360,82 L410,110 L470,78 L520,102 L580,84 L630,106 L690,80 L740,100 L800,86 L800,140 L0,140 Z"
+            fill="#6fa3c4" opacity=".55"/>
+
+      <path d="M0,140 Q100,112 220,128 T440,122 T660,130 T800,118 L800,200 L0,200 Z" fill="#4f9a4a"/>
+      <g fill="#3d7d3c">
+        <ellipse cx="55" cy="128" rx="20" ry="14"/>
+        <ellipse cx="80" cy="120" rx="16" ry="12"/>
+        <ellipse cx="35" cy="122" rx="14" ry="10"/>
+        <ellipse cx="740" cy="122" rx="18" ry="13"/>
+        <ellipse cx="765" cy="130" rx="14" ry="10"/>
+      </g>
+
+      <g opacity=".85">
+        <path d="M430,132 L470,120 L478,128 L438,141 Z" fill="#b98a2e"/>
+        <path d="M438,141 L478,128 L486,136 L446,150 Z" fill="#8fae3f"/>
+        <path d="M446,150 L486,136 L494,144 L454,158 Z" fill="#b98a2e"/>
+        <path d="M454,158 L494,144 L502,152 L462,166 Z" fill="#8fae3f"/>
+        <path d="M462,166 L502,152 L510,160 L470,174 Z" fill="#b98a2e"/>
+        <path d="M470,174 L510,160 L560,150 L556,166 L490,182 Z" fill="#8fae3f"/>
+      </g>
+
+      <path d="M0,160 Q140,140 280,157 T560,152 T800,160 L800,200 L0,200 Z" fill="#7dc94c"/>
+      <path d="M0,172 Q160,158 320,170 T640,166 T800,172 L800,200 L0,200 Z" fill="#8fd45c" opacity=".7"/>
+    </svg>
   </div>
 </section>
 
