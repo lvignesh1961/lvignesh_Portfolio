@@ -279,8 +279,34 @@ html[data-theme="dark"] #contact h2 { color: #eaf6ff; text-shadow: 0 1px 4px rgb
 @media (prefers-reduced-motion: reduce){
   .sky-cloud { animation: none !important; }
 }
+
+/* Tablet: slightly smaller clouds, tighter Contact padding */
+@media (max-width: 1024px){
+  .sky-cloud { width: 76px; height: 26px; }
+  .sky-cloud::before { width: 42px; height: 42px; top: -19px; left: 10px; }
+  .sky-cloud::after  { width: 32px; height: 32px; top: -14px; left: 39px; }
+  #contact { padding-top: 64px; padding-bottom: 160px; }
+}
+
+/* Mobile/small tablet */
 @media (max-width: 640px){
   #contact { padding-top: 56px; padding-bottom: 130px; }
+}
+
+/* Small phones: smaller, fewer visually-crowded clouds */
+@media (max-width: 480px){
+  .sky-cloud { width: 58px; height: 20px; }
+  .sky-cloud::before { width: 32px; height: 32px; top: -14px; left: 8px; }
+  .sky-cloud::after  { width: 24px; height: 24px; top: -10px; left: 30px; }
+  #contact { padding-top: 44px; padding-bottom: 100px; }
+}
+
+/* Large monitors: scale the scene up so it doesn't look sparse on a wide sky */
+@media (min-width: 1600px){
+  .sky-cloud { width: 110px; height: 36px; }
+  .sky-cloud::before { width: 60px; height: 60px; top: -26px; left: 15px; }
+  .sky-cloud::after  { width: 46px; height: 46px; top: -19px; left: 56px; }
+  #contact { padding-top: 100px; padding-bottom: 230px; }
 }
 
 footer { border-top: 1px solid var(--color-border); padding: 40px 0; }
