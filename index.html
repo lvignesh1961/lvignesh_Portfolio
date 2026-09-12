@@ -366,11 +366,9 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   :root { --space-section: 48px; --container-max: 920px; }
 }
 
-@media (max-width: 768px) {
-  :root { --space-section: 40px; }
-  .stat-row { gap: 20px; }
-  .mini-grid { grid-template-columns: 1fr 1fr; }
-
+/* Switch to the hamburger menu before the brand + nav links can crowd
+   and wrap onto separate lines on tablets/small laptops. */
+@media (max-width: 900px) {
   .nav-toggle { display: inline-flex; }
   .container.nav { position: relative; }
   nav[data-nav-list] {
@@ -397,6 +395,12 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   html[data-theme="dark"] nav[data-nav-list] .theme-toggle::after {
     content: "Light mode";
   }
+}
+
+@media (max-width: 768px) {
+  :root { --space-section: 40px; }
+  .stat-row { gap: 20px; }
+  .mini-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 560px) {

@@ -210,10 +210,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   :root { --space-section: 76px; --container-max: 920px; }
 }
 
-@media (max-width: 768px) {
-  :root { --space-section: 64px; }
-  .stat-row { gap: 20px; }
-
+@media (max-width: 900px) {
   .nav-toggle { display: inline-flex; }
   .container.nav { position: relative; }
   nav[data-nav-list] {
@@ -240,6 +237,11 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   html[data-theme="dark"] nav[data-nav-list] .theme-toggle::after {
     content: "Light mode";
   }
+}
+
+@media (max-width: 768px) {
+  :root { --space-section: 64px; }
+  .stat-row { gap: 20px; }
 }
 
 @media (max-width: 560px) {

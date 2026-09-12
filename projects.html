@@ -158,9 +158,7 @@ footer { border-top: 1px solid var(--color-border); padding: 40px 0; }
 footer p { color: var(--color-text-muted); font-size: 13px; margin: 0; }
 footer .container { display: flex; flex-direction: column; gap: 4px; }
 
-@media (max-width: 768px) {
-  :root { --space-section: 64px; }
-
+@media (max-width: 900px) {
   .nav-toggle { display: inline-flex; }
   .container.nav { position: relative; }
   nav[data-nav-list] {
@@ -187,6 +185,10 @@ footer .container { display: flex; flex-direction: column; gap: 4px; }
   html[data-theme="dark"] nav[data-nav-list] .theme-toggle::after {
     content: "Light mode";
   }
+}
+
+@media (max-width: 768px) {
+  :root { --space-section: 64px; }
 }
 
 @media (max-width: 560px) {
