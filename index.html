@@ -222,13 +222,17 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 .highlight { color: var(--color-accent); font-weight: 700; }
 
 
-/* ---- Sky + drifting clouds background (Skills, Projects) ---- */
+/* ---- Sky + drifting clouds background (Skills, Projects, Contact) ---- */
 .sky-wrap {
   position: relative; overflow: hidden;
-  background: linear-gradient(180deg, #ffffff 0%, #eef8ff 18%, #cfe8fb 45%, #8fcdf3 75%, #6fc0f0 100%);
+  background: linear-gradient(180deg,
+    #ffffff 0%, #eef8ff 14%, #cfe8fb 34%, #8fcdf3 52%, #6fc0f0 66%,
+    #a9ddf5 82%, #d9f0fb 93%, #eef6f2 100%);
 }
 html[data-theme="dark"] .sky-wrap {
-  background: linear-gradient(180deg, #0b0d12 0%, #0a1e33 18%, #0f2942 45%, #133456 75%, #16345a 100%);
+  background: linear-gradient(180deg,
+    #0b0d12 0%, #0a1e33 14%, #0f2942 34%, #133456 52%, #16345a 66%,
+    #1c4570 82%, #234f7d 93%, #1a2b2a 100%);
 }
 #skills, #featured-projects { position: relative; }
 #skills > .container, #featured-projects > .container { position: relative; z-index: 1; }
@@ -253,14 +257,10 @@ html[data-theme="dark"] .sky-cloud { background: #2c4a68; opacity: .8; }
 }
 
 /* ---- Landscape scene (Contact) ---- */
-#contact {
-  position: relative; overflow: hidden;
-  padding-top: 80px; padding-bottom: 190px;
-  background: #f6f6f2;
-}
-html[data-theme="dark"] #contact { background: #10151b; }
+#contact { position: relative; overflow: hidden; padding-top: 80px; padding-bottom: 190px; }
 #contact > .container { position: relative; z-index: 1; }
-#contact h2 { color: var(--color-text); }
+#contact h2 { color: #16324a; text-shadow: 0 1px 4px rgba(255,255,255,.5); }
+html[data-theme="dark"] #contact h2 { color: #eaf6ff; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
 .contact-landscape {
   position: absolute; left: 0; right: 0; top: 0; bottom: 0;
   overflow: hidden; z-index: 0;
@@ -275,31 +275,22 @@ html[data-theme="dark"] #contact { background: #10151b; }
 
 /* signpost */
 .signpost {
-  position: absolute; left: 15%; bottom: 21%;
-  width: 100px; height: 140px;
+  position: absolute; left: 15%; bottom: 20%;
+  width: 120px; height: 170px;
   display: block; text-decoration: none; z-index: 1;
+  transform-origin: left bottom;
 }
-.signpost-pole {
-  position: absolute; left: 6px; bottom: 0; width: 10px; height: 100%;
-  border-radius: 3px;
-  background:
-    repeating-linear-gradient(180deg, rgba(0,0,0,.1) 0 2px, transparent 2px 14px),
-    linear-gradient(90deg, #7a4d24, #a9713a 45%, #7a4d24);
-  box-shadow: inset -2px 0 0 rgba(0,0,0,.15);
+.signpost-art { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.signpost-plank { transition: transform .25s ease; transform-origin: 57px 45px; }
+.signpost:hover .signpost-plank, .signpost:focus-visible .signpost-plank { transform: rotate(-3deg) translateX(3px); }
+.signpost:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 6px; border-radius: 6px; }
+.signpost-label {
+  position: absolute; left: 64px; top: 30px; width: 54px; height: 30px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  color: #2b1a0e; font-weight: 700; font-size: 12px; white-space: nowrap;
+  pointer-events: none;
 }
-.signpost-sign {
-  position: absolute; top: 12px; left: 0;
-  display: flex; align-items: center; gap: 7px;
-  background: linear-gradient(180deg, #c98a4b, #a9713a);
-  color: #2b1a0e; font-weight: 600; font-size: 13px; white-space: nowrap;
-  padding: 9px 16px 9px 20px;
-  clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
-  box-shadow: 0 3px 6px rgba(0,0,0,.25);
-  transition: transform .2s ease;
-}
-.signpost-sign svg { width: 18px; height: 14px; flex-shrink: 0; }
-.signpost:hover .signpost-sign, .signpost:focus-visible .signpost-sign { transform: translateX(4px); }
-.signpost:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; border-radius: 4px; }
+.signpost-label svg { width: 16px; height: 12px; flex-shrink: 0; }
 
 @media (prefers-reduced-motion: reduce){
   .sky-cloud, .hz-grass { animation: none !important; }
@@ -311,11 +302,13 @@ html[data-theme="dark"] #contact { background: #10151b; }
   .sky-cloud::before { width: 42px; height: 42px; top: -19px; left: 10px; }
   .sky-cloud::after  { width: 32px; height: 32px; top: -14px; left: 39px; }
   #contact { padding-top: 64px; padding-bottom: 160px; }
+  .signpost { transform: scale(.85); }
 }
 
 /* Mobile/small tablet */
 @media (max-width: 640px){
   #contact { padding-top: 56px; padding-bottom: 130px; }
+  .signpost { transform: scale(.7); }
 }
 
 /* Small phones: smaller, fewer visually-crowded clouds */
@@ -324,6 +317,7 @@ html[data-theme="dark"] #contact { background: #10151b; }
   .sky-cloud::before { width: 32px; height: 32px; top: -14px; left: 8px; }
   .sky-cloud::after  { width: 24px; height: 24px; top: -10px; left: 30px; }
   #contact { padding-top: 44px; padding-bottom: 100px; }
+  .signpost { transform: scale(.58); }
 }
 
 /* Large monitors: scale the scene up so it doesn't look sparse on a wide sky */
@@ -332,6 +326,7 @@ html[data-theme="dark"] #contact { background: #10151b; }
   .sky-cloud::before { width: 60px; height: 60px; top: -26px; left: 15px; }
   .sky-cloud::after  { width: 46px; height: 46px; top: -19px; left: 56px; }
   #contact { padding-top: 100px; padding-bottom: 230px; }
+  .signpost { transform: scale(1.2); }
 }
 
 footer { border-top: 1px solid var(--color-border); padding: 40px 0; }
@@ -652,13 +647,15 @@ html.skip-launch .launch-overlay { display: none !important; }
     <a class="btn btn-outline" href="projects.html" style="margin-top:28px;">View all projects</a>
   </div>
 </section>
-</div>
 
 <section id="contact">
   <div class="container" data-reveal>
     <h2>Contact</h2>
   </div>
   <div class="contact-landscape" aria-hidden="true">
+    <i class="sky-cloud" style="top:6%; left:-15%; --scale:1; animation-duration:38s; animation-delay:-6s;"></i>
+    <i class="sky-cloud" style="top:22%; left:-15%; --scale:.8; animation-duration:44s; animation-delay:-20s;"></i>
+    <i class="sky-cloud" style="top:12%; left:-15%; --scale:.65; animation-duration:50s; animation-delay:-34s;"></i>
     <svg viewBox="0 0 800 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <!-- back hill -->
       <path d="M0,145 Q200,115 400,130 T800,120 L800,200 L0,200 Z" fill="#8bc97e"/>
@@ -676,8 +673,54 @@ html.skip-launch .launch-overlay { display: none !important; }
     </svg>
 
     <a class="signpost" href="mailto:lvignesh1961@gmail.com" aria-label="Email lvignesh1961@gmail.com">
-      <span class="signpost-pole"></span>
-      <span class="signpost-sign">
+      <svg class="signpost-art" viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="woodPost" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#4c2f18"/>
+            <stop offset="18%" stop-color="#7a4d24"/>
+            <stop offset="50%" stop-color="#b98a52"/>
+            <stop offset="82%" stop-color="#7a4d24"/>
+            <stop offset="100%" stop-color="#4c2f18"/>
+          </linearGradient>
+          <linearGradient id="woodPlank" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#dba566"/>
+            <stop offset="45%" stop-color="#c98a4b"/>
+            <stop offset="100%" stop-color="#94622f"/>
+          </linearGradient>
+          <radialGradient id="boltShine" cx=".35" cy=".35" r=".7">
+            <stop offset="0%" stop-color="#8a8a8a"/>
+            <stop offset="100%" stop-color="#2b2b2b"/>
+          </radialGradient>
+        </defs>
+
+        <!-- ground shadow -->
+        <ellipse cx="57" cy="166" rx="30" ry="6" fill="#1a2e12" opacity=".22"/>
+
+        <!-- post -->
+        <rect x="51" y="18" width="12" height="150" rx="3" fill="url(#woodPost)"/>
+        <g stroke="#3f260f" stroke-width="1.4" opacity=".3">
+          <line x1="51" y1="38" x2="63" y2="38"/>
+          <line x1="51" y1="58" x2="63" y2="58"/>
+          <line x1="51" y1="80" x2="63" y2="80"/>
+          <line x1="51" y1="104" x2="63" y2="104"/>
+          <line x1="51" y1="128" x2="63" y2="128"/>
+          <line x1="51" y1="150" x2="63" y2="150"/>
+        </g>
+        <rect x="49" y="10" width="16" height="12" rx="5" fill="url(#woodPost)"/>
+
+        <!-- support brace -->
+        <path d="M63,52 L96,64 L96,68 L63,58 Z" fill="#6b4423"/>
+
+        <!-- plank/sign -->
+        <g class="signpost-plank">
+          <path d="M64,30 L108,30 Q118,30 118,40 L118,50 Q118,60 108,60 L64,60 L50,45 Z"
+                fill="url(#woodPlank)" stroke="#5c3a1c" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M66,32 L106,32" stroke="#f0cfa0" stroke-width="1.5" opacity=".6" stroke-linecap="round"/>
+        </g>
+        <circle cx="57" cy="45" r="4" fill="url(#boltShine)"/>
+      </svg>
+
+      <span class="signpost-label">
         <svg viewBox="52 42 88 66" xmlns="http://www.w3.org/2000/svg">
           <path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6"/>
           <path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15"/>
@@ -690,6 +733,7 @@ html.skip-launch .launch-overlay { display: none !important; }
     </a>
   </div>
 </section>
+</div>
 
 <footer>
   <div class="container">
