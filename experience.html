@@ -44,6 +44,15 @@ html[data-theme="dark"] {
 
 * { box-sizing: border-box; }
 
+/* Smooth light/dark theme switch across the page */
+*, *::before, *::after {
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease,
+              fill .35s ease, stroke .35s ease, box-shadow .35s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);

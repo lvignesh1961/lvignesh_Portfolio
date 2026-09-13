@@ -28,6 +28,15 @@ html[data-theme="dark"] {
   --header-bg: rgba(11,13,18,.85);
 }
 * { box-sizing: border-box; }
+
+/* Smooth light/dark theme switch across the page */
+*, *::before, *::after {
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease,
+              fill .35s ease, stroke .35s ease, box-shadow .35s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
 body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); line-height: 1.65; margin: 0; }
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
 section { padding: var(--space-section) 0; }

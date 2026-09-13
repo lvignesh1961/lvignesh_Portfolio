@@ -14,6 +14,13 @@
     --teal-deep:#134C4F;
   }
   *{box-sizing:border-box;}
+  *, *::before, *::after {
+    transition: background-color .35s ease, color .35s ease, border-color .35s ease,
+                fill .35s ease, stroke .35s ease, box-shadow .35s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+  }
   body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.5;}
   .wrap{max-width:960px;margin:0 auto;padding:0 28px 96px;}
   .num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;}

@@ -21,6 +21,13 @@
     --red:#A5402F;
   }
   *{box-sizing:border-box;}
+  *, *::before, *::after {
+    transition: background-color .35s ease, color .35s ease, border-color .35s ease,
+                fill .35s ease, stroke .35s ease, box-shadow .35s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+  }
   body{
     margin:0;
     background:var(--paper);
