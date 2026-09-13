@@ -1011,11 +1011,39 @@ html.skip-launch .launch-overlay { display: none !important; }
   var LINK_DIST = 130;
   var MAX_PARTICLES = 110;
 
+  var LIGHT_DOT = [79, 70, 229, .38], DARK_DOT = [157, 161, 255, .6];
+  var LIGHT_LINE = [79, 70, 229, .14], DARK_LINE = [157, 161, 255, .22];
+  var THEME_FADE_MS = 350;
+  var themeMix = document.documentElement.getAttribute('data-theme') === 'dark' ? 1 : 0;
+  var themeMixFrom = themeMix, themeMixTo = themeMix, themeMixStart = 0;
+
+  function lerpColor(a, b, t) {
+    return 'rgba(' +
+      Math.round(a[0] + (b[0] - a[0]) * t) + ',' +
+      Math.round(a[1] + (b[1] - a[1]) * t) + ',' +
+      Math.round(a[2] + (b[2] - a[2]) * t) + ',' +
+      (a[3] + (b[3] - a[3]) * t).toFixed(3) +
+    ')';
+  }
+
+  function updateThemeMix() {
+    if (themeMixStart === 0) return;
+    var t = Math.min(1, (performance.now() - themeMixStart) / THEME_FADE_MS);
+    themeMix = themeMixFrom + (themeMixTo - themeMixFrom) * t;
+    if (t >= 1) themeMixStart = 0;
+  }
+
+  new MutationObserver(function () {
+    var target = document.documentElement.getAttribute('data-theme') === 'dark' ? 1 : 0;
+    if (target === themeMixTo) return;
+    themeMixFrom = themeMix; themeMixTo = target; themeMixStart = performance.now();
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
   function themeColors() {
-    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    updateThemeMix();
     return {
-      dot: dark ? 'rgba(157,161,255,.6)' : 'rgba(79,70,229,.38)',
-      line: dark ? 'rgba(157,161,255,.22)' : 'rgba(79,70,229,.14)'
+      dot: lerpColor(LIGHT_DOT, DARK_DOT, themeMix),
+      line: lerpColor(LIGHT_LINE, DARK_LINE, themeMix)
     };
   }
 
