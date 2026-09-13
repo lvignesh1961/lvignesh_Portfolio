@@ -236,9 +236,8 @@ a.external::after { content: " ↗"; }
 .mini-card-body h3 { font-size: 17px; margin: 0 0 8px; letter-spacing: -.01em; }
 .mini-card-body p { font-size: 13.5px; color: var(--color-text-muted); margin: 0; }
 
-/* One-at-a-time project carousel: bigger tile, auto-rotates every 5s,
-   crossfading between the three projects with a Ken Burns pan/zoom on
-   each screenshot while it's showing. */
+/* One-at-a-time project carousel: bigger tile, auto-rotates every 8s,
+   crossfading between the three projects. */
 .project-carousel { position: relative; min-height: 560px; }
 .project-slide {
   position: absolute; inset: 0;
@@ -247,9 +246,11 @@ a.external::after { content: " ↗"; }
   pointer-events: none;
 }
 .project-slide.is-active { opacity: 1; transform: none; pointer-events: auto; z-index: 1; }
-.mini-card--large { height: 100%; display: flex; flex-direction: column; }
+.mini-card--large { position: relative; height: 100%; display: flex; flex-direction: column; }
+.mini-card-link { position: absolute; inset: 0; z-index: 1; }
+.mini-card-media--large, .mini-card-body { position: relative; z-index: 2; pointer-events: none; }
 .mini-card-media--large {
-  position: relative; overflow: hidden; flex: 1 1 auto; min-height: 0;
+  overflow: hidden; flex: 1 1 auto; min-height: 0;
   background: var(--color-surface);
   padding: 16px 16px 0;
 }
@@ -259,7 +260,7 @@ a.external::after { content: " ↗"; }
 }
 .carousel-dots {
   position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
-  display: flex; gap: 8px; z-index: 2;
+  display: flex; gap: 8px; z-index: 3; pointer-events: auto;
 }
 .carousel-dot {
   width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
@@ -270,8 +271,28 @@ a.external::after { content: " ↗"; }
 @media (prefers-reduced-motion: reduce) {
   .project-slide { transition: none !important; }
 }
+
+/* Large monitors */
+@media (min-width: 1600px) {
+  .project-carousel { min-height: 680px; }
+}
+/* Laptops/tablets */
+@media (max-width: 1024px) {
+  .project-carousel { min-height: 480px; }
+}
+/* Small tablets/large phones */
+@media (max-width: 768px) {
+  .project-carousel { min-height: 440px; }
+}
+/* Phones */
 @media (max-width: 640px) {
-  .project-carousel { min-height: 460px; }
+  .project-carousel { min-height: 400px; }
+}
+@media (max-width: 480px) {
+  .project-carousel { min-height: 340px; }
+  .mini-card-media--large { padding: 10px 10px 0; }
+  .carousel-dots { bottom: 8px; gap: 6px; }
+  .carousel-dot { width: 7px; height: 7px; }
 }
 
 .nav {
@@ -809,45 +830,58 @@ html.skip-launch .launch-overlay { display: none !important; }
     <p class="muted" style="margin-bottom:28px;">A quick look — full write-ups and interactive demos on the <a href="projects.html">Projects page</a>.</p>
     <div class="project-carousel" id="projectCarousel">
       <div class="project-slide is-active">
-        <a class="mini-card mini-card--large" href="inventory-case-study.html">
+        <div class="mini-card mini-card--large">
+          <a class="mini-card-link" href="inventory-case-study.html" aria-label="Inventory Management Dashboard"></a>
           <div class="mini-card-media mini-card-media--large">
             <img class="mini-card-kenburns" src="dashboard_screenshots/Order_Management_Dashboard_1.png" alt="Inventory Management Dashboard">
+            <div class="carousel-dots" role="tablist" aria-label="Featured project">
+              <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Show Inventory Management Dashboard"></button>
+              <button class="carousel-dot" type="button" data-slide="1" aria-label="Show Retail Sales & Forecast Dashboard"></button>
+              <button class="carousel-dot" type="button" data-slide="2" aria-label="Show Transportation Analysis Dashboard"></button>
+            </div>
           </div>
           <div class="mini-card-body">
             <span class="tag">Inventory</span>
             <h3>Inventory Management Dashboard</h3>
             <p>Live reorder-point and ABC/Pareto stock-health dashboard across 1,000 SKUs.</p>
           </div>
-        </a>
+        </div>
       </div>
       <div class="project-slide">
-        <a class="mini-card mini-card--large" href="retail-case-study.html">
+        <div class="mini-card mini-card--large">
+          <a class="mini-card-link" href="retail-case-study.html" aria-label="Retail Sales & Forecast Dashboard"></a>
           <div class="mini-card-media mini-card-media--large">
             <img class="mini-card-kenburns" src="dashboard_screenshots/Sales_Dashboard_1.png" alt="Retail Sales & Forecast Dashboard">
+            <div class="carousel-dots" role="tablist" aria-label="Featured project">
+              <button class="carousel-dot" type="button" data-slide="0" aria-label="Show Inventory Management Dashboard"></button>
+              <button class="carousel-dot is-active" type="button" data-slide="1" aria-label="Show Retail Sales & Forecast Dashboard"></button>
+              <button class="carousel-dot" type="button" data-slide="2" aria-label="Show Transportation Analysis Dashboard"></button>
+            </div>
           </div>
           <div class="mini-card-body">
             <span class="tag">Retail &amp; Forecasting</span>
             <h3>Retail Sales &amp; Forecast Dashboard</h3>
             <p>Sales performance plus a segment-level demand forecast through FY2030.</p>
           </div>
-        </a>
+        </div>
       </div>
       <div class="project-slide">
-        <a class="mini-card mini-card--large" href="transportation-case-study.html">
+        <div class="mini-card mini-card--large">
+          <a class="mini-card-link" href="transportation-case-study.html" aria-label="Transportation Analysis Dashboard"></a>
           <div class="mini-card-media mini-card-media--large">
             <img class="mini-card-kenburns" src="dashboard_screenshots/Transportation_Dashboard_1.png" alt="Transportation Analysis Dashboard">
+            <div class="carousel-dots" role="tablist" aria-label="Featured project">
+              <button class="carousel-dot" type="button" data-slide="0" aria-label="Show Inventory Management Dashboard"></button>
+              <button class="carousel-dot" type="button" data-slide="1" aria-label="Show Retail Sales & Forecast Dashboard"></button>
+              <button class="carousel-dot is-active" type="button" data-slide="2" aria-label="Show Transportation Analysis Dashboard"></button>
+            </div>
           </div>
           <div class="mini-card-body">
             <span class="tag">Transportation</span>
             <h3>Transportation Analysis Dashboard</h3>
             <p>Shipping cost and revenue tied together by carrier, mode, and route.</p>
           </div>
-        </a>
-      </div>
-      <div class="carousel-dots" role="tablist" aria-label="Featured project">
-        <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Show Inventory Management Dashboard"></button>
-        <button class="carousel-dot" type="button" data-slide="1" aria-label="Show Retail Sales & Forecast Dashboard"></button>
-        <button class="carousel-dot" type="button" data-slide="2" aria-label="Show Transportation Analysis Dashboard"></button>
+        </div>
       </div>
     </div>
     <a class="btn btn-outline" href="projects.html" style="margin-top:28px;">View all projects</a>
