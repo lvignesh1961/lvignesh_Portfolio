@@ -334,7 +334,21 @@ html[data-theme="dark"] .sky-wrap {
     #1c4570 82%, #234f7d 93%, #1a2b2a 100%);
 }
 #skills, #featured-projects { position: relative; }
-#skills > .container, #featured-projects > .container { position: relative; z-index: 1; }
+#skills > .container, #featured-projects > .container {
+  position: relative; z-index: 1;
+  padding: 40px 32px;
+  background: rgba(255,255,255,.16);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 24px;
+  box-shadow: 0 24px 50px -28px rgba(10,10,10,.35);
+}
+html[data-theme="dark"] #skills > .container, html[data-theme="dark"] #featured-projects > .container {
+  background: rgba(18,24,36,.38);
+  border-color: rgba(255,255,255,.1);
+  box-shadow: 0 24px 50px -28px rgba(0,0,0,.6);
+}
 
 .sky-scene { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
 .sky-cloud {
@@ -429,6 +443,7 @@ html[data-theme="dark"] #contact h2 { color: #eaf6ff; text-shadow: 0 1px 4px rgb
   .sky-cloud::after  { width: 24px; height: 24px; top: -10px; left: 30px; }
   #contact { padding-top: 44px; padding-bottom: 100px; }
   .signpost { transform: scale(.58); }
+  #skills > .container, #featured-projects > .container { padding: 28px 20px; border-radius: 18px; }
 }
 
 /* Large monitors: scale the scene up so it doesn't look sparse on a wide sky */
