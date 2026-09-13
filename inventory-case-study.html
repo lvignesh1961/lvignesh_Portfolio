@@ -37,7 +37,17 @@ html[data-theme="dark"] {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
 }
-body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); line-height: 1.65; margin: 0; }
+body {
+  background: linear-gradient(180deg,
+    #ffffff 0%, #eef8ff 14%, #cfe8fb 34%, #8fcdf3 52%, #6fc0f0 66%,
+    #a9ddf5 82%, #d9f0fb 93%, #eef6f2 100%);
+  color: var(--color-text); font-family: var(--font-sans); line-height: 1.65; margin: 0;
+}
+html[data-theme="dark"] body {
+  background: linear-gradient(180deg,
+    #0b0d12 0%, #0a1e33 14%, #0f2942 34%, #133456 52%, #16345a 66%,
+    #1c4570 82%, #234f7d 93%, #1a2b2a 100%);
+}
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
 section { padding: var(--space-section) 0; }
 h1, h2 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; }
