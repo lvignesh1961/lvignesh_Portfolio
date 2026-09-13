@@ -250,18 +250,11 @@ a.external::after { content: " ↗"; }
 .mini-card--large { height: 100%; display: flex; flex-direction: column; }
 .mini-card-media--large {
   position: relative; overflow: hidden; flex: 1 1 auto; min-height: 0;
-  border-bottom: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
 }
-.mini-card-kenburns {
-  width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
-  animation: kenBurns 8s ease-in-out infinite alternate;
-  animation-play-state: paused;
-}
-.project-slide.is-active .mini-card-kenburns { animation-play-state: running; }
-@keyframes kenBurns {
-  from { transform: scale(1) translate(0, 0); }
-  to   { transform: scale(1.12) translate(-2%, -2%); }
-}
+.mini-card-kenburns { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 .carousel-dots {
   position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
   display: flex; gap: 8px; z-index: 2;
@@ -274,7 +267,6 @@ a.external::after { content: " ↗"; }
 .carousel-dot.is-active { background: #fff; transform: scale(1.35); }
 @media (prefers-reduced-motion: reduce) {
   .project-slide { transition: none !important; }
-  .mini-card-kenburns { animation: none !important; }
 }
 @media (max-width: 640px) {
   .project-carousel { min-height: 460px; }
@@ -1009,7 +1001,7 @@ html.skip-launch .launch-overlay { display: none !important; }
   if (slides.length < 2) return;
 
   var idx = 0, timer = null;
-  var INTERVAL = 5000;
+  var INTERVAL = 8000;
 
   function goTo(i) {
     idx = (i + slides.length) % slides.length;
