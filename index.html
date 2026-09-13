@@ -222,17 +222,23 @@ a.external::after { content: " ↗"; }
    a floating screenshot preview that follows the cursor. */
 .project-list { display: flex; flex-direction: column; }
 .project-row {
-  display: flex; align-items: baseline; gap: 20px;
+  display: flex; align-items: center; gap: 20px;
   padding: 26px 4px; border-top: 1px solid var(--color-border);
   text-decoration: none; color: var(--color-text);
   transition: color .3s ease, padding-left .3s ease;
 }
 .project-list a.project-row:last-child { border-bottom: 1px solid var(--color-border); }
 .project-row-index { font-family: var(--font-mono); font-size: 13px; color: var(--color-text-muted); flex: 0 0 auto; }
+.project-row-thumb {
+  flex: 0 0 auto; width: 64px; height: 44px; object-fit: cover; object-position: top;
+  border-radius: 6px; border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
 .project-row-title { font-size: clamp(20px, 3vw, 30px); font-weight: 700; letter-spacing: -.01em; flex: 1 1 auto; }
 .project-row-tags { font-size: 13px; color: var(--color-text-muted); flex: 0 0 auto; text-align: right; }
 .project-row:hover { color: var(--color-accent); padding-left: 14px; }
 .project-row:hover .project-row-tags { color: var(--color-accent); }
+.project-row:hover .project-row-thumb { border-color: var(--color-accent); }
 
 .project-preview {
   position: fixed; top: 0; left: 0; width: 260px; height: 170px;
@@ -788,16 +794,19 @@ html.skip-launch .launch-overlay { display: none !important; }
     <div class="project-list" id="projectList">
       <a class="project-row" href="inventory-case-study.html" data-preview="dashboard_screenshots/Order_Management_Dashboard_1.png" data-preview-alt="Inventory Management Dashboard">
         <span class="project-row-index">01</span>
+        <img class="project-row-thumb" src="dashboard_screenshots/Order_Management_Dashboard_1.png" alt="" loading="lazy">
         <span class="project-row-title">Inventory Management Dashboard</span>
         <span class="project-row-tags">Inventory · Reorder Points · ABC/Pareto</span>
       </a>
       <a class="project-row" href="retail-case-study.html" data-preview="dashboard_screenshots/Sales_Dashboard_1.png" data-preview-alt="Retail Sales & Forecast Dashboard">
         <span class="project-row-index">02</span>
+        <img class="project-row-thumb" src="dashboard_screenshots/Sales_Dashboard_1.png" alt="" loading="lazy">
         <span class="project-row-title">Retail Sales &amp; Forecast Dashboard</span>
         <span class="project-row-tags">Retail &amp; Forecasting · FY2030 Demand Model</span>
       </a>
       <a class="project-row" href="transportation-case-study.html" data-preview="dashboard_screenshots/Transportation_Dashboard_1.png" data-preview-alt="Transportation Analysis Dashboard">
         <span class="project-row-index">03</span>
+        <img class="project-row-thumb" src="dashboard_screenshots/Transportation_Dashboard_1.png" alt="" loading="lazy">
         <span class="project-row-title">Transportation Analysis Dashboard</span>
         <span class="project-row-tags">Transportation · Carrier &amp; Mode Cost</span>
       </a>
