@@ -218,81 +218,38 @@ a.external::after { content: " ↗"; }
 .card img { width: 100%; border-radius: 8px; margin: 16px 0; display: block; }
 .card .caption { font-size: 14px; color: var(--color-text-muted); font-style: italic; margin-top: 12px; }
 
-.mini-card {
-  display: block;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: var(--color-bg);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .35s ease, background-color .35s ease;
+/* Selected-works style project list: minimal text rows, hover reveals
+   a floating screenshot preview that follows the cursor. */
+.project-list { display: flex; flex-direction: column; }
+.project-row {
+  display: flex; align-items: baseline; gap: 20px;
+  padding: 26px 4px; border-top: 1px solid var(--color-border);
+  text-decoration: none; color: var(--color-text);
+  transition: color .3s ease, padding-left .3s ease;
 }
-.mini-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px -14px rgba(10,10,10,.18);
-  border-color: var(--color-accent);
-}
-.mini-card-body { padding: 18px 20px; }
-.mini-card-body .tag { margin-bottom: 10px; }
-.mini-card-body h3 { font-size: 17px; margin: 0 0 8px; letter-spacing: -.01em; }
-.mini-card-body p { font-size: 13.5px; color: var(--color-text-muted); margin: 0; }
+.project-list a.project-row:last-child { border-bottom: 1px solid var(--color-border); }
+.project-row-index { font-family: var(--font-mono); font-size: 13px; color: var(--color-text-muted); flex: 0 0 auto; }
+.project-row-title { font-size: clamp(20px, 3vw, 30px); font-weight: 700; letter-spacing: -.01em; flex: 1 1 auto; }
+.project-row-tags { font-size: 13px; color: var(--color-text-muted); flex: 0 0 auto; text-align: right; }
+.project-row:hover { color: var(--color-accent); padding-left: 14px; }
+.project-row:hover .project-row-tags { color: var(--color-accent); }
 
-/* One-at-a-time project carousel: bigger tile, auto-rotates every 8s,
-   crossfading between the three projects. */
-.project-carousel { position: relative; min-height: 560px; }
-.project-slide {
-  position: absolute; inset: 0;
-  opacity: 0; transform: scale(.97);
-  transition: opacity .7s cubic-bezier(.22,.7,.2,1), transform .7s cubic-bezier(.22,.7,.2,1);
-  pointer-events: none;
-}
-.project-slide.is-active { opacity: 1; transform: none; pointer-events: auto; z-index: 1; }
-.mini-card--large { position: relative; height: 100%; display: flex; flex-direction: column; }
-.mini-card-link { position: absolute; inset: 0; z-index: 1; }
-.mini-card-media--large, .mini-card-body { position: relative; z-index: 2; pointer-events: none; }
-.mini-card-media--large {
-  overflow: hidden; flex: 1 1 auto; min-height: 0;
+.project-preview {
+  position: fixed; top: 0; left: 0; width: 260px; height: 170px;
+  pointer-events: none; z-index: 60;
+  opacity: 0; transform: translate(-50%, -50%) scale(.92);
+  transition: opacity .25s ease, transform .25s ease;
+  border-radius: 12px; overflow: hidden;
   background: var(--color-surface);
-  padding: 16px 16px 0;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 24px 50px -20px rgba(0,0,0,.45);
 }
-.mini-card-kenburns {
-  width: 100%; height: 100%; object-fit: contain; object-position: center top; display: block;
-  border-radius: 6px;
-}
-.carousel-dots {
-  position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
-  display: flex; gap: 8px; z-index: 3; pointer-events: auto;
-}
-.carousel-dot {
-  width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
-  background: rgba(255,255,255,.5);
-  transition: background .3s ease, transform .3s ease;
-}
-.carousel-dot.is-active { background: #fff; transform: scale(1.35); }
-@media (prefers-reduced-motion: reduce) {
-  .project-slide { transition: none !important; }
-}
-
-/* Large monitors */
-@media (min-width: 1600px) {
-  .project-carousel { min-height: 680px; }
-}
-/* Laptops/tablets */
-@media (max-width: 1024px) {
-  .project-carousel { min-height: 480px; }
-}
-/* Small tablets/large phones */
-@media (max-width: 768px) {
-  .project-carousel { min-height: 440px; }
-}
-/* Phones */
-@media (max-width: 640px) {
-  .project-carousel { min-height: 400px; }
-}
-@media (max-width: 480px) {
-  .project-carousel { min-height: 340px; }
-  .mini-card-media--large { padding: 10px 10px 0; }
-  .carousel-dots { bottom: 8px; gap: 6px; }
-  .carousel-dot { width: 7px; height: 7px; }
+.project-preview.is-visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.project-preview img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
+@media (max-width: 900px) {
+  .project-preview { display: none; }
+  .project-row { flex-wrap: wrap; gap: 4px 20px; }
+  .project-row-tags { flex: 1 0 100%; text-align: left; }
 }
 
 .nav {
@@ -828,61 +785,25 @@ html.skip-launch .launch-overlay { display: none !important; }
   <div class="container" data-reveal>
     <h2>Projects</h2>
     <p class="muted" style="margin-bottom:28px;">A quick look — full write-ups and interactive demos on the <a href="projects.html">Projects page</a>.</p>
-    <div class="project-carousel" id="projectCarousel">
-      <div class="project-slide is-active">
-        <div class="mini-card mini-card--large">
-          <a class="mini-card-link" href="inventory-case-study.html" aria-label="Inventory Management Dashboard"></a>
-          <div class="mini-card-media mini-card-media--large">
-            <img class="mini-card-kenburns" src="dashboard_screenshots/Order_Management_Dashboard_1.png" alt="Inventory Management Dashboard">
-            <div class="carousel-dots" role="tablist" aria-label="Featured project">
-              <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Show Inventory Management Dashboard"></button>
-              <button class="carousel-dot" type="button" data-slide="1" aria-label="Show Retail Sales & Forecast Dashboard"></button>
-              <button class="carousel-dot" type="button" data-slide="2" aria-label="Show Transportation Analysis Dashboard"></button>
-            </div>
-          </div>
-          <div class="mini-card-body">
-            <span class="tag">Inventory</span>
-            <h3>Inventory Management Dashboard</h3>
-            <p>Live reorder-point and ABC/Pareto stock-health dashboard across 1,000 SKUs.</p>
-          </div>
-        </div>
-      </div>
-      <div class="project-slide">
-        <div class="mini-card mini-card--large">
-          <a class="mini-card-link" href="retail-case-study.html" aria-label="Retail Sales & Forecast Dashboard"></a>
-          <div class="mini-card-media mini-card-media--large">
-            <img class="mini-card-kenburns" src="dashboard_screenshots/Sales_Dashboard_1.png" alt="Retail Sales & Forecast Dashboard">
-            <div class="carousel-dots" role="tablist" aria-label="Featured project">
-              <button class="carousel-dot" type="button" data-slide="0" aria-label="Show Inventory Management Dashboard"></button>
-              <button class="carousel-dot is-active" type="button" data-slide="1" aria-label="Show Retail Sales & Forecast Dashboard"></button>
-              <button class="carousel-dot" type="button" data-slide="2" aria-label="Show Transportation Analysis Dashboard"></button>
-            </div>
-          </div>
-          <div class="mini-card-body">
-            <span class="tag">Retail &amp; Forecasting</span>
-            <h3>Retail Sales &amp; Forecast Dashboard</h3>
-            <p>Sales performance plus a segment-level demand forecast through FY2030.</p>
-          </div>
-        </div>
-      </div>
-      <div class="project-slide">
-        <div class="mini-card mini-card--large">
-          <a class="mini-card-link" href="transportation-case-study.html" aria-label="Transportation Analysis Dashboard"></a>
-          <div class="mini-card-media mini-card-media--large">
-            <img class="mini-card-kenburns" src="dashboard_screenshots/Transportation_Dashboard_1.png" alt="Transportation Analysis Dashboard">
-            <div class="carousel-dots" role="tablist" aria-label="Featured project">
-              <button class="carousel-dot" type="button" data-slide="0" aria-label="Show Inventory Management Dashboard"></button>
-              <button class="carousel-dot" type="button" data-slide="1" aria-label="Show Retail Sales & Forecast Dashboard"></button>
-              <button class="carousel-dot is-active" type="button" data-slide="2" aria-label="Show Transportation Analysis Dashboard"></button>
-            </div>
-          </div>
-          <div class="mini-card-body">
-            <span class="tag">Transportation</span>
-            <h3>Transportation Analysis Dashboard</h3>
-            <p>Shipping cost and revenue tied together by carrier, mode, and route.</p>
-          </div>
-        </div>
-      </div>
+    <div class="project-list" id="projectList">
+      <a class="project-row" href="inventory-case-study.html" data-preview="dashboard_screenshots/Order_Management_Dashboard_1.png" data-preview-alt="Inventory Management Dashboard">
+        <span class="project-row-index">01</span>
+        <span class="project-row-title">Inventory Management Dashboard</span>
+        <span class="project-row-tags">Inventory · Reorder Points · ABC/Pareto</span>
+      </a>
+      <a class="project-row" href="retail-case-study.html" data-preview="dashboard_screenshots/Sales_Dashboard_1.png" data-preview-alt="Retail Sales & Forecast Dashboard">
+        <span class="project-row-index">02</span>
+        <span class="project-row-title">Retail Sales &amp; Forecast Dashboard</span>
+        <span class="project-row-tags">Retail &amp; Forecasting · FY2030 Demand Model</span>
+      </a>
+      <a class="project-row" href="transportation-case-study.html" data-preview="dashboard_screenshots/Transportation_Dashboard_1.png" data-preview-alt="Transportation Analysis Dashboard">
+        <span class="project-row-index">03</span>
+        <span class="project-row-title">Transportation Analysis Dashboard</span>
+        <span class="project-row-tags">Transportation · Carrier &amp; Mode Cost</span>
+      </a>
+    </div>
+    <div class="project-preview" id="projectPreview" aria-hidden="true">
+      <img id="projectPreviewImg" src="" alt="">
     </div>
     <a class="btn btn-outline" href="projects.html" style="margin-top:28px;">View all projects</a>
   </div>
@@ -1030,31 +951,31 @@ html.skip-launch .launch-overlay { display: none !important; }
 
 <script>
 (function () {
-  var root = document.getElementById('projectCarousel');
-  if (!root) return;
-  var slides = [].slice.call(root.querySelectorAll('.project-slide'));
-  var dots = [].slice.call(root.querySelectorAll('.carousel-dot'));
-  if (slides.length < 2) return;
+  var list = document.getElementById('projectList');
+  var preview = document.getElementById('projectPreview');
+  var previewImg = document.getElementById('projectPreviewImg');
+  if (!list || !preview || !previewImg) return;
+  if (!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches)) return;
 
-  var idx = 0, timer = null;
-  var INTERVAL = 8000;
+  var rows = [].slice.call(list.querySelectorAll('.project-row'));
 
-  function goTo(i) {
-    idx = (i + slides.length) % slides.length;
-    slides.forEach(function (s, n) { s.classList.toggle('is-active', n === idx); });
-    dots.forEach(function (d, n) { d.classList.toggle('is-active', n === idx); });
+  function move(e) {
+    preview.style.left = e.clientX + 'px';
+    preview.style.top = e.clientY + 'px';
   }
-  function next() { goTo(idx + 1); }
-  function stop() { if (timer) { clearInterval(timer); timer = null; } }
-  function start() { stop(); timer = setInterval(next, INTERVAL); }
 
-  dots.forEach(function (d, n) {
-    d.addEventListener('click', function () { goTo(n); start(); });
+  rows.forEach(function (row) {
+    row.addEventListener('mouseenter', function (e) {
+      previewImg.src = row.getAttribute('data-preview') || '';
+      previewImg.alt = row.getAttribute('data-preview-alt') || '';
+      move(e);
+      preview.classList.add('is-visible');
+    });
+    row.addEventListener('mousemove', move);
+    row.addEventListener('mouseleave', function () {
+      preview.classList.remove('is-visible');
+    });
   });
-  root.addEventListener('mouseenter', stop);
-  root.addEventListener('mouseleave', start);
-
-  start();
 })();
 </script>
 
