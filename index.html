@@ -250,11 +250,13 @@ a.external::after { content: " ↗"; }
 .mini-card--large { height: 100%; display: flex; flex-direction: column; }
 .mini-card-media--large {
   position: relative; overflow: hidden; flex: 1 1 auto; min-height: 0;
-  border-top: 1px solid var(--color-border);
-  border-left: 1px solid var(--color-border);
-  border-right: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 16px 16px 0;
 }
-.mini-card-kenburns { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.mini-card-kenburns {
+  width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
+  border-radius: 6px;
+}
 .carousel-dots {
   position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
   display: flex; gap: 8px; z-index: 2;
