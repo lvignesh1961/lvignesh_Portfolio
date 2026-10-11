@@ -67,7 +67,7 @@ a { color: var(--accent); }
 .matrix { display: grid; grid-template-columns: 64px repeat(3, minmax(0, 1fr)); gap: 10px; }
 .matrix .colhead { font-family: var(--font-display); font-weight: 700; font-size: 15px; padding-inline: 4px; }
 .matrix .rowhead { font-family: var(--font-display); font-weight: 700; font-size: 15px; align-self: center; color: var(--ink-2); }
-.cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; text-align: left; font: inherit; color: inherit; cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+.cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; text-align: left; font: inherit; color: inherit; cursor: pointer; transition: border-color .15s, box-shadow .15s, background-color .35s ease; }
 .cell:hover { border-color: var(--axis); }
 .cell[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .cell .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
