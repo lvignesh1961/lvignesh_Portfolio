@@ -1,0 +1,5555 @@
+{
+ "listings": [
+  {
+   "id": "SUR-1bed-001",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "10736 150 Street (Mainstreet Estates)",
+   "neighbourhood": "Guildford",
+   "price": 1300,
+   "size_sqft": "625",
+   "utilities_included": "partial",
+   "parking": "surface $45/mo",
+   "laundry": "shared",
+   "pets": "cats and dogs OK (max 2; $200 pet deposit)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/mainstreet-estates",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Heat and water included; $499 security deposit; listing says under 10 min to Surrey Central SkyTrain; no visitor parking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1300
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-002",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "14831 104 Avenue (Greenwood Gardens)",
+   "neighbourhood": "Guildford",
+   "price": 1375,
+   "size_sqft": "664",
+   "utilities_included": "partial",
+   "parking": "surface $45/mo or underground $60/mo",
+   "laundry": "shared",
+   "pets": "cats and small dogs OK (max 2; $200 pet deposit)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/14831-104-avenue",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Heat and water included; $499 security deposit; near Surrey Central SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1375
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-003",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "14921 104 Avenue (Ashley Court)",
+   "neighbourhood": "Guildford",
+   "price": 1375,
+   "size_sqft": "662",
+   "utilities_included": "partial",
+   "parking": "surface $45/mo or underground $60/mo",
+   "laundry": "shared",
+   "pets": "cats and dogs OK with restrictions ($200 pet deposit)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/ashley-court",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Heat and water included; $499 security deposit; near Surrey Central SkyTrain; no smoking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1375
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-004",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "13555 96 Avenue (Fusion)",
+   "neighbourhood": "",
+   "price": 1529,
+   "size_sqft": "575",
+   "utilities_included": "partial",
+   "parking": "$85/mo",
+   "laundry": "in-suite",
+   "pets": "pet-friendly (pet deposit half-month)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/13555-96-avenue",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Water and heat included; $499 security deposit; promo 2 months free + 6 months free parking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1529
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-005",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "12685 110 Avenue (Metro)",
+   "neighbourhood": "",
+   "price": 1540,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "$65/mo",
+   "laundry": "in-suite",
+   "pets": "small pets under 40 lb (pet deposit half-month)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/12685-110-avenue-11018-126a-street",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Water included; listing says adjacent to Scott Road SkyTrain; $499 security deposit; promo up to 2 months free on 12-month lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1540
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-006",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "13675 107A Avenue",
+   "neighbourhood": "",
+   "price": 1595,
+   "size_sqft": "500",
+   "utilities_included": "partial",
+   "parking": "1 secured stall $100/mo",
+   "laundry": "in-suite",
+   "pets": "1 pet (35 lb max)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/13675-107a-avenue-id1102418",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Condo; water included; page lists availability as 'September 1st' (likely stale, confirm); deposit half-month; near Surrey Central SkyTrain; tenant insurance required",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1595
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-007",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "13740 Fraser Highway (Tether at King George Hub)",
+   "neighbourhood": "Surrey City Centre",
+   "price": 1825,
+   "size_sqft": "445",
+   "utilities_included": "",
+   "parking": "$150/mo",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/tether-at-king-george-hub",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "New 2026 building; near King George SkyTrain; promo up to 2 months free + 1 month early access",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1825
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-008",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "10420 City Parkway (PARKWAY Connect)",
+   "neighbourhood": "",
+   "price": 1850,
+   "size_sqft": "500",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/parkway-connect",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "New 2025 building",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1850
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-009",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "14535 104 Avenue (Vara)",
+   "neighbourhood": "",
+   "price": 1850,
+   "size_sqft": "548",
+   "utilities_included": "",
+   "parking": "1 garage stall",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/vara",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "New 2026 building; listing says 8-min bus to SkyTrain; no smoking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1850
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-010",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "9651 136A Street (Comma King George)",
+   "neighbourhood": "",
+   "price": 1925,
+   "size_sqft": "575",
+   "utilities_included": "",
+   "parking": "underground $100/mo",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/comma-king-george",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "New 2025 building",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1925
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-001",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "12970 60 Avenue",
+   "neighbourhood": "Panorama Ridge",
+   "price": 1400,
+   "size_sqft": "599",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-10-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/bright-spacious-2-bedroom-basement-suite-in-panorama-ridge/1743624454",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji showed '2 days ago' on 2026-10-04); Basement suite; hydro and water included; 1-yr lease, credit check and income verification, $2M renters insurance required; dealer/property-manager ad",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1400
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-002",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "1695 167th Street (basement)",
+   "neighbourhood": "Pacific Douglas (South Surrey)",
+   "price": 1580,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "cats OK",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/bsmt-1695-167th-street-surrey-british-columbia/1732782007",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '14 hrs ago' on 2026-10-04); Basement suite; Fortis and hydro included; 1-yr lease; max 2 occupants; Kijiji availability field shows 'Not Available' (confirm status)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1580
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-003",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "10668 138 Street (Crestview Gardens)",
+   "neighbourhood": "Surrey Central",
+   "price": 1950,
+   "size_sqft": "804",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/spacious-2-bedroom-1-bath-condo-surrey-central/1744323083",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '22 hrs ago' on 2026-10-04); Condo; water included; gas fireplace; min 1-yr lease, credit check and tenant insurance required",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1950
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-004",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "9555 128 Street (Imperial Parkside)",
+   "neighbourhood": "Whalley / Cedar Hills",
+   "price": 1925,
+   "size_sqft": "950",
+   "utilities_included": "partial",
+   "parking": "surface $45/mo",
+   "laundry": "shared",
+   "pets": "pet-friendly (max 2; $200 pet deposit)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/imperial-parkside",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Heat and water included; $499 security deposit; outdoor pool; also cross-posted on Kijiji (ad 1708208422)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1925
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-005",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "14438 72 Avenue (Amson Square)",
+   "neighbourhood": "Newton",
+   "price": 2100,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/4xx-14438-72-avenue-surrey-british-columbia/1744255879",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji showed '2 days ago' on 2026-10-04); 'Junior 2-bedroom'; gas and hot water included; A/C; Kijiji availability field shows 'Not Available' (confirm status)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2100
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-006",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "Newton basement (V3S 2W9, exact address not given)",
+   "neighbourhood": "Newton",
+   "price": 2200,
+   "size_sqft": "1000",
+   "utilities_included": "yes",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-10-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-200-2br-2-bedroom-bsmt-with-in-suite-laundry-dishwasher/1743617002",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji showed '6 hrs ago' on 2026-10-04); Basement suite; heat, hydro, water included; dishwasher; month-to-month",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2200
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-007",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "14921 104 Avenue (Ashley Court)",
+   "neighbourhood": "Guildford",
+   "price": 1725,
+   "size_sqft": "928",
+   "utilities_included": "partial",
+   "parking": "surface $45/mo or underground $60/mo",
+   "laundry": "shared",
+   "pets": "cats and dogs OK with restrictions ($200 pet deposit)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/ashley-court",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Heat and water included; $499 security deposit; near Surrey Central SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1725
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-008",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "14831 104 Avenue (Greenwood Gardens)",
+   "neighbourhood": "Guildford",
+   "price": 1850,
+   "size_sqft": "912",
+   "utilities_included": "partial",
+   "parking": "surface $45/mo or underground $60/mo",
+   "laundry": "shared",
+   "pets": "cats and small dogs OK (max 2; $200 pet deposit)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/14831-104-avenue",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Heat, water, hot water, garbage included; $499 security deposit; near Surrey Central SkyTrain; also cross-posted on Kijiji (ad 1708208485)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1850
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-009",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13555 96 Avenue (Fusion)",
+   "neighbourhood": "",
+   "price": 1999,
+   "size_sqft": "661",
+   "utilities_included": "partial",
+   "parking": "$85/mo",
+   "laundry": "in-suite",
+   "pets": "pet-friendly (pet deposit half-month)",
+   "available_date": "2026-11-05",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/13555-96-avenue",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Water and heat included; $499 security deposit; promo 2 months free + 6 months free parking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1999
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-010",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "12685 110 Avenue (Metro)",
+   "neighbourhood": "",
+   "price": 2063,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "$65/mo",
+   "laundry": "in-suite",
+   "pets": "small pets under 40 lb (pet deposit half-month)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/12685-110-avenue-11018-126a-street",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Water included; listing says adjacent to Scott Road SkyTrain; $499 security deposit; promo up to 2 months free",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2063
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-001",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1000 Brunette Avenue (Braemar Gardens)",
+   "neighbourhood": "",
+   "price": 1695,
+   "size_sqft": "475",
+   "utilities_included": "partial",
+   "parking": "",
+   "laundry": "shared",
+   "pets": "dogs 15 lb and under",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/1000-brunette-avenue",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Heat and water included; coin laundry; $500 security deposit; listing says near Braid SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1695
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-002",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1180 Lansdowne Drive (Eagle Ridge Apartments)",
+   "neighbourhood": "",
+   "price": 1764,
+   "size_sqft": "",
+   "utilities_included": "",
+   "parking": "covered $75/mo or outdoor $60/mo",
+   "laundry": "shared",
+   "pets": "cats only (no dogs)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/eagle-ridge-apartments-gated-community-living-with-pool-tennis-courts",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Gated complex with pool and tennis courts; deposit half-month",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1764
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-003",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "951 Charland Avenue (Residences at The Heights)",
+   "neighbourhood": "Austin Heights",
+   "price": 1785,
+   "size_sqft": "555",
+   "utilities_included": "",
+   "parking": "underground $100/mo",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/residences-at-the-heights",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Built 2020; listing mentions Lougheed Town Centre SkyTrain; no smoking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1785
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-004",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "3089 Starlight Way",
+   "neighbourhood": "",
+   "price": 1795,
+   "size_sqft": "1115",
+   "utilities_included": "no",
+   "parking": "driveway, up to 2 vehicles",
+   "laundry": "in-suite",
+   "pets": "1 pet (35 lb max)",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/3089-starlight-way-coquitlam",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Garden home suite; plus flat $150/mo for hydro, heat, water, garbage, sewer (effective ~$1945); size 1,115 sq ft as listed; deposit half-month",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1795
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-005",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1185 The High Street",
+   "neighbourhood": "Town Centre",
+   "price": 1850,
+   "size_sqft": "580",
+   "utilities_included": "partial",
+   "parking": "1 underground stall included",
+   "laundry": "shared",
+   "pets": "",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/1185-the-high-street-3",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Condo (built 2008); water included; listing says 1 block to SkyTrain; gym and sauna; listing says 'laundry facilities' (in-suite not confirmed)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1850
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-006",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1432 Parkway Boulevard",
+   "neighbourhood": "Westwood Plateau",
+   "price": 1900,
+   "size_sqft": "657",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/1432-parkway-boulevard",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Condo (built 1994); water, heat, hydro included",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1900
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-007",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "",
+   "neighbourhood": "",
+   "price": 2087,
+   "size_sqft": "506",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/717-como-lake-avenue",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Address: 717 Como Lake Avenue",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2087
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-008",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "608 Regan Ave (Seasons)",
+   "neighbourhood": "",
+   "price": 1995,
+   "size_sqft": "491",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "1 pet under 40 lb",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/seasons",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Built 2024; listing mentions Burquitlam SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1995
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-009",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1182 Westwood St (Sophora at the Park)",
+   "neighbourhood": "Coquitlam Town Centre",
+   "price": 2450,
+   "size_sqft": "589",
+   "utilities_included": "",
+   "parking": "underground $100/mo",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/sophora-at-the-park-rental-collection",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Built 2023; near Lincoln SkyTrain; page shows a (possibly stale) July 2026 one-month-free promo",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2450
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-001",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "Paquette St (basement",
+   "neighbourhood": "",
+   "price": 1650,
+   "size_sqft": "950",
+   "utilities_included": "yes",
+   "parking": "included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "liv.rent",
+   "url": "https://liv.rent/rental-listings/detail/house/coquitlam/163483",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "number not given); Legal basement suite, private walkout entry; electricity, heat, water included; deposit half-month; min 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1650
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-002",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "4000 Devonshire Avenue",
+   "neighbourhood": "",
+   "price": 1800,
+   "size_sqft": "1314",
+   "utilities_included": "partial",
+   "parking": "",
+   "laundry": "",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/4000-devonshire-avenue-id1552899",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "House (2 bed/1 bath; likely part of house); water and wifi included, tenant pays 30% of gas and hydro; available now; $2M liability insurance and credit check required",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1800
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-003",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "3358 Ballard Avenue (basement)",
+   "neighbourhood": "",
+   "price": 2200,
+   "size_sqft": "1050",
+   "utilities_included": "yes",
+   "parking": "street",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/3358-ballard-avenue",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "House basement; water, gas, electricity, wifi included; available ASAP; LANDLORD WARNS scammers are copying this listing's info - deal only through verified listing; also on liv.rent (160889)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2200
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-004",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "McLaren Ct (number not given)",
+   "neighbourhood": "",
+   "price": 2300,
+   "size_sqft": "900",
+   "utilities_included": "no",
+   "parking": "included (ad also says street parking)",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "liv.rent",
+   "url": "https://liv.rent/rental-listings/detail/house/coquitlam/161167",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Suite in house; tenant pays 1/4 of water, hydro, gas; furnishing available; ad says available now and also Oct 1/Nov 1; references and income verification required",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2300
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-005",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "1000 Brunette Avenue (Braemar Gardens)",
+   "neighbourhood": "",
+   "price": 2325,
+   "size_sqft": "750",
+   "utilities_included": "partial",
+   "parking": "",
+   "laundry": "shared",
+   "pets": "dogs 15 lb and under",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/1000-brunette-avenue",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Heat and water included; card laundry; newly renovated; $500 security deposit; listing says near Braid SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2325
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-006",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "1180 Lansdowne Drive (Eagle Ridge Apartments)",
+   "neighbourhood": "",
+   "price": 2395,
+   "size_sqft": "",
+   "utilities_included": "",
+   "parking": "covered $75/mo or outdoor $60/mo",
+   "laundry": "shared",
+   "pets": "cats only (no dogs)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/eagle-ridge-apartments-gated-community-living-with-pool-tennis-courts",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Gated complex with pool and tennis; deposit half-month; 1-yr lease min; non-smoking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2395
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-007",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "702 Blue Mountain Street",
+   "neighbourhood": "",
+   "price": 2500,
+   "size_sqft": "1100",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-20",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/702-blue-mountain-street",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "House (built 1962), newly renovated; water and internet included; private washer but NO dryer; deposit half-month",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2500
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-008",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "3093 Windsor Gate",
+   "neighbourhood": "Central Coquitlam",
+   "price": 2695,
+   "size_sqft": "1041",
+   "utilities_included": "partial",
+   "parking": "secured underground $100/mo",
+   "laundry": "in-suite",
+   "pets": "1 pet (35 lb max)",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/3093-windsor-gate-id1570111",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Condo, 2 bath; water included; gym access; listing says SkyTrain minutes away; deposit half-month",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2695
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-001",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20844 Douglas Cres",
+   "neighbourhood": "Douglas (Langley City)",
+   "price": 1450,
+   "size_sqft": "528",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "shared",
+   "pets": "no pets",
+   "available_date": "2026-08-15",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/ground-level-unit-for-rent-in-langley/1742617619",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-01 (Kijiji showed '3 days ago' on 2026-10-04); Ground-level unit; utilities for flat $50/mo extra; listed availability Aug 15 (past; confirm); credit check, income verification, $2M renters insurance; 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1450
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-002",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20041 55A Avenue (Glades on 55)",
+   "neighbourhood": "Nicomekl",
+   "price": 1495,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "shared",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1-bedroom-suite-in-langley-at-glades-on-55-apartments/1648915650",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '1 day ago' on 2026-10-04); Renovated; heat and water included; promo 1 month free + $500 move-in bonus; $500 security deposit; 1-yr lease; on-site management",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1495
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-003",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "19945 Brydon Crescent (Atrium)",
+   "neighbourhood": "Langley City",
+   "price": 1700,
+   "size_sqft": "620",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-09-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/atrium-1-br-apt-rental-106-19945-brydon-cr-langley-vada/1743118248",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-09-28 (Kijiji showed '6 days ago' on 2026-10-04); Unit 106; water included; gym; 1-yr lease; listed availability Sep 1 (past; likely immediate)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1700
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-004",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "5363 201 Street (The Meridian)",
+   "neighbourhood": "",
+   "price": 1765,
+   "size_sqft": "585",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "2026-10-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/the-meridian-apartments-1-bedroom-available-at-5363-201-stre/1744168331",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-09-30 (Kijiji showed '4 days ago' on 2026-10-04); CAPREIT; water included; promo 1 month free",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1765
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-005",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "5335 200a St (The Lincoln)",
+   "neighbourhood": "Nicomekl",
+   "price": 1825,
+   "size_sqft": "599",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/the-lincoln-1-bedroom-available-at-5335-200a-st-langley-apart/1744220108",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-01 (Kijiji showed '3 days ago' on 2026-10-04); CAPREIT new building; water included",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1825
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-006",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "5393 201 Street (The Point)",
+   "neighbourhood": "Nicomekl",
+   "price": 1890,
+   "size_sqft": "576",
+   "utilities_included": "partial",
+   "parking": "none included (underground available)",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1-bedroom-available-at-5393-201-street-langley-apar/1744261525",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji showed '2 days ago' on 2026-10-04); CAPREIT; water included; gym, theatre room; 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1890
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-007",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20449 Park Ave (Parque on Park)",
+   "neighbourhood": "Douglas",
+   "price": 1825,
+   "size_sqft": "587",
+   "utilities_included": "partial",
+   "parking": "underground (extra, price on request)",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1-bedroom-available-at-20449-park-ave-langley/1739984727",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-09-29 (Kijiji showed '5 days ago' on 2026-10-04); CAPREIT; water included; move-in incentive (no rent until November); listed availability Jul 1 (stale; confirm)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1825
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-008",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "8026 207th Street (Yorkson Grove)",
+   "neighbourhood": "Willoughby (Township)",
+   "price": 2145,
+   "size_sqft": "801",
+   "utilities_included": "partial",
+   "parking": "none included (underground available)",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "2026-12-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/yorkson-grove-apartments-1-bedroom-available-at-8026-207th-str/1744261528",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji showed '2 days ago' on 2026-10-04); CAPREIT; water included; A/C in bedroom; built 2014; 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2145
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-011",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "10011 150 Street (Cumberland Park #304)",
+   "neighbourhood": "Guildford",
+   "price": 1595,
+   "size_sqft": "675",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/unit-304-at-cumberland-park-apartments-affordable-2nd-floor-c/1741346985",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji showed '2 days ago' on 2026-10-04); Water included; deposit half-month; 1-yr lease; listed availability Aug 1 (past; confirm)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1595
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-001",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "Willoughby legal suite (V2Y 3G5",
+   "neighbourhood": "Willoughby (Township)",
+   "price": 1400,
+   "size_sqft": "1500",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/beautiful-2-bedrooms-legal-suite-nov1-2026/1744290586",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '1 day ago' on 2026-10-04); number not given); Legal basement suite; heat and water included; month-to-month; references and credit required; 1,500 sq ft as listed - verify size/price in person",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1400
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-002",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "Brookswood suite (V3A 8G2",
+   "neighbourhood": "Brookswood (Township)",
+   "price": 1600,
+   "size_sqft": "900",
+   "utilities_included": "yes",
+   "parking": "2 spots included",
+   "laundry": "shared",
+   "pets": "limited pets",
+   "available_date": "2026-10-05",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-ground-level-suite-rental-1600-month/1744294812",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '1 day ago' on 2026-10-04); number not given); Ground-level basement suite; heat, hydro, water included",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1600
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-003",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20041 55A Avenue (Glades on 55)",
+   "neighbourhood": "Nicomekl",
+   "price": 1755,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "shared",
+   "pets": "pet-friendly ($500 pet deposit)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-suite-in-langley-at-glades-on-55-apartments/1716464248",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '1 day ago' on 2026-10-04); Renovated; heat and water included; promo 1 month free + $500 move-in bonus; $500 security deposit",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1755
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-004",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "19641 31A Ave (basement)",
+   "neighbourhood": "",
+   "price": 1800,
+   "size_sqft": "1200",
+   "utilities_included": "yes",
+   "parking": "street only",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "2026-10-15",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/basement-for-rent/1744305571",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '1 day ago' on 2026-10-04); Basement suite (V2Z, Township area); heat, hydro, water included; month-to-month; security cameras/alarm",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1800
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-005",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5415 Brydon Crescent (The Audley)",
+   "neighbourhood": "Nicomekl",
+   "price": 2195,
+   "size_sqft": "754",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "2026-10-15",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/top-floor-2-bedroom-home-at-the-audley/1744350282",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji showed '8 hrs ago' on 2026-10-04); Top-floor condo; water included; 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2195
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-006",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "19899 55a Avenue (Encore)",
+   "neighbourhood": "Nicomekl",
+   "price": 2225,
+   "size_sqft": "919",
+   "utilities_included": "partial",
+   "parking": "underground (extra)",
+   "laundry": "in-suite",
+   "pets": "dogs and cats with restrictions",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/encore-apartments-2-bedroom-apartment-for-rent-langley/1739604481",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '1 day ago' on 2026-10-04); Kelson Group; 2 bath; water included; promo 1 month free; 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2225
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-007",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5210 203rd Street (Riverside Gardens Townhouses)",
+   "neighbourhood": "Simonds",
+   "price": 2245,
+   "size_sqft": "942",
+   "utilities_included": "partial",
+   "parking": "none included (outdoor available)",
+   "laundry": "in-suite",
+   "pets": "limited pets",
+   "available_date": "2026-11-30",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/riverside-gardens-townhouses-2-bedroom-house-for-rent-langley/1743486952",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '1 day ago' on 2026-10-04); Townhouse, Kelson Group; water included; yard access; newly renovated; ad mentions both in-building and in-suite laundry (confirm)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2245
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-008",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20282 72B Avenue #214",
+   "neighbourhood": "Willoughby (Township)",
+   "price": 2350,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 secure spot included",
+   "laundry": "in-suite",
+   "pets": "1 pet considered",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/214-20282-72b-avenue-langley-british-columbia/1744354994",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji showed '3 hrs ago' on 2026-10-04); Condo, 2 bath; realtor-listed (Coldwell Banker); deposit half-month; 12-month fixed term; Kijiji availability field shows 'Not Available' (confirm status)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2350
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-009",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "4871 221st Street (Lexington Court)",
+   "neighbourhood": "Murrayville",
+   "price": 2410,
+   "size_sqft": "864",
+   "utilities_included": "partial",
+   "parking": "underground (extra)",
+   "laundry": "in-suite",
+   "pets": "limited pets",
+   "available_date": "2026-10-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/lexington-court-apartments-2-bedroom-apartment-for-rent-langle/1737087555",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji showed '2 days ago' on 2026-10-04); Kelson Group; water included; 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2410
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-010",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "206th Street (The Hive",
+   "neighbourhood": "Willoughby (Township)",
+   "price": 2550,
+   "size_sqft": "736",
+   "utilities_included": "partial",
+   "parking": "1 stall included",
+   "laundry": "in-suite",
+   "pets": "1 dog or 1 cat",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bed-2-bath-corner-condo-at-the-hive-in-willoughby/1744291791",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji showed '1 day ago' on 2026-10-04); number not given); 5th-floor corner condo, 2 bath; water included; gym, rooftop patio; owner-listed; 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2550
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-012",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "6189 140B Street, Surrey, BC",
+   "neighbourhood": "",
+   "price": 1200,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1br-bsmt-1-200-per-month-plus-1-3-utilities/1744364488",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji activation date); Kijiji basement-apartment; Title: 1br bsmt $1,200 per month plus 1/3 utilities",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1200
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-013",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "17425 64 Ave, Surrey, V3S 1Y8",
+   "neighbourhood": "",
+   "price": 1100,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "street parking",
+   "laundry": "none",
+   "pets": "cats only (no dogs)",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1-100-all-inclusive-bright-above-ground-1-bed-in-cloverdale/1744363930",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji activation date); Kijiji house; Utilities included: heat, water, hydro; Title: $1,100 All-Inclusive | Bright Above-Ground 1-Bed in Cloverdale; Ad: hydro, gas, water and Wi-Fi included; above-ground suite in Cloverdale",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1100
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-011",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13359 OLD YALE RD, Surrey, BC, V3T3C6",
+   "neighbourhood": "Surrey City Centre",
+   "price": 2300,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/richmond-bc/4xx-13359-old-yale-rd-surrey-british-columbia/1744352541",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji activation date); Title: 4XX 13359 OLD YALE RD Surrey, British Columbia; The Holland by Townline; 2 bath; A/C",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2300
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-012",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "Basement-163xx 25TH AVENUE, Surrey, BC, V3S6S1",
+   "neighbourhood": "Morgan Heights",
+   "price": 1900,
+   "size_sqft": "1193",
+   "utilities_included": "yes",
+   "parking": "street parking",
+   "laundry": "",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/basement-163xx-25th-avenue-surrey-british-columbia/1744354610",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji activation date); Title: Basement-163xx 25TH AVENUE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1900
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-014",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "80A Ave, Surrey, BC V4N 0J9",
+   "neighbourhood": "",
+   "price": 1350,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "none included",
+   "laundry": "",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1-bed-1-bath-basement-suite/1744340810",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Kijiji basement-apartment; Title: 1 bed 1 bath basement suite",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1350
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-013",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "Surrey, BC V3W 5V8",
+   "neighbourhood": "",
+   "price": 1700,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "shared",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-basement-suite-for-rent/1744320599",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: 2 BEDROOM BASEMENT SUITE FOR RENT",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1700
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-015",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "13696 100 Avenue, Surrey, BC, V3T 0L5",
+   "neighbourhood": "",
+   "price": 1500,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/910-13696-100-avenue/1744303129",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Kijiji apartment; Title: 910-13696 100 Avenue",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1500
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-016",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "13778 100 Avenue, Surrey, BC, V3T 0V3",
+   "neighbourhood": "",
+   "price": 1700,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2405-13778-100-avenue/1744302763",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Kijiji apartment; Title: 2405-13778 100 Avenue",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1700
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-014",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "Ground Suite-14000 WELLINGTON DRIVE, Surrey, BC, V3R9H2",
+   "neighbourhood": "Guildford",
+   "price": 1850,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "2026-10-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/ground-suite-14000-wellington-drive-surrey-british-columbia/1744307523",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Title: Ground Suite-14000 WELLINGTON DRIVE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1850
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-015",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "10237 133 STREET, Surrey, BC, V3T0C6",
+   "neighbourhood": "Surrey City Centre",
+   "price": 2400,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 stall included",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/415-10237-133-street-surrey-british-columbia/1744304362",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Title: 415 10237 133 STREET Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2400
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-010",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "626 CLAREMONT STREET, Coquitlam, BC, V3J0T1",
+   "neighbourhood": "Burquitlam",
+   "price": 2350,
+   "size_sqft": "534",
+   "utilities_included": "no",
+   "parking": "1 stall included",
+   "laundry": "in-suite",
+   "pets": "subject to landlord approval",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/vancouver/2703-626-claremont-street-coquitlam-british-columbia/1744354584",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji activation date); Title: 2703 626 CLAREMONT STREET Coquitlam, British Columbia; 1 bed + den; 5-min walk to Burquitlam SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2350
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-009",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "567 CLARKE ROAD, Coquitlam, BC, V3J0K7",
+   "neighbourhood": "Burquitlam",
+   "price": 2900,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/10xx-567-clarke-road-coquitlam-british-columbia/1744352979",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji activation date); Title: 10xx 567 CLARKE ROAD Coquitlam, British Columbia; 2 bath; one block to SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2900
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-011",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1188 PINETREE WAY, Coquitlam, BC, V3B0K9",
+   "neighbourhood": "Coquitlam City Centre",
+   "price": 2300,
+   "size_sqft": "700",
+   "utilities_included": "no",
+   "parking": "1 stall included",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/1806-1188-pinetree-way-coquitlam-british-columbia/1744308170",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Title: 1806 1188 PINETREE WAY Coquitlam, British Columbia; 1 bed + den; steps to Lincoln SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2300
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-010",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "555 Shaw Avenue, Coquitlam, BC, V3K 5P3",
+   "neighbourhood": "",
+   "price": 2384,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "none included",
+   "laundry": "shared",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/tricities-pitt-maple/2-bedroom-apartment-for-rent-535-&-555-shaw-avenue/1744253700",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji activation date); Kijiji apartment; Title: 2 Bedroom Apartment for Rent - 535 & 555 Shaw Avenue",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2384
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-011",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "717 Como Lake Avenue, Coquitlam, BC, V3J 0M5",
+   "neighbourhood": "",
+   "price": 2788,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/tricities-pitt-maple/2-bedroom-apartment-for-rent-717-como-lake-avenue/1744261461",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji activation date); Kijiji apartment; Title: 2 Bedroom Apartment for Rent - 717 Como Lake Avenue",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2788
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-012",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "SELKIRK CRESCENT, Coquitlam, BC, V3J6E4",
+   "neighbourhood": "",
+   "price": 1400,
+   "size_sqft": "650",
+   "utilities_included": "yes",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/941-selkirk-crescent-coquitlam-british-columbia/1744256981",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji activation date); Title: 941 SELKIRK CRESCENT Coquitlam, British Columbia; Half-month deposit; separate entrance",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1400
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-012",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "Atlantic Ave, Coquitlam, BC, V3B",
+   "neighbourhood": "Coquitlam Centre",
+   "price": 2650,
+   "size_sqft": "890",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "limited pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/2-bedrooms-2-bathrooms-condo-rent/1744253432",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji activation date); Kijiji condo; Title: 2 bedrooms+2 bathrooms condo rent; 2 bath; hydro and internet not included",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2650
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-013",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "Gatensbury Street, Coquitlam, BC",
+   "neighbourhood": "",
+   "price": 1580,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "shared",
+   "pets": "limited pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/tricities-pitt-maple/2-bedroom-suite-available-oct/1744225890",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-01 (Kijiji activation date); Kijiji house; Utilities included: water; Title: 2 bedroom suite, available OCT",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1580
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-011",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "Willoughby Town Centre Dr, Langley Twp, BC, V2Y",
+   "neighbourhood": "Willoughby (Township)",
+   "price": 3300,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "2 spots included",
+   "laundry": "",
+   "pets": "pets allowed",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/spacious-2-bed-2-bath-townhouse/1744280314",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji activation date); Kijiji townhouse; Title: Spacious 2 bed 2 bath townhouse ",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 3300
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-012",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5335 200a St, Langley, BC, V3A 0P3",
+   "neighbourhood": "",
+   "price": 2495,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/the-lincoln-2-bedroom-available-at-5335-200a-st-langley-apart/1744220107",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-01 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: The Lincoln - 2 Bedroom available at 5335 200a St, Langley Apart",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2495
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-010",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "5477 200 Street (5477-200th Street)",
+   "neighbourhood": "",
+   "price": 2199,
+   "size_sqft": "618",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/5477-200th-street",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2199
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-011",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20055 84 Avenue (LATIMER Village Rentals)",
+   "neighbourhood": "",
+   "price": 1900,
+   "size_sqft": "669",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/latimer-village-rentals",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1900
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-012",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20695 Eastleigh Cres",
+   "neighbourhood": "Eastleigh",
+   "price": 1800,
+   "size_sqft": "611",
+   "utilities_included": "",
+   "parking": "secure garage parking",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20695-eastleigh-cres",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1800
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-018",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "6983 192 Street, Surrey, BC, V4N 5W6",
+   "neighbourhood": "Clayton",
+   "price": 1625,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/tricities-pitt-maple/1-br-laneway-house-rental-6983-192-st-surrey:-vada/1744309401",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Kijiji house; Utilities included: water; Title: 1 BR Laneway House Rental 6983 192 St Surrey: VADA",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1625
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-019",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "10333 133 STREET, Surrey, BC, V3T0V1",
+   "neighbourhood": "",
+   "price": 2000,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/806-10333-133-street-surrey-british-columbia/1744308187",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-03 (Kijiji activation date); Title: 806 10333 133 STREET Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2000
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-016",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "floor 15350 16A AVENUE, Surrey, BC, V4A1S9",
+   "neighbourhood": "",
+   "price": 2600,
+   "size_sqft": "907",
+   "utilities_included": "no",
+   "parking": "2 spots included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/4th-floor-15350-16a-avenue-surrey-british-columbia/1744258635",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji activation date); Title: 4th floor 15350 16A AVENUE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2600
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-017",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "10838 CITY PKWY DRIVE, Surrey, BC, V3T0C2",
+   "neighbourhood": "Surrey City Centre",
+   "price": 2370,
+   "size_sqft": "877",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/432-10838-city-pkwy-drive-surrey-british-columbia/1744260085",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji activation date); Title: 432 10838 CITY PKWY DRIVE Surrey, British Columbia; Junior 2-bed loft; 1 full bath + powder room",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2370
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-018",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13968 LAUREL DRIVE, Surrey, BC, V3T1A8",
+   "neighbourhood": "",
+   "price": 2250,
+   "size_sqft": "785",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/richmond-bc/420-13968-laurel-drive-surrey-british-columbia/1744255880",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-02 (Kijiji activation date); Title: 420 13968 LAUREL DRIVE Surrey, British Columbia; Available immediately",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2250
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-019",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "150 St, Surrey, BC",
+   "neighbourhood": "Guildford",
+   "price": 2300,
+   "size_sqft": "1040",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "limited pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-ground-level-spacious-townhouse-in-guildford-surrey/1744234712",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-01 (Kijiji activation date); Kijiji townhouse; Title: 2 Bedroom Ground-Level Spacious Townhouse in Guildford, Surrey",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2300
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-013",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "Langley Township, BC V2Y 3Z3",
+   "neighbourhood": "Willoughby Heights",
+   "price": 2650,
+   "size_sqft": "952",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-12-15",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/spacious-952-sq-ft-2-bed-2-bath-corner-condo/1744378297",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji activation date); Kijiji condo; Title: Spacious 952 Sq Ft 2 Bed + 2 Bath Corner Condo",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 2650
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-014",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "2968 GLEN DRIVE, Coquitlam, BC, V3B0C4",
+   "neighbourhood": "Town Centre",
+   "price": 2700,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/6xx-2968-glen-drive-coquitlam-british-columbia/1744399156",
+   "first_seen": "2026-10-05",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-05 (Kijiji activation date); Title: 6xx 2968 GLEN DRIVE Coquitlam, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-05",
+     "price": 2700
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-015",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "609 - 2973 Glen Dr",
+   "neighbourhood": "",
+   "price": 2200,
+   "size_sqft": "850",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/rentfaster-1526728",
+   "first_seen": "2026-10-05",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-05",
+     "price": 2200
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-014",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "29 Ave, Langley Twp, BC V4W 3A9",
+   "neighbourhood": "Aldergrove",
+   "price": 1700,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "street",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bed-1-bath-garden-level-suite/1744408152",
+   "first_seen": "2026-10-05",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-05 (Kijiji activation date); Kijiji house; Title: 2 Bed / 1 Bath Garden Level Suite; Wi-Fi included, tenant pays 1/3 of utilities; built 2024; no smoking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-05",
+     "price": 1700
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-020",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "147 Street, Surrey, BC",
+   "neighbourhood": "Sullivan Heights",
+   "price": 1800,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "3 spots included",
+   "laundry": "shared",
+   "pets": "pets allowed",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/available-nov-1-pet-friendly-2-bedroom-1-bathroom-suite/1744415249",
+   "first_seen": "2026-10-05",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-05 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: AVAILABLE NOV 1 \u2014 PET-FRIENDLY 2 BEDROOM + 1 BATHROOM SUITE",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-05",
+     "price": 1800
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-021",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13696 100 Avenue, Surrey, BC, V3T 0L5",
+   "neighbourhood": "",
+   "price": 2300,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/4202-13696-100-avenue/1744441533",
+   "first_seen": "2026-10-06",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: 4202-13696 100 Avenue",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-06",
+     "price": 2300
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-020",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "9801 and 9835 King George Blvd, Surrey, BC, V3T 5H6",
+   "neighbourhood": "Surrey City Centre",
+   "price": 1895,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1-bedroom-apartment-at-surrey-village-wont-last-long/1744441154",
+   "first_seen": "2026-10-06",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: 1 bedroom apartment at Surrey Village - Won't last long!",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-06",
+     "price": 1895
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-023",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "9801 and 9835 King George Blvd, Surrey, BC, V3T 5H6",
+   "neighbourhood": "Surrey City Centre",
+   "price": 2295,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedrooms-at-surrey-village-dont-miss-out/1744441152",
+   "first_seen": "2026-10-06",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: 2 bedrooms at Surrey Village- Don't miss out!",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-06",
+     "price": 2295
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-021",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "14488 103a Avenue, Surrey, BC, V3T 0S8",
+   "neighbourhood": "",
+   "price": 1825,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "limited pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/fraser-landing-apartments-1-bedroom-apartment-for-rent-surrey/1744444402",
+   "first_seen": "2026-10-06",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Kijiji apartment; Title: Fraser Landing Apartments - 1 Bedroom Apartment for Rent Surrey",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-06",
+     "price": 1825
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-022",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "13428 105 AVENUE, Surrey, BC, V3T0S6",
+   "neighbourhood": "",
+   "price": 1700,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "",
+   "pets": "",
+   "available_date": "2026-10-06",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/17xx-13428-105-avenue-surrey-british-columbia/1744452278",
+   "first_seen": "2026-10-06",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Title: 17xx 13428 105 AVENUE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-06",
+     "price": 1700
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-024",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13688 100 AVE, Surrey, BC, V3T0G5",
+   "neighbourhood": "Surrey Central",
+   "price": 2495,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "small pet considered with approval",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/3404-13688-100-ave-surrey-british-columbia/1744449925",
+   "first_seen": "2026-10-06",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Title: 3404 13688 100 AVE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-06",
+     "price": 2495
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-014",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20839 78B Avenue (Willoughby Walk)",
+   "neighbourhood": "",
+   "price": 1850,
+   "size_sqft": "574",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20839-78b-avenue",
+   "first_seen": "2026-10-06",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-06",
+     "price": 1850
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-025",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13825 60A Ave, Surrey, BC V3X 0H3",
+   "neighbourhood": "",
+   "price": 1700,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-basement-for-rent/1744507466",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Kijiji basement-apartment; Title: 2 bedroom basement for rent; Description says all utilities included",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 1700
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-026",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "10463 150th Street, Surrey, BC, V3R 4B2",
+   "neighbourhood": "Guildford",
+   "price": 2195,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "shared",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/grosvenor-square-apartments-2-bedroom-available-at-10463-150th/1744492037",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Kijiji apartment; Utilities included: heat, water; Title: Grosvenor Square Apartments - 2 Bedroom available at 10463 150th",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 2195
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-027",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "Basement-16619 61 AVENUE, Surrey, BC, V3S1W2",
+   "neighbourhood": "",
+   "price": 1800,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/basement-16619-61-avenue-surrey-british-columbia/1744489395",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Title: Basement-16619 61 AVENUE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 1800
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-014",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "Como Lake Avenue, Coquitlam, BC",
+   "neighbourhood": "Burquitlam",
+   "price": 2250,
+   "size_sqft": "680",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "limited pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/spacious-one-bedroom-in-burquitlam/1744476811",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: SPACIOUS ONE BEDROOM IN BURQUITLAM; 630 Como Lake Ave; one cat OK; 680 sq ft",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 2250
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-015",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "612 Elmwood Street, Coquitlam, BC, V3J 3W8",
+   "neighbourhood": "Burquitlam",
+   "price": 2300,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/elmwood-1br-apt-rental-1606-612-elmwood-street-coquitlam:-vada/1744492475",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: Elmwood 1BR APT Rental 1606-612 Elmwood Street Coquitlam: VADA",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 2300
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-016",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "ELMWOOD STREET, Coquitlam, BC, V3J3W8",
+   "neighbourhood": "Burquitlam",
+   "price": 2700,
+   "size_sqft": "774",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "",
+   "pets": "no pets",
+   "available_date": "2026-10-16",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/612-elmwood-street-coquitlam-british-columbia/1744488949",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Title: 612 ELMWOOD STREET Coquitlam, British Columbia; Tenant pays hydro and internet; A/C; locker included",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 2700
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-016",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1045 AUSTIN AVENUE, Coquitlam, BC, V3K0G9",
+   "neighbourhood": "",
+   "price": 2150,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/vancouver/808-1045-austin-avenue-coquitlam-british-columbia/1744487388",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Title: 808 1045 AUSTIN AVENUE Coquitlam, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 2150
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-015",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "Langley, BC V2Y 5K2",
+   "neighbourhood": "Willoughby Heights",
+   "price": 1450,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/spacious-1-bedroom-suite-parking-for-rent-langley/1744483760",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: Spacious 1-Bedroom Suite + Parking for rent | Langley",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 1450
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-015",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20420 54 Ave, Langley, BC V3A 6N6",
+   "neighbourhood": "Downtown Langley",
+   "price": 2150,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "2 spots included",
+   "laundry": "shared",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2bed-1-bath-spacious-corner-condo-for-rent/1744479053",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Kijiji apartment; Title: 2bed 1 bath spacious corner condo for rent",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 2150
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-016",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "Langley Township, BC V2Y 0L4",
+   "neighbourhood": "",
+   "price": 1900,
+   "size_sqft": "540",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "2026-10-15",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1-bed-1-bath-at-elements-1-900-month/1744467642",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: 1 Bed + 1 Bath at Elements | $1,900/month; Elements community; half-month deposit; 400 move-in/out fee",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 1900
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-016",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5382 200 Street (The Hudson)",
+   "neighbourhood": "",
+   "price": 2255,
+   "size_sqft": "713",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/the-hudson",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 2255
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-029",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "8496 120, Surrey, BC, V3W 3N5",
+   "neighbourhood": "",
+   "price": 2450,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "2 secured stalls included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/welcome-to-85-scott-road-this-beautiful-2-bedroom-2-full-bathr/1744537362",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-08 (Kijiji activation date); Kijiji condo; Title: Welcome to 85 Scott Road! This beautiful 2-bedroom, 2-full-bathr",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2450
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-023",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "13750 100 Avenue, Surrey, BC, V3T 0L3",
+   "neighbourhood": "",
+   "price": 1600,
+   "size_sqft": "510",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/2008-13750-100-avenue/1744537322",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-08 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: 2008-13750 100 Avenue; 1 bed + den; Park Avenue East and West (Concord Pacific); storage locker; unfurnished; photos are of a similar unit (disclosed)",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 1600
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-024",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "Clayton, Surrey, BC V3S 7Y3",
+   "neighbourhood": "Clayton Heights",
+   "price": 1600,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-15",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1-bedroom-1-bathroom-suite-in-clayton/1744530936",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-08 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: 1 bedroom 1 bathroom suite in Clayton ; Basement suite, private entrance; available Nov 15 or Dec 1; 1-yr lease; half-month deposit; no smoking",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 1600
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-017",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "Coquitlam, BC V3J 4E9",
+   "neighbourhood": "Burquitlam",
+   "price": 1495,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "included",
+   "pets": "no pets",
+   "available_date": "2026-10-08",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/tricities-pitt-maple/1-bed-1-bath-for-rent/1744530742",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-08 (Kijiji activation date); Kijiji basement-apartment; Title: 1 BED 1 BATH FOR RENT; Internet, laundry and parking included; available now or Nov 1; optional furnished; ~8 min walk to Burquitlam SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 1495
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-018",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "710 Dogwood Street",
+   "neighbourhood": "West Coquitlam",
+   "price": 2269,
+   "size_sqft": "607",
+   "utilities_included": "",
+   "parking": "secured underground available",
+   "laundry": "in-suite",
+   "pets": "pet-friendly (1 pet max 70 lb, half-month pet deposit)",
+   "available_date": "2026-10-12",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/710-dogwood-street-id1207446",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data; 1 bed + den, unit 519; list rent 2475, 2269 effective with 1 month free on 12-month lease; half-month deposit; near Burquitlam/Millennium SkyTrain",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2269
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-017",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "2959 Glen Drive (Glen Drive 2959)",
+   "neighbourhood": "Town Centre",
+   "price": 2690,
+   "size_sqft": "913",
+   "utilities_included": "",
+   "parking": "1 spot included",
+   "laundry": "",
+   "pets": "negotiable",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/glen-drive-2959",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data; Corner unit floor 14; storage locker; move fees paid by tenant",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2690
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-018",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "City Centre",
+   "neighbourhood": "Town Centre",
+   "price": 2800,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no dogs",
+   "available_date": "2026-10-01",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/roomies-1554606",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data; Whole 2BR/2BA unit, over 1200 sq ft (Rentals.ca tags it as shared-room); water, gas, condo fee included; 1 locker; unfurnished",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2800
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-017",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "Langley, BC V3A 0R3",
+   "neighbourhood": "Langley City",
+   "price": 2399,
+   "size_sqft": "854",
+   "utilities_included": "partial",
+   "parking": "3 gated outdoor stalls included",
+   "laundry": "in-suite",
+   "pets": "limited pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bed-and-2-bath-for-rent-get-5-bonus-move-in-days/1744516055",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-07 (Kijiji activation date); Kijiji condo; Utilities included: water; Title: 2 BED AND 2 BATH FOR RENT - GET 5 BONUS MOVE IN DAYS.; Canvas, 214-5504 Brydon Crescent; corner unit; storage locker",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2399
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-017",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "5382 200 Street (The Hudson)",
+   "neighbourhood": "",
+   "price": 1880,
+   "size_sqft": "623",
+   "utilities_included": "",
+   "parking": "secure parking available",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/the-hudson",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 1880
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-018",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20159 88th Avenue (The Village at Thunderbird Centre)",
+   "neighbourhood": "",
+   "price": 2150,
+   "size_sqft": "712",
+   "utilities_included": "",
+   "parking": "secure underground available",
+   "laundry": "shared on-site",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20159-88th-avenue",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2150
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-019",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20769 Fraser Hwy",
+   "neighbourhood": "Downtown Langley",
+   "price": 1750,
+   "size_sqft": "488",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20769-fraser-hwy-id1529599",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 1750
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-018",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20159 88th Avenue (The Village at Thunderbird Centre)",
+   "neighbourhood": "",
+   "price": 2395,
+   "size_sqft": "815",
+   "utilities_included": "",
+   "parking": "secure underground available",
+   "laundry": "shared on-site",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20159-88th-avenue",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2395
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-019",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20839 78B Avenue (Willoughby Walk)",
+   "neighbourhood": "",
+   "price": 2460,
+   "size_sqft": "856",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20839-78b-avenue",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2460
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-020",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5300 207 Street (Creek Park Townhomes)",
+   "neighbourhood": "",
+   "price": 2250,
+   "size_sqft": "916",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/5300-207-street",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 2250
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-021",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5411 208 Street (Berry Road Apartments)",
+   "neighbourhood": "",
+   "price": 1895,
+   "size_sqft": "837",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/5411-208-street-id540366",
+   "first_seen": "2026-10-08",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-08",
+     "price": 1895
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-030",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "82A Avenue, Surrey, BC",
+   "neighbourhood": "Fleetwood",
+   "price": 1700,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "2 spots included",
+   "laundry": "shared",
+   "pets": "no pets",
+   "available_date": "2026-10-08",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/spacious-2-bedroom-basement-in-fleetwood/1744601665",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: Spacious 2 bedroom basement in Fleetwood",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 1700
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-031",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "0A Avenue, Surrey, BC",
+   "neighbourhood": "Douglas",
+   "price": 1750,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-1-bathroom-basement-for-rent/1744600701",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Kijiji basement-apartment; Title: 2 Bedroom 1 Bathroom Basement For Rent",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 1750
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-025",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "132B Street, Surrey, BC",
+   "neighbourhood": "",
+   "price": 1400,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "none included",
+   "laundry": "",
+   "pets": "limited pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/basement-for-rent/1744595748",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: Basement for Rent",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 1400
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-032",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "7155 Hall Road, Surrey, BC, V3W 4X4",
+   "neighbourhood": "Newton",
+   "price": 1600,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "shared",
+   "pets": "limited pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/newton-apartment-for-rent-cedartree-village-apartments/1744575467",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Kijiji apartment; Utilities included: heat, water; Title: Newton Apartment For Rent | Cedartree Village Apartments",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 1600
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-034",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13725 GEORGE JCT, Surrey, BC, V3T0V7",
+   "neighbourhood": "",
+   "price": 2400,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/410-13725-george-jct-surrey-british-columbia/1744582613",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Title: 410 13725 GEORGE JCT Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 2400
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-019",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "645 COMO LAKE AVENUE, Coquitlam, BC, V3J0N9",
+   "neighbourhood": "",
+   "price": 2000,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/vancouver/217-645-como-lake-avenue-coquitlam-british-columbia/1744581354",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Title: 217 645 COMO LAKE AVENUE Coquitlam, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 2000
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-022",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "244 St, Langley Twp, BC V2Z 1J2",
+   "neighbourhood": "",
+   "price": 2100,
+   "size_sqft": "1000",
+   "utilities_included": "yes",
+   "parking": "2 spots included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-basement-suite/1744574991",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: 2 Bedroom Basement Suite",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 2100
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-023",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "197B St, Langley, V2Y 3G8",
+   "neighbourhood": "Willoughby",
+   "price": 1900,
+   "size_sqft": "1100",
+   "utilities_included": "partial",
+   "parking": "none included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-12-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/spacious-2-bedroom-1-bathroom-basement-suite/1744574779",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Kijiji basement-apartment; Title: Spacious 2 Bedroom, 1 Bathroom Basement Suite",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 1900
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-020",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "95 Avenue, Langley Township, BC",
+   "neighbourhood": "Walnut Grove",
+   "price": 1350,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-12-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/langley-walnut-grove-1bed1bath-basement-suite-with-ac/1744573286",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: Langley (Walnut Grove)1bed1bath basement suite with AC",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 1350
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-035",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13760 75A AVENUE, Surrey, BC, V3W6T5",
+   "neighbourhood": "Newton",
+   "price": 2350,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/102-13760-75a-avenue-surrey-british-columbia/1744623490",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-10 (Kijiji activation date); Title: 102 13760 75A AVENUE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2350
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-026",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "140 ST, Surrey, BC, V3T5W2",
+   "neighbourhood": "Surrey Central",
+   "price": 1800,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 secured underground stall included",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/richmond-bc/9979-140-st-surrey-british-columbia/1744623147",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-10 (Kijiji activation date); Title: 9979 140 ST Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 1800
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-036",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "10333 133 ST., Surrey, BC, V3T0V1",
+   "neighbourhood": "",
+   "price": 2300,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1303-10333-133-st-surrey-british-columbia/1744624546",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-10 (Kijiji activation date); Title: 1303 10333 133 ST. Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2300
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-037",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13428 105 Ave, Surrey, BC V3T 0S6",
+   "neighbourhood": "Surrey Central",
+   "price": 2500,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/appartmet/1744573785",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Kijiji apartment; Title: Appartmet ",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2500
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-038",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "128 St, Surrey, V3W 4C8",
+   "neighbourhood": "",
+   "price": 1800,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "2 spots included",
+   "laundry": "in-suite",
+   "pets": "limited pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-basement-for-rent/1744560126",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-08 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: 2 bedroom basement for rent",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 1800
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-039",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "Clayton, Surrey, BC V3S 7Y3",
+   "neighbourhood": "Clayton Heights",
+   "price": 1600,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-15",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/2-bedroom-1-bathroom-suite-in-clayton/1744530936",
+   "first_seen": "2026-10-10",
+   "scam_flags": "description contradicts itself (calls it a 1-bedroom and a 2-bedroom; utilities '1/3 total' and 'all included'); price about 29% below Surrey 2-bed benchmark",
+   "notes": "Posted: 2026-10-08 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: 2 bedroom 1 bathroom suite in Clayton",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 1600
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-027",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "10463 150th Street (Grosvenor Square Apartments)",
+   "neighbourhood": "Guildford",
+   "price": 1660,
+   "size_sqft": "656",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/grosvenor-square-apartments",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 1660
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-020",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "630 Como Lake Avenue",
+   "neighbourhood": "Burquitlam",
+   "price": 2250,
+   "size_sqft": "680",
+   "utilities_included": "",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "one cat OK",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/630-como-lake-avenue",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2250
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-019",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "3100 Windsor Gate (The Lloyd 2103)",
+   "neighbourhood": "Windsor Gate",
+   "price": 2900,
+   "size_sqft": "933",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/the-lloyd-2103",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2900
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-020",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "319 Marmont Street",
+   "neighbourhood": "Maillardville",
+   "price": 3250,
+   "size_sqft": "2115",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/319-marmont-street",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "House; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 3250
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-021",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "1148 HEFFLEY Crescent (1008 1148 HEFFLEY CRESCENT)",
+   "neighbourhood": "Coquitlam Centre (Lincoln)",
+   "price": 2550,
+   "size_sqft": "867",
+   "utilities_included": "",
+   "parking": "1 spot included",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/1008-1148-heffley-crescent",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2550
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-022",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "2881 McLaren Court",
+   "neighbourhood": "",
+   "price": 2300,
+   "size_sqft": "900",
+   "utilities_included": "partial",
+   "parking": "street only",
+   "laundry": "in-suite",
+   "pets": "might consider pets",
+   "available_date": "2026-10-10",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/2881-mclaren-court",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2300
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-021",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20117 &amp",
+   "neighbourhood": "Langley City (downtown)",
+   "price": 1550,
+   "size_sqft": "",
+   "utilities_included": "",
+   "parking": "gated $20/mo",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/maple-manor-apartments",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "20119 56th Avenue (Maple Manor Apartments); ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 1550
+    }
+   ]
+  },
+  {
+   "id": "LAN-1bed-022",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "4871 221st Street (Lexington Court Apartments)",
+   "neighbourhood": "Murrayville",
+   "price": 2045,
+   "size_sqft": "735",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/4871-221st-street",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2045
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-024",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20117 &amp",
+   "neighbourhood": "Langley City (downtown)",
+   "price": 1790,
+   "size_sqft": "",
+   "utilities_included": "",
+   "parking": "gated $20/mo",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/maple-manor-apartments",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "20119 56th Avenue (Maple Manor Apartments); ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 1790
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-025",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5477 200 Street (5477-200th Street)",
+   "neighbourhood": "",
+   "price": 2449,
+   "size_sqft": "897",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "pets allowed",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/5477-200th-street",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2449
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-026",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20894 57 Ave",
+   "neighbourhood": "Langley City",
+   "price": 2500,
+   "size_sqft": "1067",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20894-57-ave",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2500
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-027",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20159 68 Avenue",
+   "neighbourhood": "Southwest Gordon Estate",
+   "price": 2595,
+   "size_sqft": "1238",
+   "utilities_included": "",
+   "parking": "1 garage spot + street",
+   "laundry": "in-suite",
+   "pets": "1 pet (35 lb max)",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20159-68-avenue",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2595
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-028",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20449 Park Ave (Parque on Park)",
+   "neighbourhood": "",
+   "price": 2355,
+   "size_sqft": "1320",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20449-park-ave",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 2355
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-013",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "(Coquitlam, BC)",
+   "neighbourhood": "",
+   "price": 810,
+   "size_sqft": "",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/rentallisting-932107",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 810
+    }
+   ],
+   "removed_on": "2026-10-04",
+   "removed_reason": "Private room in a shared house, not a 1-bed unit"
+  },
+  {
+   "id": "LAN-1bed-009",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "20051 55A Avenue (Glades on 55)",
+   "neighbourhood": "",
+   "price": 1565,
+   "size_sqft": "610",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/lamplighter",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1565
+    }
+   ],
+   "removed_on": "2026-10-04",
+   "removed_reason": "Duplicate of LAN-1bed-002 (same Glades on 55 complex)"
+  },
+  {
+   "id": "SUR-1bed-017",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "Surrey, BC V3X",
+   "neighbourhood": "",
+   "price": 1400,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/vancouver/bright-1-bed-basement-suite-near-49th-&-fraser-1-400-all-in/1744382821",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-04 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: Bright 1-Bed Basement Suite near 49th & Fraser \u2014 $1,400 All-In",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1400
+    }
+   ],
+   "removed_on": "2026-10-04",
+   "removed_reason": "Wrong city: description says the suite is near 49th & Fraser in Vancouver, not Surrey"
+  },
+  {
+   "id": "SUR-2bed-022",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "14858 60 Avenue, Surrey, BC, V3S 0B5",
+   "neighbourhood": "",
+   "price": 2850,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/spacious-modern-3-bedroom-home-at-kenzie-3-bedroom-2-bathroom/1744444844",
+   "first_seen": "2026-10-06",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Kijiji condo; Title: Spacious Modern 3-Bedroom Home At Kenzie 3 Bedroom + 2 Bathroom ",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-06",
+     "price": 2850
+    }
+   ],
+   "removed_on": "2026-10-06",
+   "removed_reason": "3-bedroom unit (ad title: 3 Bedroom + 2 Bathroom), not a 1- or 2-bed"
+  },
+  {
+   "id": "SUR-2bed-028",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "1475 FOSTER STREET, Surrey, BC, V4B0C9",
+   "neighbourhood": "",
+   "price": 4500,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/vancouver/1405-1475-foster-street-surrey-british-columbia/1744442448",
+   "first_seen": "2026-10-07",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-06 (Kijiji activation date); Title: 1405 1475 FOSTER STREET Surrey, British Columbia",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-07",
+     "price": 4500
+    }
+   ],
+   "removed_on": "2026-10-07",
+   "removed_reason": "In White Rock (Foster Martin, V4B), not Surrey"
+  },
+  {
+   "id": "LAN-1bed-013",
+   "city": "Langley",
+   "unit_type": "1bed",
+   "address": "5411 208 Street (Berry Road Apartments)",
+   "neighbourhood": "",
+   "price": 1495,
+   "size_sqft": "517",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/5411-208-street-id540366",
+   "first_seen": "2026-10-04",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-04",
+     "price": 1495
+    }
+   ],
+   "removed_on": "2026-10-08",
+   "removed_reason": "No 1-bed units listed any more"
+  },
+  {
+   "id": "SUR-2bed-033",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "14825 THRIFT AVENUE, Surrey, BC, V4B2J6",
+   "neighbourhood": "",
+   "price": 5795,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/703-14825-thrift-avenue-surrey-british-columbia/1744582155",
+   "first_seen": "2026-10-09",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-09 (Kijiji activation date); Title: 703 14825 THRIFT AVENUE Surrey, British Columbia",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-09",
+     "price": 5795
+    }
+   ],
+   "removed_on": "2026-10-09",
+   "removed_reason": "Different city: ad describes the unit as Vision at Fantom in White Rock, not Surrey"
+  },
+  {
+   "id": "COQ-1bed-021",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1235 Lasalle Place",
+   "neighbourhood": "",
+   "price": 1030,
+   "size_sqft": "",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/1235-lasalle-place",
+   "first_seen": "2026-10-10",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-10",
+     "price": 1030
+    }
+   ],
+   "removed_on": "2026-10-10",
+   "removed_reason": "private room in a shared townhouse, not a 1-bedroom unit"
+  }
+ ],
+ "market": {
+  "Coquitlam_1bed": {
+   "source": "Rentals.ca / Urbanation National Rent Report, all property types",
+   "note": "derived = back-calculated from a later report's M/M or Y/Y change",
+   "points": [
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2024-09",
+     "rent": 2466,
+     "kind": "derived",
+     "report": "October 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2024-10",
+     "rent": 2457,
+     "kind": "derived",
+     "report": "November 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2024-11",
+     "rent": 2408,
+     "kind": "derived",
+     "report": "December 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2024-12",
+     "rent": 2391,
+     "kind": "derived",
+     "report": "January 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-01",
+     "rent": 2349,
+     "kind": "derived",
+     "report": "February 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-02",
+     "rent": 2349,
+     "kind": "derived",
+     "report": "March 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-03",
+     "rent": 2438,
+     "kind": "derived",
+     "report": "April 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-04",
+     "rent": 2374,
+     "kind": "derived",
+     "report": "May 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-05",
+     "rent": 2333,
+     "kind": "derived",
+     "report": "June 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-06",
+     "rent": 2330,
+     "kind": "derived",
+     "report": "July 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-07",
+     "rent": 2320,
+     "kind": "derived",
+     "report": "August 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-08",
+     "rent": 2271,
+     "kind": "derived",
+     "report": "September 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-09",
+     "rent": 2207,
+     "kind": "reported",
+     "report": "October 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-10",
+     "rent": 2162,
+     "kind": "reported",
+     "report": "November 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-11",
+     "rent": 2172,
+     "kind": "reported",
+     "report": "December 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2025-12",
+     "rent": 2147,
+     "kind": "reported",
+     "report": "January 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-01",
+     "rent": 2107,
+     "kind": "reported",
+     "report": "February 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-02",
+     "rent": 2051,
+     "kind": "reported",
+     "report": "March 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-03",
+     "rent": 2116,
+     "kind": "reported",
+     "report": "April 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-04",
+     "rent": 2125,
+     "kind": "reported",
+     "report": "May 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-05",
+     "rent": 2128,
+     "kind": "reported",
+     "report": "June 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-06",
+     "rent": 2083,
+     "kind": "reported",
+     "report": "July 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-07",
+     "rent": 2134,
+     "kind": "reported",
+     "report": "August 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-08",
+     "rent": 2087,
+     "kind": "reported",
+     "report": "September 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "1bed",
+     "month": "2026-09",
+     "rent": 2053,
+     "kind": "reported",
+     "report": "October 2026"
+    }
+   ]
+  },
+  "Coquitlam_2bed": {
+   "source": "Rentals.ca / Urbanation National Rent Report, all property types",
+   "note": "derived = back-calculated from a later report's M/M or Y/Y change",
+   "points": [
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2024-09",
+     "rent": 3229,
+     "kind": "derived",
+     "report": "October 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2024-10",
+     "rent": 3170,
+     "kind": "derived",
+     "report": "November 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2024-11",
+     "rent": 3197,
+     "kind": "derived",
+     "report": "December 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2024-12",
+     "rent": 3213,
+     "kind": "derived",
+     "report": "January 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-01",
+     "rent": 2877,
+     "kind": "derived",
+     "report": "February 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-02",
+     "rent": 2935,
+     "kind": "derived",
+     "report": "March 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-03",
+     "rent": 2931,
+     "kind": "derived",
+     "report": "April 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-04",
+     "rent": 2965,
+     "kind": "derived",
+     "report": "May 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-05",
+     "rent": 2900,
+     "kind": "derived",
+     "report": "June 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-06",
+     "rent": 2834,
+     "kind": "derived",
+     "report": "July 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-07",
+     "rent": 2850,
+     "kind": "derived",
+     "report": "August 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-08",
+     "rent": 2843,
+     "kind": "derived",
+     "report": "September 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-09",
+     "rent": 2867,
+     "kind": "reported",
+     "report": "October 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-10",
+     "rent": 2783,
+     "kind": "reported",
+     "report": "November 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-11",
+     "rent": 2785,
+     "kind": "reported",
+     "report": "December 2025"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2025-12",
+     "rent": 2786,
+     "kind": "reported",
+     "report": "January 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-01",
+     "rent": 2765,
+     "kind": "reported",
+     "report": "February 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-02",
+     "rent": 2750,
+     "kind": "reported",
+     "report": "March 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-03",
+     "rent": 2752,
+     "kind": "reported",
+     "report": "April 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-04",
+     "rent": 2677,
+     "kind": "reported",
+     "report": "May 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-05",
+     "rent": 2709,
+     "kind": "reported",
+     "report": "June 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-06",
+     "rent": 2687,
+     "kind": "reported",
+     "report": "July 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-07",
+     "rent": 2753,
+     "kind": "reported",
+     "report": "August 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-08",
+     "rent": 2709,
+     "kind": "reported",
+     "report": "September 2026"
+    },
+    {
+     "city": "Coquitlam",
+     "unit_type": "2bed",
+     "month": "2026-09",
+     "rent": 2608,
+     "kind": "reported",
+     "report": "October 2026"
+    }
+   ]
+  },
+  "Langley_1bed": {
+   "source": "Rentals.ca / Urbanation National Rent Report, all property types",
+   "note": "derived = back-calculated from a later report's M/M or Y/Y change",
+   "points": [
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2024-09",
+     "rent": 2133,
+     "kind": "derived",
+     "report": "October 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2024-10",
+     "rent": 2111,
+     "kind": "derived",
+     "report": "November 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2024-11",
+     "rent": 2117,
+     "kind": "derived",
+     "report": "December 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2024-12",
+     "rent": 2149,
+     "kind": "derived",
+     "report": "January 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-01",
+     "rent": 2142,
+     "kind": "derived",
+     "report": "February 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-02",
+     "rent": 2113,
+     "kind": "derived",
+     "report": "March 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-03",
+     "rent": 2080,
+     "kind": "derived",
+     "report": "April 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-04",
+     "rent": 2057,
+     "kind": "derived",
+     "report": "May 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-05",
+     "rent": 2045,
+     "kind": "derived",
+     "report": "June 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-06",
+     "rent": 2001,
+     "kind": "derived",
+     "report": "July 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-07",
+     "rent": 1993,
+     "kind": "derived",
+     "report": "August 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-08",
+     "rent": 1980,
+     "kind": "derived",
+     "report": "September 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-09",
+     "rent": 1947,
+     "kind": "reported",
+     "report": "October 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-10",
+     "rent": 1944,
+     "kind": "reported",
+     "report": "November 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-11",
+     "rent": 1986,
+     "kind": "reported",
+     "report": "December 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2025-12",
+     "rent": 1981,
+     "kind": "reported",
+     "report": "January 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-01",
+     "rent": 2071,
+     "kind": "reported",
+     "report": "February 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-02",
+     "rent": 2069,
+     "kind": "reported",
+     "report": "March 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-03",
+     "rent": 1974,
+     "kind": "reported",
+     "report": "April 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-04",
+     "rent": 1946,
+     "kind": "reported",
+     "report": "May 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-05",
+     "rent": 1975,
+     "kind": "reported",
+     "report": "June 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-06",
+     "rent": 1965,
+     "kind": "reported",
+     "report": "July 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-07",
+     "rent": 1899,
+     "kind": "reported",
+     "report": "August 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-08",
+     "rent": 1911,
+     "kind": "reported",
+     "report": "September 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "1bed",
+     "month": "2026-09",
+     "rent": 1868,
+     "kind": "reported",
+     "report": "October 2026"
+    }
+   ]
+  },
+  "Langley_2bed": {
+   "source": "Rentals.ca / Urbanation National Rent Report, all property types",
+   "note": "derived = back-calculated from a later report's M/M or Y/Y change",
+   "points": [
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2024-09",
+     "rent": 2661,
+     "kind": "derived",
+     "report": "October 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2024-10",
+     "rent": 2551,
+     "kind": "derived",
+     "report": "November 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2024-11",
+     "rent": 2525,
+     "kind": "derived",
+     "report": "December 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2024-12",
+     "rent": 2530,
+     "kind": "derived",
+     "report": "January 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-01",
+     "rent": 2510,
+     "kind": "derived",
+     "report": "February 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-02",
+     "rent": 2497,
+     "kind": "derived",
+     "report": "March 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-03",
+     "rent": 2498,
+     "kind": "derived",
+     "report": "April 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-04",
+     "rent": 2498,
+     "kind": "derived",
+     "report": "May 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-05",
+     "rent": 2505,
+     "kind": "derived",
+     "report": "June 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-06",
+     "rent": 2527,
+     "kind": "derived",
+     "report": "July 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-07",
+     "rent": 2538,
+     "kind": "derived",
+     "report": "August 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-08",
+     "rent": 2531,
+     "kind": "derived",
+     "report": "September 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-09",
+     "rent": 2523,
+     "kind": "reported",
+     "report": "October 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-10",
+     "rent": 2421,
+     "kind": "reported",
+     "report": "November 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-11",
+     "rent": 2366,
+     "kind": "reported",
+     "report": "December 2025"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2025-12",
+     "rent": 2343,
+     "kind": "reported",
+     "report": "January 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-01",
+     "rent": 2465,
+     "kind": "reported",
+     "report": "February 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-02",
+     "rent": 2467,
+     "kind": "reported",
+     "report": "March 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-03",
+     "rent": 2443,
+     "kind": "reported",
+     "report": "April 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-04",
+     "rent": 2456,
+     "kind": "reported",
+     "report": "May 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-05",
+     "rent": 2477,
+     "kind": "reported",
+     "report": "June 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-06",
+     "rent": 2439,
+     "kind": "reported",
+     "report": "July 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-07",
+     "rent": 2457,
+     "kind": "reported",
+     "report": "August 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-08",
+     "rent": 2480,
+     "kind": "reported",
+     "report": "September 2026"
+    },
+    {
+     "city": "Langley",
+     "unit_type": "2bed",
+     "month": "2026-09",
+     "rent": 2426,
+     "kind": "reported",
+     "report": "October 2026"
+    }
+   ]
+  },
+  "Surrey_1bed": {
+   "source": "Rentals.ca / Urbanation National Rent Report, all property types",
+   "note": "derived = back-calculated from a later report's M/M or Y/Y change",
+   "points": [
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2024-09",
+     "rent": 2133,
+     "kind": "derived",
+     "report": "October 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2024-10",
+     "rent": 2085,
+     "kind": "derived",
+     "report": "November 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2024-11",
+     "rent": 2019,
+     "kind": "derived",
+     "report": "December 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2024-12",
+     "rent": 1989,
+     "kind": "derived",
+     "report": "January 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-01",
+     "rent": 1965,
+     "kind": "derived",
+     "report": "February 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-02",
+     "rent": 1910,
+     "kind": "derived",
+     "report": "March 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-03",
+     "rent": 1855,
+     "kind": "derived",
+     "report": "April 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-04",
+     "rent": 1851,
+     "kind": "derived",
+     "report": "May 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-05",
+     "rent": 1862,
+     "kind": "derived",
+     "report": "June 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-06",
+     "rent": 1890,
+     "kind": "derived",
+     "report": "July 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-07",
+     "rent": 1904,
+     "kind": "derived",
+     "report": "August 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-08",
+     "rent": 1885,
+     "kind": "derived",
+     "report": "September 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-09",
+     "rent": 1881,
+     "kind": "reported",
+     "report": "October 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-10",
+     "rent": 1849,
+     "kind": "reported",
+     "report": "November 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-11",
+     "rent": 1831,
+     "kind": "reported",
+     "report": "December 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2025-12",
+     "rent": 1836,
+     "kind": "reported",
+     "report": "January 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-01",
+     "rent": 1818,
+     "kind": "reported",
+     "report": "February 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-02",
+     "rent": 1801,
+     "kind": "reported",
+     "report": "March 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-03",
+     "rent": 1818,
+     "kind": "reported",
+     "report": "April 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-04",
+     "rent": 1801,
+     "kind": "reported",
+     "report": "May 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-05",
+     "rent": 1812,
+     "kind": "reported",
+     "report": "June 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-06",
+     "rent": 1803,
+     "kind": "reported",
+     "report": "July 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-07",
+     "rent": 1794,
+     "kind": "reported",
+     "report": "August 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-08",
+     "rent": 1796,
+     "kind": "reported",
+     "report": "September 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "1bed",
+     "month": "2026-09",
+     "rent": 1807,
+     "kind": "reported",
+     "report": "October 2026"
+    }
+   ]
+  },
+  "Surrey_2bed": {
+   "source": "Rentals.ca / Urbanation National Rent Report, all property types",
+   "note": "derived = back-calculated from a later report's M/M or Y/Y change",
+   "points": [
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2024-09",
+     "rent": 2576,
+     "kind": "derived",
+     "report": "October 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2024-10",
+     "rent": 2522,
+     "kind": "derived",
+     "report": "November 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2024-11",
+     "rent": 2535,
+     "kind": "derived",
+     "report": "December 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2024-12",
+     "rent": 2487,
+     "kind": "derived",
+     "report": "January 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-01",
+     "rent": 2458,
+     "kind": "derived",
+     "report": "February 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-02",
+     "rent": 2415,
+     "kind": "derived",
+     "report": "March 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-03",
+     "rent": 2403,
+     "kind": "derived",
+     "report": "April 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-04",
+     "rent": 2420,
+     "kind": "derived",
+     "report": "May 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-05",
+     "rent": 2353,
+     "kind": "derived",
+     "report": "June 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-06",
+     "rent": 2384,
+     "kind": "derived",
+     "report": "July 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-07",
+     "rent": 2374,
+     "kind": "derived",
+     "report": "August 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-08",
+     "rent": 2363,
+     "kind": "derived",
+     "report": "September 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-09",
+     "rent": 2365,
+     "kind": "reported",
+     "report": "October 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-10",
+     "rent": 2250,
+     "kind": "reported",
+     "report": "November 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-11",
+     "rent": 2256,
+     "kind": "reported",
+     "report": "December 2025"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2025-12",
+     "rent": 2246,
+     "kind": "reported",
+     "report": "January 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-01",
+     "rent": 2249,
+     "kind": "reported",
+     "report": "February 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-02",
+     "rent": 2236,
+     "kind": "reported",
+     "report": "March 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-03",
+     "rent": 2206,
+     "kind": "reported",
+     "report": "April 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-04",
+     "rent": 2183,
+     "kind": "reported",
+     "report": "May 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-05",
+     "rent": 2249,
+     "kind": "reported",
+     "report": "June 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-06",
+     "rent": 2239,
+     "kind": "reported",
+     "report": "July 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-07",
+     "rent": 2239,
+     "kind": "reported",
+     "report": "August 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-08",
+     "rent": 2250,
+     "kind": "reported",
+     "report": "September 2026"
+    },
+    {
+     "city": "Surrey",
+     "unit_type": "2bed",
+     "month": "2026-09",
+     "rent": 2251,
+     "kind": "reported",
+     "report": "October 2026"
+    }
+   ]
+  }
+ },
+ "meta": {
+  "last_run": "2026-10-06T19:00:02+00:00",
+  "summary": "98 active \u00b7 7 new \u00b7 0 removed \u00b7 1 price changes \u00b7 24 couldn't be checked"
+ }
+}

@@ -1,0 +1,668 @@
+<title>Lower Mainland Rental Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: masthead + live status, city/unit matrix, market history small multiples, tracked-price history, price strip, ledger, removed log. */
+:root {
+  --bg: #f6f7f8; --surface: #fdfdfd; --ink: #12161c; --ink-2: #4b5360; --muted: #7d8592;
+  --line: #e1e4e8; --axis: #c4c9d0; --band: #e9edf2; --accent: #2c4f86; --accent-wash: #e5ecf7;
+  --good: #0f8a3a; --good-wash: #e2f3e8; --neutral: #7d8592; --neutral-wash: #eceef1;
+  --serious: #c4612f; --serious-wash: #fbe9df; --critical: #c53434; --critical-wash: #fbe3e3;
+  --ring: #fdfdfd;
+  --s1: #2a78d6; /* 1-bed series */
+  --s2: #eb6834; /* 2-bed series */
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1216; --surface: #171b21; --ink: #f2f4f7; --ink-2: #bcc3cd; --muted: #8a93a0;
+    --line: #262c35; --axis: #3a414c; --band: #222833; --accent: #8fb0ea; --accent-wash: #1f2a3d;
+    --good: #3fbf6a; --good-wash: #15291d; --neutral: #8a93a0; --neutral-wash: #232831;
+    --serious: #e8895a; --serious-wash: #33221a; --critical: #ef6a6a; --critical-wash: #361c1d;
+    --ring: #171b21; --s1: #3987e5; --s2: #d95926; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1216; --surface: #171b21; --ink: #f2f4f7; --ink-2: #bcc3cd; --muted: #8a93a0;
+  --line: #262c35; --axis: #3a414c; --band: #222833; --accent: #8fb0ea; --accent-wash: #1f2a3d;
+  --good: #3fbf6a; --good-wash: #15291d; --neutral: #8a93a0; --neutral-wash: #232831;
+  --serious: #e8895a; --serious-wash: #33221a; --critical: #ef6a6a; --critical-wash: #361c1d;
+  --ring: #171b21; --s1: #3987e5; --s2: #d95926; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 56px; display: grid; gap: 30px; }
+@media (max-width: 520px) { .wrap { padding-inline: 16px; } }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 4.2vw, 40px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.05; }
+h2 { font-size: 20px; font-weight: 700; }
+h3 { font-size: 15px; font-weight: 700; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.sub { color: var(--ink-2); max-width: 68ch; margin: 0; }
+.num { font-variant-numeric: tabular-nums; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.mast { display: grid; gap: 10px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--ink-2); font-size: 14px; }
+.facts b { color: var(--ink); font-weight: 600; }
+.live { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px 4px 10px; width: fit-content; }
+.live .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--good); flex: none; }
+.live.stale .dot { background: var(--serious); }
+.live.off .dot { background: var(--muted); }
+.notice { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; color: var(--ink-2); }
+
+.section { display: grid; gap: 14px; min-width: 0; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.section-head p { margin: 0; color: var(--muted); font-size: 13px; max-width: 70ch; }
+
+.matrix { display: grid; grid-template-columns: 64px repeat(3, minmax(0, 1fr)); gap: 10px; }
+.matrix .colhead { font-family: var(--font-display); font-weight: 700; font-size: 15px; padding-inline: 4px; }
+.matrix .rowhead { font-family: var(--font-display); font-weight: 700; font-size: 15px; align-self: center; color: var(--ink-2); }
+.cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; text-align: left; font: inherit; color: inherit; cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+.cell:hover { border-color: var(--axis); }
+.cell[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.cell .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.cell .bench { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+.cell .bench small { font-size: 12px; font-weight: 500; color: var(--muted); margin-left: 2px; }
+.cell .count { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.cell dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 13px; }
+.cell dt { color: var(--muted); }
+.cell dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.mix { display: flex; height: 6px; border-radius: 3px; overflow: hidden; gap: 2px; background: var(--surface); }
+@media (max-width: 760px) { .matrix { grid-template-columns: 1fr 1fr; } .matrix .colhead, .matrix .rowhead { display: none; } }
+@media (max-width: 420px) { .matrix { grid-template-columns: 1fr; } }
+
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 2px 8px 2px 6px; border-radius: 999px; white-space: nowrap; color: var(--ink); }
+.pill svg { width: 12px; height: 12px; flex: none; }
+.pill.below { background: var(--good-wash); } .pill.at { background: var(--neutral-wash); }
+.pill.above { background: var(--serious-wash); } .pill.cheap { background: var(--critical-wash); }
+.pill.new { background: var(--accent-wash); padding-left: 8px; }
+.pill.gone { background: var(--neutral-wash); color: var(--ink-2); padding-left: 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: var(--ink-2); align-items: center; }
+.legend .key { display: inline-flex; align-items: center; gap: 6px; }
+.legend .band-key { width: 22px; height: 10px; background: var(--band); border-radius: 2px; display: inline-block; }
+.legend .bench-key { width: 2px; height: 14px; background: var(--ink-2); display: inline-block; }
+.legend .line-key { width: 18px; height: 2px; display: inline-block; border-radius: 1px; }
+.legend .hollow-key { width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--ink-2); display: inline-block; }
+
+/* History small multiples */
+.multiples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 860px) { .multiples { grid-template-columns: 1fr; } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 12px 6px; display: grid; gap: 4px; position: relative; min-width: 0; }
+.panel .phead { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.panel .pnow { font-size: 12px; color: var(--muted); }
+.panel svg { width: 100%; height: auto; display: block; overflow: visible; }
+.panel svg text { fill: var(--muted); font-size: 11px; font-family: var(--font-body); }
+.panel svg .endlabel { fill: var(--ink-2); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.panel .empty-note { font-size: 12px; color: var(--muted); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { font: inherit; font-size: 13px; padding: 5px 11px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--surface); font-weight: 600; }
+.filters label, .inline-label { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); cursor: pointer; }
+.filters input[type="checkbox"] { accent-color: var(--accent); width: 15px; height: 15px; }
+select, .filters input[type="number"] { font: inherit; font-size: 13px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); }
+.filters input[type="number"] { width: 92px; }
+.filters .grow { flex: 1; }
+.filters .shown { font-size: 13px; color: var(--muted); }
+.reset { font: inherit; font-size: 13px; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; }
+
+.chart-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 8px 8px; position: relative; }
+.chart-scroll { overflow-x: auto; }
+#strip { display: block; width: 100%; min-width: 640px; height: auto; font-family: var(--font-body); }
+#strip .tick text, #strip .rowlabel { fill: var(--muted); font-size: 12px; }
+#strip .rowlabel.main { fill: var(--ink); font-weight: 600; font-size: 13px; }
+#strip .benchlabel { fill: var(--ink-2); font-size: 11px; font-variant-numeric: tabular-nums; }
+#strip .dot { cursor: pointer; }
+#strip .dot circle.mark { stroke: var(--ring); stroke-width: 2; }
+#strip .dot:hover circle.mark, #strip .dot:focus circle.mark, #strip .dot.sel circle.mark { stroke: var(--ink); }
+#strip .dot:focus { outline: none; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--surface); border-radius: 8px; padding: 8px 10px; font-size: 12px; line-height: 1.4; max-width: 260px; box-shadow: 0 6px 20px rgba(0,0,0,.18); z-index: 5; }
+.tip b { font-size: 14px; }
+.tip .t-sub { opacity: .8; }
+
+.ledger { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 1060px; }
+thead th { position: sticky; top: 0; background: var(--surface); text-align: left; font-weight: 600; color: var(--muted); font-size: 12px; letter-spacing: 0.03em; padding: 10px; border-bottom: 1px solid var(--axis); white-space: nowrap; }
+thead th.r, td.r { text-align: right; }
+tbody td { padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr.hl { background: var(--accent-wash); }
+td .addr { font-weight: 600; color: var(--ink); }
+td .hood { color: var(--muted); font-size: 12px; }
+td .id { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+td .price { font-weight: 600; font-size: 14px; font-variant-numeric: tabular-nums; }
+td .was { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+td .notes { color: var(--ink-2); max-width: 300px; font-size: 12px; }
+td .flagnote { color: var(--critical); font-weight: 600; font-size: 12px; }
+td .tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+table.small { min-width: 720px; }
+
+.checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px 28px; margin: 0; padding: 0; list-style: none; font-size: 14px; color: var(--ink-2); }
+.checks li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
+.checks li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--critical); margin-top: 7px; }
+footer { color: var(--muted); font-size: 12px; display: grid; gap: 4px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <span class="eyebrow">Surrey · Coquitlam · Langley, BC</span>
+    <h1>Lower Mainland Rental Board</h1>
+    <p class="sub">Active 1- and 2-bedroom listings, re-checked every day at noon and priced against each city's average asking rent. Within 10% of the average counts as at market. More than 30% under is flagged for a closer look.</p>
+    <div class="live off" id="live"><span class="dot"></span><span id="live-text">Connecting to live data…</span></div>
+    <div class="facts" id="facts"></div>
+  </header>
+
+  <div class="notice" id="offline" hidden>Live data isn't available in this view. Open the board on claude.ai while signed in to see current listings and history.</div>
+
+  <section class="section" aria-labelledby="m-h">
+    <div class="section-head">
+      <h2 id="m-h">Market vs. what's listed</h2>
+      <p>Select a box to filter everything below. Select it again to clear.</p>
+    </div>
+    <div class="matrix" id="matrix"><div class="empty" style="grid-column:1/-1">Loading listings…</div></div>
+  </section>
+
+  <section class="section" aria-labelledby="h-h">
+    <div class="section-head">
+      <h2 id="h-h">Average asking rent, past two years</h2>
+      <div class="legend">
+        <span class="key"><span class="line-key" style="background:var(--s1)"></span>1-bed</span>
+        <span class="key"><span class="line-key" style="background:var(--s2)"></span>2-bed</span>
+        <span class="key"><span class="hollow-key"></span>Back-calculated from a later report</span>
+      </div>
+    </div>
+    <div class="multiples" id="market"></div>
+    <p class="sub" style="font-size:13px;color:var(--muted)" id="market-src"></p>
+  </section>
+
+  <section class="section" aria-labelledby="t-h">
+    <div class="section-head">
+      <h2 id="t-h">Median asking rent of tracked listings</h2>
+      <p>One point per daily check. This builds up as the board runs; each panel uses the same scale.</p>
+    </div>
+    <div class="multiples" id="tracked"></div>
+  </section>
+
+  <section class="section" aria-labelledby="f-h">
+    <h2 id="f-h" hidden>Filters</h2>
+    <div class="filters">
+      <div class="seg" role="group" aria-label="City" id="f-city"></div>
+      <div class="seg" role="group" aria-label="Unit type" id="f-unit"></div>
+      <label for="f-max">Max rent <input type="number" id="f-max" min="0" step="50" placeholder="any"></label>
+      <label for="f-laundry"><input type="checkbox" id="f-laundry"> In-suite laundry</label>
+      <label for="f-parking"><input type="checkbox" id="f-parking"> Parking included</label>
+      <label for="f-flags"><input type="checkbox" id="f-flags"> Hide flagged</label>
+      <label for="f-new"><input type="checkbox" id="f-new"> New in last 3 days</label>
+      <span class="grow"></span>
+      <span class="shown num" id="shown"></span>
+      <button class="reset" id="reset" type="button">Reset</button>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="s-h">
+    <div class="section-head">
+      <h2 id="s-h">Every listing against its benchmark</h2>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-scroll"><svg id="strip" role="group" aria-label="Listing prices by city and unit type"></svg></div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="l-h">
+    <div class="section-head">
+      <h2 id="l-h">Listings</h2>
+      <label class="inline-label" for="f-sort">Sort
+        <select id="f-sort">
+          <option value="diff">Furthest under market</option>
+          <option value="price">Lowest rent</option>
+          <option value="posted">Newest posted</option>
+          <option value="seen">Newest found</option>
+          <option value="size">Largest size</option>
+        </select>
+      </label>
+    </div>
+    <div class="ledger"><table>
+      <thead><tr>
+        <th>Listing</th><th class="r">Rent / mo</th><th class="r">vs. avg</th><th>Status</th><th class="r">Sq ft</th>
+        <th>Utilities</th><th>Laundry</th><th>Parking</th><th>Pets</th><th>Posted</th><th>Available</th><th>Notes</th><th>Source</th>
+      </tr></thead>
+      <tbody id="rows"><tr><td colspan="13" class="empty">Loading listings…</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section class="section" aria-labelledby="g-h">
+    <div class="section-head">
+      <h2 id="g-h">Recently removed</h2>
+      <p>Listings the daily check found rented, expired or taken down. Kept here so you can see how long units lasted.</p>
+    </div>
+    <div class="ledger"><table class="small">
+      <thead><tr><th>Listing</th><th class="r">Last rent</th><th>Found</th><th>Removed</th><th class="r">Days listed</th><th>Why</th><th>Source</th></tr></thead>
+      <tbody id="gone"><tr><td colspan="7" class="empty">Nothing removed yet.</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section class="section" aria-labelledby="c-h">
+    <h2 id="c-h">Before you contact anyone</h2>
+    <ul class="checks">
+      <li>In BC the security deposit can't be more than half a month's rent (Residential Tenancy Act).</li>
+      <li>Never pay a deposit or "application fee" before you've seen the unit.</li>
+      <li>Walk away if the landlord is "out of the country" or can't show the place.</li>
+      <li>No e-transfers to third parties, gift cards or crypto.</li>
+      <li>Reverse-search the photos. Scammers reuse them from real listings.</li>
+      <li>Insist on a written tenancy agreement, and don't let anyone rush you.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span id="foot-bench"></span>
+    <span>Listings change daily. Re-check a listing before you contact the landlord. Blank fields mean the ad didn't say.</span>
+    <span>Posted dates come from Kijiji. Rentals.ca and liv.rent don't publish one.</span>
+  </footer>
+</div>
+
+<script>
+const CITIES = ["Surrey", "Coquitlam", "Langley"];
+const UNITS = ["1bed", "2bed"];
+const UNIT_LABEL = { "1bed": "1-bed", "2bed": "2-bed" };
+const SERIES = { "1bed": "var(--s1)", "2bed": "var(--s2)" };
+const STATUS = {
+  cheap: { label: "Suspiciously cheap", color: "var(--critical)", icon: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1 11 10.5H1Z" fill="var(--critical)"/><rect x="5.4" y="4.3" width="1.2" height="3.4" fill="#fff"/><rect x="5.4" y="8.3" width="1.2" height="1.2" fill="#fff"/></svg>' },
+  below: { label: "Below market", color: "var(--good)", icon: '<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="var(--good)"/><path d="M6 3.5v5M3.8 6.4 6 8.6l2.2-2.2" stroke="#fff" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>' },
+  at:    { label: "At market", color: "var(--neutral)", icon: '<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="var(--neutral)"/><path d="M3.5 6h5" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>' },
+  above: { label: "Above market", color: "var(--serious)", icon: '<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="var(--serious)"/><path d="M6 8.5v-5M3.8 5.6 6 3.4l2.2 2.2" stroke="#fff" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>' },
+};
+const ORDER = ["cheap", "below", "at", "above"];
+
+const fmt$ = n => "$" + Math.round(n).toLocaleString("en-CA");
+const fmtPct = d => (d > 0 ? "+" : d < 0 ? "−" : "") + Math.abs(Math.round(d * 100)) + "%";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
+const fmtDay = d => new Date(d + "T12:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric" });
+const fmtMonth = m => new Date(m + "-15T12:00:00").toLocaleDateString("en-CA", { month: "short", year: "2-digit" });
+const today = new Date().toLocaleDateString("en-CA");
+function median(a) { const s = [...a].sort((x, y) => x - y), n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; }
+
+// ---------- live data ----------
+// Store layout (append-only): listings/<id> written once when found; events/<date> holds that
+// day's removals, price changes and field updates; snapshots/<date> holds the day's stats and run
+// status; market/<city>_<unit>_<YYYY-MM> holds one monthly market point.
+const live = { base: [], events: [], listings: [], snapshots: [], marketDocs: [], market: {}, meta: null, loaded: { listings: false } };
+
+function applyEvents() {
+  const byId = new Map(live.base.map(l => [l.id, { ...l, state: "active", price_history: [{ date: l.first_seen, price: Number(l.price) }] }]));
+  for (const ev of [...live.events].sort((a, b) => String(a.run || a.date).localeCompare(String(b.run || b.date), undefined, { numeric: true }))) {
+    for (const [id, fields] of Object.entries(ev.updates || {})) { const l = byId.get(id); if (l) Object.assign(l, fields); }
+    for (const pc of ev.price_changes || []) { const l = byId.get(pc.id); if (l) { l.price = pc.new; l.price_history.push({ date: ev.date, price: pc.new }); } }
+    for (const g of ev.gone || []) { const l = byId.get(g.id); if (l) { l.state = "gone"; l.removed_on = ev.date; l.removed_reason = g.reason; } }
+  }
+  live.listings = [...byId.values()];
+  const m = {};
+  for (const p of live.marketDocs) {
+    const k = p.city + "_" + p.unit_type;
+    (m[k] ||= { source: p.source, note: "Hollow points are back-calculated from a later report's monthly or yearly change.", points: [] }).points.push(p);
+  }
+  for (const s of Object.values(m)) s.points.sort((a, b) => a.month.localeCompare(b.month));
+  live.market = m;
+  const last = [...live.snapshots].sort((a, b) => String(a.run_at).localeCompare(String(b.run_at))).pop();
+  live.meta = last ? { last_run: last.run_at, summary: last.summary } : null;
+}
+let listings = [];   // derived active rows
+let gone = [];       // derived removed rows
+
+function bench(city, unit) {
+  const s = live.market[city + "_" + unit];
+  if (!s || !s.points?.length) return null;
+  const p = [...s.points].filter(x => x.kind === "reported").sort((a, b) => a.month.localeCompare(b.month)).pop();
+  return p ? { rent: p.rent, month: p.month, source: s.source } : null;
+}
+
+function derive() {
+  applyEvents();
+  const rows = live.listings.map(l => {
+    const price = Number(l.price);
+    const b = bench(l.city, l.unit_type);
+    const diff = b && price ? (price - b.rent) / b.rent : null;
+    let status = diff == null ? "at" : diff < -0.10 ? "below" : diff > 0.10 ? "above" : "at";
+    const flags = String(l.scam_flags || "").split(";").map(s => s.trim()).filter(Boolean);
+    if (diff != null && diff < -0.30) flags.unshift("Suspiciously cheap");
+    if (flags.length) status = "cheap";
+    const hist = Array.isArray(l.price_history) ? l.price_history : [];
+    const prev = hist.length > 1 ? hist[hist.length - 2].price : null;
+    return { ...l, price, diff, status, flags, size: parseInt(l.size_sqft, 10) || null, prevPrice: prev };
+  });
+  listings = rows.filter(r => r.state !== "gone");
+  gone = rows.filter(r => r.state === "gone").sort((a, b) => String(b.removed_on).localeCompare(String(a.removed_on)));
+}
+
+// ---------- state ----------
+const state = { city: "All", unit: "All", max: null, laundry: false, parking: false, hideFlags: false, newOnly: false, sort: "diff", sel: null };
+try { Object.assign(state, JSON.parse(localStorage.getItem("lmrb-filters") || "{}"), { sel: null }); } catch (e) {}
+function save() { try { const { sel, ...rest } = state; localStorage.setItem("lmrb-filters", JSON.stringify(rest)); } catch (e) {} }
+const isNew = l => l.first_seen && daysBetween(l.first_seen, today) <= 3;
+function parkingIncluded(p) { return /included|garage stall|1 stall|driveway|spots? included|spot included/i.test(p || "") && !/none included|\$|extra|price on request/i.test(p || ""); }
+function filtered() {
+  return listings.filter(l =>
+    (state.city === "All" || l.city === state.city) &&
+    (state.unit === "All" || l.unit_type === state.unit) &&
+    (!state.max || l.price <= state.max) &&
+    (!state.laundry || l.laundry === "in-suite") &&
+    (!state.parking || parkingIncluded(l.parking)) &&
+    (!state.hideFlags || !l.flags.length) &&
+    (!state.newOnly || isNew(l)));
+}
+
+// ---------- masthead ----------
+function renderLive() {
+  const el = document.getElementById("live"), t = document.getElementById("live-text"), m = live.meta;
+  if (!m) { return; }
+  const when = m.last_run ? new Date(m.last_run) : null;
+  const ageH = when ? (Date.now() - when.getTime()) / 3600000 : Infinity;
+  el.className = "live" + (ageH > 30 ? " stale" : "");
+  t.textContent = when
+    ? `Last checked ${when.toLocaleString("en-CA", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}` +
+      (m.summary ? ` · ${m.summary}` : "") + (ageH > 30 ? " · the daily check is overdue" : "")
+    : "Waiting for the first daily check";
+}
+function renderFacts() {
+  const nFlag = listings.filter(l => l.flags.length).length;
+  const nBelow = listings.filter(l => l.status === "below").length;
+  const nNew = listings.filter(isNew).length;
+  document.getElementById("facts").innerHTML =
+    `<span><b class="num">${listings.length}</b> active listings</span>` +
+    `<span><b class="num">${nNew}</b> new in the last 3 days</span>` +
+    `<span><b class="num">${nBelow}</b> below market</span>` +
+    `<span><b class="num">${nFlag}</b> flagged</span>` +
+    `<span><b class="num">${gone.length}</b> removed so far</span>`;
+  const b = bench("Surrey", "1bed");
+  document.getElementById("foot-bench").textContent = b
+    ? `Benchmarks: ${b.source}, latest month ${fmtMonth(b.month)}. The Langley figure doesn't say whether it covers the City or the Township.`
+    : "";
+}
+
+// ---------- matrix ----------
+function renderMatrix() {
+  const el = document.getElementById("matrix");
+  let html = `<div></div>` + CITIES.map(c => `<div class="colhead">${c}</div>`).join("");
+  for (const u of UNITS) {
+    html += `<div class="rowhead">${UNIT_LABEL[u]}</div>`;
+    for (const c of CITIES) {
+      const b = bench(c, u);
+      const ls = listings.filter(l => l.city === c && l.unit_type === u);
+      const med = median(ls.map(l => l.price));
+      const min = ls.length ? Math.min(...ls.map(l => l.price)) : null;
+      const counts = Object.fromEntries(ORDER.map(s => [s, ls.filter(l => l.status === s).length]));
+      const pressed = state.city === c && state.unit === u;
+      const medDiff = b && med ? (med - b.rent) / b.rent : null;
+      html += `<button class="cell" type="button" data-city="${c}" data-unit="${u}" aria-pressed="${pressed}"
+        aria-label="${c} ${UNIT_LABEL[u]}: average ${b ? fmt$(b.rent) : "missing"}, ${ls.length} listings">
+        <div class="top"><span class="bench num">${b ? fmt$(b.rent) : "—"}<small>avg</small></span><span class="count">${c} · ${UNIT_LABEL[u]}</span></div>
+        <div class="mix" aria-hidden="true">${ORDER.map(s => counts[s] ? `<span style="flex:${counts[s]};background:${STATUS[s].color}"></span>` : "").join("")}</div>
+        <dl>
+          <dt>Listings</dt><dd>${ls.length} <span style="color:var(--muted)">(${ls.filter(isNew).length} new)</span></dd>
+          <dt>Median asking</dt><dd>${med ? fmt$(med) : "—"}${medDiff != null ? ` <span style="color:var(--muted)">(${fmtPct(medDiff)})</span>` : ""}</dd>
+          <dt>Lowest</dt><dd>${min ? fmt$(min) : "—"}</dd>
+          <dt>Below / flagged</dt><dd>${counts.below} / ${counts.cheap}</dd>
+        </dl>
+      </button>`;
+    }
+  }
+  el.innerHTML = html;
+  el.querySelectorAll(".cell").forEach(btn => btn.addEventListener("click", () => {
+    const c = btn.dataset.city, u = btn.dataset.unit;
+    if (state.city === c && state.unit === u) { state.city = "All"; state.unit = "All"; } else { state.city = c; state.unit = u; }
+    update();
+  }));
+}
+
+// ---------- line small multiples (shared scale) ----------
+function lineMultiples(containerId, seriesFor, xKeys, xLabel, opts = {}) {
+  const host = document.getElementById(containerId);
+  const cities = state.city === "All" ? CITIES : [state.city];
+  const units = state.unit === "All" ? UNITS : [state.unit];
+  const all = [];
+  for (const c of CITIES) for (const u of UNITS) for (const p of seriesFor(c, u)) all.push(p.v);
+  if (!all.length || !xKeys.length) {
+    host.innerHTML = cities.map(c => `<div class="panel"><div class="phead"><h3>${c}</h3></div><div class="empty-note">${opts.empty || "No data yet."}</div></div>`).join("");
+    return;
+  }
+  let lo = Math.floor(Math.min(...all) / 250) * 250, hi = Math.ceil(Math.max(...all) / 250) * 250;
+  if (hi - lo < 500) { hi += 250; lo -= 250; }
+  const W = 360, H = 190, L = 44, R = 50, T = 12, B = 24;
+  const n = xKeys.length;
+  const x = i => n === 1 ? L + (W - L - R) / 2 : L + i / (n - 1) * (W - L - R);
+  const y = v => T + (hi - v) / (hi - lo) * (H - T - B);
+  const step = (hi - lo) > 1000 ? 500 : 250;
+  const tickEvery = Math.max(1, Math.ceil(n / 4));
+  host.innerHTML = cities.map(c => {
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${c} ${opts.aria || ""}">`;
+    for (let v = lo; v <= hi; v += step) s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" class="num">${fmt$(v)}</text>`;
+    s += `<line x1="${L}" x2="${W - R}" y1="${H - B}" y2="${H - B}" stroke="var(--axis)" stroke-width="1"/>`;
+    xKeys.forEach((k, i) => { if (i % tickEvery === 0 || i === n - 1) s += `<text x="${x(i)}" y="${H - 6}" text-anchor="${i === 0 && n > 1 ? "start" : i === n - 1 && n > 1 ? "end" : "middle"}">${xLabel(k)}</text>`; });
+    const ends = [];
+    for (const u of units) {
+      const pts = seriesFor(c, u).map(p => ({ ...p, i: xKeys.indexOf(p.k) })).filter(p => p.i >= 0).sort((a, b) => a.i - b.i);
+      if (!pts.length) continue;
+      if (pts.length > 1) s += `<path d="${pts.map((p, j) => (j ? "L" : "M") + x(p.i).toFixed(1) + " " + y(p.v).toFixed(1)).join(" ")}" fill="none" stroke="${SERIES[u]}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+      for (const p of pts) {
+        const hollow = p.hollow;
+        s += `<circle cx="${x(p.i)}" cy="${y(p.v)}" r="${pts.length > 30 ? 2.5 : 3.5}" fill="${hollow ? "var(--surface)" : SERIES[u]}" stroke="${hollow ? SERIES[u] : "var(--surface)"}" stroke-width="${hollow ? 1.5 : 1}"><title>${UNIT_LABEL[u]} · ${xLabel(p.k)}: ${fmt$(p.v)}${hollow ? " (back-calculated)" : ""}${p.extra ? " · " + p.extra : ""}</title></circle>`;
+      }
+      const last = pts[pts.length - 1];
+      ends.push({ y: y(last.v), x: x(last.i), text: fmt$(last.v), u });
+    }
+    ends.sort((a, b) => a.y - b.y);
+    for (let j = 1; j < ends.length; j++) if (ends[j].y - ends[j - 1].y < 13) ends[j].y = ends[j - 1].y + 13;
+    for (const e of ends) s += `<line x1="${e.x + 4}" x2="${e.x + 8}" y1="${e.y}" y2="${e.y}" stroke="${SERIES[e.u]}" stroke-width="2"/><text class="endlabel" x="${e.x + 10}" y="${e.y + 4}">${e.text}</text>`;
+    s += `</svg>`;
+    const note = opts.note ? opts.note(c) : "";
+    return `<div class="panel"><div class="phead"><h3>${c}</h3><span class="pnow">${note}</span></div>${s}</div>`;
+  }).join("");
+}
+
+function renderMarket() {
+  const months = new Set();
+  for (const s of Object.values(live.market)) for (const p of s.points || []) months.add(p.month);
+  const keys = [...months].sort();
+  lineMultiples("market",
+    (c, u) => (live.market[c + "_" + u]?.points || []).map(p => ({ k: p.month, v: p.rent, hollow: p.kind !== "reported" })),
+    keys, fmtMonth,
+    { aria: "average asking rent by month", empty: "Market history hasn't loaded yet.",
+      note: c => { const a = live.market[c + "_1bed"]?.points, b = live.market[c + "_2bed"]?.points;
+        if (!a?.length || !b?.length) return "";
+        const ch = (pts) => { const l = pts[pts.length - 1], f = pts.find(p => p.month === shiftMonth(l.month, -12)); return f ? fmtPct((l.rent - f.rent) / f.rent) : "—"; };
+        return `1 yr: 1-bed ${ch(a)}, 2-bed ${ch(b)}`; } });
+  const s = Object.values(live.market)[0];
+  document.getElementById("market-src").textContent = s ? `${s.source}. ${s.note || ""}` : "";
+}
+function shiftMonth(m, n) { let [y, mo] = m.split("-").map(Number); mo += n; while (mo < 1) { mo += 12; y--; } while (mo > 12) { mo -= 12; y++; } return `${y}-${String(mo).padStart(2, "0")}`; }
+
+function renderTracked() {
+  // Several runs on one day each leave a snapshot; keep the latest per day
+  const byDay = {};
+  for (const s of live.snapshots) if (!byDay[s.date] || String(s.run_at) > String(byDay[s.date].run_at)) byDay[s.date] = s;
+  const snaps = Object.values(byDay).sort((a, b) => a.date.localeCompare(b.date));
+  const keys = snaps.map(s => s.date);
+  lineMultiples("tracked",
+    (c, u) => snaps.map(s => { const x = s.combos?.[c + "_" + u]; return x && x.median ? { k: s.date, v: x.median, extra: `${x.count} listings` } : null; }).filter(Boolean),
+    keys, fmtDay,
+    { aria: "median asking rent of tracked listings by day", empty: "The first daily check hasn't run yet.",
+      note: c => { const l = snaps[snaps.length - 1]; if (!l) return ""; const a = l.combos?.[c + "_1bed"], b = l.combos?.[c + "_2bed"]; return `${(a?.count || 0) + (b?.count || 0)} tracked`; } });
+}
+
+// ---------- filters ----------
+function renderSeg(id, opts, key, labels) {
+  const el = document.getElementById(id);
+  el.innerHTML = opts.map(o => `<button type="button" data-v="${o}" aria-pressed="${state[key] === o}">${labels ? labels[o] || o : o}</button>`).join("");
+  el.querySelectorAll("button").forEach(b => b.onclick = () => { state[key] = b.dataset.v; update(); });
+}
+function bindFilters() {
+  const ids = { max: "f-max", laundry: "f-laundry", parking: "f-parking", hideFlags: "f-flags", newOnly: "f-new", sort: "f-sort" };
+  const max = document.getElementById(ids.max); max.value = state.max || "";
+  max.oninput = () => { state.max = parseInt(max.value, 10) || null; update(); };
+  for (const k of ["laundry", "parking", "hideFlags", "newOnly"]) {
+    const el = document.getElementById(ids[k]); el.checked = !!state[k]; el.onchange = () => { state[k] = el.checked; update(); };
+  }
+  const srt = document.getElementById(ids.sort); srt.value = state.sort; srt.onchange = () => { state.sort = srt.value; update(); };
+  document.getElementById("reset").onclick = () => {
+    Object.assign(state, { city: "All", unit: "All", max: null, laundry: false, parking: false, hideFlags: false, newOnly: false, sel: null });
+    bindFilters(); update();
+  };
+}
+document.getElementById("legend").innerHTML =
+  ORDER.map(s => `<span class="key">${STATUS[s].icon}${STATUS[s].label}</span>`).join("") +
+  `<span class="key"><span class="bench-key"></span>City average</span><span class="key"><span class="band-key"></span>±10% (at market)</span>`;
+
+// ---------- strip chart ----------
+function renderStrip(rows) {
+  const svg = document.getElementById("strip");
+  const combos = [];
+  for (const c of CITIES) for (const u of UNITS)
+    if ((state.city === "All" || state.city === c) && (state.unit === "All" || state.unit === u)) combos.push([c, u]);
+  const benches = combos.map(([c, u]) => bench(c, u)).filter(Boolean).map(b => b.rent);
+  const all = listings.map(l => l.price).concat(benches);
+  if (!all.length) { svg.innerHTML = ""; return; }
+  const lo = Math.floor(Math.min(...all, ...benches.map(b => b * 0.68)) / 250) * 250;
+  const hi = Math.ceil(Math.max(...all, ...benches.map(b => b * 1.12)) / 250) * 250;
+  const W = 1000, L = 150, R = 24, TOP = 30, ROW = 78, H = TOP + combos.length * ROW + 8;
+  const x = v => L + (v - lo) / (hi - lo) * (W - L - R);
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  let out = "";
+  for (let v = lo; v <= hi; v += 250)
+    out += `<g class="tick"><line x1="${x(v)}" x2="${x(v)}" y1="${TOP - 6}" y2="${H - 8}" stroke="var(--line)" stroke-width="1"/><text x="${x(v)}" y="${TOP - 12}" text-anchor="middle" class="num">${fmt$(v)}</text></g>`;
+  combos.forEach(([c, u], i) => {
+    const y0 = TOP + i * ROW, cy = y0 + ROW / 2 + 6, b = bench(c, u);
+    if (i > 0) out += `<line x1="8" x2="${W - R}" y1="${y0}" y2="${y0}" stroke="var(--line)" stroke-width="1"/>`;
+    out += `<text class="rowlabel main" x="12" y="${cy - 4}">${c}</text><text class="rowlabel" x="12" y="${cy + 13}">${UNIT_LABEL[u]}</text>`;
+    if (b) {
+      out += `<rect x="${x(b.rent * 0.9)}" y="${y0 + 18}" width="${x(b.rent * 1.1) - x(b.rent * 0.9)}" height="${ROW - 24}" fill="var(--band)" rx="3"/>`;
+      out += `<line x1="${x(b.rent)}" x2="${x(b.rent)}" y1="${y0 + 14}" y2="${y0 + ROW - 4}" stroke="var(--ink-2)" stroke-width="1.5"/>`;
+      out += `<text class="benchlabel" x="${x(b.rent) + 5}" y="${y0 + 15}">avg ${fmt$(b.rent)}</text>`;
+    }
+    const pts = rows.filter(l => l.city === c && l.unit_type === u).sort((a, b2) => a.price - b2.price);
+    const lanes = [0, -16, 16, -32, 32], lastX = {};
+    for (const l of pts) {
+      const px = x(l.price);
+      const lane = lanes.find(o => lastX[o] == null || px - lastX[o] >= 15) ?? 0;
+      lastX[lane] = px;
+      const s = STATUS[l.status];
+      out += `<g class="dot${state.sel === l.id ? " sel" : ""}" tabindex="0" role="img" aria-label="${esc(`${l.address || l.id}, ${fmt$(l.price)} a month, ${l.diff != null ? fmtPct(l.diff) + " vs average, " : ""}${s.label}`)}" data-id="${l.id}">` +
+             `<circle cx="${px}" cy="${cy + lane}" r="11" fill="transparent"/>` +
+             `<circle class="mark" cx="${px}" cy="${cy + lane}" r="${l.status === "cheap" ? 6.5 : 5.5}" fill="${s.color}"/></g>`;
+    }
+    if (!pts.length) out += `<text class="rowlabel" x="${L + 10}" y="${cy + 4}">No listings match the filters</text>`;
+  });
+  svg.innerHTML = out;
+  const tip = document.getElementById("tip"), card = svg.closest(".chart-card");
+  svg.querySelectorAll(".dot").forEach(g => {
+    const l = listings.find(z => z.id === g.dataset.id);
+    const show = () => {
+      tip.innerHTML = `<b class="num">${fmt$(l.price)}</b> <span class="t-sub num">${l.diff != null ? fmtPct(l.diff) + " vs avg" : ""}</span><br>` +
+        `${esc(l.address || l.id)}<br><span class="t-sub">${esc([l.neighbourhood, l.size ? l.size + " sq ft" : "", l.laundry ? l.laundry + " laundry" : ""].filter(Boolean).join(" · "))}</span>` +
+        `<br><span class="t-sub">${STATUS[l.status].label} · ${esc(l.source)}${l.posted ? " · posted " + fmtDay(l.posted) : ""}</span>`;
+      tip.hidden = false;
+      const r = g.querySelector(".mark").getBoundingClientRect(), cr = card.getBoundingClientRect();
+      let left = Math.max(8, Math.min(r.left - cr.left + r.width / 2 - tip.offsetWidth / 2, cr.width - tip.offsetWidth - 8));
+      let top = r.top - cr.top - tip.offsetHeight - 10; if (top < 4) top = r.bottom - cr.top + 10;
+      tip.style.left = left + "px"; tip.style.top = top + "px";
+    };
+    const hide = () => { tip.hidden = true; };
+    g.addEventListener("mouseenter", show); g.addEventListener("focus", show);
+    g.addEventListener("mouseleave", hide); g.addEventListener("blur", hide);
+    const pick = () => { state.sel = state.sel === l.id ? null : l.id; renderTable(filtered());
+      svg.querySelectorAll(".dot").forEach(d => d.classList.toggle("sel", d.dataset.id === state.sel));
+      if (state.sel) document.getElementById("row-" + l.id)?.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); };
+    g.addEventListener("click", pick);
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
+  });
+}
+
+// ---------- tables ----------
+function renderTable(rows) {
+  const sorted = [...rows].sort((a, b) =>
+    state.sort === "price" ? a.price - b.price :
+    state.sort === "posted" ? String(b.posted || "0").localeCompare(String(a.posted || "0")) || a.price - b.price :
+    state.sort === "seen" ? String(b.first_seen || "").localeCompare(String(a.first_seen || "")) || a.price - b.price :
+    state.sort === "size" ? (b.size || 0) - (a.size || 0) :
+    (a.diff ?? 0) - (b.diff ?? 0));
+  const tb = document.getElementById("rows");
+  if (!sorted.length) { tb.innerHTML = `<tr><td colspan="13" class="empty">${live.loaded.listings ? "No listings match these filters. Try raising the max rent or select Reset." : "Loading listings…"}</td></tr>`; return; }
+  tb.innerHTML = sorted.map(l => {
+    const s = STATUS[l.status];
+    const drop = l.prevPrice && l.prevPrice !== l.price ? `<div class="was">was ${fmt$(l.prevPrice)}</div>` : "";
+    return `<tr id="row-${l.id}" class="${state.sel === l.id ? "hl" : ""}">
+      <td><div class="addr">${esc(l.address || "Address not given")}</div>
+          <div class="hood">${esc([l.neighbourhood, l.city, UNIT_LABEL[l.unit_type]].filter(Boolean).join(" · "))}</div>
+          <div class="id">${esc(l.id)} · found ${esc(l.first_seen || "")}</div>
+          ${isNew(l) ? `<div class="tags"><span class="pill new">New</span></div>` : ""}</td>
+      <td class="r"><span class="price">${fmt$(l.price)}</span>${drop}</td>
+      <td class="r num">${l.diff != null ? fmtPct(l.diff) : "—"}</td>
+      <td><span class="pill ${l.status}">${s.icon}${s.label}</span></td>
+      <td class="r num">${l.size ? l.size.toLocaleString("en-CA") : ""}</td>
+      <td>${esc(l.utilities_included)}</td><td>${esc(l.laundry)}</td><td>${esc(l.parking)}</td><td>${esc(l.pets)}</td>
+      <td style="white-space:nowrap">${l.posted ? `<span class="num">${fmtDay(l.posted)}</span><div class="hood">${daysBetween(l.posted, today)} days ago</div>` : `<span class="hood" title="${esc(l.source)} doesn't show a posting date">not shown</span>`}</td>
+      <td class="num" style="white-space:nowrap">${esc(l.available_date)}</td>
+      <td><div class="notes">${l.flags.length ? `<div class="flagnote">${esc(l.flags.join("; "))}</div>` : ""}${esc(l.notes)}</div></td>
+      <td><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.source)}</a></td>
+    </tr>`;
+  }).join("");
+}
+function renderGone() {
+  const rows = gone.filter(l => (state.city === "All" || l.city === state.city) && (state.unit === "All" || l.unit_type === state.unit));
+  const tb = document.getElementById("gone");
+  if (!rows.length) { tb.innerHTML = `<tr><td colspan="7" class="empty">Nothing removed yet. The daily check moves listings here when they come down.</td></tr>`; return; }
+  tb.innerHTML = rows.slice(0, 100).map(l => `<tr>
+    <td><div class="addr">${esc(l.address || l.id)}</div><div class="hood">${esc([l.city, UNIT_LABEL[l.unit_type]].join(" · "))} · ${esc(l.id)}</div></td>
+    <td class="r num">${l.price ? fmt$(l.price) : ""}</td>
+    <td class="num">${esc(l.first_seen || "")}</td><td class="num">${esc(l.removed_on || "")}</td>
+    <td class="r num">${l.first_seen && l.removed_on ? Math.max(0, daysBetween(l.posted || l.first_seen, l.removed_on)) : ""}</td>
+    <td>${esc(l.removed_reason || "")}</td>
+    <td><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.source)}</a></td></tr>`).join("");
+}
+
+function update() {
+  save();
+  derive();
+  renderSeg("f-city", ["All", ...CITIES], "city");
+  renderSeg("f-unit", ["All", ...UNITS], "unit", { All: "All", "1bed": "1-bed", "2bed": "2-bed" });
+  const rows = filtered();
+  document.getElementById("shown").textContent = `${rows.length} of ${listings.length} shown`;
+  renderLive(); renderFacts(); renderMatrix(); renderMarket(); renderTracked();
+  renderStrip(rows); renderTable(rows); renderGone();
+}
+
+// ---------- boot ----------
+bindFilters();
+update();
+let pending = null;
+const schedule = () => { if (pending) return; pending = requestAnimationFrame(() => { pending = null; update(); }); };
+
+(async () => {
+  const db = window.claude?.use ? await window.claude.use("db") : null;
+  if (!db) {
+    document.getElementById("offline").hidden = false;
+    document.getElementById("live").className = "live off";
+    document.getElementById("live-text").textContent = "Live data unavailable";
+    document.getElementById("rows").innerHTML = `<tr><td colspan="13" class="empty">Live data isn't available in this view.</td></tr>`;
+    return;
+  }
+  const fail = e => { document.getElementById("live").className = "live off"; document.getElementById("live-text").textContent = "Live updates paused. Reload the page to reconnect."; console.warn(e); };
+  db.collection("listings").onSnapshot(snap => {
+    live.base = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    live.loaded.listings = true; schedule();
+  }, fail);
+  db.collection("events").onSnapshot(snap => { live.events = snap.docs.map(d => d.data()); schedule(); }, fail);
+  db.collection("snapshots").onSnapshot(snap => { live.snapshots = snap.docs.map(d => d.data()).filter(s => s.date); schedule(); }, fail);
+  db.collection("market").onSnapshot(snap => { live.marketDocs = snap.docs.map(d => d.data()).filter(p => p.month); schedule(); }, fail);
+})();
+</script>
