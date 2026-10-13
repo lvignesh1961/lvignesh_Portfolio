@@ -153,7 +153,7 @@
    "url": "https://rentals.ca/surrey/13675-107a-avenue-id1102418",
    "first_seen": "2026-10-04",
    "scam_flags": "",
-   "notes": "Condo; water included; page lists availability as 'September 1st' (likely stale, confirm); deposit half-month; near Surrey Central SkyTrain; tenant insurance required",
+   "notes": "Condo; water included; page lists availability as 'September 1st' (likely stale, confirm); deposit half-month; near Surrey Central SkyTrain; tenant insurance required; 2026-10-12 Firecrawl check: URL redirected to the Surrey search page, so the listing was probably taken down. Recorded as active only because record_check.py ignores redirects",
    "state": "active",
    "price_history": [
     {
@@ -4078,6 +4078,492 @@
    ]
   },
   {
+   "id": "SUR-1bed-028",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "150 St & 60 Ave, Surrey, BC V3S 1R8",
+   "neighbourhood": "",
+   "price": 1200,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "street or driveway",
+   "laundry": "shared",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/female-only-basement-suite-for-rent/1744674106",
+   "first_seen": "2026-10-11",
+   "scam_flags": "Requires first and last month's rent upfront (over BC half-month deposit limit)",
+   "notes": "Posted: 2026-10-11 (Kijiji activation date); Kijiji house; Title:  FEMALE ONLY \u2013 BASEMENT SUITE FOR RENT ",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 1200
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-029",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "26 AVENUE, Surrey, BC, V3Z5K3",
+   "neighbourhood": "",
+   "price": 1850,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 stall included",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/15988-26-avenue-surrey-british-columbia/1744665243",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-11 (Kijiji activation date); Title: 15988 26 AVENUE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 1850
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-040",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13318 104 AVENUE, Surrey, BC, V3T0R2",
+   "neighbourhood": "Surrey City Centre",
+   "price": 2380,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/1403-13318-104-avenue-surrey-british-columbia/1744665876",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-11 (Kijiji activation date); Title: 1403 13318 104 AVENUE Surrey, British Columbia",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 2380
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-030",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "141 St, Surrey, BC, V3V7Y7",
+   "neighbourhood": "",
+   "price": 1300,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "1 spot included",
+   "laundry": "",
+   "pets": "pets allowed",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/one-bedroom-basement/1744651722",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-10 (Kijiji activation date); Kijiji basement-apartment; Title: One Bedroom Basement ",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 1300
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-031",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "9873 King George Blvd. (Locale Century City)",
+   "neighbourhood": "",
+   "price": 1850,
+   "size_sqft": "524",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/locale-century-city",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 1850
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-041",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "10420 City Parkway (PARKWAY Connect)",
+   "neighbourhood": "Surrey City Centre",
+   "price": 2475,
+   "size_sqft": "691",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "pet-friendly",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/parkway-connect",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 2475
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-042",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "14535 104 Avenue (Vara)",
+   "neighbourhood": "",
+   "price": 2550,
+   "size_sqft": "776",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/vara",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 2550
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-043",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13740 Fraser Highway (Tether at King George Hub)",
+   "neighbourhood": "Surrey City Centre",
+   "price": 2220,
+   "size_sqft": "625",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/tether-at-king-george-hub",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 2220
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-044",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "10736 150 Street (Mainstreet Estates Apartments)",
+   "neighbourhood": "",
+   "price": 1800,
+   "size_sqft": "864",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "pet-friendly",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/surrey/mainstreet-estates",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 1800
+    }
+   ]
+  },
+  {
+   "id": "COQ-2bed-023",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "Coquitlam, BC V3J 4Z8",
+   "neighbourhood": "West Coquitlam",
+   "price": 1950,
+   "size_sqft": "",
+   "utilities_included": "yes",
+   "parking": "street",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/modern-2br-basement-suite-central-coquitlam-utilities-included/1744677519",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-11 (Kijiji activation date); Kijiji basement-apartment; Utilities included: heat, water, hydro; Title: Modern 2BR basement suite, central Coquitlam, utilities included",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 1950
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-029",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5363 201 Street (The Meridian Apartments)",
+   "neighbourhood": "",
+   "price": 2250,
+   "size_sqft": "860",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/the-meridian-apartments",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 2250
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-030",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20055 84 Avenue (LATIMER Village Rentals)",
+   "neighbourhood": "",
+   "price": 2375,
+   "size_sqft": "821",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "in-suite",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/latimer-village-rentals",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "ApartmentComplex; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 2375
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-031",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "20211 66 Ave",
+   "neighbourhood": "Willowbrook",
+   "price": 2750,
+   "size_sqft": "1255",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/langley/20211-66-ave",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 2750
+    }
+   ]
+  },
+  {
+   "id": "SUR-1bed-032",
+   "city": "Surrey",
+   "unit_type": "1bed",
+   "address": "10405 147 STREET, Surrey, BC, V3R5X4",
+   "neighbourhood": "Guildford",
+   "price": 1680,
+   "size_sqft": "",
+   "utilities_included": "no",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/414-10405-147-street-surrey-british-columbia/1744712360",
+   "first_seen": "2026-10-12",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-12 (Kijiji activation date); Title: 414 10405 147 STREET Surrey, British Columbia; Guilden (new building); $1,750/mo for 2 occupants; A/C; amenity club; MLS R3173890",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-12",
+     "price": 1680
+    }
+   ]
+  },
+  {
+   "id": "SUR-2bed-045",
+   "city": "Surrey",
+   "unit_type": "2bed",
+   "address": "13303 Central Avenue, Surrey, BC",
+   "neighbourhood": "Surrey Central",
+   "price": 2100,
+   "size_sqft": "650",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/surrey-central-jr-2-bed-&-1-bath-2-100/1744694490",
+   "first_seen": "2026-10-12",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-11 (Kijiji activation date); Kijiji apartment; Utilities included: water; Title: Surrey Central | Jr 2 Bed & 1 Bath | $2,100; Junior 2-bed: second bedroom has sliding doors open to living room; tenant pays electricity and internet; storage locker; ~10 min walk to Surrey Central SkyTrain; 1-yr lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-12",
+     "price": 2100
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-022",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "1546 Eagle Mountain Dr, Coquitlam, V3E 2Z3",
+   "neighbourhood": "Westwood Plateau",
+   "price": 1690,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "no pets",
+   "available_date": "2026-11-01",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/view-private-1-large-bedrooms-suite-with-a-c/1744723534",
+   "first_seen": "2026-10-12",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-12 (Kijiji activation date); Kijiji house; Title: VIEW+Private 1 Large Bedrooms Suite with A/C; Ground-level suite in house; furnished or unfurnished; internet included, small utility share or $60/mo all-inclusive; deposit half month; 6-12 month min lease",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-12",
+     "price": 1690
+    }
+   ]
+  },
+  {
+   "id": "COQ-1bed-023",
+   "city": "Coquitlam",
+   "unit_type": "1bed",
+   "address": "ROBINSON, Coquitlam, BC, V3J4E9",
+   "neighbourhood": "Burquitlam",
+   "price": 1495,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "included",
+   "laundry": "",
+   "pets": "no pets",
+   "available_date": "2026-10-12",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/burnaby-new-westminster/737-robinson-coquitlam-british-columbia/1744713959",
+   "first_seen": "2026-10-12",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-12 (Kijiji activation date); Title: 737 ROBINSON Coquitlam, British Columbia; Self-contained suite at 737 Robinson; internet, laundry and parking included (laundry type not stated); available now or Nov 1; optional furnished; ~8 min walk to Burquitlam SkyTrain; MLS R3173682",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-12",
+     "price": 1495
+    }
+   ]
+  },
+  {
+   "id": "LAN-2bed-032",
+   "city": "Langley",
+   "unit_type": "2bed",
+   "address": "5415 Brydon Cres, Langley, V3A 0N4",
+   "neighbourhood": "",
+   "price": 2145,
+   "size_sqft": "",
+   "utilities_included": "partial",
+   "parking": "1 spot included",
+   "laundry": "in-suite",
+   "pets": "pets negotiable",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Kijiji",
+   "url": "https://www.kijiji.ca/v-apartments-condos/delta-surrey-langley/modern-top-floor-2-bedroom-home-at-the-audley/1744704491",
+   "first_seen": "2026-10-12",
+   "scam_flags": "",
+   "notes": "Posted: 2026-10-12 (Kijiji activation date); Kijiji condo; Utilities included: water; Title: Modern Top-Floor 2-Bedroom Home at The Audley; The Audley, top floor, 1 bath, Vybe Realty; possibly the same unit as LAN-2bed-005 (same building and title, $2,195), relisted at $2,145. Confirm before contacting",
+   "state": "active",
+   "price_history": [
+    {
+     "date": "2026-10-12",
+     "price": 2145
+    }
+   ]
+  },
+  {
    "id": "COQ-1bed-013",
    "city": "Coquitlam",
    "unit_type": "1bed",
@@ -4308,6 +4794,35 @@
    ],
    "removed_on": "2026-10-10",
    "removed_reason": "private room in a shared townhouse, not a 1-bedroom unit"
+  },
+  {
+   "id": "COQ-2bed-024",
+   "city": "Coquitlam",
+   "unit_type": "2bed",
+   "address": "Southwest Coquitlam",
+   "neighbourhood": "",
+   "price": 900,
+   "size_sqft": "",
+   "utilities_included": "",
+   "parking": "",
+   "laundry": "",
+   "pets": "",
+   "available_date": "",
+   "skytrain_km": "",
+   "source": "Rentals.ca",
+   "url": "https://rentals.ca/coquitlam/southwest-coquitlam-id1145314",
+   "first_seen": "2026-10-11",
+   "scam_flags": "",
+   "notes": "Accommodation; fields from Rentals.ca unit data",
+   "state": "gone",
+   "price_history": [
+    {
+     "date": "2026-10-11",
+     "price": 900
+    }
+   ],
+   "removed_on": "2026-10-11",
+   "removed_reason": "Room for rent in a shared home, not a whole 2-bed unit"
   }
  ],
  "market": {
@@ -5549,7 +6064,1696 @@
   }
  },
  "meta": {
-  "last_run": "2026-10-06T19:00:02+00:00",
-  "summary": "98 active \u00b7 7 new \u00b7 0 removed \u00b7 1 price changes \u00b7 24 couldn't be checked"
+  "last_run": "2026-10-12T19:00:03+00:00",
+  "summary": "169 active \u00b7 5 new \u00b7 0 removed \u00b7 67 couldn't be checked"
+ },
+ "forecast": {
+  "run_date": "2026-10-12",
+  "horizon_months": 12,
+  "rent_source": "Rentals.ca / Urbanation National Rent Report, all property types",
+  "method": "Five models are backtested on each city's monthly rent series (rolling origin, 1-6 months ahead) and scored by WMAPE; the most accurate is used. The population-driven model applies a Metro Vancouver regression of asking-rent growth on BC population growth to each city's BC Stats population estimates and projections. Shaded bands are 80% intervals from backtest errors.",
+  "regression": {
+   "lag_quarters": 0,
+   "a": -5.9328,
+   "b": 5.5265,
+   "r2": 0.2693,
+   "n": 52,
+   "lags_tried": [
+    {
+     "lag_quarters": 0,
+     "a": -5.933,
+     "b": 5.527,
+     "r2": 0.269
+    },
+    {
+     "lag_quarters": 1,
+     "a": -2.147,
+     "b": 3.248,
+     "r2": 0.084
+    },
+    {
+     "lag_quarters": 2,
+     "a": 3.288,
+     "b": 0.242,
+     "r2": 0.0
+    },
+    {
+     "lag_quarters": 3,
+     "a": 9.824,
+     "b": -3.181,
+     "r2": 0.066
+    },
+    {
+     "lag_quarters": 4,
+     "a": 17.169,
+     "b": -6.885,
+     "r2": 0.285
+    }
+   ]
+  },
+  "regression_points": [
+   [
+    "1bed",
+    "2020-01",
+    1.9,
+    2.14
+   ],
+   [
+    "1bed",
+    "2020-04",
+    1.75,
+    -1.58
+   ],
+   [
+    "1bed",
+    "2020-07",
+    1.27,
+    -1.07
+   ],
+   [
+    "1bed",
+    "2020-10",
+    0.5,
+    -4.23
+   ],
+   [
+    "1bed",
+    "2021-01",
+    0.45,
+    -3.66
+   ],
+   [
+    "1bed",
+    "2021-04",
+    0.6,
+    -0.53
+   ],
+   [
+    "1bed",
+    "2021-07",
+    0.98,
+    3.24
+   ],
+   [
+    "1bed",
+    "2021-10",
+    1.86,
+    8.84
+   ],
+   [
+    "1bed",
+    "2022-01",
+    2.04,
+    11.96
+   ],
+   [
+    "1bed",
+    "2022-04",
+    2.11,
+    17.74
+   ],
+   [
+    "1bed",
+    "2022-07",
+    2.49,
+    25.65
+   ],
+   [
+    "1bed",
+    "2022-10",
+    2.54,
+    24.37
+   ],
+   [
+    "1bed",
+    "2023-01",
+    2.69,
+    18.45
+   ],
+   [
+    "1bed",
+    "2023-04",
+    2.79,
+    15.07
+   ],
+   [
+    "1bed",
+    "2023-07",
+    2.9,
+    10.0
+   ],
+   [
+    "1bed",
+    "2023-10",
+    3.07,
+    4.49
+   ],
+   [
+    "1bed",
+    "2024-01",
+    3.07,
+    3.69
+   ],
+   [
+    "1bed",
+    "2024-04",
+    3.11,
+    0.0
+   ],
+   [
+    "1bed",
+    "2024-07",
+    2.67,
+    -4.92
+   ],
+   [
+    "1bed",
+    "2024-10",
+    2.06,
+    -4.3
+   ],
+   [
+    "1bed",
+    "2025-01",
+    1.61,
+    -5.93
+   ],
+   [
+    "1bed",
+    "2025-04",
+    1.06,
+    -5.56
+   ],
+   [
+    "1bed",
+    "2025-07",
+    0.77,
+    -4.78
+   ],
+   [
+    "1bed",
+    "2025-10",
+    0.56,
+    -5.31
+   ],
+   [
+    "1bed",
+    "2026-01",
+    0.39,
+    -3.78
+   ],
+   [
+    "1bed",
+    "2026-04",
+    0.28,
+    -4.2
+   ],
+   [
+    "2bed",
+    "2020-01",
+    1.9,
+    1.61
+   ],
+   [
+    "2bed",
+    "2020-04",
+    1.75,
+    -3.88
+   ],
+   [
+    "2bed",
+    "2020-07",
+    1.27,
+    -2.8
+   ],
+   [
+    "2bed",
+    "2020-10",
+    0.5,
+    -4.42
+   ],
+   [
+    "2bed",
+    "2021-01",
+    0.45,
+    -4.74
+   ],
+   [
+    "2bed",
+    "2021-04",
+    0.6,
+    1.61
+   ],
+   [
+    "2bed",
+    "2021-07",
+    0.98,
+    7.41
+   ],
+   [
+    "2bed",
+    "2021-10",
+    1.86,
+    15.13
+   ],
+   [
+    "2bed",
+    "2022-01",
+    2.04,
+    17.43
+   ],
+   [
+    "2bed",
+    "2022-04",
+    2.11,
+    19.84
+   ],
+   [
+    "2bed",
+    "2022-07",
+    2.49,
+    28.35
+   ],
+   [
+    "2bed",
+    "2022-10",
+    2.54,
+    24.09
+   ],
+   [
+    "2bed",
+    "2023-01",
+    2.69,
+    16.61
+   ],
+   [
+    "2bed",
+    "2023-04",
+    2.79,
+    14.9
+   ],
+   [
+    "2bed",
+    "2023-07",
+    2.9,
+    6.87
+   ],
+   [
+    "2bed",
+    "2023-10",
+    3.07,
+    3.24
+   ],
+   [
+    "2bed",
+    "2024-01",
+    3.07,
+    4.24
+   ],
+   [
+    "2bed",
+    "2024-04",
+    3.11,
+    -3.17
+   ],
+   [
+    "2bed",
+    "2024-07",
+    2.67,
+    -5.31
+   ],
+   [
+    "2bed",
+    "2024-10",
+    2.06,
+    -7.41
+   ],
+   [
+    "2bed",
+    "2025-01",
+    1.61,
+    -7.85
+   ],
+   [
+    "2bed",
+    "2025-04",
+    1.06,
+    -5.95
+   ],
+   [
+    "2bed",
+    "2025-07",
+    0.77,
+    -5.9
+   ],
+   [
+    "2bed",
+    "2025-10",
+    0.56,
+    -4.92
+   ],
+   [
+    "2bed",
+    "2026-01",
+    0.39,
+    -2.21
+   ],
+   [
+    "2bed",
+    "2026-04",
+    0.28,
+    -4.11
+   ]
+  ],
+  "accuracy": [
+   {
+    "city": "Surrey",
+    "unit_type": "1bed",
+    "chosen": "damped",
+    "wmape": {
+     "naive": 1.25,
+     "trend": 1.34,
+     "damped": 0.99,
+     "driver": 1.66,
+     "blend": 1.27
+    },
+    "city_pop_growth_2026_2027": [
+     0.05,
+     2.0
+    ]
+   },
+   {
+    "city": "Surrey",
+    "unit_type": "2bed",
+    "chosen": "naive",
+    "wmape": {
+     "naive": 1.86,
+     "trend": 2.39,
+     "damped": 2.05,
+     "driver": 2.56,
+     "blend": 2.2
+    },
+    "city_pop_growth_2026_2027": [
+     0.05,
+     2.0
+    ]
+   },
+   {
+    "city": "Coquitlam",
+    "unit_type": "1bed",
+    "chosen": "blend",
+    "wmape": {
+     "naive": 2.59,
+     "trend": 3.91,
+     "damped": 2.57,
+     "driver": 2.46,
+     "blend": 2.44
+    },
+    "city_pop_growth_2026_2027": [
+     -2.83,
+     -1.58
+    ]
+   },
+   {
+    "city": "Coquitlam",
+    "unit_type": "2bed",
+    "chosen": "blend",
+    "wmape": {
+     "naive": 2.03,
+     "trend": 1.98,
+     "damped": 1.19,
+     "driver": 1.46,
+     "blend": 1.09
+    },
+    "city_pop_growth_2026_2027": [
+     -2.83,
+     -1.58
+    ]
+   },
+   {
+    "city": "Langley",
+    "unit_type": "1bed",
+    "chosen": "driver",
+    "wmape": {
+     "naive": 3.1,
+     "trend": 4.35,
+     "damped": 4.1,
+     "driver": 2.88,
+     "blend": 3.37
+    },
+    "city_pop_growth_2026_2027": [
+     -0.13,
+     1.21
+    ]
+   },
+   {
+    "city": "Langley",
+    "unit_type": "2bed",
+    "chosen": "naive",
+    "wmape": {
+     "naive": 2.2,
+     "trend": 2.76,
+     "damped": 3.11,
+     "driver": 3.28,
+     "blend": 2.87
+    },
+    "city_pop_growth_2026_2027": [
+     -0.13,
+     1.21
+    ]
+   }
+  ],
+  "series": [
+   {
+    "city": "Surrey",
+    "unit_type": "1bed",
+    "model": "damped",
+    "model_label": "Damped trend",
+    "last_actual": {
+     "month": "2026-09",
+     "rent": 1807
+    },
+    "points": [
+     {
+      "month": "2026-10",
+      "p50": 1802,
+      "lo": 1785,
+      "hi": 1820
+     },
+     {
+      "month": "2026-11",
+      "p50": 1800,
+      "lo": 1776,
+      "hi": 1825
+     },
+     {
+      "month": "2026-12",
+      "p50": 1799,
+      "lo": 1771,
+      "hi": 1827
+     },
+     {
+      "month": "2027-01",
+      "p50": 1797,
+      "lo": 1764,
+      "hi": 1831
+     },
+     {
+      "month": "2027-02",
+      "p50": 1796,
+      "lo": 1754,
+      "hi": 1839
+     },
+     {
+      "month": "2027-03",
+      "p50": 1795,
+      "lo": 1750,
+      "hi": 1841
+     },
+     {
+      "month": "2027-04",
+      "p50": 1794,
+      "lo": 1745,
+      "hi": 1844
+     },
+     {
+      "month": "2027-05",
+      "p50": 1793,
+      "lo": 1741,
+      "hi": 1846
+     },
+     {
+      "month": "2027-06",
+      "p50": 1792,
+      "lo": 1737,
+      "hi": 1849
+     },
+     {
+      "month": "2027-07",
+      "p50": 1791,
+      "lo": 1733,
+      "hi": 1851
+     },
+     {
+      "month": "2027-08",
+      "p50": 1790,
+      "lo": 1730,
+      "hi": 1853
+     },
+     {
+      "month": "2027-09",
+      "p50": 1790,
+      "lo": 1727,
+      "hi": 1855
+     }
+    ]
+   },
+   {
+    "city": "Surrey",
+    "unit_type": "2bed",
+    "model": "naive",
+    "model_label": "No change",
+    "last_actual": {
+     "month": "2026-09",
+     "rent": 2251
+    },
+    "points": [
+     {
+      "month": "2026-10",
+      "p50": 2251,
+      "lo": 2204,
+      "hi": 2299
+     },
+     {
+      "month": "2026-11",
+      "p50": 2251,
+      "lo": 2188,
+      "hi": 2316
+     },
+     {
+      "month": "2026-12",
+      "p50": 2251,
+      "lo": 2184,
+      "hi": 2320
+     },
+     {
+      "month": "2027-01",
+      "p50": 2251,
+      "lo": 2179,
+      "hi": 2325
+     },
+     {
+      "month": "2027-02",
+      "p50": 2251,
+      "lo": 2171,
+      "hi": 2333
+     },
+     {
+      "month": "2027-03",
+      "p50": 2251,
+      "lo": 2168,
+      "hi": 2337
+     },
+     {
+      "month": "2027-04",
+      "p50": 2251,
+      "lo": 2162,
+      "hi": 2344
+     },
+     {
+      "month": "2027-05",
+      "p50": 2251,
+      "lo": 2155,
+      "hi": 2351
+     },
+     {
+      "month": "2027-06",
+      "p50": 2251,
+      "lo": 2150,
+      "hi": 2357
+     },
+     {
+      "month": "2027-07",
+      "p50": 2251,
+      "lo": 2144,
+      "hi": 2363
+     },
+     {
+      "month": "2027-08",
+      "p50": 2251,
+      "lo": 2139,
+      "hi": 2368
+     },
+     {
+      "month": "2027-09",
+      "p50": 2251,
+      "lo": 2135,
+      "hi": 2374
+     }
+    ]
+   },
+   {
+    "city": "Coquitlam",
+    "unit_type": "1bed",
+    "model": "blend",
+    "model_label": "Blend of damped trend and regression",
+    "last_actual": {
+     "month": "2026-09",
+     "rent": 2053
+    },
+    "points": [
+     {
+      "month": "2026-10",
+      "p50": 2045,
+      "lo": 1995,
+      "hi": 2098
+     },
+     {
+      "month": "2026-11",
+      "p50": 2035,
+      "lo": 1969,
+      "hi": 2104
+     },
+     {
+      "month": "2026-12",
+      "p50": 2026,
+      "lo": 1957,
+      "hi": 2097
+     },
+     {
+      "month": "2027-01",
+      "p50": 2017,
+      "lo": 1943,
+      "hi": 2094
+     },
+     {
+      "month": "2027-02",
+      "p50": 2010,
+      "lo": 1910,
+      "hi": 2114
+     },
+     {
+      "month": "2027-03",
+      "p50": 2003,
+      "lo": 1895,
+      "hi": 2116
+     },
+     {
+      "month": "2027-04",
+      "p50": 1996,
+      "lo": 1881,
+      "hi": 2118
+     },
+     {
+      "month": "2027-05",
+      "p50": 1991,
+      "lo": 1868,
+      "hi": 2121
+     },
+     {
+      "month": "2027-06",
+      "p50": 1986,
+      "lo": 1857,
+      "hi": 2124
+     },
+     {
+      "month": "2027-07",
+      "p50": 1982,
+      "lo": 1846,
+      "hi": 2127
+     },
+     {
+      "month": "2027-08",
+      "p50": 1978,
+      "lo": 1836,
+      "hi": 2130
+     },
+     {
+      "month": "2027-09",
+      "p50": 1974,
+      "lo": 1827,
+      "hi": 2134
+     }
+    ]
+   },
+   {
+    "city": "Coquitlam",
+    "unit_type": "2bed",
+    "model": "blend",
+    "model_label": "Blend of damped trend and regression",
+    "last_actual": {
+     "month": "2026-09",
+     "rent": 2608
+    },
+    "points": [
+     {
+      "month": "2026-10",
+      "p50": 2631,
+      "lo": 2581,
+      "hi": 2682
+     },
+     {
+      "month": "2026-11",
+      "p50": 2619,
+      "lo": 2567,
+      "hi": 2672
+     },
+     {
+      "month": "2026-12",
+      "p50": 2608,
+      "lo": 2560,
+      "hi": 2656
+     },
+     {
+      "month": "2027-01",
+      "p50": 2597,
+      "lo": 2551,
+      "hi": 2644
+     },
+     {
+      "month": "2027-02",
+      "p50": 2588,
+      "lo": 2547,
+      "hi": 2630
+     },
+     {
+      "month": "2027-03",
+      "p50": 2580,
+      "lo": 2532,
+      "hi": 2628
+     },
+     {
+      "month": "2027-04",
+      "p50": 2572,
+      "lo": 2521,
+      "hi": 2624
+     },
+     {
+      "month": "2027-05",
+      "p50": 2565,
+      "lo": 2511,
+      "hi": 2621
+     },
+     {
+      "month": "2027-06",
+      "p50": 2559,
+      "lo": 2502,
+      "hi": 2618
+     },
+     {
+      "month": "2027-07",
+      "p50": 2554,
+      "lo": 2494,
+      "hi": 2616
+     },
+     {
+      "month": "2027-08",
+      "p50": 2550,
+      "lo": 2487,
+      "hi": 2614
+     },
+     {
+      "month": "2027-09",
+      "p50": 2546,
+      "lo": 2480,
+      "hi": 2613
+     }
+    ]
+   },
+   {
+    "city": "Langley",
+    "unit_type": "1bed",
+    "model": "driver",
+    "model_label": "Population-driven regression",
+    "last_actual": {
+     "month": "2026-09",
+     "rent": 1868
+    },
+    "points": [
+     {
+      "month": "2026-10",
+      "p50": 1853,
+      "lo": 1801,
+      "hi": 1908
+     },
+     {
+      "month": "2026-11",
+      "p50": 1840,
+      "lo": 1767,
+      "hi": 1916
+     },
+     {
+      "month": "2026-12",
+      "p50": 1827,
+      "lo": 1748,
+      "hi": 1910
+     },
+     {
+      "month": "2027-01",
+      "p50": 1816,
+      "lo": 1733,
+      "hi": 1903
+     },
+     {
+      "month": "2027-02",
+      "p50": 1806,
+      "lo": 1718,
+      "hi": 1898
+     },
+     {
+      "month": "2027-03",
+      "p50": 1796,
+      "lo": 1712,
+      "hi": 1884
+     },
+     {
+      "month": "2027-04",
+      "p50": 1788,
+      "lo": 1698,
+      "hi": 1883
+     },
+     {
+      "month": "2027-05",
+      "p50": 1781,
+      "lo": 1685,
+      "hi": 1882
+     },
+     {
+      "month": "2027-06",
+      "p50": 1774,
+      "lo": 1673,
+      "hi": 1881
+     },
+     {
+      "month": "2027-07",
+      "p50": 1769,
+      "lo": 1663,
+      "hi": 1882
+     },
+     {
+      "month": "2027-08",
+      "p50": 1764,
+      "lo": 1653,
+      "hi": 1882
+     },
+     {
+      "month": "2027-09",
+      "p50": 1759,
+      "lo": 1644,
+      "hi": 1882
+     }
+    ]
+   },
+   {
+    "city": "Langley",
+    "unit_type": "2bed",
+    "model": "naive",
+    "model_label": "No change",
+    "last_actual": {
+     "month": "2026-09",
+     "rent": 2426
+    },
+    "points": [
+     {
+      "month": "2026-10",
+      "p50": 2426,
+      "lo": 2361,
+      "hi": 2493
+     },
+     {
+      "month": "2026-11",
+      "p50": 2426,
+      "lo": 2329,
+      "hi": 2527
+     },
+     {
+      "month": "2026-12",
+      "p50": 2426,
+      "lo": 2319,
+      "hi": 2538
+     },
+     {
+      "month": "2027-01",
+      "p50": 2426,
+      "lo": 2326,
+      "hi": 2530
+     },
+     {
+      "month": "2027-02",
+      "p50": 2426,
+      "lo": 2346,
+      "hi": 2508
+     },
+     {
+      "month": "2027-03",
+      "p50": 2426,
+      "lo": 2346,
+      "hi": 2509
+     },
+     {
+      "month": "2027-04",
+      "p50": 2426,
+      "lo": 2339,
+      "hi": 2516
+     },
+     {
+      "month": "2027-05",
+      "p50": 2426,
+      "lo": 2333,
+      "hi": 2522
+     },
+     {
+      "month": "2027-06",
+      "p50": 2426,
+      "lo": 2328,
+      "hi": 2528
+     },
+     {
+      "month": "2027-07",
+      "p50": 2426,
+      "lo": 2323,
+      "hi": 2534
+     },
+     {
+      "month": "2027-08",
+      "p50": 2426,
+      "lo": 2318,
+      "hi": 2539
+     },
+     {
+      "month": "2027-09",
+      "p50": 2426,
+      "lo": 2313,
+      "hi": 2544
+     }
+    ]
+   }
+  ],
+  "drivers": {
+   "bc_pop_yoy_quarterly": [
+    {
+     "q": "2019-01",
+     "yoy": 1.74
+    },
+    {
+     "q": "2019-04",
+     "yoy": 1.78
+    },
+    {
+     "q": "2019-07",
+     "yoy": 1.79
+    },
+    {
+     "q": "2019-10",
+     "yoy": 1.9
+    },
+    {
+     "q": "2020-01",
+     "yoy": 1.9
+    },
+    {
+     "q": "2020-04",
+     "yoy": 1.75
+    },
+    {
+     "q": "2020-07",
+     "yoy": 1.27
+    },
+    {
+     "q": "2020-10",
+     "yoy": 0.5
+    },
+    {
+     "q": "2021-01",
+     "yoy": 0.45
+    },
+    {
+     "q": "2021-04",
+     "yoy": 0.6
+    },
+    {
+     "q": "2021-07",
+     "yoy": 0.98
+    },
+    {
+     "q": "2021-10",
+     "yoy": 1.86
+    },
+    {
+     "q": "2022-01",
+     "yoy": 2.04
+    },
+    {
+     "q": "2022-04",
+     "yoy": 2.11
+    },
+    {
+     "q": "2022-07",
+     "yoy": 2.49
+    },
+    {
+     "q": "2022-10",
+     "yoy": 2.54
+    },
+    {
+     "q": "2023-01",
+     "yoy": 2.69
+    },
+    {
+     "q": "2023-04",
+     "yoy": 2.79
+    },
+    {
+     "q": "2023-07",
+     "yoy": 2.9
+    },
+    {
+     "q": "2023-10",
+     "yoy": 3.07
+    },
+    {
+     "q": "2024-01",
+     "yoy": 3.07
+    },
+    {
+     "q": "2024-04",
+     "yoy": 3.11
+    },
+    {
+     "q": "2024-07",
+     "yoy": 2.67
+    },
+    {
+     "q": "2024-10",
+     "yoy": 2.06
+    },
+    {
+     "q": "2025-01",
+     "yoy": 1.61
+    },
+    {
+     "q": "2025-04",
+     "yoy": 1.06
+    },
+    {
+     "q": "2025-07",
+     "yoy": 0.77
+    },
+    {
+     "q": "2025-10",
+     "yoy": 0.56
+    },
+    {
+     "q": "2026-01",
+     "yoy": 0.39
+    },
+    {
+     "q": "2026-04",
+     "yoy": 0.28
+    },
+    {
+     "q": "2026-07",
+     "yoy": 0.14
+    }
+   ],
+   "city_population": {
+    "Surrey": [
+     {
+      "year": 2016,
+      "value": 543492,
+      "kind": "estimate"
+     },
+     {
+      "year": 2017,
+      "value": 553178,
+      "kind": "estimate"
+     },
+     {
+      "year": 2018,
+      "value": 563847,
+      "kind": "estimate"
+     },
+     {
+      "year": 2019,
+      "value": 578425,
+      "kind": "estimate"
+     },
+     {
+      "year": 2020,
+      "value": 589550,
+      "kind": "estimate"
+     },
+     {
+      "year": 2021,
+      "value": 597133,
+      "kind": "estimate"
+     },
+     {
+      "year": 2022,
+      "value": 618904,
+      "kind": "estimate"
+     },
+     {
+      "year": 2023,
+      "value": 652374,
+      "kind": "estimate"
+     },
+     {
+      "year": 2024,
+      "value": 690154,
+      "kind": "estimate"
+     },
+     {
+      "year": 2025,
+      "value": 703531,
+      "kind": "estimate"
+     },
+     {
+      "year": 2026,
+      "value": 703910,
+      "kind": "projection"
+     },
+     {
+      "year": 2027,
+      "value": 718010,
+      "kind": "projection"
+     },
+     {
+      "year": 2028,
+      "value": 735958,
+      "kind": "projection"
+     },
+     {
+      "year": 2029,
+      "value": 754237,
+      "kind": "projection"
+     },
+     {
+      "year": 2030,
+      "value": 772402,
+      "kind": "projection"
+     },
+     {
+      "year": 2031,
+      "value": 789819,
+      "kind": "projection"
+     }
+    ],
+    "Coquitlam": [
+     {
+      "year": 2016,
+      "value": 146146,
+      "kind": "estimate"
+     },
+     {
+      "year": 2017,
+      "value": 148353,
+      "kind": "estimate"
+     },
+     {
+      "year": 2018,
+      "value": 149904,
+      "kind": "estimate"
+     },
+     {
+      "year": 2019,
+      "value": 151639,
+      "kind": "estimate"
+     },
+     {
+      "year": 2020,
+      "value": 153435,
+      "kind": "estimate"
+     },
+     {
+      "year": 2021,
+      "value": 155553,
+      "kind": "estimate"
+     },
+     {
+      "year": 2022,
+      "value": 160427,
+      "kind": "estimate"
+     },
+     {
+      "year": 2023,
+      "value": 166494,
+      "kind": "estimate"
+     },
+     {
+      "year": 2024,
+      "value": 172815,
+      "kind": "estimate"
+     },
+     {
+      "year": 2025,
+      "value": 173604,
+      "kind": "estimate"
+     },
+     {
+      "year": 2026,
+      "value": 168687,
+      "kind": "projection"
+     },
+     {
+      "year": 2027,
+      "value": 166024,
+      "kind": "projection"
+     },
+     {
+      "year": 2028,
+      "value": 166247,
+      "kind": "projection"
+     },
+     {
+      "year": 2029,
+      "value": 168633,
+      "kind": "projection"
+     },
+     {
+      "year": 2030,
+      "value": 172245,
+      "kind": "projection"
+     },
+     {
+      "year": 2031,
+      "value": 175842,
+      "kind": "projection"
+     }
+    ],
+    "Langley": [
+     {
+      "year": 2016,
+      "value": 150134,
+      "kind": "estimate"
+     },
+     {
+      "year": 2017,
+      "value": 154824,
+      "kind": "estimate"
+     },
+     {
+      "year": 2018,
+      "value": 159060,
+      "kind": "estimate"
+     },
+     {
+      "year": 2019,
+      "value": 162259,
+      "kind": "estimate"
+     },
+     {
+      "year": 2020,
+      "value": 165408,
+      "kind": "estimate"
+     },
+     {
+      "year": 2021,
+      "value": 168754,
+      "kind": "estimate"
+     },
+     {
+      "year": 2022,
+      "value": 178469,
+      "kind": "estimate"
+     },
+     {
+      "year": 2023,
+      "value": 187462,
+      "kind": "estimate"
+     },
+     {
+      "year": 2024,
+      "value": 197182,
+      "kind": "estimate"
+     },
+     {
+      "year": 2025,
+      "value": 199320,
+      "kind": "estimate"
+     },
+     {
+      "year": 2026,
+      "value": 199070,
+      "kind": "projection"
+     },
+     {
+      "year": 2027,
+      "value": 201488,
+      "kind": "projection"
+     },
+     {
+      "year": 2028,
+      "value": 205236,
+      "kind": "projection"
+     },
+     {
+      "year": 2029,
+      "value": 209194,
+      "kind": "projection"
+     },
+     {
+      "year": 2030,
+      "value": 213200,
+      "kind": "projection"
+     },
+     {
+      "year": 2031,
+      "value": 217125,
+      "kind": "projection"
+     }
+    ]
+   },
+   "bc_population_bcstats": [
+    {
+     "year": 2016,
+     "value": 4861269,
+     "kind": "estimate"
+    },
+    {
+     "year": 2017,
+     "value": 4934202,
+     "kind": "estimate"
+    },
+    {
+     "year": 2018,
+     "value": 5020979,
+     "kind": "estimate"
+    },
+    {
+     "year": 2019,
+     "value": 5111022,
+     "kind": "estimate"
+    },
+    {
+     "year": 2020,
+     "value": 5176101,
+     "kind": "estimate"
+    },
+    {
+     "year": 2021,
+     "value": 5226665,
+     "kind": "estimate"
+    },
+    {
+     "year": 2022,
+     "value": 5358845,
+     "kind": "estimate"
+    },
+    {
+     "year": 2023,
+     "value": 5515296,
+     "kind": "estimate"
+    },
+    {
+     "year": 2024,
+     "value": 5671114,
+     "kind": "estimate"
+    },
+    {
+     "year": 2025,
+     "value": 5697536,
+     "kind": "estimate"
+    },
+    {
+     "year": 2026,
+     "value": 5647458,
+     "kind": "projection"
+    },
+    {
+     "year": 2027,
+     "value": 5671040,
+     "kind": "projection"
+    },
+    {
+     "year": 2028,
+     "value": 5730259,
+     "kind": "projection"
+    },
+    {
+     "year": 2029,
+     "value": 5794982,
+     "kind": "projection"
+    },
+    {
+     "year": 2030,
+     "value": 5860529,
+     "kind": "projection"
+    },
+    {
+     "year": 2031,
+     "value": 5926120,
+     "kind": "projection"
+    }
+   ],
+   "bc_share_of_canada_immigrants": 0.1269,
+   "share_quarters": [
+    "2024-07",
+    "2026-04"
+   ],
+   "immigrants": [
+    {
+     "year": 2015,
+     "value": 35731,
+     "kind": "actual"
+    },
+    {
+     "year": 2016,
+     "value": 38089,
+     "kind": "actual"
+    },
+    {
+     "year": 2017,
+     "value": 38465,
+     "kind": "actual"
+    },
+    {
+     "year": 2018,
+     "value": 44854,
+     "kind": "actual"
+    },
+    {
+     "year": 2019,
+     "value": 50228,
+     "kind": "actual"
+    },
+    {
+     "year": 2020,
+     "value": 28482,
+     "kind": "actual"
+    },
+    {
+     "year": 2021,
+     "value": 69472,
+     "kind": "actual"
+    },
+    {
+     "year": 2022,
+     "value": 61229,
+     "kind": "actual"
+    },
+    {
+     "year": 2023,
+     "value": 70828,
+     "kind": "actual"
+    },
+    {
+     "year": 2024,
+     "value": 63126,
+     "kind": "actual"
+    },
+    {
+     "year": 2025,
+     "value": 50673,
+     "kind": "actual"
+    },
+    {
+     "year": 2026,
+     "value": 48235,
+     "kind": "forecast"
+    },
+    {
+     "year": 2027,
+     "value": 48235,
+     "kind": "forecast"
+    },
+    {
+     "year": 2028,
+     "value": 48235,
+     "kind": "forecast"
+    }
+   ],
+   "immigrants_2026_ytd": {
+    "quarters": 2,
+    "value": 22807
+   },
+   "net_npr": [
+    {
+     "year": 2015,
+     "value": -20411,
+     "kind": "actual"
+    },
+    {
+     "year": 2016,
+     "value": 17875,
+     "kind": "actual"
+    },
+    {
+     "year": 2017,
+     "value": 26840,
+     "kind": "actual"
+    },
+    {
+     "year": 2018,
+     "value": 28027,
+     "kind": "actual"
+    },
+    {
+     "year": 2019,
+     "value": 28980,
+     "kind": "actual"
+    },
+    {
+     "year": 2020,
+     "value": -27142,
+     "kind": "actual"
+    },
+    {
+     "year": 2021,
+     "value": 11674,
+     "kind": "actual"
+    },
+    {
+     "year": 2022,
+     "value": 85657,
+     "kind": "actual"
+    },
+    {
+     "year": 2023,
+     "value": 113156,
+     "kind": "actual"
+    },
+    {
+     "year": 2024,
+     "value": 42082,
+     "kind": "actual"
+    },
+    {
+     "year": 2025,
+     "value": -20936,
+     "kind": "actual"
+    }
+   ],
+   "npr_quarterly": [
+    {
+     "q": "2019-01",
+     "value": 8072
+    },
+    {
+     "q": "2019-04",
+     "value": 8986
+    },
+    {
+     "q": "2019-07",
+     "value": 16450
+    },
+    {
+     "q": "2019-10",
+     "value": -4528
+    },
+    {
+     "q": "2020-01",
+     "value": -1341
+    },
+    {
+     "q": "2020-04",
+     "value": -9978
+    },
+    {
+     "q": "2020-07",
+     "value": -12917
+    },
+    {
+     "q": "2020-10",
+     "value": -2906
+    },
+    {
+     "q": "2021-01",
+     "value": 4267
+    },
+    {
+     "q": "2021-04",
+     "value": 2711
+    },
+    {
+     "q": "2021-07",
+     "value": 13141
+    },
+    {
+     "q": "2021-10",
+     "value": -8445
+    },
+    {
+     "q": "2022-01",
+     "value": 3992
+    },
+    {
+     "q": "2022-04",
+     "value": 24667
+    },
+    {
+     "q": "2022-07",
+     "value": 36147
+    },
+    {
+     "q": "2022-10",
+     "value": 20851
+    },
+    {
+     "q": "2023-01",
+     "value": 10217
+    },
+    {
+     "q": "2023-04",
+     "value": 36429
+    },
+    {
+     "q": "2023-07",
+     "value": 49864
+    },
+    {
+     "q": "2023-10",
+     "value": 16646
+    },
+    {
+     "q": "2024-01",
+     "value": 21847
+    },
+    {
+     "q": "2024-04",
+     "value": 15438
+    },
+    {
+     "q": "2024-07",
+     "value": 13339
+    },
+    {
+     "q": "2024-10",
+     "value": -8542
+    },
+    {
+     "q": "2025-01",
+     "value": -6671
+    },
+    {
+     "q": "2025-04",
+     "value": 992
+    },
+    {
+     "q": "2025-07",
+     "value": 1459
+    },
+    {
+     "q": "2025-10",
+     "value": -16716
+    },
+    {
+     "q": "2026-01",
+     "value": -10067
+    },
+    {
+     "q": "2026-04",
+     "value": -6483
+    }
+   ]
+  },
+  "sources": [
+   "Statistics Canada 46-10-0092-01, quarterly asking rents, Vancouver CMA",
+   "Statistics Canada 17-10-0009-01, quarterly population estimates, BC",
+   "Statistics Canada 17-10-0040-01, components of population growth, BC and Canada",
+   "BC Stats, sub-provincial population estimates and projections (BC Data Catalogue)",
+   "IRCC 2026-2028 Immigration Levels Plan (380,000 permanent residents a year)",
+   "Rentals.ca / Urbanation National Rent Report, all property types"
+  ]
  }
 }

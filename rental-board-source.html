@@ -12,6 +12,7 @@
   --ring: #fdfdfd;
   --s1: #2a78d6; /* 1-bed series */
   --s2: #eb6834; /* 2-bed series */
+  --s3: #1baf7a; /* third series (drivers) */
   --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
   --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -21,7 +22,7 @@
     --line: #262c35; --axis: #3a414c; --band: #222833; --accent: #8fb0ea; --accent-wash: #1f2a3d;
     --good: #3fbf6a; --good-wash: #15291d; --neutral: #8a93a0; --neutral-wash: #232831;
     --serious: #e8895a; --serious-wash: #33221a; --critical: #ef6a6a; --critical-wash: #361c1d;
-    --ring: #171b21; --s1: #3987e5; --s2: #d95926; color-scheme: dark;
+    --ring: #171b21; --s1: #3987e5; --s2: #d95926; --s3: #199e70; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
@@ -29,7 +30,7 @@
   --line: #262c35; --axis: #3a414c; --band: #222833; --accent: #8fb0ea; --accent-wash: #1f2a3d;
   --good: #3fbf6a; --good-wash: #15291d; --neutral: #8a93a0; --neutral-wash: #232831;
   --serious: #e8895a; --serious-wash: #33221a; --critical: #ef6a6a; --critical-wash: #361c1d;
-  --ring: #171b21; --s1: #3987e5; --s2: #d95926; color-scheme: dark;
+  --ring: #171b21; --s1: #3987e5; --s2: #d95926; --s3: #199e70; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -99,6 +100,25 @@ a { color: var(--accent); }
 .panel svg text { fill: var(--muted); font-size: 11px; font-family: var(--font-body); }
 .panel svg .endlabel { fill: var(--ink-2); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .panel .empty-note { font-size: 12px; color: var(--muted); }
+/* Collapsible sections: the heading is a button; collapsed sections keep only their heading row */
+.sec-toggle { all: unset; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font: inherit; color: inherit; border-radius: 6px; }
+.sec-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.sec-toggle .chev { width: 18px; height: 18px; flex: none; color: var(--muted); transition: transform .2s ease; }
+.sec-toggle:hover .chev { color: var(--ink); }
+.section.collapsed .sec-toggle .chev { transform: rotate(-90deg); }
+.section.collapsed > :not(.section-head):not(h2) { display: none; }
+.section.collapsed > .section-head > :not(h2) { display: none; }
+.section.collapsed { gap: 0; }
+.sec-tools { display: flex; gap: 12px; justify-content: flex-end; margin-bottom: -18px; }
+.sec-tools button { font: inherit; font-size: 13px; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; }
+.multiples.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 760px) { .multiples.two { grid-template-columns: 1fr; } }
+.legend .dash-key { width: 18px; height: 0; border-top: 2px dashed var(--ink-2); display: inline-block; }
+.legend .band-fc { width: 18px; height: 10px; background: var(--ink-2); opacity: .18; border-radius: 2px; display: inline-block; }
+.method { font-size: 13px; color: var(--ink-2); max-width: 90ch; margin: 0; }
+.acc td.best { font-weight: 700; color: var(--ink); }
+.acc td.best::after { content: " ✓"; color: var(--good); }
+table.acc { min-width: 760px; }
 
 .filters { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -173,15 +193,38 @@ footer { color: var(--muted); font-size: 12px; display: grid; gap: 4px; }
 
   <section class="section" aria-labelledby="h-h">
     <div class="section-head">
-      <h2 id="h-h">Average asking rent, past two years</h2>
+      <h2 id="h-h">Average asking rent: past two years and 12-month forecast</h2>
       <div class="legend">
         <span class="key"><span class="line-key" style="background:var(--s1)"></span>1-bed</span>
         <span class="key"><span class="line-key" style="background:var(--s2)"></span>2-bed</span>
         <span class="key"><span class="hollow-key"></span>Back-calculated from a later report</span>
+        <span class="key"><span class="dash-key"></span>Forecast</span>
+        <span class="key"><span class="band-fc"></span>80% range</span>
       </div>
     </div>
     <div class="multiples" id="market"></div>
     <p class="sub" style="font-size:13px;color:var(--muted)" id="market-src"></p>
+  </section>
+
+  <section class="section" aria-labelledby="d-h">
+    <div class="section-head">
+      <h2 id="d-h">What drives the forecast: population and immigration</h2>
+      <p>Dashed lines and hollow points are projections. Rent demand in Metro Vancouver moves with population growth, which now depends mostly on immigration policy.</p>
+    </div>
+    <div class="multiples two" id="drivers"><div class="panel"><div class="empty-note">The forecast hasn't loaded yet.</div></div></div>
+  </section>
+
+  <section class="section" aria-labelledby="a-h">
+    <div class="section-head">
+      <h2 id="a-h">How the forecast is made</h2>
+      <p id="fc-run"></p>
+    </div>
+    <p class="method" id="fc-method"></p>
+    <div class="ledger"><table class="acc">
+      <thead><tr><th>City</th><th>Unit</th><th class="r">No change</th><th class="r">12-month trend</th><th class="r">Damped trend</th><th class="r">Population regression</th><th class="r">Blend</th><th>Next 12 months</th></tr></thead>
+      <tbody id="acc"><tr><td colspan="8" class="empty">The forecast hasn't loaded yet.</td></tr></tbody>
+    </table></div>
+    <p class="method" id="fc-reg" style="font-size:12px;color:var(--muted)"></p>
   </section>
 
   <section class="section" aria-labelledby="t-h">
@@ -190,6 +233,14 @@ footer { color: var(--muted); font-size: 12px; display: grid; gap: 4px; }
       <p>One point per daily check. This builds up as the board runs; each panel uses the same scale.</p>
     </div>
     <div class="multiples" id="tracked"></div>
+  </section>
+
+  <section class="section" aria-labelledby="z-h">
+    <div class="section-head">
+      <h2 id="z-h">Average size of tracked listings</h2>
+      <p>Mean floor area of the active listings that state their size, on each daily check. Panel notes show today's median rent per square foot.</p>
+    </div>
+    <div class="multiples" id="sqft"></div>
   </section>
 
   <section class="section" aria-labelledby="f-h">
@@ -297,7 +348,7 @@ function median(a) { const s = [...a].sort((x, y) => x - y), n = s.length; retur
 // Store layout (append-only): listings/<id> written once when found; events/<date> holds that
 // day's removals, price changes and field updates; snapshots/<date> holds the day's stats and run
 // status; market/<city>_<unit>_<YYYY-MM> holds one monthly market point.
-const live = { base: [], events: [], listings: [], snapshots: [], marketDocs: [], market: {}, meta: null, loaded: { listings: false } };
+const live = { base: [], events: [], listings: [], snapshots: [], marketDocs: [], market: {}, forecasts: [], forecast: null, meta: null, loaded: { listings: false } };
 
 function applyEvents() {
   const byId = new Map(live.base.map(l => [l.id, { ...l, state: "active", price_history: [{ date: l.first_seen, price: Number(l.price) }] }]));
@@ -430,36 +481,57 @@ function lineMultiples(containerId, seriesFor, xKeys, xLabel, opts = {}) {
   const host = document.getElementById(containerId);
   const cities = state.city === "All" ? CITIES : [state.city];
   const units = state.unit === "All" ? UNITS : [state.unit];
+  const fmtV = opts.fmt || fmt$;
+  const fcFor = opts.forecastFor || (() => []);
   const all = [];
-  for (const c of CITIES) for (const u of UNITS) for (const p of seriesFor(c, u)) all.push(p.v);
+  for (const c of CITIES) for (const u of UNITS) {
+    for (const p of seriesFor(c, u)) all.push(p.v);
+    for (const p of fcFor(c, u)) all.push(p.lo ?? p.v, p.hi ?? p.v);
+  }
   if (!all.length || !xKeys.length) {
     host.innerHTML = cities.map(c => `<div class="panel"><div class="phead"><h3>${c}</h3></div><div class="empty-note">${opts.empty || "No data yet."}</div></div>`).join("");
     return;
   }
-  let lo = Math.floor(Math.min(...all) / 250) * 250, hi = Math.ceil(Math.max(...all) / 250) * 250;
-  if (hi - lo < 500) { hi += 250; lo -= 250; }
+  const unit = opts.unit || 250;
+  let lo = Math.floor(Math.min(...all) / unit) * unit, hi = Math.ceil(Math.max(...all) / unit) * unit;
+  if (hi - lo < 2 * unit) { hi += unit; lo -= unit; }
   const W = 360, H = 190, L = 44, R = 50, T = 12, B = 24;
   const n = xKeys.length;
   const x = i => n === 1 ? L + (W - L - R) / 2 : L + i / (n - 1) * (W - L - R);
   const y = v => T + (hi - v) / (hi - lo) * (H - T - B);
-  const step = (hi - lo) > 1000 ? 500 : 250;
+  const step = (hi - lo) > 4 * unit ? 2 * unit : unit;
   const tickEvery = Math.max(1, Math.ceil(n / 4));
   host.innerHTML = cities.map(c => {
     let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${c} ${opts.aria || ""}">`;
-    for (let v = lo; v <= hi; v += step) s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" class="num">${fmt$(v)}</text>`;
+    for (let v = lo; v <= hi; v += step) s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" class="num">${fmtV(v)}</text>`;
     s += `<line x1="${L}" x2="${W - R}" y1="${H - B}" y2="${H - B}" stroke="var(--axis)" stroke-width="1"/>`;
     xKeys.forEach((k, i) => { if (i % tickEvery === 0 || i === n - 1) s += `<text x="${x(i)}" y="${H - 6}" text-anchor="${i === 0 && n > 1 ? "start" : i === n - 1 && n > 1 ? "end" : "middle"}">${xLabel(k)}</text>`; });
     const ends = [];
+    // Forecast: an 80% band and a dashed median line from the last actual month
+    const fcStart = opts.forecastStart ? xKeys.indexOf(opts.forecastStart) : -1;
+    if (fcStart >= 0) s += `<line x1="${x(fcStart)}" x2="${x(fcStart)}" y1="${T}" y2="${H - B}" stroke="var(--axis)" stroke-width="1"/><text x="${x(fcStart) + 4}" y="${T + 9}">Forecast</text>`;
+    for (const u of units) {
+      const fc = fcFor(c, u).map(p => ({ ...p, i: xKeys.indexOf(p.k) })).filter(p => p.i >= 0).sort((a, b) => a.i - b.i);
+      if (!fc.length) continue;
+      const anchor = seriesFor(c, u).map(p => ({ ...p, i: xKeys.indexOf(p.k) })).filter(p => p.i >= 0).sort((a, b) => a.i - b.i).pop();
+      const line = anchor ? [{ i: anchor.i, v: anchor.v, lo: anchor.v, hi: anchor.v }, ...fc] : fc;
+      const band = line.map(p => `${x(p.i).toFixed(1)},${y(p.hi ?? p.v).toFixed(1)}`).concat(line.slice().reverse().map(p => `${x(p.i).toFixed(1)},${y(p.lo ?? p.v).toFixed(1)}`)).join(" ");
+      s += `<polygon points="${band}" fill="${SERIES[u]}" fill-opacity="0.13" stroke="none"/>`;
+      s += `<path d="${line.map((p, j) => (j ? "L" : "M") + x(p.i).toFixed(1) + " " + y(p.v).toFixed(1)).join(" ")}" fill="none" stroke="${SERIES[u]}" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"/>`;
+      for (const p of fc) s += `<circle cx="${x(p.i)}" cy="${y(p.v)}" r="7" fill="transparent"><title>${UNIT_LABEL[u]} forecast · ${xLabel(p.k)}: ${fmtV(p.v)} (80% range ${fmtV(p.lo)}–${fmtV(p.hi)})</title></circle>`;
+      const last = fc[fc.length - 1];
+      ends.push({ y: y(last.v), x: x(last.i), text: fmtV(last.v), u });
+    }
     for (const u of units) {
       const pts = seriesFor(c, u).map(p => ({ ...p, i: xKeys.indexOf(p.k) })).filter(p => p.i >= 0).sort((a, b) => a.i - b.i);
       if (!pts.length) continue;
       if (pts.length > 1) s += `<path d="${pts.map((p, j) => (j ? "L" : "M") + x(p.i).toFixed(1) + " " + y(p.v).toFixed(1)).join(" ")}" fill="none" stroke="${SERIES[u]}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
       for (const p of pts) {
         const hollow = p.hollow;
-        s += `<circle cx="${x(p.i)}" cy="${y(p.v)}" r="${pts.length > 30 ? 2.5 : 3.5}" fill="${hollow ? "var(--surface)" : SERIES[u]}" stroke="${hollow ? SERIES[u] : "var(--surface)"}" stroke-width="${hollow ? 1.5 : 1}"><title>${UNIT_LABEL[u]} · ${xLabel(p.k)}: ${fmt$(p.v)}${hollow ? " (back-calculated)" : ""}${p.extra ? " · " + p.extra : ""}</title></circle>`;
+        s += `<circle cx="${x(p.i)}" cy="${y(p.v)}" r="${pts.length > 30 ? 2.5 : 3.5}" fill="${hollow ? "var(--surface)" : SERIES[u]}" stroke="${hollow ? SERIES[u] : "var(--surface)"}" stroke-width="${hollow ? 1.5 : 1}"><title>${UNIT_LABEL[u]} · ${xLabel(p.k)}: ${fmtV(p.v)}${hollow ? " (back-calculated)" : ""}${p.extra ? " · " + p.extra : ""}</title></circle>`;
       }
       const last = pts[pts.length - 1];
-      ends.push({ y: y(last.v), x: x(last.i), text: fmt$(last.v), u });
+      if (!fcFor(c, u).length) ends.push({ y: y(last.v), x: x(last.i), text: fmtV(last.v), u });
     }
     ends.sort((a, b) => a.y - b.y);
     for (let j = 1; j < ends.length; j++) if (ends[j].y - ends[j - 1].y < 13) ends[j].y = ends[j - 1].y + 13;
@@ -470,14 +542,19 @@ function lineMultiples(containerId, seriesFor, xKeys, xLabel, opts = {}) {
   }).join("");
 }
 
+function fcSeries(c, u) { return (live.forecast?.series || []).find(x => x.city === c && x.unit_type === u); }
 function renderMarket() {
   const months = new Set();
   for (const s of Object.values(live.market)) for (const p of s.points || []) months.add(p.month);
+  const hist = [...months].sort();
+  for (const f of live.forecast?.series || []) for (const p of f.points) months.add(p.month);
   const keys = [...months].sort();
   lineMultiples("market",
     (c, u) => (live.market[c + "_" + u]?.points || []).map(p => ({ k: p.month, v: p.rent, hollow: p.kind !== "reported" })),
     keys, fmtMonth,
-    { aria: "average asking rent by month", empty: "Market history hasn't loaded yet.",
+    { aria: "average asking rent by month, with forecast", empty: "Market history hasn't loaded yet.",
+      forecastFor: (c, u) => (fcSeries(c, u)?.points || []).map(p => ({ k: p.month, v: p.p50, lo: p.lo, hi: p.hi })),
+      forecastStart: live.forecast ? hist[hist.length - 1] : null,
       note: c => { const a = live.market[c + "_1bed"]?.points, b = live.market[c + "_2bed"]?.points;
         if (!a?.length || !b?.length) return "";
         const ch = (pts) => { const l = pts[pts.length - 1], f = pts.find(p => p.month === shiftMonth(l.month, -12)); return f ? fmtPct((l.rent - f.rent) / f.rent) : "—"; };
@@ -486,6 +563,111 @@ function renderMarket() {
   document.getElementById("market-src").textContent = s ? `${s.source}. ${s.note || ""}` : "";
 }
 function shiftMonth(m, n) { let [y, mo] = m.split("-").map(Number); mo += n; while (mo < 1) { mo += 12; y--; } while (mo > 12) { mo -= 12; y++; } return `${y}-${String(mo).padStart(2, "0")}`; }
+
+// ---------- forecast: drivers, accuracy ----------
+const SERIES3 = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--ink-2)"];
+function xNum(k) { const [y, m] = String(k).split("-").map(Number); return y + ((m || 7) - 1) / 12; }
+// One panel: several series on a numeric time axis; points flagged proj are drawn dashed and hollow.
+function driverPanel(title, note, series, fmt, opts = {}) {
+  const pts = series.flatMap(sr => sr.pts);
+  if (!pts.length) return `<div class="panel"><div class="phead"><h3>${esc(title)}</h3></div><div class="empty-note">No data.</div></div>`;
+  const W = 520, H = 210, L = 58, R = 64, T = 14, B = 24;
+  const xs = pts.map(p => xNum(p.k)), x0 = Math.min(...xs), x1 = Math.max(...xs);
+  let lo = Math.min(...pts.map(p => p.v), opts.zero ? 0 : Infinity), hi = Math.max(...pts.map(p => p.v), opts.zero ? 0 : -Infinity);
+  const pad = (hi - lo) * 0.08 || 1; lo -= pad; hi += pad;
+  const x = v => L + (v - x0) / ((x1 - x0) || 1) * (W - L - R), y = v => T + (hi - v) / (hi - lo) * (H - T - B);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">`;
+  for (let i = 0; i <= 4; i++) { const v = lo + (hi - lo) * i / 4; s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" class="num">${fmt(v)}</text>`; }
+  if (opts.zero && lo < 0) s += `<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="var(--axis)" stroke-width="1.5"/>`;
+  for (let yr = Math.ceil(x0); yr <= Math.floor(x1); yr += (x1 - x0 > 8 ? 2 : 1)) s += `<text x="${x(yr)}" y="${H - 6}" text-anchor="middle">${yr}</text>`;
+  const ends = [];
+  series.forEach((sr, si) => {
+    const col = sr.color || SERIES3[si];
+    const a = sr.pts.filter(p => !p.proj).sort((p, q) => xNum(p.k) - xNum(q.k));
+    const f = sr.pts.filter(p => p.proj).sort((p, q) => xNum(p.k) - xNum(q.k));
+    const path = arr => arr.map((p, j) => (j ? "L" : "M") + x(xNum(p.k)).toFixed(1) + " " + y(p.v).toFixed(1)).join(" ");
+    if (a.length > 1) s += `<path d="${path(a)}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>`;
+    if (f.length) s += `<path d="${path((a.length ? [a[a.length - 1]] : []).concat(f))}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="5 4"/>`;
+    for (const p of a.concat(f)) s += `<circle cx="${x(xNum(p.k))}" cy="${y(p.v)}" r="${p.proj ? 3.5 : (a.length > 20 ? 2 : 3)}" fill="${p.proj ? "var(--surface)" : col}" stroke="${col}" stroke-width="${p.proj ? 1.5 : 0}"><title>${esc(sr.label)} · ${esc(p.k)}: ${fmt(p.v)}${p.proj ? " (projection)" : ""}</title></circle>`;
+    const tail = f.length ? f : a, last = tail[tail.length - 1];
+    if (last && series.length > 1) ends.push({ x: x(xNum(last.k)), y: y(last.v), text: sr.label, col });
+  });
+  ends.sort((p, q) => p.y - q.y);
+  for (let j = 1; j < ends.length; j++) if (ends[j].y - ends[j - 1].y < 13) ends[j].y = ends[j - 1].y + 13;
+  for (const e of ends) s += `<line x1="${e.x + 4}" x2="${e.x + 8}" y1="${e.y}" y2="${e.y}" stroke="${e.col}" stroke-width="2"/><text class="endlabel" x="${e.x + 10}" y="${e.y + 4}">${esc(e.text)}</text>`;
+  s += `</svg>`;
+  return `<div class="panel"><div class="phead"><h3>${esc(title)}</h3><span class="pnow">${note}</span></div>${s}</div>`;
+}
+function renderDrivers() {
+  const host = document.getElementById("drivers"), d = live.forecast?.drivers;
+  if (!d) return;
+  const pct = v => (v >= 0 ? "" : "−") + Math.abs(v).toFixed(1) + "%";
+  const kfmt = v => (v < 0 ? "−" : "") + Math.abs(Math.round(v / 1000)).toLocaleString("en-CA") + "k";
+  const bcPop = d.bc_population_bcstats || [];
+  const bcProj = bcPop.slice(1).map((p, i) => ({ k: `${p.year}-07`, v: (p.value / bcPop[i].value - 1) * 100, proj: p.kind === "projection" }))
+    .filter(p => p.proj);
+  const qs = d.bc_pop_yoy_quarterly || [], lastQ = qs[qs.length - 1];
+  const p1 = driverPanel("BC population growth, year over year", lastQ ? `latest ${pct(lastQ.yoy)} (${fmtMonth(lastQ.q)})` : "",
+    [{ label: "BC", color: "var(--s1)", pts: qs.map(q => ({ k: q.q, v: q.yoy })).concat(bcProj) }], pct, { zero: true });
+  const imm = d.immigrants || [];
+  const fcImm = imm.find(p => p.kind === "forecast");
+  const p2 = driverPanel("New permanent residents to BC, per year",
+    fcImm ? `${fcImm.year}–28 outlook ${kfmt(fcImm.value)} a year` : "",
+    [{ label: "BC", color: "var(--s2)", pts: imm.map(p => ({ k: `${p.year}-07`, v: p.value, proj: p.kind === "forecast" })) }], kfmt);
+  const npr = d.net_npr || [];
+  const p3 = driverPanel("Net temporary residents, BC, per year", npr.length ? `${npr[npr.length - 1].year}: ${kfmt(npr[npr.length - 1].value)}` : "",
+    [{ label: "BC", color: "var(--s3)", pts: npr.map(p => ({ k: `${p.year}-07`, v: p.value })) }], kfmt, { zero: true });
+  const idx = arr => { const b = arr.find(p => p.year === 2021); return b ? arr.map(p => ({ k: `${p.year}-07`, v: p.value / b.value * 100, proj: p.kind === "projection" })) : []; };
+  const pops = d.city_population || {};
+  const p4 = driverPanel("Population, BC Stats estimates and projections", "index, 2021 = 100",
+    CITIES.map((c, i) => ({ label: c, color: SERIES3[i], pts: idx(pops[c] || []) })).concat([{ label: "BC", color: "var(--ink-2)", pts: idx(bcPop) }]),
+    v => v.toFixed(0));
+  host.innerHTML = p1 + p2 + p3 + p4;
+}
+function renderAccuracy() {
+  const f = live.forecast;
+  if (!f) return;
+  document.getElementById("fc-run").textContent = `Model run ${fmtDay(f.run_date)}. It is refreshed each month when a new Rentals.ca report comes out.`;
+  document.getElementById("fc-method").textContent = f.method + " Accuracy below is WMAPE (lower is better): the average miss as a share of actual rent. The model used for each row is ticked.";
+  const r = f.regression || {};
+  const share = f.drivers?.bc_share_of_canada_immigrants;
+  document.getElementById("fc-reg").textContent =
+    `Regression (Metro Vancouver, ${r.n} quarterly observations): rent growth % = ${(+r.a).toFixed(2)} + ${(+r.b).toFixed(2)} × BC population growth %, R² ${(+r.r2).toFixed(2)}. ` +
+    `Permanent-resident outlook: 380,000 a year nationally (2026–2028 Immigration Levels Plan) × BC's recent ${share ? (share * 100).toFixed(1) + "%" : ""} share. ` +
+    `Sources: ${(f.sources || []).join("; ")}.`;
+  const order = ["naive", "trend", "damped", "driver", "blend"];
+  const rows = (f.accuracy || []).filter(a => (state.city === "All" || a.city === state.city) && (state.unit === "All" || a.unit_type === state.unit));
+  document.getElementById("acc").innerHTML = rows.map(a => {
+    const fc = fcSeries(a.city, a.unit_type), last = fc?.points[fc.points.length - 1];
+    const chg = fc && last ? (last.p50 - fc.last_actual.rent) / fc.last_actual.rent : null;
+    return `<tr><td>${esc(a.city)}</td><td>${UNIT_LABEL[a.unit_type]}</td>` +
+      order.map(m => `<td class="r num${m === a.chosen ? " best" : ""}">${a.wmape[m].toFixed(2)}%</td>`).join("") +
+      `<td>${last ? `${fmt$(last.p50)} by ${fmtMonth(last.month)} <span class="hood">(${fmtPct(chg)}; 80% range ${fmt$(last.lo)}–${fmt$(last.hi)})</span>` : ""}</td></tr>`;
+  }).join("");
+}
+
+// ---------- size ----------
+function renderSqft() {
+  const byDay = {};
+  for (const s of live.snapshots) if (!byDay[s.date] || String(s.run_at) > String(byDay[s.date].run_at)) byDay[s.date] = s;
+  const days = Object.keys(byDay).sort();
+  const sizeOf = l => parseInt(l.size_sqft, 10) || null;
+  const memo = {};
+  for (const d of days) memo[d] = live.listings.filter(l => l.first_seen <= d && (!l.removed_on || l.removed_on > d));
+  lineMultiples("sqft",
+    (c, u) => days.map(d => {
+      const sz = memo[d].filter(l => l.city === c && l.unit_type === u).map(sizeOf).filter(Boolean);
+      return sz.length ? { k: d, v: Math.round(sz.reduce((a, b) => a + b, 0) / sz.length), extra: `${sz.length} listings state a size` } : null;
+    }).filter(Boolean),
+    days, fmtDay,
+    { aria: "average floor area of tracked listings by day", empty: "No sizes recorded yet.", unit: 100,
+      fmt: v => `${Math.round(v).toLocaleString("en-CA")} ft²`,
+      note: c => {
+        const cur = live.listings.filter(l => l.state !== "gone" && l.city === c && sizeOf(l) && l.price);
+        const ppsf = u => { const v = cur.filter(l => l.unit_type === u).map(l => l.price / sizeOf(l)); return v.length ? "$" + median(v).toFixed(2) : "—"; };
+        return `$/ft²: 1-bed ${ppsf("1bed")}, 2-bed ${ppsf("2bed")}`;
+      } });
+}
 
 function renderTracked() {
   // Several runs on one day each leave a snapshot; keep the latest per day
@@ -637,11 +819,41 @@ function update() {
   renderSeg("f-unit", ["All", ...UNITS], "unit", { All: "All", "1bed": "1-bed", "2bed": "2-bed" });
   const rows = filtered();
   document.getElementById("shown").textContent = `${rows.length} of ${listings.length} shown`;
-  renderLive(); renderFacts(); renderMatrix(); renderMarket(); renderTracked();
+  renderLive(); renderFacts(); renderMatrix(); renderMarket(); renderDrivers(); renderAccuracy(); renderTracked(); renderSqft();
   renderStrip(rows); renderTable(rows); renderGone();
 }
 
+// ---------- collapsible sections ----------
+// Each visible section heading becomes a button that hides the rest of its section.
+// Open/closed state is remembered per viewer in this browser.
+function setupCollapsibles() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem("lmrb-collapsed") || "{}"); } catch (e) {}
+  const persist = () => { try { localStorage.setItem("lmrb-collapsed", JSON.stringify(saved)); } catch (e) {} };
+  const chev = '<svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const sections = [...document.querySelectorAll("section.section")].filter(sec => { const h = sec.querySelector("h2"); return h && !h.hidden; });
+  const set = (sec, collapsed) => {
+    sec.classList.toggle("collapsed", collapsed);
+    sec.querySelector(".sec-toggle").setAttribute("aria-expanded", String(!collapsed));
+    saved[sec.dataset.key] = collapsed; persist();
+  };
+  for (const sec of sections) {
+    const h = sec.querySelector("h2");
+    sec.dataset.key = h.id;
+    h.innerHTML = `<button type="button" class="sec-toggle" aria-expanded="true">${chev}<span>${h.innerHTML}</span></button>`;
+    h.querySelector(".sec-toggle").addEventListener("click", () => set(sec, !sec.classList.contains("collapsed")));
+    if (saved[h.id]) set(sec, true);
+  }
+  const tools = document.createElement("div");
+  tools.className = "sec-tools";
+  tools.innerHTML = '<button type="button" id="expand-all">Expand all</button><button type="button" id="collapse-all">Collapse all</button>';
+  sections[0]?.before(tools);
+  tools.querySelector("#expand-all").onclick = () => sections.forEach(s => set(s, false));
+  tools.querySelector("#collapse-all").onclick = () => sections.forEach(s => set(s, true));
+}
+
 // ---------- boot ----------
+setupCollapsibles();
 bindFilters();
 update();
 let pending = null;
@@ -664,5 +876,10 @@ const schedule = () => { if (pending) return; pending = requestAnimationFrame(()
   db.collection("events").onSnapshot(snap => { live.events = snap.docs.map(d => d.data()); schedule(); }, fail);
   db.collection("snapshots").onSnapshot(snap => { live.snapshots = snap.docs.map(d => d.data()).filter(s => s.date); schedule(); }, fail);
   db.collection("market").onSnapshot(snap => { live.marketDocs = snap.docs.map(d => d.data()).filter(p => p.month); schedule(); }, fail);
+  db.collection("forecasts").onSnapshot(snap => {
+    live.forecasts = snap.docs.map(d => d.data()).filter(f => f.run_date);
+    live.forecast = live.forecasts.slice().sort((a, b) => String(a.run_date).localeCompare(String(b.run_date))).pop() || null;
+    schedule();
+  }, fail);
 })();
 </script>

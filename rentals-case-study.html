@@ -6,7 +6,7 @@
 <title>Lower Mainland Rental Board | Vignesh</title>
 <script>if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.className+=' js-reveal';</script>
 <script>try{if(localStorage.getItem('theme')!=='light')document.documentElement.setAttribute('data-theme','dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}</script>
-<meta name="description" content="A daily-scraped rental listing tracker for three Metro Vancouver cities, benchmarked against market rent and flagged for scam risk — built on a small append-only data pipeline rather than a spreadsheet.">
+<meta name="description" content="A daily-scraped rental listing tracker for three Metro Vancouver cities, benchmarked against market rent, forecast 12 months out against population and immigration data, and flagged for scam risk — built on a small append-only data pipeline rather than a spreadsheet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -252,6 +252,7 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
       <a href="#why">Why I built this</a>
       <a href="#what-it-is">What this is</a>
       <a href="#architecture">The architecture</a>
+      <a href="#forecast">The forecast model</a>
       <a href="#hard-parts">The hard parts</a>
       <a href="#numbers">What the numbers say</a>
       <a href="#scale">At production scale</a>
@@ -290,6 +291,23 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     removed and why, stay queryable forever — which is also what makes the "recently removed" ledger
     and the day-over-day median-rent charts possible without a separate reporting layer.</p>
 
+    <h2 id="forecast" data-reveal>The forecast model</h2>
+    <p>The board now runs a 12-month rent forecast alongside the live listings, refreshed each month
+    when a new Rentals.ca report comes out. Five models are backtested on each city and unit type's
+    monthly rent series — a naive no-change baseline, a linear trend, a damped trend, a population-driven
+    regression, and a blend of trend and population — scored by rolling-origin WMAPE (average miss as a
+    share of actual rent, one to six months ahead), and the most accurate model per city/unit is the one
+    actually used for that row's forecast.</p>
+    <p>The population-driven model is the more interesting piece: it regresses Metro Vancouver rent
+    growth against BC's quarterly population growth rate, then projects population forward from BC Stats
+    estimates, Statistics Canada's components-of-growth series, and the federal 2026–2028 Immigration
+    Levels Plan (380,000 permanent residents a year nationally, scaled by BC's recent ~12.7% share). In
+    practice the simpler damped-trend model still wins on accuracy for most city/unit combinations right
+    now — rent momentum dominates over a 12-month horizon — but the population regression is what the
+    dashboard's "What drives the forecast" panels make visible: the same demand pressure showing up as
+    population growth, new permanent residents, and net temporary residents, each with its own projection
+    to 2028.</p>
+
     <h2 id="hard-parts" data-reveal>The parts that were actually hard</h2>
     <p><strong>Telling "gone because it rented" from "gone because the scrape broke."</strong> Listing
     sites return everything from a soft 404 to a silently-regenerated page when a unit comes down, and
@@ -309,14 +327,16 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     chart rather than quietly presenting a derived number as if it were an observed one.</p>
 
     <h2 id="numbers" data-reveal>What the numbers say</h2>
-    <p>As of the latest daily check the board is tracking <span class="highlight">151</span> active 1- and
-    2-bedroom listings across the three cities — <span class="highlight">62</span> in Surrey,
-    <span class="highlight">48</span> in Langley, and <span class="highlight">41</span> in Coquitlam — plus
-    <span class="highlight">8</span> listings tracked through to removal. Median asking rent runs from
-    <span class="highlight">$1,813</span> in Surrey to <span class="highlight">$2,300</span> in Coquitlam.
-    Listings come from Kijiji (<span class="highlight">60%</span>), Rentals.ca (<span class="highlight">39%</span>),
-    and liv.rent, and only a single listing in the current set crosses the suspiciously-cheap threshold —
-    which is itself a useful signal that the threshold is calibrated about right rather than crying wolf.</p>
+    <p>As of the latest daily check the board is tracking <span class="highlight">169</span> active 1- and
+    2-bedroom listings across the three cities — <span class="highlight">73</span> in Surrey,
+    <span class="highlight">52</span> in Langley, and <span class="highlight">44</span> in Coquitlam — plus
+    <span class="highlight">9</span> listings tracked through to removal. Median asking rent runs from
+    <span class="highlight">$1,825</span> in Surrey to <span class="highlight">$2,260</span> in Coquitlam.
+    Listings come from Kijiji (<span class="highlight">59%</span>), Rentals.ca (<span class="highlight">40%</span>),
+    and liv.rent, and only two listings in the current set cross the suspiciously-cheap threshold —
+    which is itself a useful signal that the threshold is calibrated about right rather than crying wolf.
+    The forecast puts Surrey 1-bed rent at roughly <span class="highlight">$1,790</span> twelve months out,
+    a modest pullback from today driven mostly by rent momentum rather than the population models.</p>
 
     <h2 id="scale" data-reveal>What I'd do differently at production scale</h2>
     <p>Three cities and a noon daily check is small enough to run as a single sequential job with no
@@ -328,7 +348,8 @@ footer .container { display: flex; flex-direction: column; gap: 4px; max-width: 
     means something different in a market with wide listing-to-listing price variance than one without.</p>
 
     <h2 id="stack" data-reveal>Stack</h2>
-    <p>Python (scraping, daily checks, market-history fetches) — an append-only JSON event store —
+    <p>Python (scraping, daily checks, market-history fetches, monthly rent forecasting against
+    Statistics Canada and BC Stats population data) — an append-only JSON event store —
     HTML/CSS/JS dashboard reading a baked data snapshot for this demo (the live version reads the store
     directly) — scheduled via a daily cron-style run.</p>
 

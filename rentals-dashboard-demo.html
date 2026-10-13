@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
-/* Layout: masthead + live status, city/unit matrix, market history small multiples, tracked-price history, price strip, ledger, removed log. */
+/* Layout: masthead + live status, city/unit matrix, market history + forecast, drivers, accuracy, price strip, ledger, removed log. */
 :root {
   --bg: #f6f7f8; --surface: #fdfdfd; --ink: #12161c; --ink-2: #4b5360; --muted: #7d8592;
   --line: #e1e4e8; --axis: #c4c9d0; --band: #e9edf2; --accent: #2c4f86; --accent-wash: #e5ecf7;
@@ -18,6 +18,7 @@
   --ring: #fdfdfd;
   --s1: #2a78d6; /* 1-bed series */
   --s2: #eb6834; /* 2-bed series */
+  --s3: #1baf7a; /* third series (drivers) */
   --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
   --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -26,7 +27,7 @@ html[data-theme="dark"] {
   --line: #262c35; --axis: #3a414c; --band: #222833; --accent: #8fb0ea; --accent-wash: #1f2a3d;
   --good: #3fbf6a; --good-wash: #15291d; --neutral: #8a93a0; --neutral-wash: #232831;
   --serious: #e8895a; --serious-wash: #33221a; --critical: #ef6a6a; --critical-wash: #361c1d;
-  --ring: #171b21; --s1: #3987e5; --s2: #d95926; color-scheme: dark;
+  --ring: #171b21; --s1: #3987e5; --s2: #d95926; --s3: #199e70; color-scheme: dark;
 }
 
 *, *::before, *::after {
@@ -93,10 +94,13 @@ a { color: var(--accent); }
 .legend .bench-key { width: 2px; height: 14px; background: var(--ink-2); display: inline-block; }
 .legend .line-key { width: 18px; height: 2px; display: inline-block; border-radius: 1px; }
 .legend .hollow-key { width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--ink-2); display: inline-block; }
+.legend .dash-key { width: 18px; height: 0; border-top: 2px dashed var(--ink-2); display: inline-block; }
+.legend .band-fc { width: 18px; height: 10px; background: var(--ink-2); opacity: .18; border-radius: 2px; display: inline-block; }
 
 /* History small multiples */
 .multiples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-@media (max-width: 860px) { .multiples { grid-template-columns: 1fr; } }
+.multiples.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 860px) { .multiples, .multiples.two { grid-template-columns: 1fr; } }
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 12px 6px; display: grid; gap: 4px; position: relative; min-width: 0; }
 .panel .phead { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .panel .pnow { font-size: 12px; color: var(--muted); }
@@ -104,6 +108,22 @@ a { color: var(--accent); }
 .panel svg text { fill: var(--muted); font-size: 11px; font-family: var(--font-body); }
 .panel svg .endlabel { fill: var(--ink-2); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .panel .empty-note { font-size: 12px; color: var(--muted); }
+.method { font-size: 13px; color: var(--ink-2); max-width: 90ch; margin: 0; }
+.acc td.best { font-weight: 700; color: var(--ink); }
+.acc td.best::after { content: " \2713"; color: var(--good); }
+table.acc { min-width: 760px; }
+
+/* Collapsible sections: the heading is a button; collapsed sections keep only their heading row */
+.sec-toggle { all: unset; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font: inherit; color: inherit; border-radius: 6px; }
+.sec-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.sec-toggle .chev { width: 18px; height: 18px; flex: none; color: var(--muted); transition: transform .2s ease; }
+.sec-toggle:hover .chev { color: var(--ink); }
+.section.collapsed .sec-toggle .chev { transform: rotate(-90deg); }
+.section.collapsed > :not(.section-head):not(h2) { display: none; }
+.section.collapsed > .section-head > :not(h2) { display: none; }
+.section.collapsed { gap: 0; }
+.sec-tools { display: flex; gap: 12px; justify-content: flex-end; margin-bottom: -18px; }
+.sec-tools button { font: inherit; font-size: 13px; background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; }
 
 .filters { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -299,7 +319,7 @@ html[data-theme="dark"] .site-header .theme-toggle .icon-sun{ display:block; }
   <div class="gate-card">
     <span class="eyebrow">Interactive product tour</span>
     <h1>Pick 3 cities to build your rental board</h1>
-    <p>This demo tracks real scraped listings for three Metro Vancouver cities. Select all three, in whatever order you'd like them to appear, then build the dashboard.</p>
+    <p>This demo tracks real scraped listings for three Metro Vancouver cities, plus a 12-month rent forecast driven by population and immigration data. Select all three cities, in whatever order you'd like them to appear, then build the dashboard.</p>
     <div class="gate-cities" id="gateCities"></div>
     <div class="gate-status" id="gateStatus">0 of 3 selected</div>
     <button class="gate-go" id="gateGo" type="button" disabled>Build dashboard</button>
@@ -328,15 +348,38 @@ html[data-theme="dark"] .site-header .theme-toggle .icon-sun{ display:block; }
 
   <section class="section" aria-labelledby="h-h">
     <div class="section-head">
-      <h2 id="h-h">Average asking rent, past two years</h2>
+      <h2 id="h-h">Average asking rent: past two years and 12-month forecast</h2>
       <div class="legend">
         <span class="key"><span class="line-key" style="background:var(--s1)"></span>1-bed</span>
         <span class="key"><span class="line-key" style="background:var(--s2)"></span>2-bed</span>
         <span class="key"><span class="hollow-key"></span>Back-calculated from a later report</span>
+        <span class="key"><span class="dash-key"></span>Forecast</span>
+        <span class="key"><span class="band-fc"></span>80% range</span>
       </div>
     </div>
     <div class="multiples" id="market"></div>
     <p class="sub" style="font-size:13px;color:var(--muted)" id="market-src"></p>
+  </section>
+
+  <section class="section" aria-labelledby="d-h">
+    <div class="section-head">
+      <h2 id="d-h">What drives the forecast: population and immigration</h2>
+      <p>Dashed lines and hollow points are projections. Rent demand in Metro Vancouver moves with population growth, which now depends mostly on immigration policy.</p>
+    </div>
+    <div class="multiples two" id="drivers"><div class="panel"><div class="empty-note">The forecast hasn't loaded yet.</div></div></div>
+  </section>
+
+  <section class="section" aria-labelledby="a-h">
+    <div class="section-head">
+      <h2 id="a-h">How the forecast is made</h2>
+      <p id="fc-run"></p>
+    </div>
+    <p class="method" id="fc-method"></p>
+    <div class="ledger"><table class="acc">
+      <thead><tr><th>City</th><th>Unit</th><th class="r">No change</th><th class="r">12-month trend</th><th class="r">Damped trend</th><th class="r">Population regression</th><th class="r">Blend</th><th>Next 12 months</th></tr></thead>
+      <tbody id="acc"><tr><td colspan="8" class="empty">The forecast hasn't loaded yet.</td></tr></tbody>
+    </table></div>
+    <p class="method" id="fc-reg" style="font-size:12px;color:var(--muted)"></p>
   </section>
 
   <section class="section" aria-labelledby="f-h">
@@ -412,7 +455,7 @@ html[data-theme="dark"] .site-header .theme-toggle .icon-sun{ display:block; }
   <div class="section" style="padding-top:8px;border-top:1px solid var(--line);">
     <div class="section-head">
       <h2>Read the build write-up</h2>
-      <p>How the daily scrape, scam-flagging and market benchmarking actually work.</p>
+      <p>How the daily scrape, scam-flagging, and population-driven forecast actually work.</p>
     </div>
     <div><a class="gate-go" style="display:inline-flex;text-decoration:none;" href="rentals-case-study.html">Read the case study</a></div>
   </div>
@@ -431,6 +474,7 @@ let CITIES = [];
 const UNITS = ["1bed", "2bed"];
 const UNIT_LABEL = { "1bed": "1-bed", "2bed": "2-bed" };
 const SERIES = { "1bed": "var(--s1)", "2bed": "var(--s2)" };
+const SERIES3 = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--ink-2)"];
 const STATUS = {
   cheap: { label: "Suspiciously cheap", color: "var(--critical)", icon: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1 11 10.5H1Z" fill="var(--critical)"/><rect x="5.4" y="4.3" width="1.2" height="3.4" fill="#fff"/><rect x="5.4" y="8.3" width="1.2" height="1.2" fill="#fff"/></svg>' },
   below: { label: "Below market", color: "var(--good)", icon: '<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="var(--good)"/><path d="M6 3.5v5M3.8 6.4 6 8.6l2.2-2.2" stroke="#fff" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>' },
@@ -449,7 +493,7 @@ const today = new Date().toLocaleDateString("en-CA");
 function median(a) { const s = [...a].sort((x, y) => x - y), n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; }
 
 // ---------- static snapshot (baked in at build time -- see scripts/build_static_snapshot.py) ----------
-const live = { listings: [], market: {}, meta: null, loaded: { listings: false } };
+const live = { listings: [], market: {}, forecast: null, meta: null, loaded: { listings: false } };
 let listings = [];   // derived active rows
 let gone = [];       // derived removed rows
 
@@ -478,11 +522,12 @@ function derive() {
 }
 
 // ---------- state ----------
-const state = { unit: "All", max: null, laundry: false, parking: false, hideFlags: false, newOnly: false, sort: "diff", sel: null };
+const state = { cityPick: null, unit: "All", max: null, laundry: false, parking: false, hideFlags: false, newOnly: false, sort: "diff", sel: null };
 const isNew = l => l.first_seen && daysBetween(l.first_seen, today) <= 3;
 function parkingIncluded(p) { return /included|garage stall|1 stall|driveway|spots? included|spot included/i.test(p || "") && !/none included|\$|extra|price on request/i.test(p || ""); }
 function filtered() {
   return listings.filter(l =>
+    (!state.cityPick || l.city === state.cityPick) &&
     (state.unit === "All" || l.unit_type === state.unit) &&
     (!state.max || l.price <= state.max) &&
     (!state.laundry || l.laundry === "in-suite") &&
@@ -553,41 +598,61 @@ function renderMatrix() {
   }));
 }
 
-// ---------- line small multiples (shared scale) ----------
+// ---------- line small multiples (shared scale, with optional forecast band) ----------
 function lineMultiples(containerId, seriesFor, xKeys, xLabel, opts = {}) {
   const host = document.getElementById(containerId);
   const cities = CITIES;
   const units = state.unit === "All" ? UNITS : [state.unit];
+  const fmtV = opts.fmt || fmt$;
+  const fcFor = opts.forecastFor || (() => []);
   const all = [];
-  for (const c of CITIES) for (const u of UNITS) for (const p of seriesFor(c, u)) all.push(p.v);
+  for (const c of CITIES) for (const u of UNITS) {
+    for (const p of seriesFor(c, u)) all.push(p.v);
+    for (const p of fcFor(c, u)) all.push(p.lo ?? p.v, p.hi ?? p.v);
+  }
   if (!all.length || !xKeys.length) {
     host.innerHTML = cities.map(c => `<div class="panel"><div class="phead"><h3>${c}</h3></div><div class="empty-note">${opts.empty || "No data yet."}</div></div>`).join("");
     return;
   }
-  let lo = Math.floor(Math.min(...all) / 250) * 250, hi = Math.ceil(Math.max(...all) / 250) * 250;
-  if (hi - lo < 500) { hi += 250; lo -= 250; }
+  const unit = opts.unit || 250;
+  let lo = Math.floor(Math.min(...all) / unit) * unit, hi = Math.ceil(Math.max(...all) / unit) * unit;
+  if (hi - lo < 2 * unit) { hi += unit; lo -= unit; }
   const W = 360, H = 190, L = 44, R = 50, T = 12, B = 24;
   const n = xKeys.length;
   const x = i => n === 1 ? L + (W - L - R) / 2 : L + i / (n - 1) * (W - L - R);
   const y = v => T + (hi - v) / (hi - lo) * (H - T - B);
-  const step = (hi - lo) > 1000 ? 500 : 250;
+  const step = (hi - lo) > 4 * unit ? 2 * unit : unit;
   const tickEvery = Math.max(1, Math.ceil(n / 4));
   host.innerHTML = cities.map(c => {
     let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${c} ${opts.aria || ""}">`;
-    for (let v = lo; v <= hi; v += step) s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" class="num">${fmt$(v)}</text>`;
+    for (let v = lo; v <= hi; v += step) s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" class="num">${fmtV(v)}</text>`;
     s += `<line x1="${L}" x2="${W - R}" y1="${H - B}" y2="${H - B}" stroke="var(--axis)" stroke-width="1"/>`;
     xKeys.forEach((k, i) => { if (i % tickEvery === 0 || i === n - 1) s += `<text x="${x(i)}" y="${H - 6}" text-anchor="${i === 0 && n > 1 ? "start" : i === n - 1 && n > 1 ? "end" : "middle"}">${xLabel(k)}</text>`; });
     const ends = [];
+    const fcStart = opts.forecastStart ? xKeys.indexOf(opts.forecastStart) : -1;
+    if (fcStart >= 0) s += `<line x1="${x(fcStart)}" x2="${x(fcStart)}" y1="${T}" y2="${H - B}" stroke="var(--axis)" stroke-width="1"/><text x="${x(fcStart) + 4}" y="${T + 9}">Forecast</text>`;
+    for (const u of units) {
+      const fc = fcFor(c, u).map(p => ({ ...p, i: xKeys.indexOf(p.k) })).filter(p => p.i >= 0).sort((a, b) => a.i - b.i);
+      if (!fc.length) continue;
+      const anchor = seriesFor(c, u).map(p => ({ ...p, i: xKeys.indexOf(p.k) })).filter(p => p.i >= 0).sort((a, b) => a.i - b.i).pop();
+      const line = anchor ? [{ i: anchor.i, v: anchor.v, lo: anchor.v, hi: anchor.v }, ...fc] : fc;
+      const band = line.map(p => `${x(p.i).toFixed(1)},${y(p.hi ?? p.v).toFixed(1)}`).concat(line.slice().reverse().map(p => `${x(p.i).toFixed(1)},${y(p.lo ?? p.v).toFixed(1)}`)).join(" ");
+      s += `<polygon points="${band}" fill="${SERIES[u]}" fill-opacity="0.13" stroke="none"/>`;
+      s += `<path d="${line.map((p, j) => (j ? "L" : "M") + x(p.i).toFixed(1) + " " + y(p.v).toFixed(1)).join(" ")}" fill="none" stroke="${SERIES[u]}" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"/>`;
+      for (const p of fc) s += `<circle cx="${x(p.i)}" cy="${y(p.v)}" r="7" fill="transparent"><title>${UNIT_LABEL[u]} forecast · ${xLabel(p.k)}: ${fmtV(p.v)} (80% range ${fmtV(p.lo)}–${fmtV(p.hi)})</title></circle>`;
+      const last = fc[fc.length - 1];
+      ends.push({ y: y(last.v), x: x(last.i), text: fmtV(last.v), u });
+    }
     for (const u of units) {
       const pts = seriesFor(c, u).map(p => ({ ...p, i: xKeys.indexOf(p.k) })).filter(p => p.i >= 0).sort((a, b) => a.i - b.i);
       if (!pts.length) continue;
       if (pts.length > 1) s += `<path d="${pts.map((p, j) => (j ? "L" : "M") + x(p.i).toFixed(1) + " " + y(p.v).toFixed(1)).join(" ")}" fill="none" stroke="${SERIES[u]}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
       for (const p of pts) {
         const hollow = p.hollow;
-        s += `<circle cx="${x(p.i)}" cy="${y(p.v)}" r="${pts.length > 30 ? 2.5 : 3.5}" fill="${hollow ? "var(--surface)" : SERIES[u]}" stroke="${hollow ? SERIES[u] : "var(--surface)"}" stroke-width="${hollow ? 1.5 : 1}"><title>${UNIT_LABEL[u]} · ${xLabel(p.k)}: ${fmt$(p.v)}${hollow ? " (back-calculated)" : ""}${p.extra ? " · " + p.extra : ""}</title></circle>`;
+        s += `<circle cx="${x(p.i)}" cy="${y(p.v)}" r="${pts.length > 30 ? 2.5 : 3.5}" fill="${hollow ? "var(--surface)" : SERIES[u]}" stroke="${hollow ? SERIES[u] : "var(--surface)"}" stroke-width="${hollow ? 1.5 : 1}"><title>${UNIT_LABEL[u]} · ${xLabel(p.k)}: ${fmtV(p.v)}${hollow ? " (back-calculated)" : ""}${p.extra ? " · " + p.extra : ""}</title></circle>`;
       }
       const last = pts[pts.length - 1];
-      ends.push({ y: y(last.v), x: x(last.i), text: fmt$(last.v), u });
+      if (!fcFor(c, u).length) ends.push({ y: y(last.v), x: x(last.i), text: fmtV(last.v), u });
     }
     ends.sort((a, b) => a.y - b.y);
     for (let j = 1; j < ends.length; j++) if (ends[j].y - ends[j - 1].y < 13) ends[j].y = ends[j - 1].y + 13;
@@ -598,14 +663,19 @@ function lineMultiples(containerId, seriesFor, xKeys, xLabel, opts = {}) {
   }).join("");
 }
 
+function fcSeries(c, u) { return (live.forecast?.series || []).find(x => x.city === c && x.unit_type === u); }
 function renderMarket() {
   const months = new Set();
   for (const s of Object.values(live.market)) for (const p of s.points || []) months.add(p.month);
+  const hist = [...months].sort();
+  for (const f of live.forecast?.series || []) for (const p of f.points) months.add(p.month);
   const keys = [...months].sort();
   lineMultiples("market",
     (c, u) => (live.market[c + "_" + u]?.points || []).map(p => ({ k: p.month, v: p.rent, hollow: p.kind !== "reported" })),
     keys, fmtMonth,
-    { aria: "average asking rent by month", empty: "Market history hasn't loaded yet.",
+    { aria: "average asking rent by month, with forecast", empty: "Market history hasn't loaded yet.",
+      forecastFor: (c, u) => (fcSeries(c, u)?.points || []).map(p => ({ k: p.month, v: p.p50, lo: p.lo, hi: p.hi })),
+      forecastStart: live.forecast ? hist[hist.length - 1] : null,
       note: c => { const a = live.market[c + "_1bed"]?.points, b = live.market[c + "_2bed"]?.points;
         if (!a?.length || !b?.length) return "";
         const ch = (pts) => { const l = pts[pts.length - 1], f = pts.find(p => p.month === shiftMonth(l.month, -12)); return f ? fmtPct((l.rent - f.rent) / f.rent) : "—"; };
@@ -614,6 +684,86 @@ function renderMarket() {
   document.getElementById("market-src").textContent = s ? `${s.source}. ${s.note || ""}` : "";
 }
 function shiftMonth(m, n) { let [y, mo] = m.split("-").map(Number); mo += n; while (mo < 1) { mo += 12; y--; } while (mo > 12) { mo -= 12; y++; } return `${y}-${String(mo).padStart(2, "0")}`; }
+
+// ---------- forecast: drivers, accuracy ----------
+function xNum(k) { const [y, m] = String(k).split("-").map(Number); return y + ((m || 7) - 1) / 12; }
+function driverPanel(title, note, series, fmt, opts = {}) {
+  const pts = series.flatMap(sr => sr.pts);
+  if (!pts.length) return `<div class="panel"><div class="phead"><h3>${esc(title)}</h3></div><div class="empty-note">No data.</div></div>`;
+  const W = 520, H = 210, L = 58, R = 64, T = 14, B = 24;
+  const xs = pts.map(p => xNum(p.k)), x0 = Math.min(...xs), x1 = Math.max(...xs);
+  let lo = Math.min(...pts.map(p => p.v), opts.zero ? 0 : Infinity), hi = Math.max(...pts.map(p => p.v), opts.zero ? 0 : -Infinity);
+  const pad = (hi - lo) * 0.08 || 1; lo -= pad; hi += pad;
+  const x = v => L + (v - x0) / ((x1 - x0) || 1) * (W - L - R), y = v => T + (hi - v) / (hi - lo) * (H - T - B);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">`;
+  for (let i = 0; i <= 4; i++) { const v = lo + (hi - lo) * i / 4; s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" class="num">${fmt(v)}</text>`; }
+  if (opts.zero && lo < 0) s += `<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="var(--axis)" stroke-width="1.5"/>`;
+  for (let yr = Math.ceil(x0); yr <= Math.floor(x1); yr += (x1 - x0 > 8 ? 2 : 1)) s += `<text x="${x(yr)}" y="${H - 6}" text-anchor="middle">${yr}</text>`;
+  const ends = [];
+  series.forEach((sr, si) => {
+    const col = sr.color || SERIES3[si];
+    const a = sr.pts.filter(p => !p.proj).sort((p, q) => xNum(p.k) - xNum(q.k));
+    const f = sr.pts.filter(p => p.proj).sort((p, q) => xNum(p.k) - xNum(q.k));
+    const path = arr => arr.map((p, j) => (j ? "L" : "M") + x(xNum(p.k)).toFixed(1) + " " + y(p.v).toFixed(1)).join(" ");
+    if (a.length > 1) s += `<path d="${path(a)}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>`;
+    if (f.length) s += `<path d="${path((a.length ? [a[a.length - 1]] : []).concat(f))}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="5 4"/>`;
+    for (const p of a.concat(f)) s += `<circle cx="${x(xNum(p.k))}" cy="${y(p.v)}" r="${p.proj ? 3.5 : (a.length > 20 ? 2 : 3)}" fill="${p.proj ? "var(--surface)" : col}" stroke="${col}" stroke-width="${p.proj ? 1.5 : 0}"><title>${esc(sr.label)} · ${esc(p.k)}: ${fmt(p.v)}${p.proj ? " (projection)" : ""}</title></circle>`;
+    const tail = f.length ? f : a, last = tail[tail.length - 1];
+    if (last && series.length > 1) ends.push({ x: x(xNum(last.k)), y: y(last.v), text: sr.label, col });
+  });
+  ends.sort((p, q) => p.y - q.y);
+  for (let j = 1; j < ends.length; j++) if (ends[j].y - ends[j - 1].y < 13) ends[j].y = ends[j - 1].y + 13;
+  for (const e of ends) s += `<line x1="${e.x + 4}" x2="${e.x + 8}" y1="${e.y}" y2="${e.y}" stroke="${e.col}" stroke-width="2"/><text class="endlabel" x="${e.x + 10}" y="${e.y + 4}">${esc(e.text)}</text>`;
+  s += `</svg>`;
+  return `<div class="panel"><div class="phead"><h3>${esc(title)}</h3><span class="pnow">${note}</span></div>${s}</div>`;
+}
+function renderDrivers() {
+  const host = document.getElementById("drivers"), d = live.forecast?.drivers;
+  if (!d) return;
+  const pct = v => (v >= 0 ? "" : "−") + Math.abs(v).toFixed(1) + "%";
+  const kfmt = v => (v < 0 ? "−" : "") + Math.abs(Math.round(v / 1000)).toLocaleString("en-CA") + "k";
+  const bcPop = d.bc_population_bcstats || [];
+  const bcProj = bcPop.slice(1).map((p, i) => ({ k: `${p.year}-07`, v: (p.value / bcPop[i].value - 1) * 100, proj: p.kind === "projection" }))
+    .filter(p => p.proj);
+  const qs = d.bc_pop_yoy_quarterly || [], lastQ = qs[qs.length - 1];
+  const p1 = driverPanel("BC population growth, year over year", lastQ ? `latest ${pct(lastQ.yoy)} (${fmtMonth(lastQ.q)})` : "",
+    [{ label: "BC", color: "var(--s1)", pts: qs.map(q => ({ k: q.q, v: q.yoy })).concat(bcProj) }], pct, { zero: true });
+  const imm = d.immigrants || [];
+  const fcImm = imm.find(p => p.kind === "forecast");
+  const p2 = driverPanel("New permanent residents to BC, per year",
+    fcImm ? `${fcImm.year}–28 outlook ${kfmt(fcImm.value)} a year` : "",
+    [{ label: "BC", color: "var(--s2)", pts: imm.map(p => ({ k: `${p.year}-07`, v: p.value, proj: p.kind === "forecast" })) }], kfmt);
+  const npr = d.net_npr || [];
+  const p3 = driverPanel("Net temporary residents, BC, per year", npr.length ? `${npr[npr.length - 1].year}: ${kfmt(npr[npr.length - 1].value)}` : "",
+    [{ label: "BC", color: "var(--s3)", pts: npr.map(p => ({ k: `${p.year}-07`, v: p.value })) }], kfmt, { zero: true });
+  const idx = arr => { const b = arr.find(p => p.year === 2021); return b ? arr.map(p => ({ k: `${p.year}-07`, v: p.value / b.value * 100, proj: p.kind === "projection" })) : []; };
+  const pops = d.city_population || {};
+  const p4 = driverPanel("Population, BC Stats estimates and projections", "index, 2021 = 100",
+    ALL_CITIES.map((c, i) => ({ label: c, color: SERIES3[i], pts: idx(pops[c] || []) })).concat([{ label: "BC", color: "var(--ink-2)", pts: idx(bcPop) }]),
+    v => v.toFixed(0));
+  host.innerHTML = p1 + p2 + p3 + p4;
+}
+function renderAccuracy() {
+  const f = live.forecast;
+  if (!f) return;
+  document.getElementById("fc-run").textContent = `Model run ${fmtDay(f.run_date)}. It is refreshed each month when a new Rentals.ca report comes out.`;
+  document.getElementById("fc-method").textContent = f.method + " Accuracy below is WMAPE (lower is better): the average miss as a share of actual rent. The model used for each row is ticked.";
+  const r = f.regression || {};
+  const share = f.drivers?.bc_share_of_canada_immigrants;
+  document.getElementById("fc-reg").textContent =
+    `Regression (Metro Vancouver, ${r.n} quarterly observations): rent growth % = ${(+r.a).toFixed(2)} + ${(+r.b).toFixed(2)} × BC population growth %, R² ${(+r.r2).toFixed(2)}. ` +
+    `Permanent-resident outlook: 380,000 a year nationally (2026–2028 Immigration Levels Plan) × BC's recent ${share ? (share * 100).toFixed(1) + "%" : ""} share. ` +
+    `Sources: ${(f.sources || []).join("; ")}.`;
+  const order = ["naive", "trend", "damped", "driver", "blend"];
+  const rows = (f.accuracy || []).filter(a => CITIES.includes(a.city) && (state.cityPick === null || a.city === state.cityPick) && (state.unit === "All" || a.unit_type === state.unit));
+  document.getElementById("acc").innerHTML = rows.map(a => {
+    const fc = fcSeries(a.city, a.unit_type), last = fc?.points[fc.points.length - 1];
+    const chg = fc && last ? (last.p50 - fc.last_actual.rent) / fc.last_actual.rent : null;
+    return `<tr><td>${esc(a.city)}</td><td>${UNIT_LABEL[a.unit_type]}</td>` +
+      order.map(m => `<td class="r num${m === a.chosen ? " best" : ""}">${a.wmape[m].toFixed(2)}%</td>`).join("") +
+      `<td>${last ? `${fmt$(last.p50)} by ${fmtMonth(last.month)} <span class="hood">(${fmtPct(chg)}; 80% range ${fmt$(last.lo)}–${fmt$(last.hi)})</span>` : ""}</td></tr>`;
+  }).join("");
+}
 
 // ---------- filters ----------
 function renderSeg(id, opts, key, labels) {
@@ -748,8 +898,29 @@ function update() {
   renderSeg("f-unit", ["All", ...UNITS], "unit", { All: "All", "1bed": "1-bed", "2bed": "2-bed" });
   const rows = filtered();
   document.getElementById("shown").textContent = `${rows.length} of ${listings.length} shown`;
-  renderLive(); renderFacts(); renderMatrix(); renderMarket();
+  renderLive(); renderFacts(); renderMatrix(); renderMarket(); renderDrivers(); renderAccuracy();
   renderStrip(rows); renderTable(rows); renderGone();
+}
+
+// ---------- collapsible sections ----------
+function setupCollapsibles() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem("lmrb-collapsed") || "{}"); } catch (e) {}
+  const persist = () => { try { localStorage.setItem("lmrb-collapsed", JSON.stringify(saved)); } catch (e) {} };
+  const chev = '<svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const sections = [...document.querySelectorAll("#boardRoot section.section")].filter(sec => { const h = sec.querySelector("h2"); return h && !h.hidden; });
+  const set = (sec, collapsed) => {
+    sec.classList.toggle("collapsed", collapsed);
+    sec.querySelector(".sec-toggle").setAttribute("aria-expanded", String(!collapsed));
+    saved[sec.dataset.key] = collapsed; persist();
+  };
+  for (const sec of sections) {
+    const h = sec.querySelector("h2");
+    sec.dataset.key = h.id;
+    h.innerHTML = `<button type="button" class="sec-toggle" aria-expanded="true">${chev}<span>${h.innerHTML}</span></button>`;
+    h.querySelector(".sec-toggle").addEventListener("click", () => set(sec, !sec.classList.contains("collapsed")));
+    if (saved[h.id]) set(sec, true);
+  }
 }
 
 // ---------- city-picker gate ----------
@@ -788,6 +959,7 @@ function update() {
       const data = await res.json();
       live.listings = data.listings;
       live.market = data.market;
+      live.forecast = data.forecast || null;
       live.meta = data.meta;
       live.loaded.listings = true;
       document.getElementById("offline").hidden = false;
@@ -796,6 +968,7 @@ function update() {
       console.warn(e);
     }
     update();
+    setupCollapsibles();
   });
 })();
 </script>
