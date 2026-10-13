@@ -68,7 +68,7 @@ a { color: var(--accent); }
 .matrix { display: grid; grid-template-columns: 64px repeat(3, minmax(0, 1fr)); gap: 10px; }
 .matrix .colhead { font-family: var(--font-display); font-weight: 700; font-size: 15px; padding-inline: 4px; }
 .matrix .rowhead { font-family: var(--font-display); font-weight: 700; font-size: 15px; align-self: center; color: var(--ink-2); }
-.cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; text-align: left; font: inherit; color: inherit; cursor: pointer; transition: border-color .15s, box-shadow .15s, background-color .35s ease; }
+.cell { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; text-align: left; font: inherit; color: inherit; cursor: pointer; transition: border-color .15s, box-shadow .15s, background-color .35s ease, color .35s ease; }
 .cell:hover { border-color: var(--axis); }
 .cell[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .cell .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
@@ -116,7 +116,7 @@ table.acc { min-width: 760px; }
 /* Collapsible sections: the heading is a button; collapsed sections keep only their heading row */
 .sec-toggle { all: unset; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font: inherit; color: inherit; border-radius: 6px; }
 .sec-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.sec-toggle .chev { width: 18px; height: 18px; flex: none; color: var(--muted); transition: transform .2s ease; }
+.sec-toggle .chev { width: 18px; height: 18px; flex: none; color: var(--muted); transition: transform .2s ease, color .35s ease; }
 .sec-toggle:hover .chev { color: var(--ink); }
 .section.collapsed .sec-toggle .chev { transform: rotate(-90deg); }
 .section.collapsed > :not(.section-head):not(h2) { display: none; }
@@ -186,7 +186,7 @@ footer.board-foot { color: var(--muted); font-size: 12px; display: grid; gap: 4p
   font: inherit; font-size: 15px; font-weight: 600; text-align: left;
   padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px;
   background: var(--bg); color: var(--ink); cursor: pointer;
-  transition: border-color .15s ease, background-color .15s ease;
+  transition: border-color .15s ease, background-color .15s ease, color .35s ease;
 }
 .gate-city:hover { border-color: var(--axis); }
 .gate-city[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-wash); }
